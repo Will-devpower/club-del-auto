@@ -1,10 +1,10 @@
 
 
 
-export const Cupon = () => {
+export const HomeCupones = () => {
 
     const mockCupons = [1,2,3,4,5,6];
-    console.log(mockCupons.length > 1)
+    
     return (
         <div className="cupones">
             <div className="div-block-17">
@@ -28,7 +28,7 @@ export const Cupon = () => {
                 }
             </div>
             <div className="div-block-18">
-                <a href="/" className="coupons">Ver todos los cupones</a>
+                <a href="/cupones-de-descuento" className="coupons">Ver todos los cupones</a>
             </div>
         </div>
     )

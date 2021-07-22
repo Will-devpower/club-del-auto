@@ -1,4 +1,4 @@
-import { Cupon } from "./Cupon"
+import { HomeCupones } from "./HomeCupones"
 import { Suscripcion } from "./Suscripcion"
 
 
@@ -48,7 +48,7 @@ export const HomeScreen = () => {
                 </div>
             </div>
 
-            <Cupon />
+            <HomeCupones />
 
             <div className="el-club">
                 <h1 className="heading-3">Sé parte <strong>del club</strong></h1>
