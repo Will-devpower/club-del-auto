@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -28,7 +29,7 @@ export const HomeCupones = () => {
                 }
             </div>
             <div className="div-block-18">
-                <a href="/cupones-de-descuento" className="coupons">Ver todos los cupones</a>
+                <Link to="/cupones-de-descuento" className="coupons">Ver todos los cupones</Link>
             </div>
         </div>
     )
