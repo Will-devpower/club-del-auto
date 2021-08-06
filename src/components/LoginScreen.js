@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
 import { startLogin } from '../actions/auth';
 
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export const LoginScreen = () => {
 

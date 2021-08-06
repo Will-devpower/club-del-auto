@@ -19,7 +19,7 @@ export const Header = () => {
                 <a href="/" className="nav-link">Home</a>
                 <a href="/" className="nav-link">Contáctanos</a>
                 {
-                    ( uid != undefined ) 
+                    ( uid !== undefined ) 
                     ? <a href="/client-account" className="log-in">Mi cuenta</a>
                     : <a href="/login" className="log-in">Ingresar a mi cuenta</a>
                 }

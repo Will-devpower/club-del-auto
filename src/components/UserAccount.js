@@ -25,7 +25,7 @@ export const UserAccount = () => {
 
     const { rut, nombre, correo, telefono, vehiculos } = mockData;
 
-    // console.log(rut, nombre)
+    console.log( vehiculos )
 
     return (
         <div className="section-8">

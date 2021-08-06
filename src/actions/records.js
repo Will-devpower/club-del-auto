@@ -124,9 +124,9 @@ const recordDeleted = () => ({ type: types.recordDeleted });
 //     }
 // }
 
-const recordLoaded = (records) => ({
-    type: types.recordLoaded,
-    payload: records
-})
+// const recordLoaded = (records) => ({
+//     type: types.recordLoaded,
+//     payload: records
+// })
 
 export const recordLogout =() => ({ type: types.recordLogout });

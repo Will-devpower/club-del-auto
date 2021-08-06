@@ -22,6 +22,8 @@ import { LoginScreen } from "../components/LoginScreen";
     const dispatch = useDispatch();
     const { checking, uid } = useSelector( state => state.auth);    
 
+    console.log(uid)
+
     useEffect(() => {
         
         dispatch( startChecking() );
