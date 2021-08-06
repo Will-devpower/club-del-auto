@@ -1,7 +1,12 @@
+import { useSelector } from 'react-redux';
 import logo1 from '../assets/cda-logo1.png';
 import logo2 from '../assets/cda-logo2.png';
 
 export const Header = () => {
+
+    const { uid } = useSelector(state => state.auth);
+    console.log(uid)
+
     return (
         <div className="navegacion">
             <a href="/">
@@ -13,11 +18,15 @@ export const Header = () => {
             <nav className="nav-menu">
                 <a href="/" className="nav-link">Home</a>
                 <a href="/" className="nav-link">Contáctanos</a>
-                <a href="/" className="log-in">Ingresar a mi cuenta</a>
+                {
+                    ( uid != undefined ) 
+                    ? <a href="/client-account" className="log-in">Mi cuenta</a>
+                    : <a href="/login" className="log-in">Ingresar a mi cuenta</a>
+                }
             </nav>
             <div className="nav-button">
                 <div className="icon-nav-menu">
-                    <i class="fas fa-bars"></i>
+                    <i className="fas fa-bars"></i>
                 </div>
             </div>
         </div>

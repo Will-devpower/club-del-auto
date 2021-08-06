@@ -14,7 +14,7 @@ export const CuponesScreen = () => {
                     mockArr &&
                     mockArr.map(elem => {
                       return (
-                         <div key={elem.title} className="div-block-25">
+                         <div key={elem.id} className="div-block-25">
                             <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${elem.imgSrc})`}}></div>
                             <h1 className="heading-6">{elem.title}</h1>
                             <p className="texto-cupones">{elem.description}</p>
