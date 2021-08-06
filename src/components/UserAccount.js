@@ -38,7 +38,7 @@ export const UserAccount = () => {
                 <div className="div-block-31">
                     <div className="div-block-48">
                         <img src={ userIcon } alt="Usuario" className="image-28" />
-                        <a href="#" className="button-4">Mi cuenta</a>
+                        <a href="/" className="button-4">Mi cuenta</a>
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ homeIcon } alt="Home" className="image-28" />
@@ -46,13 +46,13 @@ export const UserAccount = () => {
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ cdaIcon } alt="logo2" className="image-28 _2" />
-                        <a href="#" className="button-4" onClick={ handleLogout }>Contactanos</a>
+                        <a href="/" className="button-4" onClick={ handleLogout }>Contactanos</a>
                     </div>
                 </div>
                 <div className="div-block-34">
                     <img src="" alt="" className="image-27" />
                 </div>
-                <a href="#" className="pedir-asistencia">Pedir asistencia</a>
+                <a href="/" className="pedir-asistencia">Pedir asistencia</a>
             </div>
             <div className="div-block-3_3">
                 <div className="div-block-51">
