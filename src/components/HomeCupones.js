@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import orangeCircle from '../assets/orange-circle.png'
+import orangeDots from '../assets/orange-dots.png'
 
 
 export const HomeCupones = () => {
@@ -7,6 +9,9 @@ export const HomeCupones = () => {
     const mockCupons = [1,2,3,4,5,6];
     
     return (
+        <div className="section-3">
+         <img src={ orangeCircle } alt="orange-circle" className="image-15"/>
+         <img src={ orangeDots } alt="dots" className="image-14"/>   
         <div className="cupones">
             <div className="div-block-17">
                 <h1 className="titulos-centrados">Cupones de descuento</h1>
@@ -31,6 +36,7 @@ export const HomeCupones = () => {
             <div className="div-block-18">
                 <Link to="/cupones-de-descuento" className="coupons">Ver todos los cupones</Link>
             </div>
+        </div>
         </div>
     )
 }

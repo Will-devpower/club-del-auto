@@ -1,24 +1,21 @@
 
 export const types = {     
+    cuponLogout: '[cupon] Logout record',
+
+    setActiveCupon: '[cupon] Set Active',
+
+    cuponLoaded: '[cupon] Cupons loaded',
+    clearActiveCupon: '[cupon] Clear active cupon',
+
     
-    recordLogout: '[record] Logout record',
-
-    recordSetActive: '[record] Set Active',
-
-
-    recordStartAddNew: '[record] Start add new',
-    recordAddNew: '[record] add new',
-    recordLoaded: '[record] Records loaded',
-    clearActiveRecord: '[record] Clear active record',
-    recordUpdated: '[record] Record updated',
-    recordDeleted: '[record] Record deleted',  
-
-
-    authCheckingFinish: '[auth] Finish checking login state',
     authStartLogin: '[auth] Start login',
-    authLogin: '[auth] Login',
-    authStartRegister: '[auth] Start Register',
-    authStartStartTokenRenew: '[auth] Start token renew',
+    authLogin: '[auth] Login',    
     authLogout: '[auth] Logout',
+    authCheckingFinish: '[auth] Checking Finish',
 
+
+    GET_COUPONS_REQUEST: 'GET_COUPONS_REQUEST',
+    GET_COUPONS_SUCCESS: 'GET_COUPONS_SUCCESS',
+    GET_COUPON_REQUEST: 'GET_COUPON_REQUEST',
+    GET_COUPON_SUCCESS: 'GET_COUPON_SUCCESS'
 }

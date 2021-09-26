@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { startLogout } from '../actions/auth';
 
 import logo3 from '../assets/cda-logo3.png';
@@ -28,6 +28,7 @@ export const UserAccount = () => {
     console.log( vehiculos )
 
     return (
+        <div className="user-account-screen">
         <div className="section-8">
             <div className="div-block-43"></div>
             <div className="div-block-32">
@@ -38,21 +39,21 @@ export const UserAccount = () => {
                 <div className="div-block-31">
                     <div className="div-block-48">
                         <img src={ userIcon } alt="Usuario" className="image-28" />
-                        <a href="/" className="button-4">Mi cuenta</a>
+                        <Link to="/" className="button-4">Mi cuenta</Link >
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ homeIcon } alt="Home" className="image-28" />
-                        <a href="/" className="button-4">Volver al Home</a>
+                        <Link to="/" className="button-4">Volver al Home</Link >
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ cdaIcon } alt="logo2" className="image-28 _2" />
-                        <a href="/" className="button-4" onClick={ handleLogout }>Contactanos</a>
+                        <Link to="/" className="button-4" onClick={ handleLogout }>Contactanos</Link >
                     </div>
                 </div>
                 <div className="div-block-34">
                     <img src="" alt="" className="image-27" />
                 </div>
-                <a href="/" className="pedir-asistencia">Pedir asistencia</a>
+                <Link to="/" className="pedir-asistencia">Pedir asistencia</Link >
             </div>
             <div className="div-block-3_3">
                 <div className="div-block-51">
@@ -93,15 +94,85 @@ export const UserAccount = () => {
                 <div className="div-block-42">
                     <p className="paragraph-5">MIS VERHÍCULOS</p>
                     <div className="div-block-38">
-                        <div className="div-block-40"></div>
-                        <div className="div-block-40"></div>
-                    </div>
+                    {
+                        vehiculos &&
+                        vehiculos.map(vehiculo => {
+
+                          return (  
+                          
+                                <div key={ vehiculo.rutAsegurado } className="div-block-40">
+                                    <p className="paragraph-4">{ vehiculo.patente }</p>
+                                    <div className="div-block-49"></div>
+                                    <div className="info-de-auto">
+                                        <div className="div-block-47">
+                                            <p className="paragraph-3">Nombre asegurado</p>
+                                            <p className="paragraph-6">{ vehiculo.nombreAsegurado }</p>
+                                        </div>
+                                        <div className="div-block-47">
+                                            <p className="paragraph-3">RUT</p>
+                                            <p className="paragraph-6">{ vehiculo.rutAsegurado }</p>
+                                        </div>
+                                        <div className="div-block-47">
+                                            <p className="paragraph-3">Marca</p>
+                                            <p className="paragraph-6">{ vehiculo.marca }</p>
+                                        </div>
+                                        <div className="div-block-47">
+                                            <p className="paragraph-3">Modelo</p>
+                                            <p className="paragraph-6">{ vehiculo.modelo }</p>
+                                        </div>
+                                        <div className="div-block-47">
+                                            <p className="paragraph-3">Año</p>
+                                            <p className="paragraph-6">{ vehiculo.anio }</p>
+                                        </div>
+                                    </div>
+                                    <div className="div-block-50">
+                                        <div className="info-de-auto-copy">
+                                            <div className="div-block-47">
+                                                <p className="paragraph-3-copy">Plan</p>
+                                                <p className="paragraph-6-copy">{ vehiculo.plan }</p>
+                                            </div>
+                                            <div className="div-block-47">
+                                                <p className="paragraph-3-copy">Monto mensual</p>
+                                                <p className="paragraph-6-copy">{ vehiculo.montoMensual }</p>
+                                            </div>
+                                            <div className="div-block-47">
+                                                <p className="paragraph-3-copy">Monto p. anteriores</p>
+                                                <p className="paragraph-6-copy">{ vehiculo.estadoPago }</p>
+                                            </div>
+                                            <div className="div-block-47">
+                                                <p className="paragraph-3-copy">Mes de pago</p>
+                                                <p className="paragraph-6-copy">{ vehiculo.ultCuota }</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="pago-wrapper">
+                                        <div className="estado-pago-wrapper">
+                                            <p className="estado-pago">ESTADO DE PAGO</p>
+                                            <p className={ vehiculo.estadoPago === 'Pendiente'
+                                                ? 'Pendiente'
+                                                : 'Pagado'
+                                            }>
+                                                { vehiculo.estadoPago }
+                                            </p>
+                                        </div>
+                                        {
+                                            ( vehiculo.estadoPago === 'Pendiente') &&
+                                            <Link to="/" className="pagar-seguro-auto">Pagar</Link >
+                                        }
+                                    </div>
+                                </div>                                
+                            )
+                            
+                        })
+                    }
+                    </div> 
                 </div>
                 <div className="div-block-37"></div>
                 <div className="div-block-42">
 
                 </div>
             </div>
+        </div>
         </div>
     )
 }

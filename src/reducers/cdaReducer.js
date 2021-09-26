@@ -1,63 +1,77 @@
 import { types } from '../types/types';
 
-const initialState = {
-    records: [],
-    activeRecord: null
+const initialState = {    
+    cupons: [],
+    loading: true
 };
 
 
 export const cdaReducer = ( state = initialState, action ) => {
 
     switch ( action.type ) {
-        
-        case types.recordSetActive:
+       
+        case types.GET_COUPON_REQUEST:
             return {
                 ...state,
-                activeRecord: state.records.find(
-                    e => e.id === action.payload
-                )
+                loading: true
             }
-        
+
+        case types.GET_COUPON_SUCCESS: {
+            const newCoupons = [...state.cupons];  
+            const couponIndex = state.cupons.findIndex(coupon => coupon.id === action.payload.id);
+            if(couponIndex > -1) {
+                newCoupons[couponIndex] = action.payload
+            } else {
+                newCoupons.push(action.payload)
+            } 
+            
+            return {
+                ...state,
+                loading: false,
+                cupons: newCoupons
+            }
+        }
+                
         case types.recordAddNew:
             return {
                 ...state,
-                records: [
-                    ...state.records,
+                cupons: [
+                    ...state.cupons,
                     action.payload
                 ]
             }
     
-        case types.clearActiveRecord:
+        case types.clearActiveCupon:
             return {
                 ...state,
-                activeRecord: null
+                activeCupon: null
             }
 
 
-        case types.recordUpdated:
+        case types.cuponUpdated:
             return {
                 ...state,
-                records: state.events.map(
+                cupons: state.cupons.map(
                     e => ( e.id === action.payload.id ) ? action.payload : e
                 )
             }
         
-        case types.recordDeleted:
+        case types.cuponDeleted:
             return {
                 ...state,
-                records: state.records.filter(
-                    e => ( e.id !== state.activeRecord.id )
+                cupons: state.cupons.filter(
+                    e => ( e.id !== state.activeCupon.id )
                 ),
-                activeEvent: null
+                activeCupon: null
             }
 
-        case types.recordLoaded:
+        case types.cuponLoaded:
             return {
                 ...state,
-                records: [ ...action.payload ]
+                cupons: [ ...action.payload ]
             }
 
-        case types.recordLogout:
+        case types.cuponLogout:
             return {
                 ...initialState
             }

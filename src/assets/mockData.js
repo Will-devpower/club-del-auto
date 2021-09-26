@@ -31,7 +31,7 @@ export const mockData =
 
          },
          {
-            "rutAsegurado":"8498508-2",
+            "rutAsegurado":"8498508-3",
             "nombreAsegurado":"José Pérez",
             "marca":"PEUGEOT",
             "modelo":"208",
@@ -45,6 +45,21 @@ export const mockData =
             "propuesta":22323
 
          },
+         {
+            "rutAsegurado":"8498508-4",
+            "nombreAsegurado":"José Pérez",
+            "marca":"PEUGEOT",
+            "modelo":"208",
+            "anio":"2019",
+            "patente":"CLKP48",
+
+            "plan":"DED0",
+            "montoMensual":1,
+            "ultCuota":"Julio",
+            "estadoPago":"Pagado",
+            "propuesta":22323
+
+         }
       ]
 
 

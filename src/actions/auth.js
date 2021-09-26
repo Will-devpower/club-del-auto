@@ -1,26 +1,33 @@
-import { fetchSinToken, fetchConToken } from '../helpers/fetch';
+import { fetchConToken, fetchSinToken } from '../helpers/fetch';
 import { types } from '../types/types';
 import Swal from 'sweetalert2';
-import { recordLogout } from './records';
+import { cuponLogout } from './cda';
 
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {
+        
+        const data = { "identifier": rut, "password": password };       
 
-        const resp = await fetchSinToken( 'auth', { rut, password }, 'POST' );
+        const resp = await fetchSinToken( 'auth/local', data, 'POST' );
         const body = await resp.json();
 
         
-        if( body.ok ) {
-            console.log(body)
-            localStorage.setItem('token', body.token );
+        if( resp.status === 200 ) {
+            
+           
+            localStorage.setItem('token', body.jwt );
+            localStorage.setItem('usuario', JSON.stringify( body.user )  );
             localStorage.setItem('token-init-date', new Date().getTime() );
 
             dispatch( login({
-                uid: body.uid,
-                name: body.name
+                uid: body.user.id,
+                name: body.user.username
             }) )
+            
             history.push('/');
+            document.querySelector('.popup-container').style.display = 'none';
+            document.querySelector('body').style.overflow = 'visible';
         } else {            
             Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
         }
@@ -29,64 +36,41 @@ export const startLogin = ( rut, password, history ) => {
     }
 }
 
-export const startRegister = ( email, password, name ) => {
-    return async( dispatch ) => {
-
-        const resp = await fetchSinToken( 'auth/new', { email, password, name }, 'POST' );
-        const body = await resp.json();
-
-        if( body.ok ) {
-            localStorage.setItem('token', body.token );
-            localStorage.setItem('token-init-date', new Date().getTime() );
-
-            dispatch( login({
-                uid: body.uid,
-                name: body.name
-            }) )
-        } else {
-            Swal.fire('Error', body.msg, 'error');
-        }
-
-
-    }
-}
-
-export const startChecking = () => {
-    return async(dispatch) => {
-
-        const resp = await fetchConToken( 'auth/renew' );
-        const body = await resp.json();
-
-        if( body.ok ) {
-            localStorage.setItem('token', body.token );
-            localStorage.setItem('token-init-date', new Date().getTime() );
-
-            dispatch( login({
-                uid: body.uid,
-                name: body.name
-            }) )
-        } else {
-            dispatch( checkingFinish() );
-        }
-    }
-}
-
-const checkingFinish = () => ({ type: types.authCheckingFinish });
-
-
-
 const login = ( user ) => ({
     type: types.authLogin,
     payload: user
 });
 
 
+export const startChecking = () => {
+    return (dispatch) => {
+        
+        const token = localStorage.getItem('token');
+        const usuario = localStorage.getItem('usuario');        
+        
+        if(token && usuario) {
+
+          const { id: uid, name } = JSON.parse(usuario);
+          return  dispatch( login({
+                uid,
+                name
+            }) )
+        } 
+            
+        dispatch( checkingFinish() );
+                      
+    }
+}
+
+const checkingFinish = () => ({ type: types.authCheckingFinish });
+
+
 export const startLogout = () => {
     return ( dispatch ) => {
 
         localStorage.clear();
-        dispatch( recordLogout() );
-        dispatch( logout() );
+        dispatch( cuponLogout() );
+        dispatch( logout() );        
     }
 }
 

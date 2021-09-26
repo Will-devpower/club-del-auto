@@ -1,27 +1,28 @@
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo1 from '../assets/cda-logo1.png';
 import logo2 from '../assets/cda-logo2.png';
+import { triggerLoginPopup } from "../helpers/triggerLogin";
 
 export const Header = () => {
 
-    const { uid } = useSelector(state => state.auth);
-    console.log(uid)
+    const { uid } = useSelector(state => state.auth);   
 
     return (
         <div className="navegacion">
-            <a href="/">
+            <Link to="/">
                 <div className="div-block-3">
                     <img src={ logo1 } className="logo1" alt="logo1" />
                     <img src={ logo2 } className="logo2" alt="logo2" />
                 </div>
-            </a>
+            </Link>
             <nav className="nav-menu">
-                <a href="/" className="nav-link">Home</a>
-                <a href="/" className="nav-link">Contáctanos</a>
+                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/" className="nav-link">Contáctanos</Link>
                 {
                     ( uid !== undefined ) 
-                    ? <a href="/client-account" className="log-in">Mi cuenta</a>
-                    : <a href="/login" className="log-in">Ingresar a mi cuenta</a>
+                    ? <Link to="/client-account" className="log-in">Mi cuenta</Link>
+                    : <button onClick={ triggerLoginPopup } className="log-in" value="Ingresar a mi cuenta">Ingresar a mi cuenta</button>
                 }
             </nav>
             <div className="nav-button">

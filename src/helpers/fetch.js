@@ -1,5 +1,11 @@
 const baseUrl = process.env.REACT_APP_API_URL;
 
+
+const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
+    const url = `${baseUrl}/${endpoint}`;
+    return fetch(url);
+}
+
 const fetchSinToken = ( endpoint, data, method = 'GET' ) => {
 
     const url = `${ baseUrl }/${ endpoint }`;
@@ -17,6 +23,7 @@ const fetchSinToken = ( endpoint, data, method = 'GET' ) => {
     }
 }
 
+
 const fetchConToken = ( endpoint, data, method = 'GET' ) => {
 
     const url = `${ baseUrl }/${ endpoint }`;
@@ -26,7 +33,8 @@ const fetchConToken = ( endpoint, data, method = 'GET' ) => {
         return fetch( url, {
             method,
             headers: {
-                'x-token': token
+                'Content-type': 'application/json',
+                'Authorization': 'Bearer ' + token
             }
         });
     } else {
@@ -34,7 +42,7 @@ const fetchConToken = ( endpoint, data, method = 'GET' ) => {
             method,
             headers: {
                 'Content-type': 'application/json',
-                'x-token': token
+                'Authorization': 'Bearer ' + token
             },
             body: JSON.stringify( data )
         });
@@ -44,6 +52,7 @@ const fetchConToken = ( endpoint, data, method = 'GET' ) => {
 
 
 export {
-    fetchSinToken,
-    fetchConToken
+    fetchSinToken,    
+    fetchConToken,
+    fetchEnhance
 }

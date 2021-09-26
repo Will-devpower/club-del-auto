@@ -23,7 +23,7 @@ export const LoginScreen = () => {
     }
 
     return (
-        <div className="outter login-container" style={{height:'100vh'}}>
+        <div className="outter login-container" style={{height:'100vh', paddingTop:'100px'}}>
             <div className="middle">
                 <div className="inner login-form-1">
                     <form onSubmit={ handleLogin } style={{display:'flex', justifyContent:'center'}}>
@@ -35,6 +35,8 @@ export const LoginScreen = () => {
                                 name="lRut"
                                 value={ lRut }
                                 onChange={ handleLoginInputChange }
+                                autoComplete='true'
+                                required
                             />
                         </div>
                         <div className="form-group">
@@ -45,6 +47,8 @@ export const LoginScreen = () => {
                                 name="lPassword"
                                 value={ lPassword }
                                 onChange={ handleLoginInputChange }
+                                autoComplete='false'
+                                required
                             />
                         </div>
                         <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
