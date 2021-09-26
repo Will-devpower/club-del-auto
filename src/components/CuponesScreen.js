@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Footer } from "../layout/Footer";
 import { Header } from "../layout/Header";
-import { cuponsStartLoading, setActiveCupon } from "../actions/cda";
+import { cuponsStartLoading } from "../actions/cda";
 import { LoginScreen } from "./LoginScreen";
 import { useEffect } from "react";
 

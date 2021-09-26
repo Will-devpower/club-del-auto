@@ -23,7 +23,7 @@ export const CuponScreen = () => {
     
     useEffect(() => {
         dispatch(getCouponById( id ));
-    }, []);
+    }, [dispatch, id]);
 
     if(loading) return null
     
@@ -69,7 +69,7 @@ export const CuponScreen = () => {
                 </div>
             </div>
             <div className="mapa">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212999.19736400706!2d-70.76991586607882!3d-33.47242276274744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Santiago%20Metropolitan%20Region%2C%20Chile!5e0!3m2!1sen!2sve!4v1630072070108!5m2!1sen!2sve" id="myMap" width="996" height="400" allowFullScreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212999.19736400706!2d-70.76991586607882!3d-33.47242276274744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Santiago%20Metropolitan%20Region%2C%20Chile!5e0!3m2!1sen!2sve!4v1630072070108!5m2!1sen!2sve" title="myMap" id="myMap" width="996" height="400" allowFullScreen="" loading="lazy"></iframe>
             </div>
             <div className="divisor-desktop"></div>
             <p className="descripcion-copy">TAMBIÉN TE PODRÍA INTERESAR</p>
