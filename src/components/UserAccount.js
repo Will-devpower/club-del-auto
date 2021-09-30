@@ -24,7 +24,7 @@ export const UserAccount = () => {
         history.push('/');
     }
 
-    const { rut, nombre, correo, telefono, vehiculos } = mockData;
+    // const { rut, nombre, correo, telefono, vehiculos } = mockData;
 
     const { body } = useSelector(state => state.auth);   
 
