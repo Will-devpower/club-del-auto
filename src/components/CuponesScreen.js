@@ -30,12 +30,14 @@ export const CuponesScreen = () => {
                 {                    
                     cupons.map(elem => {
                       return (
+                        <Link to={`/cupones/${ elem.id }`} className="cupon-link-wrapper">
                          <div key={elem.id} className="div-block-25">
                             <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${elem.img[0].url})`}}></div>
                             <h1 className="heading-6">{elem.servicio}</h1>
                             <p className="texto-cupones">{elem.bajada}</p>
-                            <Link to={`/cupones/${ elem.id }`} className="link-page">MÁS INFORMACIÓN</Link>
+                            <p className="link-page">MÁS INFORMACIÓN</p>
                          </div>
+                         </Link>
                       )  
                     }) 
                 }

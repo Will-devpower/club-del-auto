@@ -1093,6 +1093,14 @@
   clear: both;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+.w-slider {
+  background-color: hsla(0, 0%, 98%, 0.8);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.cupon-link-wrapper {
+  text-decoration: none;
+}
 .descripcion-servicio-2 {
   margin-top: 0px;
   margin-left: 10px;
@@ -1999,10 +2007,6 @@
     margin-left: 30px;
     padding-left: 0px;  
   }
-}
-
-@media only screen and (max-width: 1023px) {
-
   .heading {
     position: absolute;
     left: 0%;
@@ -2123,6 +2127,40 @@
   }
 }
 
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .banner {
+    margin-top: 100px;
+  }
+  .heading {
+    position: absolute;    
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: auto;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+    text-align: center;
+  }
+  .image-7 {
+    width: 100%;
+    margin-left: 0%;
+    transform: translate3d(0px, 35.6079px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    opacity: .7;
+  }
+  .image-8 {
+    top: 50%;
+    left: 30%;
+    right: auto;
+    width: 300px;
+  }
+  .asistencias {
+    margin: 0 40px;
+  }
+}
 @media only screen and (min-width: 1024px) {
   .nav-menu {
     display: -webkit-box;

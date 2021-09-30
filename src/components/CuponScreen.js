@@ -23,7 +23,7 @@ export const CuponScreen = () => {
         coupon: state.cda.cupons.find(coupon => coupon.id === parseInt(id))
     }));
     
-    console.log(coupon)
+    console.log('CUPON: ',coupon)
     console.log(client.body.rut)
 
     useEffect(() => {
@@ -45,7 +45,7 @@ export const CuponScreen = () => {
             <p className="bajada-servicio">{coupon.servicio}</p>
             <div className="div-block-26">
                 <div>
-                    <div className="slider w-slider"></div>
+                    <div className="slider w-slider" style={{backgroundImage:`url(${coupon.img[0].url})`}}></div>
                     <p className="descripcion-servicio-2">{coupon.bajada}</p>
                 </div>
                 <div className="div-block-27">

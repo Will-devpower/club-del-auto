@@ -8,10 +8,10 @@ import userIcon from '../assets/user-icon1.png';
 import homeIcon from '../assets/home-icon1.png';
 import cdaIcon from '../assets/cda-logo1.png';
 import editIcon from '../assets/edit-icon.png';
-import visaIcon  from '../assets/visa-icon.png';
-import cardIcon  from '../assets/credit-card-icon.png';
+// import visaIcon  from '../assets/visa-icon.png';
+// import cardIcon  from '../assets/credit-card-icon.png';
 
-import { mockData } from '../assets/mockData';
+// import { mockData } from '../assets/mockData';
 import { useSelector } from "react-redux";
 
 export const UserAccount = () => {
@@ -24,7 +24,7 @@ export const UserAccount = () => {
         history.push('/');
     }
 
-    const { rut, nombre, correo, telefono, vehiculos } = mockData;
+    // const { rut, nombre, correo, telefono, vehiculos } = mockData;
 
     const { body } = useSelector(state => state.auth);   
 
