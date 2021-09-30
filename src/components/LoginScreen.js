@@ -90,7 +90,7 @@ export const LoginScreen = () => {
                             </div>
                         </form>                    
                     </div>
-                    <a href="#" className="link-2">¿Olvidaste tu contraseña?</a>
+                    <a href="/" className="link-2">¿Olvidaste tu contraseña?</a>
                 </div>               
             </div>
         </div>
