@@ -2,7 +2,7 @@ import { HomeCupones } from "./HomeCupones"
 import { Suscripcion } from "./Suscripcion"
 import { Header } from "../layout/Header"
 
-import bannerBG1 from '../assets/home-banner-bg1.png'
+import bannerBG1 from '../assets/home-banner-bg3.png'
 import bannerBG2 from '../assets/home-banner-bg2.png'
 import bCircle from '../assets/imagen-asis1.png'
 import secretary from '../assets/secretary.png'
