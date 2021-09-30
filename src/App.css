@@ -1098,6 +1098,9 @@
   background-position: 50% 50%;
   background-size: cover;
 }
+.cupon-link-wrapper {
+  text-decoration: none;
+}
 .descripcion-servicio-2 {
   margin-top: 0px;
   margin-left: 10px;
