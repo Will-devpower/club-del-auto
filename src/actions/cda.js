@@ -18,7 +18,7 @@ export const cuponsStartLoading = () => {
             const resp = await fetchSinToken( 'cupones' );
             const body = await resp.json();
 
-             console.log(body)
+            console.log(body)
             // const filteredRecord = body.expedientes.filter(record => record.user._id === uid);            
         
             // const records = prepareRecords( filteredRecord );
@@ -59,7 +59,7 @@ export const buyCoupon = ( rut, cupon ) => {
     return async( dispatch ) => {
         
         Swal.showLoading();
-        
+
         const data = { "identifier": rut, "cupon": cupon };       
 
         const resp = await fetchSinToken( 'cupones/obtener/'+rut+'/'+cupon, data, 'GET' );
