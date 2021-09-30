@@ -47,7 +47,7 @@ export const TimeOutModal = () => {
           <IdleTimer
             ref={ idleTimerRef }       
             onIdle={ onIdle }
-            timeout={ 60 * 1000 } 
+            timeout={ 600 * 1000 } 
           />
         </div>
     )

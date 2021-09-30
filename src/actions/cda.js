@@ -18,7 +18,7 @@ export const cuponsStartLoading = () => {
             const resp = await fetchSinToken( 'cupons' );
             const body = await resp.json();
 
-            // console.log(body)
+            console.log(body)
             // const filteredRecord = body.expedientes.filter(record => record.user._id === uid);            
         
             // const records = prepareRecords( filteredRecord );

@@ -1,7 +1,8 @@
 import {  useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import logo1 from '../assets/cda-logo1.png';
-import logo2 from '../assets/cda-logo2.png';
+// import logo2 from '../assets/cda-logo2.png';
+import logo3 from '../assets/cda-logo3.png';
 import { triggerLoginPopup } from "../helpers/triggerLogin";
 
 export const Header = () => {
@@ -13,7 +14,7 @@ export const Header = () => {
             <Link to="/">
                 <div className="div-block-3">
                     <img src={ logo1 } className="logo1" alt="logo1" />
-                    <img src={ logo2 } className="logo2" alt="logo2" />
+                    <img src={ logo3 } className="logo2" alt="logo3" />
                 </div>
             </Link>
             <nav className="nav-menu">
