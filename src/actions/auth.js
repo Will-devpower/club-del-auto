@@ -6,7 +6,9 @@ import { cuponLogout } from './cda';
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {
-        
+
+        Swal.showLoading();
+
         const data = { "identifier": rut, "password": password };       
 
         //const resp = await fetchSinToken( 'auth/local', data, 'POST' );
@@ -21,6 +23,8 @@ export const startLogin = ( rut, password, history ) => {
 
             if( resp2.status === 200 ) {
                 
+
+
                 const body = await resp2.json();
 
                 console.log(body);
@@ -38,6 +42,10 @@ export const startLogin = ( rut, password, history ) => {
                 history.push('/');
                 document.querySelector('.popup-container').style.display = 'none';
                 document.querySelector('body').style.overflow = 'visible';
+
+                //Swal.close();
+                Swal.fire('', 'Sesión iniciada: '+body.nombre, 'success');
+                
 
             } else {            
                 Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');

@@ -34,7 +34,7 @@ export const LoginScreen = () => {
                     <div className="inner form-block-2">
                         <form onSubmit={ handleLogin }>
                             
-                                <input
+                                {/* <input
                                     type="text"
                                     className="form-control text-field-2"
                                     placeholder="Correo"
@@ -43,7 +43,7 @@ export const LoginScreen = () => {
                                     onChange={ handleLoginInputChange }
                                     autoComplete='false'
                                     required
-                                />
+                                /> */}
                             
                             
                                 <input 
@@ -58,7 +58,7 @@ export const LoginScreen = () => {
                                 />
                             
                             
-                                <input 
+                                {/* <input 
                                     type="text"
                                     className="form-control text-field-2"
                                     placeholder="Patente"
@@ -67,7 +67,7 @@ export const LoginScreen = () => {
                                     onChange={ handleLoginInputChange }
                                     autoComplete='true'
                                     required
-                                />
+                                /> */}
                             
                             
                                 <input
