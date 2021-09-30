@@ -19,7 +19,7 @@ export const TimeOutModal = () => {
         setshowModal(true); 
         sessionRef.current = setTimeout(() => {
             logOut();
-        }, 30000 ); 
+        }, 3600000 ); 
     }    
 
     const stayLoggedIn = () => {       
@@ -47,7 +47,7 @@ export const TimeOutModal = () => {
           <IdleTimer
             ref={ idleTimerRef }       
             onIdle={ onIdle }
-            timeout={ 60 * 1000 } 
+            timeout={ 3600 * 1000 } 
           />
         </div>
     )

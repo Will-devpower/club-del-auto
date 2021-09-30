@@ -9,25 +9,40 @@ export const startLogin = ( rut, password, history ) => {
         
         const data = { "identifier": rut, "password": password };       
 
-        const resp = await fetchSinToken( 'auth/local', data, 'POST' );
-        const body = await resp.json();
+        //const resp = await fetchSinToken( 'auth/local', data, 'POST' );
+        const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );
+        console.log("consulta en BD: "+resp.status);
 
-        
         if( resp.status === 200 ) {
             
-           
-            localStorage.setItem('token', body.jwt );
-            localStorage.setItem('usuario', JSON.stringify( body.user )  );
-            localStorage.setItem('token-init-date', new Date().getTime() );
+            const resp2 = await fetchSinToken( 'direcciones/getUser/'+rut, data, 'POST' );
+            console.log("llamado a API: "+resp2);
+            console.log("status de la respuesta: "+resp2.status);
 
-            dispatch( login({
-                uid: body.user.id,
-                name: body.user.username
-            }) )
+            if( resp2.status === 200 ) {
+                
+                const body = await resp2.json();
+
+                console.log(body);
+
+                //localStorage.setItem('token', body.jwt );
+                localStorage.setItem('usuario', JSON.stringify( body.nombre )  );
+                localStorage.setItem('token-init-date', new Date().getTime() );
+
+                dispatch( login({
+                    uid: body.rut,
+                    name: body.nombre,
+                    body: body
+                }) )
+                
+                history.push('/');
+                document.querySelector('.popup-container').style.display = 'none';
+                document.querySelector('body').style.overflow = 'visible';
+
+            } else {            
+                Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
+            }
             
-            history.push('/');
-            document.querySelector('.popup-container').style.display = 'none';
-            document.querySelector('body').style.overflow = 'visible';
         } else {            
             Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
         }

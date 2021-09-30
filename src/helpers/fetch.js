@@ -1,5 +1,5 @@
-const baseUrl = process.env.REACT_APP_API_URL;
-
+//const baseUrl = process.env.REACT_APP_API_URL;
+const baseUrl = "https://d940-186-104-223-5.ngrok.io"
 
 const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
     const url = `${baseUrl}/${endpoint}`;
@@ -7,7 +7,7 @@ const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
 }
 
 const fetchSinToken = ( endpoint, data, method = 'GET' ) => {
-
+    
     const url = `${ baseUrl }/${ endpoint }`;
 
     if ( method === 'GET' ) {

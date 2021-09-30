@@ -12,6 +12,7 @@ import visaIcon  from '../assets/visa-icon.png';
 import cardIcon  from '../assets/credit-card-icon.png';
 
 import { mockData } from '../assets/mockData';
+import { useSelector } from "react-redux";
 
 export const UserAccount = () => {
 
@@ -25,7 +26,9 @@ export const UserAccount = () => {
 
     const { rut, nombre, correo, telefono, vehiculos } = mockData;
 
-    console.log( vehiculos )
+    const { body } = useSelector(state => state.auth);   
+
+    console.log( body )
 
     return (
         <div className="user-account-screen">
@@ -62,17 +65,19 @@ export const UserAccount = () => {
                 </div>
                 <div className="div-block-35">
                     <div className="div-block-45">
-                        <div className="div-block-36"></div>
+                        {/* <div className="div-block-36"></div> */}
                         <div className="div-block-46">
-                            <h1 className="heading-8">{ nombre }</h1>
+                            <h1 className="heading-8">{ body.nombre }</h1>
                             <p className="datos-usuario">
-                                { rut } <br />
-                                { correo } <br />
-                                { telefono }
+                                { body.rut } <br />
+                                { body.correo } <br />
+                                { body.telefono }
                             </p>
                         </div>
                     </div>
-                    <div className="div-block-53">
+                    
+                    
+                    {/* <div className="div-block-53">
                         <img src={ visaIcon } alt="visa-icon" className="image-30"/>
                         <img src={ cardIcon } alt="card-icon" className="image-30_1"/>
                         <div className="div-block-54">
@@ -88,15 +93,17 @@ export const UserAccount = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
+                    
+
                 </div>
                 <div className="div-block-37"></div>
                 <div className="div-block-42">
-                    <p className="paragraph-5">MIS VERHÍCULOS</p>
+                    <p className="paragraph-5">MIS VEHÍCULOS</p>
                     <div className="div-block-38">
                     {
-                        vehiculos &&
-                        vehiculos.map(vehiculo => {
+                        body.vehiculos &&
+                        body.vehiculos.map(vehiculo => {
 
                           return (  
                           
@@ -106,7 +113,7 @@ export const UserAccount = () => {
                                     <div className="info-de-auto">
                                         <div className="div-block-47">
                                             <p className="paragraph-3">Nombre asegurado</p>
-                                            <p className="paragraph-6">{ vehiculo.nombreAsegurado }</p>
+                                            <p className="paragraph-6">{ vehiculo.nombre }</p>
                                         </div>
                                         <div className="div-block-47">
                                             <p className="paragraph-3">RUT</p>
@@ -120,18 +127,18 @@ export const UserAccount = () => {
                                             <p className="paragraph-3">Modelo</p>
                                             <p className="paragraph-6">{ vehiculo.modelo }</p>
                                         </div>
-                                        <div className="div-block-47">
+                                        {/* <div className="div-block-47">
                                             <p className="paragraph-3">Año</p>
                                             <p className="paragraph-6">{ vehiculo.anio }</p>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className="div-block-50">
                                         <div className="info-de-auto-copy">
                                             <div className="div-block-47">
                                                 <p className="paragraph-3-copy">Plan</p>
-                                                <p className="paragraph-6-copy">{ vehiculo.plan }</p>
+                                                <p className="paragraph-6-copy">{ vehiculo.ded }</p>
                                             </div>
-                                            <div className="div-block-47">
+                                            {/* <div className="div-block-47">
                                                 <p className="paragraph-3-copy">Monto mensual</p>
                                                 <p className="paragraph-6-copy">{ vehiculo.montoMensual }</p>
                                             </div>
@@ -142,10 +149,10 @@ export const UserAccount = () => {
                                             <div className="div-block-47">
                                                 <p className="paragraph-3-copy">Mes de pago</p>
                                                 <p className="paragraph-6-copy">{ vehiculo.ultCuota }</p>
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
-                                    <div className="pago-wrapper">
+                                    {/* <div className="pago-wrapper">
                                         <div className="estado-pago-wrapper">
                                             <p className="estado-pago">ESTADO DE PAGO</p>
                                             <p className={ vehiculo.estadoPago === 'Pendiente'
@@ -159,7 +166,7 @@ export const UserAccount = () => {
                                             ( vehiculo.estadoPago === 'Pendiente') &&
                                             <Link to="/" className="pagar-seguro-auto">Pagar</Link >
                                         }
-                                    </div>
+                                    </div> */}
                                 </div>                                
                             )
                             

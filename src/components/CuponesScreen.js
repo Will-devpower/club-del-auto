@@ -31,10 +31,10 @@ export const CuponesScreen = () => {
                     cupons.map(elem => {
                       return (
                          <div key={elem.id} className="div-block-25">
-                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${elem.image[0].url})`}}></div>
-                            <h1 className="heading-6">{elem.service}</h1>
-                            <p className="texto-cupones">{elem.short_desc}</p>
-                            <Link to={`/cupon/${ elem.id }`} className="link-page">MÁS INFORMACIÓN</Link>
+                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${elem.img[0].url})`}}></div>
+                            <h1 className="heading-6">{elem.servicio}</h1>
+                            <p className="texto-cupones">{elem.bajada}</p>
+                            <Link to={`/cupones/${ elem.id }`} className="link-page">MÁS INFORMACIÓN</Link>
                          </div>
                       )  
                     }) 

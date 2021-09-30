@@ -1,6 +1,6 @@
 import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
-
+import Swal from 'sweetalert2';
 
 export const setActiveCupon = (cupon) => ({
     type: types.setActiveCupon,
@@ -15,10 +15,10 @@ export const cuponsStartLoading = () => {
 
         try {    
             
-            const resp = await fetchSinToken( 'cupons' );
+            const resp = await fetchSinToken( 'cupones' );
             const body = await resp.json();
 
-            // console.log(body)
+             console.log(body)
             // const filteredRecord = body.expedientes.filter(record => record.user._id === uid);            
         
             // const records = prepareRecords( filteredRecord );
@@ -40,7 +40,7 @@ const cuponLoaded = (cupons) => ({
 export const getCouponById = id => async(dispatch) => {
         try {        
             dispatch(({ type: types.GET_COUPON_REQUEST }));
-            const response = await fetchEnhance(`cupons/${id}`);
+            const response = await fetchEnhance(`cupones/${id}`);
             const coupon = await response.json();
             
             // console.log(coupon)          
@@ -53,6 +53,29 @@ export const getCouponById = id => async(dispatch) => {
         } catch (error) {
             console.log(error)
         }   
+}
+
+export const buyCoupon = ( rut, cupon ) => {
+    return async( dispatch ) => {
+        
+        Swal.showLoading();
+        
+        const data = { "identifier": rut, "cupon": cupon };       
+
+        const resp = await fetchSinToken( 'cupones/obtener/'+rut+'/'+cupon, data, 'GET' );
+        console.log("consulta en BD: "+resp);
+        console.log("status de la respuesta: "+resp.status);
+
+        if( resp.status === 200 ) {
+            
+            Swal.fire('Cupón obtenido', 'El detalle del cupón fue enviado a su correo', 'success');
+            
+        } else {            
+            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+        }
+        
+
+    }
 }
 
 

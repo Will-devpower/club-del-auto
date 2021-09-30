@@ -46,7 +46,7 @@ import { PrivateRoute } from "./PrivateRoute";
               <Route exact path="/cupones-de-descuento">
                 <CuponesScreen />
               </Route>
-              <Route exact path="/cupon/:id">
+              <Route exact path="/cupones/:id">
                 <CuponScreen />
               </Route>
               <PrivateRoute 
