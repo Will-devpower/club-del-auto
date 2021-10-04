@@ -16,6 +16,9 @@ import { useSelector } from "react-redux";
 
 export const UserAccount = () => {
 
+    const { uid } = useSelector(state => state.auth);
+    const url = `https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=${uid}&Fono=953153687&flujo=1`;
+
     const history = useHistory();
     const dispatch = useDispatch();
     const handleLogout = (e) => {
@@ -50,13 +53,13 @@ export const UserAccount = () => {
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ cdaIcon } alt="logo2" className="image-28 _2" />
-                        <Link to="/" className="button-4" onClick={ handleLogout }>Contactanos</Link >
+                        <Link to="/" className="button-4" onClick={ handleLogout }>Cerrar Sesión</Link >
                     </div>
                 </div>
                 <div className="div-block-34">
                     <img src="" alt="" className="image-27" />
                 </div>
-                <Link to="/" className="pedir-asistencia">Pedir asistencia</Link >
+                <a href={ url } className="w-button" target="_blank" rel="noreferrer">Solicitar asistencia</a>
             </div>
             <div className="div-block-3_3">
                 <div className="div-block-51">

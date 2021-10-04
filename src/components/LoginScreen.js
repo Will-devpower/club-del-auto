@@ -9,8 +9,9 @@ import { useHistory } from 'react-router-dom';
 export const LoginScreen = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useHistory();    
     
+
     const [ formLoginValues, handleLoginInputChange ] = useForm({
         lRut: '',
         lEmail: '',
@@ -29,7 +30,11 @@ export const LoginScreen = () => {
     return (
         <div className="outter login-container" style={{height:'100vh'}}>
             <div className="middle">
+                
                 <div className="div-block-59">
+                    
+                    <a href="/" className="link-2">Volver al home</a>
+                    <br/><br/>
                     <img src={ userIcon } alt="icono-usuario" className="image-31" />
                     <h1 className="heading-login">Ingresa a tu cuenta</h1>
                     <div className="inner form-block-2">
@@ -89,8 +94,11 @@ export const LoginScreen = () => {
                                     value="Ingresar" 
                                 />
                             </div>
+
+                            
                         </form>                    
                     </div>
+                    <a href="/" className="link-2">Ingreso por Primera Vez</a>
                     <a href="/" className="link-2">¿Olvidaste tu contraseña?</a>
                 </div>               
             </div>
