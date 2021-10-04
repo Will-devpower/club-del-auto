@@ -979,6 +979,8 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: hsla(0, 0%, 98%, 0.8);
   background-position: 50% 50%;
   background-size: cover;
@@ -1271,7 +1273,7 @@
   cursor: pointer;
 }
 .mapa {
-  width: 996px;
+  max-width: 996px;
   height: 400px;
   border-radius: 10px;
   background: #fff;
@@ -1281,6 +1283,7 @@
 .mapa iframe {
   border-radius: 20px;
   border: 0;
+  max-width: 100%;
 }
 .cupones-page-copy {
   position: relative;
@@ -2125,8 +2128,47 @@
   .div-block-53 {
     margin-top: 40px;
   }
+  .section-7 {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .div-block-26 {
+    grid-template-columns: 1fr;
+  }
+  .div-block-26-copy {
+    grid-template-columns: 1fr;
+    grid-row-gap: 15px;
+  }
+  .descripcion_2 {
+    display: block;
+  }
+  .mapa {
+    width: unset;
+  }
+  .mapa iframe {
+    max-width: 100%;
+  }
+  .cupones-page-copy {
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+  }
 }
-
+@media only screen and (max-width: 1023px) {
+  .nav-menu {
+    /* display: none; */
+    position: absolute;
+    top: -180px;
+    left: -30px;
+    background: #fff;
+    width: 100vw;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    grid-row-gap: 10px;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .banner {
     margin-top: 100px;
@@ -2298,7 +2340,7 @@
   }
   .cupon-card {
     max-width: 360px;
-    max-height: 220px; 
+    /* max-height: 220px;  */
     padding: 0;
     margin-right: 10px;
     margin-left: 10px;
@@ -2307,7 +2349,7 @@
     margin: 40px 40px 10px;
   }
   .texto-cupones {
-    margin: 0 40px 10px;
+    margin: 20px 40px 10px;
   }
   .div-block-25 .texto-cupones {
     margin-left: 10px;

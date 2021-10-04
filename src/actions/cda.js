@@ -15,14 +15,8 @@ export const cuponsStartLoading = () => {
 
         try {    
             
-            const resp = await fetchSinToken( 'cupones' );            
-            const banners = await fetchSinToken( 'banner-cupones' );            
-            const body = await resp.json();
-
-            console.log('BODY: ',banners)
-            // const filteredRecord = body.expedientes.filter(record => record.user._id === uid);            
-        
-            // const records = prepareRecords( filteredRecord );
+            const resp = await fetchSinToken( 'cupones' );                
+            const body = await resp.json();           
             
             dispatch( cuponLoaded( body ) );
 

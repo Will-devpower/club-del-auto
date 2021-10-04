@@ -8,6 +8,7 @@ import userIcon from '../assets/user-icon1.png';
 import homeIcon from '../assets/home-icon1.png';
 import cdaIcon from '../assets/cda-logo1.png';
 import editIcon from '../assets/edit-icon.png';
+import logoutIcon from '../assets/logout-icon.png';
 // import visaIcon  from '../assets/visa-icon.png';
 // import cardIcon  from '../assets/credit-card-icon.png';
 
@@ -50,7 +51,11 @@ export const UserAccount = () => {
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ cdaIcon } alt="logo2" className="image-28 _2" />
-                        <Link to="/" className="button-4" onClick={ handleLogout }>Contactanos</Link >
+                        <Link to="/" className="button-4">Contactanos</Link >                        
+                    </div>
+                    <div className="div-block-48">
+                        <img src={ logoutIcon } alt="logo2" className="image-28 _2" />
+                        <Link to="/" className="button-4" onClick={ handleLogout }>Salir</Link >
                     </div>
                 </div>
                 <div className="div-block-34">

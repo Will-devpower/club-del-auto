@@ -4,6 +4,7 @@ import { useForm } from '../hooks/useForm';
 import { startLogin } from '../actions/auth';
 import userIcon from '../assets/user-icon2.png';
 
+
 import { useHistory } from 'react-router-dom';
 
 export const LoginScreen = () => {
@@ -23,6 +24,7 @@ export const LoginScreen = () => {
 
     const handleLogin = ( e ) => {
         e.preventDefault();
+        
         dispatch( startLogin( lRut, lPassword, history ) );        
     }
 
