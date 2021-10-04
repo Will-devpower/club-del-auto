@@ -67,7 +67,7 @@ export const HomeScreen = () => {
                         {
                              ( uid !== undefined ) 
                              ?
-                            <a href="/" className="w-button">Llena el formulario</a>
+                            <a href="/form-robo" className="w-button">Llena el formulario</a>
                             :
                             <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                         }
@@ -105,7 +105,7 @@ export const HomeScreen = () => {
                             {
                                 ( uid !== undefined ) 
                                 ?
-                                <a href="/" className="w-button">Llena el formulario</a>
+                                <a href="/form-robo" className="w-button">Llena el formulario</a>
                                 :
                                 <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                             }
@@ -119,7 +119,7 @@ export const HomeScreen = () => {
                 <div className="el-club">
                     <h1 className="heading-3">Sé parte <strong>del club</strong></h1>
                     <p className="paragraph-22">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.</p>
-                    <a href="/" className="join">Más información</a>
+                    <Link to="/info-club" className="join">Más información</Link>
                 </div>
 
                 <Suscripcion />

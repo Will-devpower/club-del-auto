@@ -52,10 +52,6 @@ export const UserAccount = () => {
                         <img src={ homeIcon } alt="Home" className="image-28" />
                         <Link to="/" className="button-4">Volver al Home</Link >
                     </div>
-                    <div className="div-block-48 _2">
-                        <img src={ cdaIcon } alt="logo2" className="image-28 _2" />
-                        <Link to="/" className="button-4">Contactanos</Link >                        
-                    </div>
                     <div className="div-block-48">
                         <img src={ logoutIcon } alt="logo2" className="image-28 _2" />
                         <Link to="/" className="button-4" onClick={ handleLogout }>Salir</Link >
