@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import orangeCircle from '../assets/orange-circle.png'
@@ -6,8 +7,9 @@ import orangeDots from '../assets/orange-dots.png'
 
 export const HomeCupones = () => {
 
-    const mockCupons = [1,2,3,4,5,6];
     
+    const { cupons } = useSelector(state => state.cda);
+    // console.log(cupons)
     return (
         <div className="section-3">
          <img src={ orangeCircle } alt="orange-circle" className="image-15"/>
@@ -18,18 +20,18 @@ export const HomeCupones = () => {
             </div>
             <div className="div-block-10">
                 {
-                    mockCupons.length > 1 &&
-                    mockCupons.slice(0, 3).map(( cupon, key ) => (
-
-                        <div className="cupon-card" key={ key }>
-                            <h1 className="heading-5">25% Off</h1>
-                            <p className="texto-cupones">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    cupons.length > 1 &&
+                    cupons.slice(0, 3).map(( cupon ) => (
+                        <Link to={`/cupones/${ cupon.id }`} className="cupon-link-wrapper" key={ cupon.id }>
+                        <div className="cupon-card">
+                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${cupon.img[0].url})`}}></div>
+                            <p className="texto-cupones">{ cupon.bajada }</p>
                             <div className="div-block-20">
-                                <a href="/" className="link">OBTENER CUPÓN</a>
+                                <p className="link">VER CUPÓN</p>
                                 <div className="div-block-19"></div>
                             </div>
                         </div>
-
+                        </Link>
                     ))
                 }
             </div>

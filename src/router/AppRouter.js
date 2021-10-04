@@ -18,6 +18,7 @@ import { LoginScreen } from "../components/LoginScreen";
 import { startChecking } from "../actions/auth";  
 import { TimeOutModal } from "../components/TimeOutModal";
 import { PrivateRoute } from "./PrivateRoute";
+import { cuponsStartLoading } from "../actions/cda";
   
   
   const AppRouter = () => {  
@@ -27,6 +28,7 @@ import { PrivateRoute } from "./PrivateRoute";
     useEffect(() => {
         
         dispatch( startChecking());
+        dispatch(cuponsStartLoading());
 
     }, [dispatch])
 
