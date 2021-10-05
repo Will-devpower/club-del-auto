@@ -46,6 +46,12 @@ export const startLogin = ( rut, password, history ) => {
                 document.querySelector('.popup-container').style.display = 'none';
                 document.querySelector('body').style.overflow = 'visible';    
 
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Bienvenido de vuelta',
+                    text: body.nombre
+                })
+
             } else {            
                 Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
             }
@@ -54,6 +60,53 @@ export const startLogin = ( rut, password, history ) => {
             Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
         }
         
+
+    }
+}
+
+export const loginFirst = ( rut, password, history ) => {
+    return async( dispatch ) => {        
+
+        notice.showLoading({
+            type: 'dots',
+            title: 'Por favor espere',
+            color: '#333',
+            backgroundColor: 'rgba(255,255,255,.6)',
+            fontSize: 14
+        });
+        const data = { "identifier": rut, "password": password };       
+
+        //Validar que no se encuentre en la BD
+
+        const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );        
+
+        if( resp.status === 200 ) { 
+            
+            const body = await resp.json();
+            
+            localStorage.setItem('usuario', JSON.stringify( body )  );
+                localStorage.setItem('token-init-date', new Date().getTime() );
+
+                dispatch( login({
+                    uid: body.rut,
+                    name: body.nombre,
+                    body: body
+                }) )
+                                
+                history.push('/');
+                document.querySelector('.popup-container').style.display = 'none';
+                document.querySelector('body').style.overflow = 'visible';
+            
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro Exitoso',
+                    text: 'De ahora en adelante podrás ingresar con tu contraseña'
+                })    
+
+        } else {            
+            Swal.fire('Error', 'Ocurrió un error en el registro', 'error');
+        }
+        notice.hideLoading();
 
     }
 }
