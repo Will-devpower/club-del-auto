@@ -63,7 +63,12 @@ export const buyCoupon = ( rut, cupon ) => {
 
         if( resp.status === 200 ) {
             
-            Swal.fire('Cupón obtenido', 'El detalle del cupón fue enviado a su correo', 'success');
+            Swal.fire({
+                icon: 'success',
+                title: 'Cupón obtenido',
+                text: 'El detalle del cupón fue enviado a su correo',
+                footer: 'recuerda revisar la carpeta spam'
+              })
             
         } else {            
             Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');

@@ -11,6 +11,9 @@ import { useEffect } from "react";
 import ScrollToTop from "../components/ScrollToTop";
 import { HomeScreen } from "../components/HomeScreen";
 import { CuponesScreen } from "../components/CuponesScreen";
+import { Info } from "../components/Info";
+import { FormRobAcc } from "../components/FormRobAcc";
+import { LoginFirstTime } from "../components/LoginFirstTime";
 import { CuponScreen } from "../components/CuponScreen";
 import { UserAccount } from "../components/UserAccount"; 
 import { useDispatch, useSelector } from "react-redux";
@@ -60,6 +63,16 @@ import { cuponsStartLoading } from "../actions/cda";
               <Route exact path="/login">
                 <LoginScreen />
               </Route>
+              <Route exact path="/info-club">
+                <Info />
+              </Route>
+              <Route exact path="/form-robo">
+                <FormRobAcc />
+              </Route>
+              <Route exact path="/login-first">
+                <LoginFirstTime />
+              </Route>
+              
               <Redirect to="/" />             
           </Switch>
           {

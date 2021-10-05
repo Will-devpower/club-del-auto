@@ -53,23 +53,23 @@ export const HomeScreen = () => {
                             ?
                             <a href={ url } className="w-button" target="_blank" rel="noreferrer">Solicitar asistencia</a>
                             :
-                            <button className="w-button" onClick={ triggerLoginPopup } value="Solicitar Asistencia">Iniciar Sesión</button> 
+                            <button className="w-button" onClick={ triggerLoginPopup } value="Solicitar Asistencia">Inicia sesión para continuar</button> 
                         }
                     </div>
                 </div>
                 <div className="asistencias">
                 <img src={ carImg } loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 470px, 600px" alt="car-img" className="image-12" data-aos="fade-left" />   
                     <div className="div-block-9">
-                        <h1 className="heading-2">¿Necesitas asistencia inmediata?</h1>
+                        <h1 className="heading-2">¿Tuviste un accidente<br />o sufriste un robo?</h1>
                         <p className="paragraph-2">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
                         </p>
                         {
                              ( uid !== undefined ) 
                              ?
-                            <a href="/" className="w-button">Llena el formulario</a>
+                            <a href="/form-robo" className="w-button">Llena el formulario</a>
                             :
-                            <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Iniciar Sesión</button> 
+                            <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                         }
                     </div>
                     <div className="div-block-6-copy"></div>
@@ -81,7 +81,13 @@ export const HomeScreen = () => {
                             <p className="paragraph-2">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
                             </p>
-                            <Link to={`https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=16797012-5&Fono=953153687&flujo=1`} className="w-button">Solicitar asistencia</Link>
+                            {
+                                ( uid !== undefined ) 
+                                ?
+                                <a href={ url } className="w-button" target="_blank" rel="noreferrer">Solicitar asistencia</a>
+                                :
+                                <button className="w-button" onClick={ triggerLoginPopup } value="Solicitar Asistencia">Inicia sesión para continuar</button> 
+                            }
                         </div>
                         <img src={ secretary } alt="secretary" className="image-9" />
                         <img src={ reloj } alt="reloj" className="image-20" />
@@ -96,7 +102,13 @@ export const HomeScreen = () => {
                             <p className="paragraph-2">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
                             </p>
-                            <a href="/" className="w-button">Llena el formulario</a>
+                            {
+                                ( uid !== undefined ) 
+                                ?
+                                <a href="/form-robo" className="w-button">Llena el formulario</a>
+                                :
+                                <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
+                            }
                         </div>
                     </div>
                 </div>
@@ -107,7 +119,7 @@ export const HomeScreen = () => {
                 <div className="el-club">
                     <h1 className="heading-3">Sé parte <strong>del club</strong></h1>
                     <p className="paragraph-22">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.</p>
-                    <a href="/" className="join">Más información</a>
+                    <Link to="/info-club" className="join">Más información</Link>
                 </div>
 
                 <Suscripcion />
