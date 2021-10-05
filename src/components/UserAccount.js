@@ -19,17 +19,18 @@ export const UserAccount = () => {
 
     const history = useHistory();
     const dispatch = useDispatch();
+
     const handleLogout = (e) => {
         e.preventDefault();
         dispatch( startLogout() );
         history.push('/');
     }
 
-    // const { rut, nombre, correo, telefono, vehiculos } = mockData;
-
     const { body } = useSelector(state => state.auth);   
 
-    console.log( body )
+    const userData = JSON.parse(body);
+    const { nombre, rut, correo, telefono, vehiculos } = userData;
+    console.log(vehiculos)
 
     return (
         <div className="user-account-screen">
@@ -72,11 +73,11 @@ export const UserAccount = () => {
                     <div className="div-block-45">
                         {/* <div className="div-block-36"></div> */}
                         <div className="div-block-46">
-                            <h1 className="heading-8">{ body.nombre }</h1>
+                            <h1 className="heading-8">{ nombre }</h1>
                             <p className="datos-usuario">
-                                { body.rut } <br />
-                                { body.correo } <br />
-                                { body.telefono }
+                                { rut } <br />
+                                { correo } <br />
+                                { telefono }
                             </p>
                         </div>
                     </div>
@@ -107,8 +108,8 @@ export const UserAccount = () => {
                     <p className="paragraph-5">MIS VEHÍCULOS</p>
                     <div className="div-block-38">
                     {
-                        body.vehiculos &&
-                        body.vehiculos.map(vehiculo => {
+                        vehiculos &&
+                        vehiculos.map(vehiculo => {
 
                           return (  
                           

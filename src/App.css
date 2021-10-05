@@ -670,10 +670,10 @@
   text-align: center;
 }
 .form-block {
-  width: auto;
+  width: 500px;
   margin-top: 30px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: auto;
+  margin-left: auto;
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   -ms-grid-row-align: stretch;
@@ -719,6 +719,10 @@
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+}
+.text-field:focus {
+  border-color: #3898EC;
+  outline: 0;
 }
 .footer {
   display: -webkit-box;
@@ -1102,6 +1106,10 @@
 }
 .cupon-link-wrapper {
   text-decoration: none;
+  transition: all .3s linear;
+}
+.cupon-link-wrapper:hover {
+  transform: translateY(-15px);
 }
 .descripcion-servicio-2 {
   margin-top: 0px;
@@ -2157,7 +2165,7 @@
   .nav-menu {
     /* display: none; */
     position: absolute;
-    top: -180px;
+    /* top: -180px; */
     left: -30px;
     background: #fff;
     width: 100vw;
@@ -2167,7 +2175,16 @@
     justify-content: center;
     text-align: center;
     grid-row-gap: 10px;
+    transition: all 0.3s linear;
   }
+  .close_icon {
+    opacity: 0;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    z-index: 10;
+  }  
+  
 }
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .banner {
@@ -2285,7 +2302,9 @@
     cursor: pointer;
     border: none;
   }
-
+  .close_icon {
+    display: none;
+  }
   /* HomeScreen */
 
   .home-screen {

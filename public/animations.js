@@ -19,11 +19,6 @@ $(document).ready(function(){
                
                scrollState = 'top';
            }           
-       })
-
-
-       $('.icon-nav-menu').on('click', function(){
-           $('.nav-menu').css('top', '-60px');
-       });
-    
+       })       
+            
 });
