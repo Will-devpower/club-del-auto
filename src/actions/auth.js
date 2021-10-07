@@ -17,7 +17,6 @@ export const startLogin = ( rut, password, history ) => {
         });
         const data = { "identifier": rut, "password": password };       
 
-        //const resp = await fetchSinToken( 'auth/local', data, 'POST' );
         const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );
         
 
@@ -31,7 +30,6 @@ export const startLogin = ( rut, password, history ) => {
                 const body = await resp2.json();
                 
 
-                //localStorage.setItem('token', body.jwt );
                 localStorage.setItem('usuario', JSON.stringify( body )  );
                 localStorage.setItem('token-init-date', new Date().getTime() );
 

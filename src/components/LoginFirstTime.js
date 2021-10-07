@@ -19,7 +19,7 @@ export const LoginFirstTime = () => {
         lPassword: ''
     });    
     
-    const { lRut, lPassword } = formLoginValues;
+    const { lRut, lPassword, lPasswordConfim  } = formLoginValues;
 
     const handleLogin = ( e ) => {
         e.preventDefault();        
@@ -57,6 +57,17 @@ export const LoginFirstTime = () => {
                                     placeholder="Registra tu Contraseña"
                                     name="lPassword"
                                     value={ lPassword }
+                                    onChange={ handleLoginInputChange }
+                                    autoComplete='false'
+                                    required
+                                />
+
+                                <input
+                                    type="password"
+                                    className="form-control text-field-2"
+                                    placeholder="Repite tu Contraseña"
+                                    name="lPassword"
+                                    value={ lPasswordConfim }
                                     onChange={ handleLoginInputChange }
                                     autoComplete='false'
                                     required
