@@ -68,6 +68,7 @@ export const CuponScreen = () => {
             <div className="divisor-desktop"></div>
             <div className="div-block-26-copy">
                 <p className="descripcion_2">Direcciones</p>
+
                 <div className="div-block-29">
                     <img src="https://uploads-ssl.webflow.com/60da07a904f25339b115d11e/60f4c569fb792d607478e0a9_Location.png" alt="icono-gps" className="image-23" />
                     <p className="texto-ubicacion">Santa María 3322<br />vitacura<br />REGIÓN METROPOLITANA</p>
@@ -80,6 +81,7 @@ export const CuponScreen = () => {
                     <img src="https://uploads-ssl.webflow.com/60da07a904f25339b115d11e/60f4c569fb792d607478e0a9_Location.png" alt="icono-gps" className="image-23" />
                     <p className="texto-ubicacion" onClick={ handleMapLocation }>Santa María 3322<br />vitacura<br />REGIÓN METROPOLITANA</p>
                 </div>
+                
             </div>
             <div className="mapa">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d212999.19736400706!2d-70.76991586607882!3d-33.47242276274744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c5410425af2f%3A0x8475d53c400f0931!2sSantiago%2C%20Santiago%20Metropolitan%20Region%2C%20Chile!5e0!3m2!1sen!2sve!4v1630072070108!5m2!1sen!2sve" title="myMap" id="myMap" width="996" height="400" allowFullScreen="" loading="lazy"></iframe>
