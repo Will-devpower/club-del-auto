@@ -14,6 +14,8 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { LoginScreen } from "./LoginScreen"
 import { triggerLoginPopup } from "../helpers/triggerLogin"
+import { FormRobAcc } from "./FormRobAcc"
+import { triggerFormPopup } from "../helpers/triggerFormulario"
 
 
 
@@ -28,7 +30,7 @@ export const HomeScreen = () => {
         <div className="home-screen">
             <div className="popup-container">
                 <LoginScreen />
-            </div>
+            </div>            
             <Header />
             <div className="container">
                 <div className="banner">
@@ -67,7 +69,7 @@ export const HomeScreen = () => {
                         {
                              ( uid !== undefined ) 
                              ?
-                            <a href="/form-robo" className="w-button">Llena el formulario</a>
+                             <a href="/form-robo" className="w-button">Llena el formulario</a>
                             :
                             <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                         }

@@ -70,7 +70,7 @@ export const UserAccount = () => {
                 </div>
                 <div className="div-block-35">
                     <div className="div-block-45">
-                        {/* <div className="div-block-36"></div> */}
+                        <div className="div-block-36"></div>
                         <div className="div-block-46">
                             <h1 className="heading-8">{ nombre }</h1>
                             <p className="datos-usuario">
