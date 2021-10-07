@@ -1,5 +1,5 @@
 //const baseUrl = process.env.REACT_APP_API_URL;
-const baseUrl = "https://d940-186-104-223-5.ngrok.io"
+const baseUrl = "http://localhost:1337"
 
 const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
     const url = `${baseUrl}/${endpoint}`;

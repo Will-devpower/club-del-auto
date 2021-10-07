@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link, useParams } from "react-router-dom"
+import {  useParams } from "react-router-dom"
 import { Footer } from "../layout/Footer"
 import { Header } from "../layout/Header"
 import { CuponesDestacados } from "./CuponesDestacados"
@@ -26,7 +26,7 @@ export const CuponScreen = () => {
     useEffect(() => {
         dispatch(getCouponById( id ));
     }, [dispatch, id]);
-
+    console.log( typeof(body.rut) , typeof(coupon.id))
     const getCoupon = ( e ) => {
         e.preventDefault();
         if(body !== undefined){
@@ -63,10 +63,7 @@ export const CuponScreen = () => {
                     </div>
                     {
                         body !== undefined &&
-                        <Link to={`/cupones/obtener/${ body.rut }/${ coupon.id }`} 
-                            className="boton-comprar-servicio" onClick={ getCoupon }>
-                                Obtener cupón
-                        </Link>
+                        <span className="boton-comprar-servicio" onClick={ getCoupon }>Obtener cupón</span>
                     }
                 </div>
             </div>
