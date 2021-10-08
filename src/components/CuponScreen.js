@@ -26,7 +26,7 @@ export const CuponScreen = () => {
     useEffect(() => {
         dispatch(getCouponById( id ));
     }, [dispatch, id]);
-    console.log( typeof(uid) , typeof(coupon.id))
+    
     const getCoupon = ( e ) => {
         e.preventDefault();
         if(uid !== undefined){
