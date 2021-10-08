@@ -34,7 +34,7 @@ export const Header = () => {
                 </Link>
                 <nav className="nav-menu" style={{ top: top }}>                 
                     <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/" className="nav-link">Contáctanos</Link>
+                    <Link to="/contacto" className="nav-link">Contáctanos</Link>
                     {
                         ( uid !== undefined ) 
                         ? <Link to="/client-account" className="log-in">Mi cuenta</Link>

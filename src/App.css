@@ -864,7 +864,30 @@
   font-family: Silka, sans-serif;
   color: #16205b;
 }
+.text-field-3 {
+  height: 100px;
+  width: calc(100% - 20px);
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding-left: 20px;  
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
+  align-self: auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(0, 0%, 98%, 0.36);
+  border-radius: 8px;
+  background-color: hsla(0, 0%, 100%, 0.15);
+  font-family: Silka, sans-serif;
+  color: #16205b;
+}
 .text-field-2:focus {
+  outline: none;
+  border-color: #fafafa;
+  background-color: hsla(0, 0%, 100%, 0.45);
+}
+.text-field-3:focus {
   outline: none;
   border-color: #fafafa;
   background-color: hsla(0, 0%, 100%, 0.45);
