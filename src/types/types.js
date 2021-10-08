@@ -1,13 +1,9 @@
 
 export const types = {     
-    cuponLogout: '[cupon] Logout record',
-
-    setActiveCupon: '[cupon] Set Active',
+    cuponLogout: '[cupon] Logout record',   
 
     cuponLoaded: '[cupon] Cupons loaded',
-    clearActiveCupon: '[cupon] Clear active cupon',
-
-    
+       
     authStartLogin: '[auth] Start login',
     authLogin: '[auth] Login',    
     authLogout: '[auth] Logout',

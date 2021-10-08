@@ -15,32 +15,32 @@ export const startLogin = ( rut, password, history ) => {
             backgroundColor: 'rgba(255,255,255,.6)',
             fontSize: 14
         });
-        const data = { "identifier": rut, "password": password };       
+        const data = { "identifier": rut, "password": password };         
+        const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );        
 
-        //const resp = await fetchSinToken( 'auth/local', data, 'POST' );
-        const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );
-        
-
-        if( resp.status === 200 ) {            
+        if( resp.status === 200 ) {        
             
             const resp2 = await fetchSinToken( 'direcciones/getUser/'+rut, data, 'POST' );
-            
 
             if( resp2.status === 200 ) {
-                
-                const body = await resp2.json();
-                
 
+                const body = await resp2.json();
+                const { rut, nombre, telefono, correo, vehiculos} = body;
                 //localStorage.setItem('token', body.jwt );
-                localStorage.setItem('usuario', JSON.stringify( body )  );
+                localStorage.setItem('rut', JSON.stringify( rut )  );
+                localStorage.setItem('nombre', JSON.stringify( nombre )  );
+                localStorage.setItem('telefono', JSON.stringify( telefono )  );
+                localStorage.setItem('correo', JSON.stringify( correo )  );
+                localStorage.setItem('vehiculos', JSON.stringify( vehiculos )  );
                 localStorage.setItem('token-init-date', new Date().getTime() );
 
                 dispatch( login({
-                    uid: body.rut,
-                    name: body.nombre,
-                    body: body
-                }) )
-                
+                    uid: rut,
+                    name: nombre,
+                    email: correo,
+                    telefono: telefono,
+                    vehiculos: vehiculos
+                }) )                
                 
                 history.push('/');
                 document.querySelector('.popup-container').style.display = 'none';
@@ -59,8 +59,6 @@ export const startLogin = ( rut, password, history ) => {
         } else {            
             Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
         }
-        
-
     }
 }
 
@@ -84,14 +82,22 @@ export const loginFirst = ( rut, password, history ) => {
             
             const body = await resp.json();
             
-            localStorage.setItem('usuario', JSON.stringify( body )  );
-                localStorage.setItem('token-init-date', new Date().getTime() );
+            const { rut, nombre, telefono, correo, vehiculos} = body;
+            //localStorage.setItem('token', body.jwt );
+            localStorage.setItem('rut', JSON.stringify( rut )  );
+            localStorage.setItem('nombre', JSON.stringify( nombre )  );
+            localStorage.setItem('telefono', JSON.stringify( telefono )  );
+            localStorage.setItem('correo', JSON.stringify( correo )  );
+            localStorage.setItem('vehiculos', JSON.stringify( vehiculos )  );
+            localStorage.setItem('token-init-date', new Date().getTime() );
 
-                dispatch( login({
-                    uid: body.rut,
-                    name: body.nombre,
-                    body: body
-                }) )
+            dispatch( login({
+                uid: rut,
+                name: nombre,
+                email: correo,
+                telefono: telefono,
+                vehiculos: vehiculos
+            }) )      
                                 
                 history.push('/');
                 document.querySelector('.popup-container').style.display = 'none';
@@ -121,15 +127,21 @@ export const startChecking = () => {
     return (dispatch) => {
         
         // const token = localStorage.getItem('token');
-        const usuario = localStorage.getItem('usuario');       
+        const rutUsuario = localStorage.getItem('rut');       
+        const nombreUsuario = localStorage.getItem('nombre');       
+        const telefonoUsuario = localStorage.getItem('telefono');       
+        const correoUsuario = localStorage.getItem('correo');       
+        const vehiculosUsuario = localStorage.getItem('vehiculos');       
         
-        if(usuario) {
+        if(rutUsuario) {
 
-          const { rut: uid, name } = JSON.parse(usuario);
+          
           return  dispatch( login({
-                uid,
-                name,
-                body: usuario
+                uid: rutUsuario,
+                name: nombreUsuario,
+                email: correoUsuario,
+                telefono: telefonoUsuario,
+                vehiculos: JSON.parse(vehiculosUsuario)
             }) )
         } 
             

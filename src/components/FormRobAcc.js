@@ -1,20 +1,28 @@
-import { Footer } from '../layout/Footer'
-import wPerson from '../assets/w-person.png'
 
-import { Header } from "../layout/Header";
-import { LoginScreen } from "./LoginScreen";
 
 export const FormRobAcc = () => {
+
+    const showVal = () => {
+        // const files = document.getElementById('file-1633620399449').files;
+        // const filesArr = Object.entries(files);
+        // const fileNames = filesArr.map(file => {
+        //     return file.name
+        // })
+        // console.log(filesArr)
+    }
+
     return (        
         
         <div className="formulario">            
                 <div className="rendered-form">
                 <div className="">
-                    <h1 access="false" id="control-7045150" className="heading-7">En caso de choque</h1></div>
+                    <h1 access="false" id="control-7045150" className="heading-7">En caso de choque</h1>
+                </div>
                 <div className="">
-                    <h3 access="false" id="control-9604174" className="heading-11-copy _2">Tus datos</h3></div>
+                    <h3 access="false" id="control-9604174" className="heading-11-copy _2">Tus datos</h3>
+                </div>
                 <div className="formbuilder-select form-group field-select-1633555493920">
-                    <label htmlFor="select-1633555493920" className="formbuilder-select-label" className="paragraph-5-copy">Elige una Patente</label>
+                    <label htmlFor="select-1633555493920" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>
                     <select name="select-1633555493920" id="select-1633555493920" className="input-control">
                         <option value="option-1" id="select-1633555493920-0">First Choice</option>
                         <option value="option-2" id="select-1633555493920-1">Second Choice</option>
@@ -85,7 +93,7 @@ export const FormRobAcc = () => {
                     <input type="text" name="text-1633555891674" access="false" id="text-1633555891674" className="input-control input-field"/>
                 </div>
                 <div className="">
-                    <h3 access="false" id="control-8661643" className="heading-11-copy _2">Relato</h3></div>
+                    <h3 access="false" id="control-8661643" className="heading-11-copy _2" onClick={ showVal }>Relato</h3></div>
                 <div className="formbuilder-text form-group field-text-1633555935610">                    
                     <input type="text" placeholder="Lugar del accidente" name="text-1633555935610" access="false" id="text-1633555935610" className="input-control input-field"/>
                 </div>
@@ -100,6 +108,30 @@ export const FormRobAcc = () => {
                 </div>
                 <div className="formbuilder-text form-group field-text-1633556012193">                    
                     <input type="text" placeholder="Responsable del accidente" name="text-1633556012193" access="false" id="text-1633556012193" className="input-control input-field"/>
+                </div>
+                <div className="formbuilder-file form-group field-file-1633620103731">
+                    <label htmlFor="file-1633620103731" className="formbuilder-file-label">Licencia de conducir<span className="formbuilder-required">*</span></label>
+                    <input type="file" className="" name="file-1633620103731" access="true" multiple={false} id="file-1633620103731" required="required" aria-required="true" />
+                </div>
+                <div className="formbuilder-file form-group field-file-1633620399449">
+                    <label htmlFor="file-1633620399449" className="formbuilder-file-label">Documentos del vehículo<span className="formbuilder-required">*</span></label>
+                    <input type="file" className="" name="file-1633620399449[]" access="false" multiple={true} id="file-1633620399449" required="required" aria-required="true" />
+                </div>
+                <div className="formbuilder-file form-group field-file-1633620481262">
+                    <label htmlFor="file-1633620481262" className="formbuilder-file-label">Constancia policial (Si aplica)</label>
+                    <input type="file" className="" name="file-1633620481262" access="false" multiple={false} id="file-1633620481262" />
+                </div>
+                <div className="formbuilder-file form-group field-file-1633620544805">
+                    <label htmlFor="file-1633620544805" className="formbuilder-file-label">Fotos de daños<span className="formbuilder-required">*</span></label>
+                    <input type="file" className="" name="file-1633620544805[]" access="false" multiple={true} id="file-1633620544805" required="required" aria-required="true" />
+                </div>
+                <div className="formbuilder-file form-group field-file-1633620614020">
+                    <label htmlFor="file-1633620614020" className="formbuilder-file-label">Licencia de tercero<span className="formbuilder-required">*</span></label>
+                    <input type="file" className="" name="file-1633620614020" access="false" multiple={false} id="file-1633620614020" required="required" aria-required="true" />
+                </div>
+                <div className="formbuilder-file form-group field-file-1633620659751">
+                    <label htmlFor="file-1633620659751" className="formbuilder-file-label">Fotos de daños tercero<span className="formbuilder-required">*</span></label>
+                    <input type="file" className="" name="file-1633620659751[]" access="false" multiple={true} id="file-1633620659751" required="required" aria-required="true" />
                 </div>
                 <div className="formbuilder-button form-group field-button-1633556134513">
                     <button type="submit" className="pagar-seguro-auto-2 w-button" name="button-1633556134513" access="false"  id="button-1633556134513">Ingresar</button>

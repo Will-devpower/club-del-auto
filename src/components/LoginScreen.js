@@ -21,7 +21,7 @@ export const LoginScreen = () => {
     });    
     
     const { lRut, lEmail, lPatente, lPassword } = formLoginValues;
-    console.log(lEmail, lPatente)    
+        
 
     const handleLogin = ( e ) => {
         e.preventDefault();

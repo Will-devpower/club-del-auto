@@ -7,7 +7,7 @@ export const Suscripcion = () => {
         <div className="section-4">
             <img src={ purpleCircle } alt="purple-circle" className="image-17"/>
             <img src={ wPerson } alt="w-person" className="image-16"/>
-            <div className="formulario">
+            <div className="formulario home-form">
             <h1 className="heading-2 text-center">Mantente al tanto <br />de nuestras actualizaciones</h1>
                 <div className="form-block">
                     <form action="" className="form">
