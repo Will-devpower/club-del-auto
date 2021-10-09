@@ -17,7 +17,7 @@ import { useSelector } from "react-redux";
 
 export const UserAccount = () => {
 
-    const { uid } = useSelector(state => state.auth);
+    const { uid, nombre, rut, correo, telefono, vehiculos } = useSelector(state => state.auth);
     const url = `https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=${uid}&Fono=953153687&flujo=1`;
 
     const history = useHistory();
@@ -27,13 +27,8 @@ export const UserAccount = () => {
         e.preventDefault();
         dispatch( startLogout() );
         history.push('/');
-    }
-
-    const { body } = useSelector(state => state.auth);   
-
-    const userData = JSON.parse(body);
-    const { nombre, rut, correo, telefono, vehiculos } = userData;
-    console.log(vehiculos)
+    }    
+    // console.log(userData)
 
     return (
         <div className="user-account-screen">
@@ -47,7 +42,7 @@ export const UserAccount = () => {
                 <div className="div-block-31">
                     <div className="div-block-48">
                         <img src={ userIcon } alt="Usuario" className="image-28" />
-                        <Link to="/" className="button-4">Mi cuenta</Link >
+                        <span className="button-4">Mi cuenta</span>
                     </div>
                     <div className="div-block-48 _2">
                         <img src={ homeIcon } alt="Home" className="image-28" />

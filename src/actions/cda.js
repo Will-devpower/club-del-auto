@@ -2,14 +2,6 @@ import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
 
-export const setActiveCupon = (cupon) => ({
-    type: types.setActiveCupon,
-    payload: cupon
-});
-
-export const clearActiveCupon = () => ({ type: types.clearActiveCupon });
-
-
 export const cuponsStartLoading = () => {
     return async(dispatch) => {
 

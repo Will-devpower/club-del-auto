@@ -650,6 +650,9 @@
   font-weight: 500;
   text-decoration: none;
 }
+.home-form {
+  background-color: transparent !important;
+}
 .formulario {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2086,6 +2089,23 @@ input[type="radio"]:checked {
 .pagar-seguro-auto-2 {
   background-color: #3264ff !important;
   width: 100% !important;
+}
+.formbuilder-file {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.formbuilder-file-label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  font-size: 16px;
+  font-weight: 600;
+}
+input[type="file"] {
+  /* display: none; */
 }
 
 /* MEDIA QUERIES */

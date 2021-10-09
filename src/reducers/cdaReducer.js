@@ -30,41 +30,8 @@ export const cdaReducer = ( state = initialState, action ) => {
                 loading: false,
                 cupons: newCoupons
             }
-        }
-                
-        case types.recordAddNew:
-            return {
-                ...state,
-                cupons: [
-                    ...state.cupons,
-                    action.payload
-                ]
-            }
-    
-        case types.clearActiveCupon:
-            return {
-                ...state,
-                activeCupon: null
-            }
-
-
-        case types.cuponUpdated:
-            return {
-                ...state,
-                cupons: state.cupons.map(
-                    e => ( e.id === action.payload.id ) ? action.payload : e
-                )
-            }
+        }        
         
-        case types.cuponDeleted:
-            return {
-                ...state,
-                cupons: state.cupons.filter(
-                    e => ( e.id !== state.activeCupon.id )
-                ),
-                activeCupon: null
-            }
-
         case types.cuponLoaded:
             return {
                 ...state,

@@ -20,17 +20,17 @@ export const CuponScreen = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.cda);
     const coupon = useSelector(state => state.cda.cupons.find(coupon => coupon.id === parseInt(id)));
-    const { body } = useSelector(state => state.auth);
+    const { uid } = useSelector(state => state.auth);
     
     
     useEffect(() => {
         dispatch(getCouponById( id ));
     }, [dispatch, id]);
-    console.log( typeof(body.rut) , typeof(coupon.id))
+    
     const getCoupon = ( e ) => {
         e.preventDefault();
-        if(body !== undefined){
-            dispatch( buyCoupon( body.rut, coupon.id ) ); 
+        if(uid !== undefined){
+            dispatch( buyCoupon( uid, coupon.id ) ); 
         }
     }
 
@@ -62,7 +62,7 @@ export const CuponScreen = () => {
                         <p className="terminos-condiciones">Términos y condiciones</p>
                     </div>
                     {
-                        body !== undefined &&
+                        uid !== undefined &&
                         <span className="boton-comprar-servicio" onClick={ getCoupon }>Obtener cupón</span>
                     }
                 </div>

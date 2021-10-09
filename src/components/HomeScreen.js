@@ -14,8 +14,7 @@ import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { LoginScreen } from "./LoginScreen"
 import { triggerLoginPopup } from "../helpers/triggerLogin"
-import { FormRobAcc } from "./FormRobAcc"
-import { triggerFormPopup } from "../helpers/triggerFormulario"
+
 
 
 
@@ -24,7 +23,7 @@ export const HomeScreen = () => {
     const { uid } = useSelector(state => state.auth);
     const url = `https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=${uid}&Fono=953153687&flujo=1`;
     const size = window.innerWidth;
-    console.log(size)
+    // console.log(body)    
 
     return (
         <div className="home-screen">
