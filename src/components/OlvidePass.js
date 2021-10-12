@@ -1,28 +1,28 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
-import { loginFirst } from '../actions/auth';
+import { forgetPass } from '../actions/auth';
+import userIcon from '../assets/user-icon2.png';
 
 
 import { useHistory } from 'react-router-dom';
 
-export const LoginFirstTime = () => {
+export const OlvidePass = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();    
     
 
     const [ formLoginValues, handleLoginInputChange ] = useForm({
-        lRut: '',
-        lPassword: '',
-        lPasswordConfim: ''
+        lRut: ''
     });    
     
-    const { lRut, lPassword, lPasswordConfim  } = formLoginValues;
+    const { lRut } = formLoginValues;
+        
 
-    const handleLoginFirst = ( e ) => {
+    const handleForgetPass = ( e ) => {
         e.preventDefault();        
-        dispatch( loginFirst( lRut, lPassword, lPasswordConfim, history ) );        
+        dispatch( forgetPass( lRut, history ) );        
     }
 
     return (
@@ -33,12 +33,14 @@ export const LoginFirstTime = () => {
                     
                     <a href="/" className="link-2">Volver al home</a>
                     <br/><br/>
-                    <h1 className="heading-login">Bienvenido al club!</h1>
-                    <h3>Registra tus datos a continuación:</h3>
+                    <img src={ userIcon } alt="icono-usuario" className="image-31" />
+                    <center>
+                    <h4>Ingresa tu rut <br/> Enviaremos un link a la dirección asociada</h4>    
+                    </center>
                     
                     <div className="inner form-block-2">
-                        <form onSubmit={ handleLoginFirst }>
-                                               
+                        <form onSubmit={ handleForgetPass }>                            
+                            
                                 <input 
                                     type="text"
                                     className="form-control text-field-2"
@@ -50,40 +52,20 @@ export const LoginFirstTime = () => {
                                     required
                                 />
                             
-                                <input
-                                    type="password"
-                                    className="form-control text-field-2"
-                                    placeholder="Registra tu Contraseña"
-                                    name="lPassword"
-                                    value={ lPassword }
-                                    onChange={ handleLoginInputChange }
-                                    autoComplete='false'
-                                    required
-                                />
-
-                                <input
-                                    type="password"
-                                    className="form-control text-field-2"
-                                    placeholder="Repite tu Contraseña"
-                                    name="lPasswordConfim"
-                                    value={ lPasswordConfim }
-                                    onChange={ handleLoginInputChange }
-                                    autoComplete='false'
-                                    required
-                                />
                             
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 
                                     type="submit"
                                     className="btnSubmit"
-                                    value="Registrar" 
+                                    value="Enviar Link" 
                                 />
                             </div>
+
                             
                         </form>                    
                     </div>
                     <a href="/login" className="link-2">Volver al Login</a>
-                    <a href="/olvide-pass" className="link-2">¿Olvidaste tu contraseña?</a>
+                    <a href="/login-first" className="link-2">Ingreso por Primera Vez</a>
                 </div>               
             </div>
         </div>

@@ -3,7 +3,7 @@ import { Header } from "../layout/Header";
 import { LoginScreen } from "./LoginScreen";
 import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
-import { startLogin } from '../actions/auth';
+import { sendMail } from '../actions/auth';
 import userIcon from '../assets/user-icon2.png';
 import { useHistory } from 'react-router-dom';
 
@@ -24,7 +24,7 @@ export const Contacto = () => {
 
     const handleLogin = ( e ) => {
         e.preventDefault();        
-        dispatch( startLogin( lNombre, lEmail, lAsunto, lMensaje ) );        
+        dispatch( sendMail( lNombre, lEmail, lAsunto, lMensaje ) );       
     }
 
 
