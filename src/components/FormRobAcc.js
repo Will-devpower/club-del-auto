@@ -1,90 +1,352 @@
+import { useEffect, useRef, useState } from "react";
 
 
+const initialState = {
+    patenteSeleccionada: 'option-1',
+    rut: '',
+    nombre: '',
+    telefono: '',
+    correo: '',
+    rutTercero: '',
+    nombreTercero: '',
+    telefonoTercero: '',
+    correoTercero: '',    
+    patente: '',
+    marca: '',
+    modelo: '',
+    color: '',
+    tieneSeguro: false,
+    lugar: '',
+    fecha: '',
+    daños: '',
+    descripcion: '',
+    responsable: '',
+    licencia: [],
+    documentos: [],
+    constancia: [],
+    fotos: [],
+    licenciaTercero: [],
+    fotosTercero: []
+}
 export const FormRobAcc = () => {
 
-    const showVal = () => {
-        // const files = document.getElementById('file-1633620399449').files;
-        // const filesArr = Object.entries(files);
-        // const fileNames = filesArr.map(file => {
-        //     return file.name
-        // })
-        // console.log(filesArr)
+    const [files, setFiles] = useState([]);
+    const [pictures, setPictures] = useState([]);
+    const [picturesT, setPicturesT] = useState([]);
+    const [licenciaName, setLicenciaName] = useState('');
+    const [constanciaName, setConstanciaName] = useState('');
+    const [licenciaTName, setLicenciaTName] = useState('');
+    const filesInput = useRef(null);
+    const fotosInput = useRef(null);
+    const fotosTInput = useRef(null);    
+    const [ values, setValues ] = useState(initialState);
+
+    const {
+        patenteSeleccionada,    
+        rut,    
+        nombre, 
+        telefono,   
+        correo, 
+        rutTercero, 
+        nombreTercero,  
+        telefonoTercero,    
+        correoTercero,  
+        patente,    
+        marca,  
+        modelo, 
+        color,  
+        tieneSeguro,    
+        lugar,  
+        fecha,  
+        daños,  
+        descripcion,    
+        responsable      
+    } = values;
+
+    const handleInputChange = ({ target }) => {
+        setValues({
+            ...values,
+            [ target.name ]: target.type === 'file' ? target.files : target.value
+        });
+        if(target.type === 'file'){
+            const campo = document.querySelector(`#${target.id}`);
+            const file = campo.files;
+            if(target.name === 'licencia') {
+                setLicenciaName(file[0].name);
+            } else if (target.name === 'constancia') {
+                setConstanciaName(file[0].name)
+            } else if (target.name === 'licenciaT') {
+                setLicenciaTName(file[0].name)
+            }
+            
+        }                
     }
 
+    const handleDelete = ({target}) => {
+        const id = target.parentElement.id;
+        if( id === 'licenciaName') { 
+            setLicenciaName('');           
+            document.querySelector('#licencia').value = '';
+        } else if(id === 'constanciaName') {
+            setConstanciaName('');           
+            document.querySelector('#constancia').value = '';
+        } else if(id === 'licenciaTName') {
+            setLicenciaTName('');           
+            document.querySelector('#licenciaT').value = '';
+        }
+    }
+    const removeFile = ({target}) => {
+        const id = target.parentElement.id;        
+        const index = files.indexOf(id);
+        const newState = [...files];
+        if(index > -1 ) { newState.splice(index, 1) };  
+        setFiles(newState);
+         
+        if(newState.length === 0) {
+            filesInput.current.value = '';
+        }            
+    }
+    const removeFoto = ({target}) => {
+        const id = target.parentElement.id;        
+        const index = pictures.indexOf(id);
+        const newState = [...pictures];
+        if(index > -1 ) { newState.splice(index, 1) };  
+        setPictures(newState);
+         
+        if(newState.length === 0) {
+            fotosInput.current.value = '';
+        }            
+    }
+    const removeFotoT = ({target}) => {
+        const id = target.parentElement.id;        
+        const index = picturesT.indexOf(id);
+        const newState = [...picturesT];
+        if(index > -1 ) { newState.splice(index, 1) };  
+        setPicturesT(newState);
+         
+        if(newState.length === 0) {
+            fotosTInput.current.value = '';
+        }            
+    }
+
+    const handleSubmit = () => {        
+        setValues({
+            ...values,
+            documentos: filesInput.current.files,
+            fotos: fotosInput.current.files,
+            fotosTercero: fotosTInput.current.files
+        });                
+    }    
+    useEffect(() => {        
+        
+        filesInput.current.addEventListener('change', function() {
+            const files = filesInput.current.files;                        
+            const filesArr = Object.values(files);
+            const fileNames = filesArr.map(({ name }) =>  name );            
+            setFiles(fileNames)                      
+        }); 
+        
+        fotosInput.current.addEventListener('change', function() {
+            const fotos = fotosInput.current.files;                        
+            const fotosArr = Object.values(fotos);
+            const fotosNames = fotosArr.map(({ name }) =>  name );            
+            setPictures(fotosNames)                      
+        });
+
+        fotosTInput.current.addEventListener('change', function() {
+            const fotos = fotosTInput.current.files;                        
+            const fotosArr = Object.values(fotos);
+            const fotosNames = fotosArr.map(({ name }) =>  name );            
+            setPicturesT(fotosNames)                      
+        });
+    }, [])
     return (        
         
         <div className="formulario">            
-                <div className="rendered-form">
-                <div className="">
-                    <h1 access="false" id="control-7045150" className="heading-7">En caso de choque</h1>
+            <div className="rendered-form">
+                <div>
+                    <h1 className="heading-7">En caso de choque</h1>
                 </div>
-                <div className="">
-                    <h3 access="false" id="control-9604174" className="heading-11-copy _2">Tus datos</h3>
+                <div>
+                    <h3 className="heading-11-copy _2">Tus datos</h3>
                 </div>
                 <div className="formbuilder-select form-group field-select-1633555493920">
-                    <label htmlFor="select-1633555493920" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>
-                    <select name="select-1633555493920" id="select-1633555493920" className="input-control">
-                        <option value="option-1" id="select-1633555493920-0">First Choice</option>
-                        <option value="option-2" id="select-1633555493920-1">Second Choice</option>
-                        <option value="option-3" id="select-1633555493920-2">Third Choice</option>
+                    <label htmlFor="patenteSeleccionada" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>
+                    <select 
+                        name="patenteSeleccionada" 
+                        id="patenteSeleccionada" 
+                        className="input-control"
+                        onChange={handleInputChange}
+                    >
+                        <option value="option-1" id="patenteSeleccionada-0">First Choice</option>
+                        <option value="option-2" id="patenteSeleccionada-1">Second Choice</option>
+                        <option value="option-3" id="patenteSeleccionada-2">Third Choice</option>
                     </select>
                 </div>
-                <h3 access="false" id="control-5895296" className="paragraph-5-copy">Identificación del conductor</h3>
+                
+                {/* DATOS DEL CONDUCTOR */}
+
+                <h3 className="paragraph-5-copy">Identificación del conductor</h3>
                 <div className="formbuilder-text form-group field-text-1633555565890">                    
-                    <input type="text" placeholder="RUT" name="text-1633555565890" access="false" id="text-1633555565890" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="RUT" 
+                        name="rut" 
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={rut}                        
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555588245">                    
-                    <input type="text" placeholder="Nombre y Apellido" name="text-1633555588245" access="false" id="text-1633555588245" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Nombre y Apellido" 
+                        name="nombre"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={nombre}                        
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555617208">                    
-                    <input type="text" placeholder="Teléfono" name="text-1633555617208" access="false" id="text-1633555617208" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Teléfono" 
+                        name="telefono" 
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={telefono}                        
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555630840">                    
-                    <input type="text" placeholder="Correo" name="text-1633555630840" access="false" id="text-1633555630840" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Correo" 
+                        name="correo"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={correo}
+                    />
                 </div>
+
+                {/* DATOS DEL TERCERO */}
+
+                <div>
+                    <h3 className="heading-11-copy _2">Datos del tercero</h3></div>
                 <div className="">
-                    <h3 access="false" id="control-260688" className="heading-11-copy _2">Datos del tercero</h3></div>
-                <div className="">
-                    <h3 access="false" id="control-5895296" className="paragraph-5-copy">Identificación del conductor</h3></div>
+                    <h3 className="paragraph-5-copy">Identificación del conductor</h3></div>
                 <div className="formbuilder-text form-group field-text-1633555693388">                    
-                    <input type="text" placeholder="RUT" name="text-1633555693388" access="false" id="text-1633555693388" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="RUT" 
+                        name="rutTercero"                        
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={rutTercero}
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555698792">                    
-                    <input type="text" placeholder="Nombre y Apellido" name="text-1633555698792" access="false" id="text-1633555698792" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Nombre y Apellido" 
+                        name="nombreTercero"                        
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={nombreTercero}
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555704561">                    
-                    <input type="text" placeholder="Teléfono" name="text-1633555704561" access="false" id="text-1633555704561" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Teléfono" 
+                        name="telefonoTercero"                        
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={telefonoTercero}
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555709848">                    
-                    <input type="text" placeholder="Correo" name="text-1633555709848" access="false" id="text-1633555709848" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Correo" 
+                        name="correoTercero" 
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={correoTercero}
+                    />
                 </div>
-                <div className="">
-                    <h3 access="false" id="control-9696471" className="paragraph-5-copy">Identificación del vehículo</h3></div>
+
+                {/* DATOS DEL VEHICULO */}
+
+                <div>
+                    <h3 className="paragraph-5-copy">Identificación del vehículo</h3></div>
                 <div className="formbuilder-text form-group field-text-1633555748762">                    
-                    <input type="text" placeholder="Patente" name="text-1633555748762" access="false" id="text-1633555748762" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Patente" 
+                        name="patente"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={patente}
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555760881">                    
-                    <input type="text" placeholder="Marca" name="text-1633555760881" access="false" id="text-1633555760881" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Marca" 
+                        name="marca"                    
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={marca}
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555769369">                    
-                    <input type="text" placeholder="Modelo" name="text-1633555769369" access="false" id="text-1633555769369" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Modelo" 
+                        name="modelo"                          
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={modelo}
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555777138">                    
-                    <input type="text" placeholder="Color" name="text-1633555777138" access="false" id="text-1633555777138" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Color" 
+                        name="color"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={color}
+                    />
                 </div>
-                <div className="">
-                    <p access="false" id="control-5162973" className="paragraph-4-copy">¿Cuenta con seguro?</p></div>
-                <div className="formbuilder-radio-group form-group field-radio-group-1633555815585">
-                    <label htmlFor="radio-group-1633555815585" style={{ marginBottom: '10px'}}className="formbuilder-radio-group-label"></label>
+                <div>
+                    <p className="paragraph-4-copy">¿Cuenta con seguro?</p>
+                </div>
+                <div className="formbuilder-radio-group form-group field-tieneSeguro">
+                    <label htmlFor="tieneSeguro" style={{ marginBottom: '10px'}}className="formbuilder-radio-group-label"></label>
                     <div className="radio-group">
                         <div className="formbuilder-radio-inline">
-                            <label htmlFor="radio-group-1633555815585-0" className="paragraph-4-copy">Si</label>
-                            <input name="radio-group-1633555815585" access="false" id="radio-group-1633555815585-0" value="option-1" type="radio"/>
+                            <label htmlFor="tieneSeguro-0" className="paragraph-4-copy">Si</label>
+                            <input 
+                                name="tieneSeguro" 
+                                access="false" 
+                                id="tieneSeguro-0" 
+                                value="option-1" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
                             <span className="radio-replacer"></span>                           
                         </div>
                         <div className="formbuilder-radio-inline">
-                            <label htmlFor="radio-group-1633555815585-1" className="paragraph-4-copy">No</label>
-                            <input name="radio-group-1633555815585" access="false" id="radio-group-1633555815585-1" value="option-2" type="radio"/>
+                            <label htmlFor="tieneSeguro-1" className="paragraph-4-copy">No</label>
+                            <input 
+                                name="tieneSeguro" 
+                                access="false" 
+                                id="tieneSeguro-1" 
+                                value="option-2" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
                             <span className="radio-replacer"></span>                            
                         </div>
                     </div>
@@ -92,52 +354,183 @@ export const FormRobAcc = () => {
                 <div className="formbuilder-text form-group field-text-1633555891674">                    
                     <input type="text" name="text-1633555891674" access="false" id="text-1633555891674" className="input-control input-field"/>
                 </div>
-                <div className="">
-                    <h3 access="false" id="control-8661643" className="heading-11-copy _2" onClick={ showVal }>Relato</h3></div>
+
+                {/* DATOS DEL ACCIDENTE */}
+
+                <div>
+                    <h3 className="heading-11-copy _2">Relato</h3></div>
                 <div className="formbuilder-text form-group field-text-1633555935610">                    
-                    <input type="text" placeholder="Lugar del accidente" name="text-1633555935610" access="false" id="text-1633555935610" className="input-control input-field"/>
+                    <input 
+                        type="text"                                                                      
+                        placeholder="Lugar del accidente" 
+                        name="lugar"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={lugar}       
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555957784">                    
-                    <input type="text" placeholder="Fecha y hora" name="text-1633555957784" access="false" id="text-1633555957784" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Fecha y hora" 
+                        name="fecha"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={fecha}       
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555968097">                    
-                    <input type="text" placeholder="Daños observados" name="text-1633555968097" access="false" id="text-1633555968097" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Daños observados" 
+                        name="daños"                        
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={daños}       
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633555984291">                    
-                    <input type="text" placeholder="Descripción de la situación" name="text-1633555984291" access="false" id="text-1633555984291" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Descripción de la situación" 
+                        name="descripcion"                         
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={descripcion}       
+                    />
                 </div>
                 <div className="formbuilder-text form-group field-text-1633556012193">                    
-                    <input type="text" placeholder="Responsable del accidente" name="text-1633556012193" access="false" id="text-1633556012193" className="input-control input-field"/>
+                    <input 
+                        type="text" 
+                        placeholder="Responsable del accidente" 
+                        name="responsable"                        
+                        className="input-control input-field"
+                        onChange={handleInputChange}
+                        value={responsable}       
+                    />
                 </div>
-                <div className="formbuilder-file form-group field-file-1633620103731">
-                    <label htmlFor="file-1633620103731" className="formbuilder-file-label">Licencia de conducir<span className="formbuilder-required">*</span></label>
-                    <input type="file" className="" name="file-1633620103731" access="true" multiple={false} id="file-1633620103731" required="required" aria-required="true" />
+
+                {/* DOCUMENTOS */}
+
+                <div className="formbuilder-file form-group field-licencia">
+                    <label htmlFor="licencia" className="formbuilder-file-label">Licencia de conducir<span className="formbuilder-required">*</span></label>
+                    <input 
+                        type="file"                         
+                        name="licencia" 
+                        access="true" 
+                        multiple={false} 
+                        id="licencia" 
+                        required="required" 
+                        aria-required="true"
+                        onChange={handleInputChange}                         
+                    />
+                </div>
+                <div className="filesUploaded">
+                    {
+                        (licenciaName !== '') &&
+                        <p className="fileTitle" id="licenciaName">
+                            {licenciaName}
+                            <i className="fas fa-trash" onClick={ handleDelete }></i>                        
+                        </p>
+                    }
                 </div>
                 <div className="formbuilder-file form-group field-file-1633620399449">
-                    <label htmlFor="file-1633620399449" className="formbuilder-file-label">Documentos del vehículo<span className="formbuilder-required">*</span></label>
-                    <input type="file" className="" name="file-1633620399449[]" access="false" multiple={true} id="file-1633620399449" required="required" aria-required="true" />
+                    <label htmlFor="fileUploader" className="formbuilder-file-label">Documentos del vehículo<span className="formbuilder-required">*</span></label>
+                    <input type="file" ref={filesInput} name="documentos" access="false" multiple={true} id="fileUploader" required="required" aria-required="true" />
+                </div>
+                <div className="filesUploaded">
+                    { files.map(file => {
+                        return (
+                            <p key={file} id={file} className="fileTitle">
+                                {file}
+                                <i className="fas fa-trash" onClick={ removeFile }></i>
+                            </p>
+                        )
+                    })}
                 </div>
                 <div className="formbuilder-file form-group field-file-1633620481262">
-                    <label htmlFor="file-1633620481262" className="formbuilder-file-label">Constancia policial (Si aplica)</label>
-                    <input type="file" className="" name="file-1633620481262" access="false" multiple={false} id="file-1633620481262" />
+                    <label htmlFor="constancia" className="formbuilder-file-label">Constancia policial (Si aplica)</label>
+                    <input 
+                        type="file" 
+                        name="constancia" 
+                        access="false" 
+                        multiple={false} 
+                        id="constancia"
+                        onChange={handleInputChange}                        
+                    />
+                </div>
+                <div className="filesUploaded">
+                    {
+                        (constanciaName !== '') &&
+                        <p className="fileTitle" id="constanciaName">
+                            {constanciaName}
+                            <i className="fas fa-trash" onClick={ handleDelete }></i>                        
+                        </p>
+                    }
                 </div>
                 <div className="formbuilder-file form-group field-file-1633620544805">
-                    <label htmlFor="file-1633620544805" className="formbuilder-file-label">Fotos de daños<span className="formbuilder-required">*</span></label>
-                    <input type="file" className="" name="file-1633620544805[]" access="false" multiple={true} id="file-1633620544805" required="required" aria-required="true" />
+                    <label htmlFor="fotosUploader" className="formbuilder-file-label">Fotos de daños<span className="formbuilder-required">*</span></label>
+                    <input type="file"ref={fotosInput} name="fotos" access="false" multiple={true} id="fotosUploader" required="required" aria-required="true" />
+                </div>
+                <div className="fotosUploaded">
+                    { pictures.map(pic => {
+                        return (
+                            <p key={pic} id={pic}className="fileTitle">
+                                {pic}
+                                <i className="fas fa-trash" onClick={ removeFoto }></i>
+                            </p>
+                        )
+                    })}
                 </div>
                 <div className="formbuilder-file form-group field-file-1633620614020">
-                    <label htmlFor="file-1633620614020" className="formbuilder-file-label">Licencia de tercero<span className="formbuilder-required">*</span></label>
-                    <input type="file" className="" name="file-1633620614020" access="false" multiple={false} id="file-1633620614020" required="required" aria-required="true" />
+                    <label htmlFor="licenciaT" className="formbuilder-file-label">Licencia de tercero<span className="formbuilder-required">*</span></label>
+                    <input 
+                        type="file" 
+                        name="licenciaT" 
+                        access="false" 
+                        multiple={false} 
+                        id="licenciaT" 
+                        required="required" 
+                        aria-required="true"
+                        onChange={handleInputChange}                         
+                    />
+                </div>
+                <div className="filesUploaded">
+                    {
+                        (licenciaTName !== '') &&
+                        <p className="fileTitle" id="licenciaTName">
+                            {licenciaTName}
+                            <i className="fas fa-trash" onClick={ handleDelete }></i>                        
+                        </p>
+                    }
                 </div>
                 <div className="formbuilder-file form-group field-file-1633620659751">
-                    <label htmlFor="file-1633620659751" className="formbuilder-file-label">Fotos de daños tercero<span className="formbuilder-required">*</span></label>
-                    <input type="file" className="" name="file-1633620659751[]" access="false" multiple={true} id="file-1633620659751" required="required" aria-required="true" />
+                    <label htmlFor="fotosTUploader" className="formbuilder-file-label">Fotos de daños tercero<span className="formbuilder-required">*</span></label>
+                    <input type="file" ref={fotosTInput} className="" name="fotosTercero" access="false" multiple={true} id="fotosTUploader" required="required" aria-required="true" />
+                </div>
+                <div className="fotosUploaded">
+                    { picturesT.map(pic => {
+                        return (
+                            <p key={pic} id={pic}className="fileTitle">
+                                {pic}
+                                <i className="fas fa-trash" onClick={ removeFotoT }></i>
+                            </p>
+                        )
+                    })}
                 </div>
                 <div className="formbuilder-button form-group field-button-1633556134513">
-                    <button type="submit" className="pagar-seguro-auto-2 w-button" name="button-1633556134513" access="false"  id="button-1633556134513">Ingresar</button>
+                    <button 
+                        type="submit" 
+                        className="pagar-seguro-auto-2 w-button" 
+                        name="button-1633556134513" access="false"  
+                        id="button-1633556134513"
+                        onClick={handleSubmit}
+                    >
+                        Enviar
+                    </button>
                 </div>
             </div>
-            </div>            
+        </div>            
         
     )
 }
