@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const initialState = {
@@ -41,8 +42,7 @@ export const FormRobAcc = () => {
     const fotosTInput = useRef(null);    
     const [ values, setValues ] = useState(initialState);
 
-    const {
-        patenteSeleccionada,    
+    const {            
         rut,    
         nombre, 
         telefono,   
@@ -54,8 +54,7 @@ export const FormRobAcc = () => {
         patente,    
         marca,  
         modelo, 
-        color,  
-        tieneSeguro,    
+        color,            
         lugar,  
         fecha,  
         daños,  
@@ -162,7 +161,8 @@ export const FormRobAcc = () => {
     }, [])
     return (        
         
-        <div className="formulario">            
+        <div className="formulario">
+            <Link to='/' className="goHome">Volver al inicio</Link>            
             <div className="rendered-form">
                 <div>
                     <h1 className="heading-7">En caso de choque</h1>
