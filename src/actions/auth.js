@@ -24,20 +24,20 @@ export const startLogin = ( rut, password, history ) => {
 
             if( resp2.status === 200 ) {
 
-                const body = await resp2.json();
+                const body = await resp2.json();                
                 const { rut, nombre, telefono, correo, vehiculos} = body;
                 //localStorage.setItem('token', body.jwt );
-                localStorage.setItem('rut', JSON.stringify( rut )  );
-                localStorage.setItem('nombre', JSON.stringify( nombre )  );
-                localStorage.setItem('telefono', JSON.stringify( telefono )  );
+                localStorage.setItem('rut', JSON.stringify( rut ));
+                localStorage.setItem('nombre', JSON.stringify( nombre ));
+                localStorage.setItem('telefono', JSON.stringify( telefono ));
                 localStorage.setItem('correo', JSON.stringify( correo )  );
-                localStorage.setItem('vehiculos', JSON.stringify( vehiculos )  );
-                localStorage.setItem('token-init-date', new Date().getTime() );
+                localStorage.setItem('vehiculos', JSON.stringify( vehiculos ));
+                localStorage.setItem('token-init-date', new Date().getTime());
 
                 dispatch( login({
                     uid: rut,
-                    name: nombre,
-                    email: correo,
+                    nombre: nombre,
+                    correo: correo,
                     telefono: telefono,
                     vehiculos: vehiculos
                 }) )                
@@ -84,17 +84,17 @@ export const loginFirst = ( rut, password, history ) => {
             
             const { rut, nombre, telefono, correo, vehiculos} = body;
             //localStorage.setItem('token', body.jwt );
-            localStorage.setItem('rut', JSON.stringify( rut )  );
-            localStorage.setItem('nombre', JSON.stringify( nombre )  );
-            localStorage.setItem('telefono', JSON.stringify( telefono )  );
-            localStorage.setItem('correo', JSON.stringify( correo )  );
-            localStorage.setItem('vehiculos', JSON.stringify( vehiculos )  );
-            localStorage.setItem('token-init-date', new Date().getTime() );
+            localStorage.setItem('rut', JSON.stringify( rut ));
+            localStorage.setItem('nombre', JSON.stringify( nombre ));
+            localStorage.setItem('telefono', JSON.stringify( telefono ));
+            localStorage.setItem('correo', JSON.stringify( correo ));
+            localStorage.setItem('vehiculos', JSON.stringify( vehiculos ));
+            localStorage.setItem('token-init-date', new Date().getTime());
 
             dispatch( login({
                 uid: rut,
-                name: nombre,
-                email: correo,
+                nombre: nombre,
+                correo: correo,
                 telefono: telefono,
                 vehiculos: vehiculos
             }) )      
@@ -138,8 +138,8 @@ export const startChecking = () => {
           
           return  dispatch( login({
                 uid: rutUsuario,
-                name: nombreUsuario,
-                email: correoUsuario,
+                nombre: nombreUsuario,
+                correo: correoUsuario,
                 telefono: telefonoUsuario,
                 vehiculos: JSON.parse(vehiculosUsuario)
             }) )

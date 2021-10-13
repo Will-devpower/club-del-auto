@@ -170,7 +170,7 @@ export const FormRobAcc = () => {
                 <div>
                     <h3 className="heading-11-copy _2">Tus datos</h3>
                 </div>
-                <div className="formbuilder-select form-group field-select-1633555493920">
+                <div className="formbuilder-select form-group select-div">
                     <label htmlFor="patenteSeleccionada" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>
                     <select 
                         name="patenteSeleccionada" 
@@ -187,7 +187,7 @@ export const FormRobAcc = () => {
                 {/* DATOS DEL CONDUCTOR */}
 
                 <h3 className="paragraph-5-copy">Identificación del conductor</h3>
-                <div className="formbuilder-text form-group field-text-1633555565890">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="RUT" 
@@ -197,7 +197,7 @@ export const FormRobAcc = () => {
                         value={rut}                        
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555588245">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Nombre y Apellido" 
@@ -207,7 +207,7 @@ export const FormRobAcc = () => {
                         value={nombre}                        
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555617208">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Teléfono" 
@@ -217,7 +217,7 @@ export const FormRobAcc = () => {
                         value={telefono}                        
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555630840">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Correo" 
@@ -234,7 +234,7 @@ export const FormRobAcc = () => {
                     <h3 className="heading-11-copy _2">Datos del tercero</h3></div>
                 <div className="">
                     <h3 className="paragraph-5-copy">Identificación del conductor</h3></div>
-                <div className="formbuilder-text form-group field-text-1633555693388">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="RUT" 
@@ -244,7 +244,7 @@ export const FormRobAcc = () => {
                         value={rutTercero}
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555698792">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Nombre y Apellido" 
@@ -254,7 +254,7 @@ export const FormRobAcc = () => {
                         value={nombreTercero}
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555704561">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Teléfono" 
@@ -264,7 +264,7 @@ export const FormRobAcc = () => {
                         value={telefonoTercero}
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555709848">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Correo" 
@@ -279,7 +279,7 @@ export const FormRobAcc = () => {
 
                 <div>
                     <h3 className="paragraph-5-copy">Identificación del vehículo</h3></div>
-                <div className="formbuilder-text form-group field-text-1633555748762">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Patente" 
@@ -289,7 +289,7 @@ export const FormRobAcc = () => {
                         value={patente}
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555760881">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Marca" 
@@ -299,7 +299,7 @@ export const FormRobAcc = () => {
                         value={marca}
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555769369">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Modelo" 
@@ -309,7 +309,7 @@ export const FormRobAcc = () => {
                         value={modelo}
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555777138">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Color" 
@@ -351,15 +351,20 @@ export const FormRobAcc = () => {
                         </div>
                     </div>
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555891674">                    
-                    <input type="text" name="text-1633555891674" access="false" id="text-1633555891674" className="input-control input-field"/>
+                <div className="formbuilder-text form-group">                    
+                    <input 
+                        type="text" 
+                        name=""                          
+                        id="" 
+                        className="input-control input-field"
+                    />
                 </div>
 
                 {/* DATOS DEL ACCIDENTE */}
 
                 <div>
                     <h3 className="heading-11-copy _2">Relato</h3></div>
-                <div className="formbuilder-text form-group field-text-1633555935610">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text"                                                                      
                         placeholder="Lugar del accidente" 
@@ -369,7 +374,7 @@ export const FormRobAcc = () => {
                         value={lugar}       
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555957784">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Fecha y hora" 
@@ -379,7 +384,7 @@ export const FormRobAcc = () => {
                         value={fecha}       
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555968097">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Daños observados" 
@@ -389,7 +394,7 @@ export const FormRobAcc = () => {
                         value={daños}       
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633555984291">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Descripción de la situación" 
@@ -399,7 +404,7 @@ export const FormRobAcc = () => {
                         value={descripcion}       
                     />
                 </div>
-                <div className="formbuilder-text form-group field-text-1633556012193">                    
+                <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Responsable del accidente" 
@@ -434,7 +439,7 @@ export const FormRobAcc = () => {
                         </p>
                     }
                 </div>
-                <div className="formbuilder-file form-group field-file-1633620399449">
+                <div className="formbuilder-file form-group">
                     <label htmlFor="fileUploader" className="formbuilder-file-label">Documentos del vehículo<span className="formbuilder-required">*</span></label>
                     <input type="file" ref={filesInput} name="documentos" access="false" multiple={true} id="fileUploader" required="required" aria-required="true" />
                 </div>
@@ -448,7 +453,7 @@ export const FormRobAcc = () => {
                         )
                     })}
                 </div>
-                <div className="formbuilder-file form-group field-file-1633620481262">
+                <div className="formbuilder-file form-group">
                     <label htmlFor="constancia" className="formbuilder-file-label">Constancia policial (Si aplica)</label>
                     <input 
                         type="file" 
@@ -468,7 +473,7 @@ export const FormRobAcc = () => {
                         </p>
                     }
                 </div>
-                <div className="formbuilder-file form-group field-file-1633620544805">
+                <div className="formbuilder-file form-group">
                     <label htmlFor="fotosUploader" className="formbuilder-file-label">Fotos de daños<span className="formbuilder-required">*</span></label>
                     <input type="file"ref={fotosInput} name="fotos" access="false" multiple={true} id="fotosUploader" required="required" aria-required="true" />
                 </div>
@@ -482,7 +487,7 @@ export const FormRobAcc = () => {
                         )
                     })}
                 </div>
-                <div className="formbuilder-file form-group field-file-1633620614020">
+                <div className="formbuilder-file form-group">
                     <label htmlFor="licenciaT" className="formbuilder-file-label">Licencia de tercero<span className="formbuilder-required">*</span></label>
                     <input 
                         type="file" 
@@ -504,7 +509,7 @@ export const FormRobAcc = () => {
                         </p>
                     }
                 </div>
-                <div className="formbuilder-file form-group field-file-1633620659751">
+                <div className="formbuilder-file form-group">
                     <label htmlFor="fotosTUploader" className="formbuilder-file-label">Fotos de daños tercero<span className="formbuilder-required">*</span></label>
                     <input type="file" ref={fotosTInput} className="" name="fotosTercero" access="false" multiple={true} id="fotosTUploader" required="required" aria-required="true" />
                 </div>
@@ -518,12 +523,11 @@ export const FormRobAcc = () => {
                         )
                     })}
                 </div>
-                <div className="formbuilder-button form-group field-button-1633556134513">
+                <div className="formbuilder-button form-group">
                     <button 
                         type="submit" 
                         className="pagar-seguro-auto-2 w-button" 
-                        name="button-1633556134513" access="false"  
-                        id="button-1633556134513"
+                        name="submit-button"                        
                         onClick={handleSubmit}
                     >
                         Enviar

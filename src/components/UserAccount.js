@@ -9,15 +9,15 @@ import homeIcon from '../assets/home-icon1.png';
 import cdaIcon from '../assets/cda-logo1.png';
 import editIcon from '../assets/edit-icon.png';
 import logoutIcon from '../assets/logout-icon.png';
-// import visaIcon  from '../assets/visa-icon.png';
-// import cardIcon  from '../assets/credit-card-icon.png';
+import visaIcon  from '../assets/visa-icon.png';
+import cardIcon  from '../assets/credit-card-icon.png';
 
 // import { mockData } from '../assets/mockData';
 import { useSelector } from "react-redux";
 
 export const UserAccount = () => {
 
-    const { uid, nombre, rut, correo, telefono, vehiculos } = useSelector(state => state.auth);
+    const { uid, nombre, correo, telefono, vehiculos } = useSelector(state => state.auth);
     const url = `https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=${uid}&Fono=953153687&flujo=1`;
 
     const history = useHistory();
@@ -69,7 +69,7 @@ export const UserAccount = () => {
                         <div className="div-block-46">
                             <h1 className="heading-8">{ nombre }</h1>
                             <p className="datos-usuario">
-                                { rut } <br />
+                                { uid } <br />
                                 { correo } <br />
                                 { telefono }
                             </p>
@@ -77,7 +77,7 @@ export const UserAccount = () => {
                     </div>
                     
                     
-                    {/* <div className="div-block-53">
+                    <div className="div-block-53">
                         <img src={ visaIcon } alt="visa-icon" className="image-30"/>
                         <img src={ cardIcon } alt="card-icon" className="image-30_1"/>
                         <div className="div-block-54">
@@ -93,7 +93,7 @@ export const UserAccount = () => {
                                 </div>
                             </div>
                         </div>
-                    </div> */}
+                    </div>
                     
 
                 </div>
@@ -103,11 +103,11 @@ export const UserAccount = () => {
                     <div className="div-block-38">
                     {
                         vehiculos &&
-                        vehiculos.map(vehiculo => {
+                        vehiculos.map((vehiculo, key) => {
 
                           return (  
                           
-                                <div key={ vehiculo.rutAsegurado } className="div-block-40">
+                                <div key={ key } className="div-block-40">
                                     <p className="paragraph-4">{ vehiculo.patente }</p>
                                     <div className="div-block-49"></div>
                                     <div className="info-de-auto">
@@ -126,11 +126,7 @@ export const UserAccount = () => {
                                         <div className="div-block-47">
                                             <p className="paragraph-3">Modelo</p>
                                             <p className="paragraph-6">{ vehiculo.modelo }</p>
-                                        </div>
-                                        {/* <div className="div-block-47">
-                                            <p className="paragraph-3">Año</p>
-                                            <p className="paragraph-6">{ vehiculo.anio }</p>
-                                        </div> */}
+                                        </div>                                        
                                     </div>
                                     <div className="div-block-50">
                                         <div className="info-de-auto-copy">
