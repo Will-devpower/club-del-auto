@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
+const baseUrl = "http://localhost:3000"
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {        
@@ -15,12 +16,15 @@ export const startLogin = ( rut, password, history ) => {
             backgroundColor: 'rgba(255,255,255,.6)',
             fontSize: 14
         });
-        const data = { "identifier": rut, "password": password };         
-        const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );        
+        const data = { "identifier": rut, "password": password };   
+
+        const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );     
+        console.log("Primer llamado a BD: "+resp.status)   
 
         if( resp.status === 200 ) {        
             
             const resp2 = await fetchSinToken( 'direcciones/getUser/'+rut, data, 'POST' );
+            console.log("Llamado a API: "+resp2.status)
 
             if( resp2.status === 200 ) {
 
@@ -52,17 +56,19 @@ export const startLogin = ( rut, password, history ) => {
                     text: body.nombre
                 })
 
-            } else {            
+            } else {   
+                notice.hideLoading();         
                 Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
             }
             notice.hideLoading();
-        } else {            
+        } else {  
+            notice.hideLoading();          
             Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
         }
     }
 }
 
-export const loginFirst = ( rut, password, history ) => {
+export const loginFirst = ( rut, password, lPasswordConfim, history ) => {
     return async( dispatch ) => {        
 
         notice.showLoading({
@@ -72,14 +78,77 @@ export const loginFirst = ( rut, password, history ) => {
             backgroundColor: 'rgba(255,255,255,.6)',
             fontSize: 14
         });
-        const data = { "identifier": rut, "password": password };       
 
-        //Validar que no se encuentre en la BD
+        if(password===lPasswordConfim){
 
-        const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );        
+            const data = { "identifier": rut, "password": password };       
+
+            const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );        
+
+            if( resp.status === 200 ) { 
+                
+                const body = await resp.json();
+                
+                const { rut, nombre, telefono, correo, vehiculos} = body;
+                //localStorage.setItem('token', body.jwt );
+                localStorage.setItem('rut', JSON.stringify( rut )  );
+                localStorage.setItem('nombre', JSON.stringify( nombre )  );
+                localStorage.setItem('telefono', JSON.stringify( telefono )  );
+                localStorage.setItem('correo', JSON.stringify( correo )  );
+                localStorage.setItem('vehiculos', JSON.stringify( vehiculos )  );
+                localStorage.setItem('token-init-date', new Date().getTime() );
+
+                dispatch( login({
+                    uid: rut,
+                    name: nombre,
+                    email: correo,
+                    telefono: telefono,
+                    vehiculos: vehiculos
+                }) )      
+                                    
+                    history.push('/');
+                    document.querySelector('.popup-container').style.display = 'none';
+                    document.querySelector('body').style.overflow = 'visible';
+                
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Registro Exitoso',
+                        text: 'De ahora en adelante podrás ingresar con tu contraseña'
+                    })    
+
+            } else {
+                notice.hideLoading();            
+                Swal.fire('Error', 'Ocurrió un error en el registro', 'error');
+            }
+            notice.hideLoading();
+
+        }
+        else{
+            Swal.fire('Error', 'Las Contraseñas deben coincidir', 'error');
+        }
+        
+
+    }
+}
+
+export const forgetPass = ( rut, history ) => {
+    return async( dispatch ) => {        
+
+        notice.showLoading({
+            type: 'dots',
+            title: 'Por favor espere',
+            color: '#333',
+            backgroundColor: 'rgba(255,255,255,.6)',
+            fontSize: 14
+        });
+
+        const data = { "identifier": rut};     
+
+        const resp = await fetchSinToken( 'app/forgot/'+rut, data, 'GET' );        
 
         if( resp.status === 200 ) { 
             
+<<<<<<< HEAD
             const body = await resp.json();
             
             const { rut, nombre, telefono, correo, vehiculos} = body;
@@ -103,14 +172,100 @@ export const loginFirst = ( rut, password, history ) => {
                 document.querySelector('.popup-container').style.display = 'none';
                 document.querySelector('body').style.overflow = 'visible';
             
+=======
+            Swal.fire({
+                icon: 'success',
+                title: 'Reset Pass',
+                text: 'Enviamos un link a tu correo'
+            })    
+
+        } else {     
+            notice.hideLoading();       
+            Swal.fire('Error', 'Ocurrió un error en el registro', 'error');
+        }
+        notice.hideLoading();
+
+    }
+}
+
+export const resetPass = ( id, token, pass, passConfirm, history ) => {
+    return async( dispatch ) => {        
+
+        notice.showLoading({
+            type: 'dots',
+            title: 'Por favor espere',
+            color: '#333',
+            backgroundColor: 'rgba(255,255,255,.6)',
+            fontSize: 14
+        });
+
+        if(pass!=passConfirm){
+            Swal.fire('Error', 'Las contraseñas deben coincidir', 'error');
+        }
+        else{
+
+            const data = { "idcliente": id, "token":token, "pass":pass};    
+            //console.log(data);   
+
+            const resp = await fetchSinToken( 'app/reset', data, 'POST' );    
+
+            if( resp.status === 200 ) {             
+                
+>>>>>>> origin/Jose-Dev
                 Swal.fire({
                     icon: 'success',
                     title: 'Registro Exitoso',
-                    text: 'De ahora en adelante podrás ingresar con tu contraseña'
+                    text: 'De ahora en adelante podrás ingresar con tu nueva contraseña'
                 })    
 
-        } else {            
-            Swal.fire('Error', 'Ocurrió un error en el registro', 'error');
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro Exitoso',
+                    text: 'De ahora en adelante podrás ingresar con tu nueva contraseña'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = baseUrl
+                    }
+                  })
+
+            } else {            
+                notice.hideLoading();
+                Swal.fire('Error', 'El link ya expiró', 'error');
+
+            }
+
+        }        
+        notice.hideLoading();
+
+    }
+}
+
+export const sendMail = ( nombre, email, asunto, mensaje, history ) => {
+    return async( dispatch ) => {        
+
+        notice.showLoading({
+            type: 'dots',
+            title: 'Por favor espere',
+            color: '#333',
+            backgroundColor: 'rgba(255,255,255,.6)',
+            fontSize: 14
+        });
+
+        const data = { "nombre": nombre, "email":email, "asunto":asunto, "mensaje":mensaje};       
+
+        const resp = await fetchSinToken( 'app/contacto/', data, 'POST' );        
+
+        if( resp.status === 200 ) { 
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Mensaje Enviado',
+                text: 'Te responderemos a la brevedad'
+            })    
+
+        } else {    
+            notice.hideLoading();        
+            Swal.fire('Error', 'Ocurrió un error al enviar el mensaje, por favor intenta más tarde', 'error');
         }
         notice.hideLoading();
 

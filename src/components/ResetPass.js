@@ -1,55 +1,45 @@
 import React from 'react';
+import { useParams } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
-import { loginFirst } from '../actions/auth';
+import { resetPass } from '../actions/auth';
 
 
 import { useHistory } from 'react-router-dom';
 
-export const LoginFirstTime = () => {
+export const ResetPass = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();    
     
+    const { token, id } = useParams();
+    
 
     const [ formLoginValues, handleLoginInputChange ] = useForm({
-        lRut: '',
-        lPassword: '',
-        lPasswordConfim: ''
+        lRut: ''
     });    
     
-    const { lRut, lPassword, lPasswordConfim  } = formLoginValues;
+    const { lRut, lPassword, lPasswordConfim } = formLoginValues;
+        
 
-    const handleLoginFirst = ( e ) => {
+    const handleResetPass = ( e ) => {
         e.preventDefault();        
-        dispatch( loginFirst( lRut, lPassword, lPasswordConfim, history ) );        
+        dispatch( resetPass( id, token, lPassword, lPasswordConfim, history ) );        
     }
 
     return (
+        
         <div className="outter login-container" style={{height:'100vh'}}>
-            <div className="middle">
-                
+           
+            <div className="middle">                
                 <div className="div-block-59">
                     
                     <a href="/" className="link-2">Volver al home</a>
                     <br/><br/>
-                    <h1 className="heading-login">Bienvenido al club!</h1>
-                    <h3>Registra tus datos a continuación:</h3>
-                    
+                    <h1 className="heading-login">Ingresa tu Nueva contraseña</h1>
                     <div className="inner form-block-2">
-                        <form onSubmit={ handleLoginFirst }>
-                                               
-                                <input 
-                                    type="text"
-                                    className="form-control text-field-2"
-                                    placeholder="RUT"
-                                    name="lRut"
-                                    value={ lRut }
-                                    onChange={ handleLoginInputChange }
-                                    autoComplete='true'
-                                    required
-                                />
-                            
+                        <form onSubmit={ handleResetPass }>                            
+
                                 <input
                                     type="password"
                                     className="form-control text-field-2"
@@ -72,20 +62,21 @@ export const LoginFirstTime = () => {
                                     required
                                 />
                             
+                            
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 
                                     type="submit"
                                     className="btnSubmit"
-                                    value="Registrar" 
+                                    value="Ingresar" 
                                 />
                             </div>
+
                             
                         </form>                    
                     </div>
-                    <a href="/login" className="link-2">Volver al Login</a>
-                    <a href="/olvide-pass" className="link-2">¿Olvidaste tu contraseña?</a>
                 </div>               
             </div>
         </div>
     )
 }
+

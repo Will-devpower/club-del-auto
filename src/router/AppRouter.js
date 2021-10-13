@@ -22,6 +22,9 @@ import { startChecking } from "../actions/auth";
 import { TimeOutModal } from "../components/TimeOutModal";
 import { PrivateRoute } from "./PrivateRoute";
 import { cuponsStartLoading } from "../actions/cda";
+import { Contacto } from "../components/Contacto";
+import { OlvidePass } from "../components/OlvidePass";
+import { ResetPass } from "../components/ResetPass";
   
   
   const AppRouter = () => {  
@@ -71,6 +74,15 @@ import { cuponsStartLoading } from "../actions/cda";
               </Route>
               <Route exact path="/login-first">
                 <LoginFirstTime />
+              </Route>
+              <Route exact path="/olvide-pass">
+                <OlvidePass />
+              </Route>
+              <Route path="/reset-pass/:token/:id">
+                <ResetPass />
+              </Route>
+              <Route exact path="/contacto">
+                <Contacto />
               </Route>
               
               <Redirect to="/" />             

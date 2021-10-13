@@ -70,6 +70,33 @@ export const buyCoupon = ( rut, cupon ) => {
     }
 }
 
+export const suscripcion = ( nombre, email ) => {
+    return async( dispatch ) => {
+        
+        Swal.showLoading();
+
+        const data = { "nombre": nombre, "email": email };       
+
+        const resp = await fetchSinToken( 'suscripciones', data, 'POST' );
+        console.log("consulta en BD: "+resp);
+        console.log("status de la respuesta: "+resp.status);
+
+        if( resp.status === 200 ) {
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Registro Exitoso',
+                text: 'Próximamente te enviaremos noticias!'
+              })
+            
+        } else {            
+            Swal.fire('Error', 'Ocurrió un error al registrar tu suscripción, Intenta de nuevo más tarde.', 'error');
+        }
+        
+
+    }
+}
+
 
 export const cuponLogout =() => ({ type: types.cuponLogout });
 
