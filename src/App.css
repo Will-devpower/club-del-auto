@@ -349,7 +349,7 @@
   align-items: center;
   border: none;
   border-radius: 15px;
-  background-color: #ff5a00;
+  background-color: #ffa000;
   /* box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
@@ -359,6 +359,9 @@
   color: white;
   text-decoration: none;
   cursor: pointer;
+}
+.w-button:hover {
+  background: #3264ff;
 }
 .heading-2 {
   padding: 0px;
@@ -402,6 +405,21 @@
   -ms-flex-align: start;
   align-items: flex-start;
   background-color: rgba(255, 160, 0, 0.8);
+}
+.benefit-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 20px;
+}
+.ben-title {
+  color: rgba(22, 32, 91, 0.8);
+  font-family: Silka, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+.benefit-item p {
+  text-align: left;
+  margin-bottom: 10px;
 }
 .div-block-17 {
   margin-right: 15%;
@@ -1678,6 +1696,7 @@
   font-size: 22px;
   line-height: 22px;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .datos-usuario {
   margin: 0px 15px 0px 0px;
@@ -1868,21 +1887,21 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  margin-right: 10px;
-  margin-bottom: 12px;
-  margin-left: 10px;
+  display: flex;  
+  margin-bottom: 12px;  
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .paragraph-3 {
-  margin: 0px 15px 0px 0px;
+  margin: 0;
   font-family: Silka, sans-serif;
   color: rgba(22, 32, 91, 0.5);
   line-height: 20px;
   font-weight: 400;
+  flex-basis: 50%;
+  font-size: 14px;
 }
 .paragraph-6 {
   margin-top: 0px;
@@ -1892,7 +1911,9 @@
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: right;
+  text-transform: capitalize;
 }
 .div-block-50 {
   margin-top: 10px;
@@ -1920,7 +1941,7 @@
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .pago-wrapper {
   margin-top: 20px;
@@ -2017,6 +2038,16 @@
   display: flex;
   justify-content: center;
   flex-direction: column
+}
+.cuotasPendientes {
+  margin: 10px 15px 0px 10px;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  line-height: 20px;
+  font-weight: 600;
+}
+.cuota-mes {
+  margin: 10px;
 }
 
 /* FORM STYLES */
@@ -2609,6 +2640,9 @@ input[type="file"] {
     padding-top: 100px;
   }
   .section-8 {
-    padding: 0 100px;
+    margin: 0 100px;
+  }
+  .heading-7 {
+    font-size: 38px;
   }
 }

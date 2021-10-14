@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-const baseUrl = "http://localhost:3000"
+const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {        
@@ -19,13 +19,11 @@ export const startLogin = ( rut, password, history ) => {
         const data = { "identifier": rut, "password": password };   
 
         const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );     
-        console.log("Primer llamado a BD: "+resp.status)   
+           
 
         if( resp.status === 200 ) {        
             
             const resp2 = await fetchSinToken( 'direcciones/getUser/'+rut, data, 'POST' );
-            console.log("Llamado a API: "+resp2.status)
-
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();                
@@ -148,7 +146,6 @@ export const forgetPass = ( rut, history ) => {
 
         if( resp.status === 200 ) { 
             
-<<<<<<< HEAD
             const body = await resp.json();
             
             const { rut, nombre, telefono, correo, vehiculos} = body;
@@ -172,7 +169,6 @@ export const forgetPass = ( rut, history ) => {
                 document.querySelector('.popup-container').style.display = 'none';
                 document.querySelector('body').style.overflow = 'visible';
             
-=======
             Swal.fire({
                 icon: 'success',
                 title: 'Reset Pass',
@@ -199,7 +195,7 @@ export const resetPass = ( id, token, pass, passConfirm, history ) => {
             fontSize: 14
         });
 
-        if(pass!=passConfirm){
+        if(pass !== passConfirm){
             Swal.fire('Error', 'Las contraseñas deben coincidir', 'error');
         }
         else{
@@ -211,7 +207,6 @@ export const resetPass = ( id, token, pass, passConfirm, history ) => {
 
             if( resp.status === 200 ) {             
                 
->>>>>>> origin/Jose-Dev
                 Swal.fire({
                     icon: 'success',
                     title: 'Registro Exitoso',
@@ -292,10 +287,10 @@ export const startChecking = () => {
 
           
           return  dispatch( login({
-                uid: rutUsuario,
-                nombre: nombreUsuario,
-                correo: correoUsuario,
-                telefono: telefonoUsuario,
+                uid: JSON.parse(rutUsuario),
+                nombre: JSON.parse(nombreUsuario),
+                correo: JSON.parse(correoUsuario),
+                telefono: JSON.parse(telefonoUsuario),
                 vehiculos: JSON.parse(vehiculosUsuario)
             }) )
         } 

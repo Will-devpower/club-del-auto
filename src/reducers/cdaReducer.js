@@ -2,7 +2,9 @@ import { types } from '../types/types';
 
 const initialState = {    
     cupons: [],
-    loading: true
+    cuponCliente: [],
+    loading: true,
+    cuponClienteLoaded: false
 };
 
 
@@ -15,6 +17,12 @@ export const cdaReducer = ( state = initialState, action ) => {
                 ...state,
                 loading: true
             }
+         
+        case types.GET_COUPON_CLIENTE:
+            return {
+                ...state,
+                loading: true
+            }    
 
         case types.GET_COUPON_SUCCESS: {
             const newCoupons = [...state.cupons];  
@@ -30,7 +38,16 @@ export const cdaReducer = ( state = initialState, action ) => {
                 loading: false,
                 cupons: newCoupons
             }
-        }        
+        }
+        
+        case types.GET_COUPON_CLIENTE_SUCCESS: {
+            return {
+                ...state,
+                loading: false,
+                cuponClienteLoaded: true,
+                cuponCliente: [ ...action.payload ]
+            }
+        } 
         
         case types.cuponLoaded:
             return {
