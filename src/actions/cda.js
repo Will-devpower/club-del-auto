@@ -7,8 +7,8 @@ export const cuponsStartLoading = () => {
 
         try {    
             
-            const resp = await fetchSinToken( 'cupones' );                
-            const body = await resp.json();           
+            const resp = await fetchSinToken( 'cupones' );          
+            const body = await resp.json();                     
             
             dispatch( cuponLoaded( body ) );
 
@@ -16,6 +16,25 @@ export const cuponsStartLoading = () => {
             console.log('Access Unauthorized')
         }
 
+    }
+}
+
+export const getCuponClientes = () => {
+    return async (dispatch) => {
+
+        try {        
+            dispatch(({ type: types.GET_COUPON_CLIENTE }));
+            const response = await fetchEnhance(`cuponclientes`);
+            const cuponCliente = await response.json();              
+            
+            dispatch(({ 
+                type: types.GET_COUPON_CLIENTE_SUCCESS,
+                payload: cuponCliente 
+            }));            
+    
+        } catch (error) {
+            console.log(error)
+        }
     }
 }
 
