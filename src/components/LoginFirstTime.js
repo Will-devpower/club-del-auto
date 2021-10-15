@@ -71,6 +71,8 @@ export const LoginFirstTime = () => {
                                     autoComplete='false'
                                     required
                                 />
+
+                            <center><h6>(La contraseña debe incluir de 6 a 20 caractéres, al menos un número, Maýusculas y minúsculas)</h6></center>
                             
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 

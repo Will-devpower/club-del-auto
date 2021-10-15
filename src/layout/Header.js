@@ -38,13 +38,7 @@ export const Header = () => {
                     {
                         ( uid !== undefined ) 
                         ? <Link to="/client-account" className="log-in">Mi cuenta</Link>
-                        : <button onClick={ triggerLoginPopup } 
-                                className="log-in" 
-                                value="Ingresar a mi cuenta"
-                        >
-                                Ingresar a mi cuenta
-                                    
-                        </button>
+                        : <Link to="/login" className="log-in">Ingresar a mi cuenta</Link>
                     }
                 </nav>
                 <div className="nav-button">

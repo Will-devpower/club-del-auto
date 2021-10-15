@@ -46,10 +46,10 @@ export const buyCoupon = ( rut, cupon ) => {
     return async( dispatch ) => {
         
         Swal.showLoading();
+        let rutNew = rut.replace(/"/g,'')
+        const data = { "identifier": rut, "cupon": cupon }; 
 
-        const data = { "identifier": rut, "cupon": cupon };       
-
-        const resp = await fetchSinToken( 'cupones/obtener/'+rut+'/'+cupon, data, 'GET' );
+        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
         console.log("consulta en BD: "+resp);
         console.log("status de la respuesta: "+resp.status);
 

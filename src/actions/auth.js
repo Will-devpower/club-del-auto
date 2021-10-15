@@ -57,12 +57,12 @@ export const startLogin = ( rut, password, history ) => {
                 })
 
             } else {   
-                notice.hideLoading();         
+                notice.hideLoading();                  
                 Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
             }
             notice.hideLoading();
         } else {  
-            notice.hideLoading();          
+            notice.hideLoading();  
             Swal.fire('Error', 'El Rut o la Contraseña son incorrectos', 'error');
         }
     }
@@ -79,7 +79,15 @@ export const loginFirst = ( rut, password, lPasswordConfim, history ) => {
             fontSize: 14
         });
 
-        if(password===lPasswordConfim){
+        if(password!==lPasswordConfim){
+            notice.hideLoading();
+            Swal.fire('Error', 'Las Contraseñas deben coincidir', 'error');
+        }
+        else if(!CheckPassword(password) ){
+            notice.hideLoading();
+            Swal.fire('Error', 'La contraseña debe incluir de 6 a 20 caractéres, al menos un número, Maýusculas y minúsculas', 'error');
+        }
+        else{
 
             const data = { "identifier": rut, "password": password };       
 
@@ -118,15 +126,10 @@ export const loginFirst = ( rut, password, lPasswordConfim, history ) => {
 
             } else {
                 notice.hideLoading();            
-                Swal.fire('Error', 'Ocurrió un error en el registro', 'error');
+                Swal.fire('Error', 'Ocurrió un error en el registro, por favor intenta más tarde', 'error');
             }
-            notice.hideLoading();
-
-        }
-        else{
-            Swal.fire('Error', 'Las Contraseñas deben coincidir', 'error');
-        }
-        
+            notice.hideLoading()
+        }  
 
     }
 }
@@ -175,7 +178,12 @@ export const resetPass = ( id, token, pass, passConfirm, history ) => {
         });
 
         if(pass!=passConfirm){
+            notice.hideLoading();
             Swal.fire('Error', 'Las contraseñas deben coincidir', 'error');
+        }
+        else if(!CheckPassword(pass) ){
+            notice.hideLoading();
+            Swal.fire('Error', 'La contraseña debe incluir de 6 a 20 caractéres, al menos un número, Maýusculas y minúsculas', 'error');
         }
         else{
 
@@ -205,7 +213,6 @@ export const resetPass = ( id, token, pass, passConfirm, history ) => {
             } else {            
                 notice.hideLoading();
                 Swal.fire('Error', 'El link ya expiró', 'error');
-
             }
 
         }        
@@ -291,3 +298,16 @@ export const startLogout = () => {
 }
 
 const logout = () => ({ type: types.authLogout })
+
+function CheckPassword(value) 
+{ 
+    var passw = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+    if(value.match(passw)) 
+    { 
+        return true;
+    }
+    else
+    { 
+        return false;
+    }
+}
