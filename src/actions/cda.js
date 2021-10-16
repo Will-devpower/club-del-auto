@@ -37,6 +37,40 @@ export const getCuponClientes = () => {
         }
     }
 }
+export const getTextosApp = () => {
+    return async(dispatch) => {
+        try {        
+            dispatch(({ type: types.GET_TEXTOS_APP }));
+            const response = await fetchEnhance(`app`);
+            const textos = await response.json();              
+           
+            dispatch(({ 
+                type: types.GET_TEXTOS_SUCCESS,
+                payload: textos 
+            }));            
+    
+        } catch (error) {
+            console.log(error)
+        }   
+    }
+}
+export const getBannersCupones = () => {
+    return async(dispatch) => {
+        try {        
+            dispatch(({ type: types.GET_BANNERS_CUPONES }));
+            const response = await fetchEnhance(`banners-cupones`);
+            const banners = await response.json();              
+            
+            dispatch(({ 
+                type: types.GET_BANNERS_SUCCESS,
+                payload: banners 
+            }));            
+    
+        } catch (error) {
+            console.log(error)
+        }   
+    }
+}
 
 const cuponLoaded = (cupons) => ({
     type: types.cuponLoaded,

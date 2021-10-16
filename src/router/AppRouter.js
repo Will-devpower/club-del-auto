@@ -21,7 +21,7 @@ import { LoginScreen } from "../components/LoginScreen";
 import { startChecking } from "../actions/auth";  
 import { TimeOutModal } from "../components/TimeOutModal";
 import { PrivateRoute } from "./PrivateRoute";
-import { cuponsStartLoading } from "../actions/cda";
+import { cuponsStartLoading, getBannersCupones, getTextosApp } from "../actions/cda";
 import { Contacto } from "../components/Contacto";
 import { OlvidePass } from "../components/OlvidePass";
 import { ResetPass } from "../components/ResetPass";
@@ -35,7 +35,8 @@ import { ResetPass } from "../components/ResetPass";
         
         dispatch( startChecking());
         dispatch(cuponsStartLoading());
-
+        dispatch(getTextosApp());
+        dispatch(getBannersCupones())
     }, [dispatch])
 
     if ( checking ) {

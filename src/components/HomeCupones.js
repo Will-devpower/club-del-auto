@@ -5,7 +5,7 @@ import orangeCircle from '../assets/orange-circle.png'
 import orangeDots from '../assets/orange-dots.png'
 
 
-export const HomeCupones = () => {
+export const HomeCupones = ({tituloCupones, btn}) => {
 
     
     const { cupons } = useSelector(state => state.cda);
@@ -16,7 +16,7 @@ export const HomeCupones = () => {
          <img src={ orangeDots } alt="dots" className="image-14"/>   
         <div className="cupones">
             <div className="div-block-17">
-                <h1 className="titulos-centrados">Cupones de descuento</h1>
+                <h1 className="titulos-centrados">{tituloCupones}</h1>
             </div>
             <div className="div-block-10">
                 {
@@ -27,7 +27,7 @@ export const HomeCupones = () => {
                             <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${cupon.img[0].url})`}}></div>
                             <p className="texto-cupones">{ cupon.bajada }</p>
                             <div className="div-block-20">
-                                <p className="link">VER CUPÓN</p>
+                                <p className="link">{btn}</p>
                                 <div className="div-block-19"></div>
                             </div>
                         </div>
