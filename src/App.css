@@ -406,6 +406,7 @@
   align-items: flex-start;
   background-color: rgba(255, 160, 0, 0.8);
 }
+
 .benefit-item {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1029,10 +1030,27 @@
   border-radius: 30px;
 }
 .div-block-24 {
-  height: 330px;
+  max-height: 330px;
+  overflow: hidden;
   margin: 10px;
   border-radius: 25px;
   background-color: rgba(120, 124, 169, 0.2);
+}
+.splide__slide img {
+  max-width: 100%;
+}
+.splide__arrow svg {
+  fill: #fff;
+  background: #000;
+  border-radius: 50%;
+  padding: 5px;
+  height: 1.5em;
+  transition: fill .2s linear;
+  width: 1.5em;
+  opacity: .7;
+}
+.splide__pagination {
+  display: none;
 }
 .cupon-card-cupon-page {
   display: flex;

@@ -17,14 +17,15 @@ import { triggerLoginPopup } from "../helpers/triggerLogin"
 
 
 
-
 export const HomeScreen = () => {
 
     const { uid } = useSelector(state => state.auth);
+    const { textosApp } = useSelector(state => state.cda);
+    const { titulo_asistencia, desc_asistencia, titulo_accidente,  desc_accidente, btn_cupones, titulo_cupones, titulo_club1, titulo_club2, desc_club, btn_club} = textosApp;
     const url = `https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=${uid}&Fono=953153687&flujo=1`;
-    const size = window.innerWidth;
+    const size = window.innerWidth;    
     // console.log(body)    
-
+    
     return (
         <div className="home-screen">
             <div className="popup-container">
@@ -45,10 +46,8 @@ export const HomeScreen = () => {
                         <img src={ chair } alt="chair" className="image-9-copy" data-aos="fade-left"/>
                     </div>
                     <div className="div-block-9">
-                        <h1 className="heading-2">¿Necesitas asistencia inmediata?</h1>
-                        <p className="paragraph-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
-                        </p>
+                        <h1 className="heading-2">{titulo_asistencia}</h1>
+                        <p className="paragraph-2">{desc_asistencia}</p>
                         {
                             ( uid !== undefined ) 
                             ?
@@ -61,10 +60,8 @@ export const HomeScreen = () => {
                 <div className="asistencias">
                 <img src={ carImg } loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 470px, 600px" alt="car-img" className="image-12" data-aos="fade-left" />   
                     <div className="div-block-9">
-                        <h1 className="heading-2">¿Tuviste un accidente<br />o sufriste un robo?</h1>
-                        <p className="paragraph-2">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
-                        </p>
+                        <h1 className="heading-2">{titulo_accidente}</h1>
+                        <p className="paragraph-2">{desc_accidente}</p>
                         {
                              ( uid !== undefined ) 
                              ?
@@ -78,10 +75,8 @@ export const HomeScreen = () => {
                 <div className="asistencias movil">
                     <div className="div-block-6">
                         <div className="div-block-9">
-                            <h1 className="heading-2">¿Necesitas asistencia inmediata?</h1>
-                            <p className="paragraph-2">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
-                            </p>
+                            <h1 className="heading-2">{titulo_asistencia}</h1>
+                            <p className="paragraph-2">{desc_asistencia}</p>
                             {
                                 ( uid !== undefined ) 
                                 ?
@@ -99,10 +94,8 @@ export const HomeScreen = () => {
                     <img src={ carImg2 } loading="lazy" alt="car-img" className="image-21" />   
                     <div className="div-block-6 block6-movil">
                         <div className="div-block-9">
-                            <h1 className="heading-2">¿Tuviste un accidente<br />o sufriste un robo?</h1>
-                            <p className="paragraph-2">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.
-                            </p>
+                            <h1 className="heading-2">{titulo_accidente}</h1>
+                            <p className="paragraph-2">{desc_accidente}</p>
                             {
                                 ( uid !== undefined ) 
                                 ?
@@ -115,12 +108,12 @@ export const HomeScreen = () => {
                 </div>
                 </div>
 
-                <HomeCupones />
+                <HomeCupones tituloCupones={titulo_cupones} btn={btn_cupones}/>
 
                 <div className="el-club">
-                    <h1 className="heading-3">Sé parte <strong>del club</strong></h1>
-                    <p className="paragraph-22">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum.</p>
-                    <Link to="/info-club" className="join">Más información</Link>
+                    <h1 className="heading-3">{titulo_club1} <strong>{titulo_club2}</strong></h1>
+                    <p className="paragraph-22">{desc_club}</p>
+                    <Link to="/info-club" className="join">{btn_club}</Link>
                 </div>
 
                 <Suscripcion />
