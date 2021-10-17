@@ -194,8 +194,6 @@ export const UserAccount = () => {
     history.push("/");
   };
 
-  console.log("cuponCliente: "+cuponCliente)
-  console.log("cuponClienteLoaded: "+cuponClienteLoaded)
 
   useEffect(() => {
       dispatch(getCuponClientes())

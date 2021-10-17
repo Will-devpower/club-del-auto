@@ -13,16 +13,21 @@ function loadMap(text){
     document.getElementById('myMap').setAttribute('src', location);
 }
 
-
-
 export const CuponScreen = () => {    
     
     const { id } = useParams();
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.cda);
     const coupon = useSelector(state => state.cda.cupons.find(coupon => coupon.id === parseInt(id)));
-    const { uid } = useSelector(state => state.auth);
+    const { uid , vehiculos} = useSelector(state => state.auth);
+
+    let patente = ""
+    if(uid !== undefined) patente = vehiculos[0].patente
     
+    const handleInputChange = ({ target }) => {        
+        patente = target.value
+    }
+
     useEffect(() => {
         dispatch(getCouponById( id ));        
     }, [dispatch, id]);
@@ -30,13 +35,10 @@ export const CuponScreen = () => {
     const getCoupon = ( e ) => {
         e.preventDefault();
         if(uid !== undefined){
-            dispatch( buyCoupon( uid, coupon.id ) ); 
+            dispatch( buyCoupon( uid, patente, coupon.id ) ); 
         }
     }
 
-    //if(loading) return null
-
-    
 
     return (
         <div className="cupon-screen">
@@ -58,15 +60,36 @@ export const CuponScreen = () => {
                         <img src="https://uploads-ssl.webflow.com/60da07a904f25339b115d11e/60f4c1eb32558eee7089b5bf_Porcentajes_2.png" alt="icono1" className="image-22" />
                         <p className="descripcion-servicio">{coupon.descripcion}</p>
                     </div>
+
+                    {
+                        uid !== undefined &&
+                            <div className="formbuilder-select form-group select-div">
+                                <br/>
+                                <p className="descripcion">ELIGE UNA PATENTE:</p>
+                                <select 
+                                    name="patenteSeleccionada" 
+                                    id="patenteSeleccionada" 
+                                    className="input-control"
+                                    onChange={handleInputChange}
+                                >
+                                    {
+                                        vehiculos.map(( veh ) => (
+                                            <option value="veh.patente" id="veh.patente">{veh.patente}</option>
+                                        ))
+                                    }
+                                    
+                                </select>
+                                <span className="boton-comprar-servicio" onClick={ getCoupon }>Obtener cupón</span>
+                            </div>
+                    }
+
                     <div className="divisor-entre-descrip-servicios"></div>
                     <div className="div-block-28">
                         <img src="https://uploads-ssl.webflow.com/60da07a904f25339b115d11e/60f4c1ebb62a5610e369699e_TerminosCondiciones_1.png" alt="" className="image-22" />
                         <p className="terminos-condiciones">Términos y condiciones</p>
                     </div>
-                    {
-                        uid !== undefined &&
-                        <span className="boton-comprar-servicio" onClick={ getCoupon }>Obtener cupón</span>
-                    }
+
+                    
                 </div>
             </div>
             <div className="divisor-desktop"></div>
