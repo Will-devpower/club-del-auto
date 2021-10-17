@@ -2,7 +2,13 @@ import { types } from '../types/types';
 
 const initialState = {    
     cupons: [],
-    loading: true
+    cuponCliente: [],
+    textosApp: [],
+    bannersCupones: [],    
+    loading: true,
+    cuponClienteLoaded: false,
+    textosLoaded: false,
+    bannersLoaded: false
 };
 
 
@@ -15,6 +21,22 @@ export const cdaReducer = ( state = initialState, action ) => {
                 ...state,
                 loading: true
             }
+         
+        case types.GET_COUPON_CLIENTE:
+            return {
+                ...state,
+                loading: true
+            }
+        case types.GET_TEXTOS_APP:
+            return {
+                ...state,
+                loading: true
+            }
+        case types.GET_BANNERS_CUPONES:
+            return {
+                ...state,
+                loading: true
+            }            
 
         case types.GET_COUPON_SUCCESS: {
             const newCoupons = [...state.cupons];  
@@ -31,40 +53,30 @@ export const cdaReducer = ( state = initialState, action ) => {
                 cupons: newCoupons
             }
         }
-                
-        case types.recordAddNew:
-            return {
-                ...state,
-                cupons: [
-                    ...state.cupons,
-                    action.payload
-                ]
-            }
-    
-        case types.clearActiveCupon:
-            return {
-                ...state,
-                activeCupon: null
-            }
-
-
-        case types.cuponUpdated:
-            return {
-                ...state,
-                cupons: state.cupons.map(
-                    e => ( e.id === action.payload.id ) ? action.payload : e
-                )
-            }
         
-        case types.cuponDeleted:
+        case types.GET_COUPON_CLIENTE_SUCCESS: {
             return {
                 ...state,
-                cupons: state.cupons.filter(
-                    e => ( e.id !== state.activeCupon.id )
-                ),
-                activeCupon: null
+                loading: false,
+                cuponClienteLoaded: true,
+                cuponCliente: [ ...action.payload ]
             }
-
+        }
+        case types.GET_TEXTOS_SUCCESS: {
+            return {
+                ...state,                
+                textosLoaded: true,
+                textosApp: action.payload
+            }
+        }
+        case types.GET_BANNERS_SUCCESS: {
+            return {
+                ...state,                
+                bannersLoaded: true,
+                bannersCupones: action.payload
+            }
+        }  
+        
         case types.cuponLoaded:
             return {
                 ...state,

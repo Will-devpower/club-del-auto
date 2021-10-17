@@ -1,5 +1,5 @@
 
-   $(document).ready(function(){
+$(document).ready(function(){
        
     var scrollState = 'top';
        
@@ -19,6 +19,6 @@
                
                scrollState = 'top';
            }           
-       })
-    
-    });
+       })       
+            
+});

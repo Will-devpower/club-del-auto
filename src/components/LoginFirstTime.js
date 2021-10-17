@@ -1,13 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
-import { startLogin } from '../actions/auth';
-import userIcon from '../assets/user-icon2.png';
+import { loginFirst } from '../actions/auth';
 
 
 import { useHistory } from 'react-router-dom';
 
-export const LoginScreen = () => {
+export const LoginFirstTime = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();    
@@ -15,18 +14,15 @@ export const LoginScreen = () => {
 
     const [ formLoginValues, handleLoginInputChange ] = useForm({
         lRut: '',
-        lEmail: '',
-        lPatente: '',
-        lPassword: ''
+        lPassword: '',
+        lPasswordConfim: ''
     });    
     
-    const { lRut, lEmail, lPatente, lPassword } = formLoginValues;
-        
+    const { lRut, lPassword, lPasswordConfim  } = formLoginValues;
 
-    const handleLogin = ( e ) => {
-        e.preventDefault();
-        
-        dispatch( startLogin( lRut, lPassword, history ) );        
+    const handleLoginFirst = ( e ) => {
+        e.preventDefault();        
+        dispatch( loginFirst( lRut, lPassword, lPasswordConfim, history ) );        
     }
 
     return (
@@ -37,23 +33,12 @@ export const LoginScreen = () => {
                     
                     <a href="/" className="link-2">Volver al home</a>
                     <br/><br/>
-                    <img src={ userIcon } alt="icono-usuario" className="image-31" />
-                    <h1 className="heading-login">Ingresa a tu cuenta</h1>
+                    <h1 className="heading-login">Bienvenido al club!</h1>
+                    <h3>Registra tus datos a continuación:</h3>
+                    
                     <div className="inner form-block-2">
-                        <form onSubmit={ handleLogin }>
-                            
-                                {/* <input
-                                    type="text"
-                                    className="form-control text-field-2"
-                                    placeholder="Correo"
-                                    name="lEmail"
-                                    value={ lEmail }
-                                    onChange={ handleLoginInputChange }
-                                    autoComplete='false'
-                                    required
-                                /> */}
-                            
-                            
+                        <form onSubmit={ handleLoginFirst }>
+                                               
                                 <input 
                                     type="text"
                                     className="form-control text-field-2"
@@ -65,42 +50,41 @@ export const LoginScreen = () => {
                                     required
                                 />
                             
-                            
-                                {/* <input 
-                                    type="text"
-                                    className="form-control text-field-2"
-                                    placeholder="Patente"
-                                    name="lPatente"
-                                    value={ lPatente }
-                                    onChange={ handleLoginInputChange }
-                                    autoComplete='true'
-                                    required
-                                /> */}
-                            
-                            
                                 <input
                                     type="password"
                                     className="form-control text-field-2"
-                                    placeholder="Contraseña"
+                                    placeholder="Registra tu Contraseña"
                                     name="lPassword"
                                     value={ lPassword }
                                     onChange={ handleLoginInputChange }
                                     autoComplete='false'
                                     required
                                 />
+
+                                <input
+                                    type="password"
+                                    className="form-control text-field-2"
+                                    placeholder="Repite tu Contraseña"
+                                    name="lPasswordConfim"
+                                    value={ lPasswordConfim }
+                                    onChange={ handleLoginInputChange }
+                                    autoComplete='false'
+                                    required
+                                />
+
+                            <center><h6>(La contraseña debe incluir de 6 a 20 caractéres, al menos un número, Maýusculas y minúsculas)</h6></center>
                             
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 
                                     type="submit"
                                     className="btnSubmit"
-                                    value="Ingresar" 
+                                    value="Registrar" 
                                 />
                             </div>
-
                             
                         </form>                    
                     </div>
-                    <a href="/login-first" className="link-2">Ingreso por Primera Vez</a>
+                    <a href="/login" className="link-2">Volver al Login</a>
                     <a href="/olvide-pass" className="link-2">¿Olvidaste tu contraseña?</a>
                 </div>               
             </div>

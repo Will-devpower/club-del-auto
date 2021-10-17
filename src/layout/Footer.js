@@ -1,7 +1,12 @@
+import { useSelector } from 'react-redux';
 import logo1 from '../assets/cda-logo1.png';
 import logo3 from '../assets/cda-logo3.png';
+import { triggerLoginPopup } from '../helpers/triggerLogin';
 
 export const Footer = () => {
+
+    const { uid } = useSelector(state => state.auth);
+
     return (
         <div className="footer">
             <a href="/" className="w-nav-brand">
@@ -11,8 +16,11 @@ export const Footer = () => {
                 </div>
             </a>
             <div className="div-block-21">
-                <a href="/" className="button-2 w-button">Contáctanos</a>
-                <a href="/" className="button-2 w-button">Ingresar a mi cuenta</a>
+                <a href="/contacto" className="button-2 w-button">Contáctanos</a>
+                {
+                    uid === undefined &&
+                    <button onClick={ triggerLoginPopup } className="button-2 w-button">Ingresar a mi cuenta</button>
+                }
             </div>
         </div>
     )

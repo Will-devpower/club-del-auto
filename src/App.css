@@ -349,7 +349,7 @@
   align-items: center;
   border: none;
   border-radius: 15px;
-  background-color: #ff5a00;
+  background-color: #ffa000;
   /* box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
@@ -359,6 +359,9 @@
   color: white;
   text-decoration: none;
   cursor: pointer;
+}
+.w-button:hover {
+  background: #3264ff;
 }
 .heading-2 {
   padding: 0px;
@@ -402,6 +405,22 @@
   -ms-flex-align: start;
   align-items: flex-start;
   background-color: rgba(255, 160, 0, 0.8);
+}
+
+.benefit-item {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 20px;
+}
+.ben-title {
+  color: rgba(22, 32, 91, 0.8);
+  font-family: Silka, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+}
+.benefit-item p {
+  text-align: left;
+  margin-bottom: 10px;
 }
 .div-block-17 {
   margin-right: 15%;
@@ -650,14 +669,14 @@
   font-weight: 500;
   text-decoration: none;
 }
+.home-form {
+  background-color: transparent !important;
+}
 .formulario {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  margin-top: 120px;
-  margin-right: 40px;
-  margin-left: 40px;
+  display: flex;  
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -668,12 +687,19 @@
   -ms-flex-align: center;
   align-items: center;
   text-align: center;
+  background-color: #dee2fc;  
 }
-.form-block {
-  width: auto;
+.goHome {
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: Silka;
+  font-weight: 600;
+  color: #16205b;
+}
+.form-block {  
   margin-top: 30px;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 15px;
+  margin-left: 15px;
   -webkit-align-self: stretch;
   -ms-flex-item-align: stretch;
   -ms-grid-row-align: stretch;
@@ -694,6 +720,22 @@
   -ms-flex-align: center;
   align-items: center;
 }
+.filesUploaded {
+  
+}
+.fileTitle {
+  text-align: right;
+  margin: 5px 0 0;
+  font-family: Silka, sans-serif;
+  color: #787ca9;
+  line-height: 14px;
+  letter-spacing: -0.5px;
+}
+.fa-trash {
+  margin-left: 10px;
+  opacity: .6;
+  cursor: pointer;
+}
 .field-label {
   font-family: Silka, sans-serif;
   font-size: 14px;
@@ -704,11 +746,9 @@
 }
 .text-field {
   width: 100%;
-  height: 50px;
+  height: 40px;
   margin-top: 5px;
-  margin-bottom: 10px;
-  padding-right: 20px;
-  padding-left: 20px;
+  margin-bottom: 10px;  
   border-style: solid;
   border-width: 1px;
   border-color: hsla(0, 0%, 98%, 0.4);
@@ -719,6 +759,10 @@
   font-size: 16px;
   font-weight: 600;
   text-align: center;
+}
+.text-field:focus {
+  border-color: #3898EC;
+  outline: 0;
 }
 .footer {
   display: -webkit-box;
@@ -865,7 +909,30 @@
   font-family: Silka, sans-serif;
   color: #16205b;
 }
+.text-field-3 {
+  height: 100px;
+  width: calc(100% - 20px);
+  margin-top: 0px;
+  margin-bottom: 10px;
+  padding-left: 20px;  
+  -webkit-align-self: auto;
+  -ms-flex-item-align: auto;
+  -ms-grid-row-align: auto;
+  align-self: auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: hsla(0, 0%, 98%, 0.36);
+  border-radius: 8px;
+  background-color: hsla(0, 0%, 100%, 0.15);
+  font-family: Silka, sans-serif;
+  color: #16205b;
+}
 .text-field-2:focus {
+  outline: none;
+  border-color: #fafafa;
+  background-color: hsla(0, 0%, 100%, 0.45);
+}
+.text-field-3:focus {
   outline: none;
   border-color: #fafafa;
   background-color: hsla(0, 0%, 100%, 0.45);
@@ -963,10 +1030,27 @@
   border-radius: 30px;
 }
 .div-block-24 {
-  height: 330px;
+  max-height: 330px;
+  overflow: hidden;
   margin: 10px;
   border-radius: 25px;
   background-color: rgba(120, 124, 169, 0.2);
+}
+.splide__slide img {
+  max-width: 100%;
+}
+.splide__arrow svg {
+  fill: #fff;
+  background: #000;
+  border-radius: 50%;
+  padding: 5px;
+  height: 1.5em;
+  transition: fill .2s linear;
+  width: 1.5em;
+  opacity: .7;
+}
+.splide__pagination {
+  display: none;
 }
 .cupon-card-cupon-page {
   display: flex;
@@ -979,6 +1063,8 @@
   flex-direction: column;
   justify-content: space-between;
   border-radius: 20px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   background-color: hsla(0, 0%, 98%, 0.8);
   background-position: 50% 50%;
   background-size: cover;
@@ -1100,6 +1186,10 @@
 }
 .cupon-link-wrapper {
   text-decoration: none;
+  transition: all .3s linear;
+}
+.cupon-link-wrapper:hover {
+  transform: translateY(-15px);
 }
 .descripcion-servicio-2 {
   margin-top: 0px;
@@ -1270,8 +1360,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-.mapa {
-  width: 996px;
+.mapa {  
   height: 400px;
   border-radius: 10px;
   background: #fff;
@@ -1281,6 +1370,8 @@
 .mapa iframe {
   border-radius: 20px;
   border: 0;
+  width: 100%;
+  height:400px;
 }
 .cupones-page-copy {
   position: relative;
@@ -1572,7 +1663,7 @@
   padding-right: 0px;
   padding-bottom: 0px;
   border-radius: 18px;
-  background-color: hsla(0, 0%, 98%, 0.35);
+  background-color: hsla(0, 0%, 98%, 0.7);
   -webkit-transition: all 200ms ease-in-out;
   transition: all 200ms ease-in-out;
   cursor: pointer;
@@ -1623,6 +1714,7 @@
   font-size: 22px;
   line-height: 22px;
   font-weight: 600;
+  text-transform: capitalize;
 }
 .datos-usuario {
   margin: 0px 15px 0px 0px;
@@ -1813,21 +1905,21 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
-  margin-right: 10px;
-  margin-bottom: 12px;
-  margin-left: 10px;
+  display: flex;  
+  margin-bottom: 12px;  
   -webkit-box-pack: justify;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
 .paragraph-3 {
-  margin: 0px 15px 0px 0px;
+  margin: 0;
   font-family: Silka, sans-serif;
   color: rgba(22, 32, 91, 0.5);
   line-height: 20px;
   font-weight: 400;
+  flex-basis: 50%;
+  font-size: 14px;
 }
 .paragraph-6 {
   margin-top: 0px;
@@ -1837,7 +1929,9 @@
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: right;
+  text-transform: capitalize;
 }
 .div-block-50 {
   margin-top: 10px;
@@ -1865,7 +1959,7 @@
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 600;
 }
 .pago-wrapper {
   margin-top: 20px;
@@ -1963,6 +2057,128 @@
   justify-content: center;
   flex-direction: column
 }
+.cuotasPendientes {
+  margin: 10px 15px 0px 10px;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  line-height: 20px;
+  font-weight: 600;
+}
+.cuota-mes {
+  margin: 10px;
+}
+
+/* FORM STYLES */
+.heading-11-copy {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  margin-left: 5px;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  text-align: left;
+}
+.select-div {
+  display: flex;
+  flex-direction: column;
+}
+.paragraph-5-copy {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-family: Silka, sans-serif;
+  color: rgba(22, 32, 91, 0.8);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  text-align: left;
+}
+.input-control {
+  background-color: #fafafa;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  opacity: 0.5;
+  color: #333333;
+  padding-left: 12px;
+}
+.input-field {
+  width: calc(100% - 20px);
+  margin-bottom: 15px;
+}
+.paragraph-4-copy {
+  margin: 0px 15px 0px 0px;
+  font-family: Silka, sans-serif;
+  color: rgba(22, 32, 91, 0.5);
+  line-height: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  text-align: left;
+}
+.radio-group {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+.formbuilder-radio-inline {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  margin-left: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: hsla(0, 0%, 98%, 0.4);
+  position: relative;
+}
+input[type="radio"] {
+  margin-top: -2px;
+  opacity: 0;
+  z-index: 100;
+}
+.radio-replacer {  
+  border-radius: 20px;
+  background-color: #16205b;
+  opacity: 0.2;
+  position: absolute;
+  top: 17px;
+  right: 22px;
+  width: 15px;
+  height: 15px;  
+}
+input[type="radio"]:checked {
+ opacity: 1;
+}
+.pagar-seguro-auto-2 {
+  background-color: #3264ff !important;
+  width: 100% !important;
+}
+.formbuilder-file {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+.formbuilder-file-label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  font-size: 16px;
+  font-weight: 600;
+}
+input[type="file"] {
+  display: none;
+}
 
 /* MEDIA QUERIES */
 
@@ -2043,6 +2259,42 @@
   .asistencias, .image-13, .image-14, .image-15 {
     display: none;
   }
+  .div-block-30 {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .w-button {
+    background-color: #ffa000;
+    width: calc(100% - 60px);
+  }
+  .div-block-3_3 {
+    border-top: 1px solid rgba(22, 32, 91, 0.15);
+  }
+  .div-block-45 {
+    flex-direction: column;
+  }
+  .div-block-36 {
+    width: 60px;
+    height: 60px;
+  }
+  .heading-7 {
+    font-size: 38px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+  }
+  .div-block-46 {
+    margin-top: 20px;
+  }
+  .join {
+    border: 1px solid rgba(22, 32, 91, 0.4);
+    background-color: transparent;
+    margin-top: 20px !important;
+    width: auto;
+  }
+  .button-2 {
+    background: transparent;
+    width: auto;
+  }
   .image-9 {
     width: 200px;
     left: 10%;
@@ -2083,7 +2335,8 @@
     width: 100%;
   }
   .formulario {
-    margin: 100px 20px 0;
+    margin: 0;
+    padding: 80px 20px 100px;    
   }
   .heading-2 {
     font-size: 28px;
@@ -2125,8 +2378,56 @@
   .div-block-53 {
     margin-top: 40px;
   }
+  .section-7 {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+  .div-block-26 {
+    grid-template-columns: 1fr;
+  }
+  .div-block-26-copy {
+    grid-template-columns: 1fr;
+    grid-row-gap: 15px;
+  }
+  .descripcion_2 {
+    display: block;
+  }
+  .mapa {
+    width: unset;
+  }
+  .mapa iframe {
+    max-width: 100%;
+  }
+  .cupones-page-copy {
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+  }
 }
-
+@media only screen and (max-width: 1023px) {
+  .nav-menu {
+    /* display: none; */
+    position: absolute;
+    /* top: -180px; */
+    left: -30px;
+    background: #fff;
+    width: 100vw;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    grid-row-gap: 10px;
+    transition: all 0.3s linear;
+  }
+  .close_icon {
+    opacity: 0;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    z-index: 10;
+  }  
+  
+}
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .banner {
     margin-top: 100px;
@@ -2243,7 +2544,19 @@
     cursor: pointer;
     border: none;
   }
-
+  .form-block {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .text-field {
+    padding-right: 20px;
+    padding-left: 20px;
+    height: 50px;
+  }
+  .close_icon {
+    display: none;
+  }
   /* HomeScreen */
 
   .home-screen {
@@ -2298,7 +2611,7 @@
   }
   .cupon-card {
     max-width: 360px;
-    max-height: 220px; 
+    /* max-height: 220px;  */
     padding: 0;
     margin-right: 10px;
     margin-left: 10px;
@@ -2307,7 +2620,7 @@
     margin: 40px 40px 10px;
   }
   .texto-cupones {
-    margin: 0 40px 10px;
+    margin: 20px 40px 10px;
   }
   .div-block-25 .texto-cupones {
     margin-left: 10px;
@@ -2331,8 +2644,12 @@
     margin-left: 60px;
   }
   .formulario {
-    margin-right: 15%;
-    margin-left: 15%;
+    padding: 140px 0 200px;
+  }
+  .rendered-form {
+    max-width: 600px;
+    width: 600px;
+    margin: auto;
   }
   .footer {
     margin-top: 120px;    
@@ -2341,6 +2658,9 @@
     padding-top: 100px;
   }
   .section-8 {
-    padding: 0 100px;
+    margin: 0 100px;
+  }
+  .heading-7 {
+    font-size: 38px;
   }
 }
