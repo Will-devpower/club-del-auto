@@ -25,7 +25,9 @@ export const getCuponClientes = () => {
         try {        
             dispatch(({ type: types.GET_COUPON_CLIENTE }));
             const response = await fetchEnhance(`cuponclientes`);
-            const cuponCliente = await response.json();              
+            const cuponCliente = await response.json();      
+            
+            console.log(cuponCliente)
             
             dispatch(({ 
                 type: types.GET_COUPON_CLIENTE_SUCCESS,
