@@ -180,7 +180,7 @@ export const forgetPass = ( rut, history ) => {
 
         } else {     
             notice.hideLoading();       
-            Swal.fire('Error', 'Ocurrió un error en el registro', 'error');
+            Swal.fire('Error', 'Ocurrió un error en el proceso', 'error');
         }
         notice.hideLoading();
 

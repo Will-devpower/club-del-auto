@@ -150,6 +150,31 @@ export const suscripcion = ( nombre, email ) => {
     }
 }
 
+export const sendAcc = ( rut, cupon ) => {
+    return async( dispatch ) => {
+        
+        Swal.showLoading();
+        let rutNew = rut.replace(/"/g,'')
+        const data = { "identifier": rut, "cupon": cupon }; 
+
+        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
+
+        if( resp.status === 200 ) {
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Incidente reportado',
+                text: 'Los detalles fueron enviados a nuestro equipo',
+                footer: 'El los próximos días nos pondremos en contacto con ud'
+            })
+            
+        } else {            
+            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+        }
+        
+
+    }
+}
 
 export const cuponLogout =() => ({ type: types.cuponLogout });
 

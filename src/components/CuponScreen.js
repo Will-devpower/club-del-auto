@@ -34,7 +34,7 @@ export const CuponScreen = () => {
         }
     }
 
-    if(loading) return null
+    //if(loading) return null
 
     
 
@@ -102,7 +102,7 @@ export const CuponScreen = () => {
         </div>
         <Footer />
         <script>            
-            
+           
         </script>
         </div>
         

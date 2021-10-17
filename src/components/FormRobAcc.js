@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { buyCoupon } from '../actions/cda';
 
 
 const initialState = {
@@ -135,7 +136,15 @@ export const FormRobAcc = () => {
             fotos: fotosInput.current.files,
             fotosTercero: fotosTInput.current.files
         });                
-    }    
+    }  
+
+    const sendAcc = ( e ) => {
+        e.preventDefault();
+        // if(uid !== undefined){
+        //     dispatch( sendAcc( uid, coupon.id ) ); 
+        // }
+    }
+
     useEffect(() => {        
         
         filesInput.current.addEventListener('change', function() {
