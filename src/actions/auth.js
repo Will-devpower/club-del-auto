@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-const baseUrl = "http://localhost:1337"
+const baseUrl = process.env.REACT_APP_API_URL;
+//const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {        
@@ -23,7 +24,7 @@ export const startLogin = ( rut, password, history ) => {
 
         if( resp.status === 200 ) {        
             
-            const resp2 = await fetchSinToken( 'direcciones/getUser/'+rut, data, 'POST' );
+            const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();                

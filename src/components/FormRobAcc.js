@@ -170,7 +170,7 @@ export const FormRobAcc = () => {
     }, [])
     return (        
         
-        <div className="formulario">
+        <form method="post" action="http://localhost:1337/app/accidente" className="formulario">
             <Link to='/' className="goHome">Volver al inicio</Link>            
             <div className="rendered-form">
                 <div>
@@ -543,7 +543,7 @@ export const FormRobAcc = () => {
                     </button>
                 </div>
             </div>
-        </div>            
+        </form>            
         
     )
 }
