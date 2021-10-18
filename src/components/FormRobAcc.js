@@ -1,33 +1,28 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { sendFormData } from "../actions/cda";
 
 const initialState = {
     patenteSeleccionada: 'option-1',
-    rut: '',
-    nombre: '',
-    telefono: '',
-    correo: '',
-    rutTercero: '',
-    nombreTercero: '',
-    telefonoTercero: '',
-    correoTercero: '',    
-    patente: '',
-    marca: '',
-    modelo: '',
-    color: '',
+    rut: '12345',
+    nombre: 'Mi nombre',
+    telefono: '633333333',
+    correo: 'correo@correo.com',
+    rutTercero: '12345',
+    nombreTercero: 'Nombre Tercero',
+    telefonoTercero: '633333333',
+    correoTercero: 'correo@correo.com',    
+    patente: '1234',
+    marca: 'marca',
+    modelo: 'modelo',
+    color: 'color',
     tieneSeguro: false,
-    lugar: '',
-    fecha: '',
-    daños: '',
-    descripcion: '',
-    responsable: '',
-    licencia: [],
-    documentos: [],
-    constancia: [],
-    fotos: [],
-    licenciaTercero: [],
-    fotosTercero: []
+    lugar: 'lugar',
+    fecha: '11/08/1987',
+    danios: 'dañado',
+    descripcion: 'choque',
+    responsable: 'yo'    
 }
 export const FormRobAcc = () => {
 
@@ -37,11 +32,15 @@ export const FormRobAcc = () => {
     const [licenciaName, setLicenciaName] = useState('');
     const [constanciaName, setConstanciaName] = useState('');
     const [licenciaTName, setLicenciaTName] = useState('');
+    const licenciaInput = useRef(null);
     const filesInput = useRef(null);
+    const constanciaInput = useRef(null);
     const fotosInput = useRef(null);
+    const licenciaTInput = useRef(null);
     const fotosTInput = useRef(null);    
     const [ values, setValues ] = useState(initialState);
-
+    const dispatch = useDispatch();
+    
     const {            
         rut,    
         nombre, 
@@ -57,7 +56,7 @@ export const FormRobAcc = () => {
         color,            
         lugar,  
         fecha,  
-        daños,  
+        danios,  
         descripcion,    
         responsable      
     } = values;
@@ -128,13 +127,24 @@ export const FormRobAcc = () => {
         }            
     }
 
-    const handleSubmit = () => {        
-        setValues({
-            ...values,
-            documentos: filesInput.current.files,
-            fotos: fotosInput.current.files,
-            fotosTercero: fotosTInput.current.files
-        });                
+    const handleSubmit = (e) => { 
+        e.preventDefault();
+        let formdata = new FormData();
+        formdata.append("data", JSON.stringify(values));
+        formdata.append("files.licencia", licenciaInput.current.files[0]);        
+        for(let i = 0; i < filesInput.current.files.length; i++) {            
+            formdata.append("files.documentos_vehiculo", filesInput.current.files[i]);
+        }
+        formdata.append("files.constancia", constanciaInput.current.files[0]);
+        for(let i = 0; i < fotosInput.current.files.length; i++) {            
+            formdata.append("files.fotos", fotosInput.current.files[i]);
+        }
+        formdata.append("files.licencia_tercero", fotosTInput.current.files[0]);
+        for(let i = 0; i < fotosTInput.current.files.length; i++) {            
+            formdata.append("files.fotos_tercero", fotosTInput.current.files[i]);
+        }                      
+        
+        dispatch(sendFormData(formdata));               
     }    
     useEffect(() => {        
         
@@ -388,10 +398,10 @@ export const FormRobAcc = () => {
                     <input 
                         type="text" 
                         placeholder="Daños observados" 
-                        name="daños"                        
+                        name="danios"                        
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={daños}       
+                        value={danios}       
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
@@ -426,6 +436,7 @@ export const FormRobAcc = () => {
                         multiple={false} 
                         id="licencia" 
                         required="required" 
+                        ref={licenciaInput}
                         aria-required="true"
                         onChange={handleInputChange}                         
                     />
@@ -461,6 +472,7 @@ export const FormRobAcc = () => {
                         access="false" 
                         multiple={false} 
                         id="constancia"
+                        ref={constanciaInput}
                         onChange={handleInputChange}                        
                     />
                 </div>
@@ -495,7 +507,8 @@ export const FormRobAcc = () => {
                         access="false" 
                         multiple={false} 
                         id="licenciaT" 
-                        required="required" 
+                        required="required"
+                        ref={licenciaTInput} 
                         aria-required="true"
                         onChange={handleInputChange}                         
                     />
