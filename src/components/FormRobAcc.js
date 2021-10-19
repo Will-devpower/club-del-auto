@@ -1,34 +1,33 @@
 import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+<<<<<<< HEAD
 import { buyCoupon } from '../actions/cda';
 
+=======
+import { sendFormData } from "../actions/cda";
+>>>>>>> origin/developer-will
 
 const initialState = {
     patenteSeleccionada: 'option-1',
-    rut: '',
-    nombre: '',
-    telefono: '',
-    correo: '',
-    rutTercero: '',
-    nombreTercero: '',
-    telefonoTercero: '',
-    correoTercero: '',    
-    patente: '',
-    marca: '',
-    modelo: '',
-    color: '',
-    tieneSeguro: false,
-    lugar: '',
-    fecha: '',
-    daños: '',
-    descripcion: '',
-    responsable: '',
-    licencia: [],
-    documentos: [],
-    constancia: [],
-    fotos: [],
-    licenciaTercero: [],
-    fotosTercero: []
+    rut: '12345',
+    nombre: 'Mi nombre',
+    telefono: '633333333',
+    correo: 'correo@correo.com',
+    rutTercero: '12345',
+    nombreTercero: 'Nombre Tercero',
+    telefonoTercero: '633333333',
+    correoTercero: 'correo@correo.com',    
+    patente: '1234',
+    marca: 'marca',
+    modelo: 'modelo',
+    color: 'color',
+    tieneSeguro: 'option-2',
+    lugar: 'lugar',
+    fecha: '11/08/1987',
+    danios: 'dañado',
+    descripcion: 'choque',
+    responsable: 'yo'    
 }
 export const FormRobAcc = () => {
 
@@ -38,11 +37,16 @@ export const FormRobAcc = () => {
     const [licenciaName, setLicenciaName] = useState('');
     const [constanciaName, setConstanciaName] = useState('');
     const [licenciaTName, setLicenciaTName] = useState('');
+    const licenciaInput = useRef(null);
     const filesInput = useRef(null);
+    const constanciaInput = useRef(null);
     const fotosInput = useRef(null);
+    const licenciaTInput = useRef(null);
     const fotosTInput = useRef(null);    
     const [ values, setValues ] = useState(initialState);
-
+    const dispatch = useDispatch();
+    const { vehiculos } = useSelector(state => state.auth);
+    
     const {            
         rut,    
         nombre, 
@@ -58,9 +62,10 @@ export const FormRobAcc = () => {
         color,            
         lugar,  
         fecha,  
-        daños,  
+        danios,  
         descripcion,    
-        responsable      
+        responsable,
+        tieneSeguro      
     } = values;
 
     const handleInputChange = ({ target }) => {
@@ -129,22 +134,25 @@ export const FormRobAcc = () => {
         }            
     }
 
-    const handleSubmit = () => {        
-        setValues({
-            ...values,
-            documentos: filesInput.current.files,
-            fotos: fotosInput.current.files,
-            fotosTercero: fotosTInput.current.files
-        });                
-    }  
-
-    const sendAcc = ( e ) => {
+    const handleSubmit = (e) => { 
         e.preventDefault();
-        // if(uid !== undefined){
-        //     dispatch( sendAcc( uid, coupon.id ) ); 
-        // }
-    }
-
+        let formdata = new FormData();
+        formdata.append("data", JSON.stringify(values));
+        formdata.append("files.licencia", licenciaInput.current.files[0]);        
+        for(let i = 0; i < filesInput.current.files.length; i++) {            
+            formdata.append("files.documentos_vehiculo", filesInput.current.files[i]);
+        }
+        formdata.append("files.constancia", constanciaInput.current.files[0]);
+        for(let i = 0; i < fotosInput.current.files.length; i++) {            
+            formdata.append("files.fotos", fotosInput.current.files[i]);
+        }
+        formdata.append("files.licencia_tercero", fotosTInput.current.files[0]);
+        for(let i = 0; i < fotosTInput.current.files.length; i++) {            
+            formdata.append("files.fotos_tercero", fotosTInput.current.files[i]);
+        }                      
+        
+        dispatch(sendFormData(formdata));               
+    }    
     useEffect(() => {        
         
         filesInput.current.addEventListener('change', function() {
@@ -187,9 +195,15 @@ export const FormRobAcc = () => {
                         className="input-control"
                         onChange={handleInputChange}
                     >
-                        <option value="option-1" id="patenteSeleccionada-0">First Choice</option>
-                        <option value="option-2" id="patenteSeleccionada-1">Second Choice</option>
-                        <option value="option-3" id="patenteSeleccionada-2">Third Choice</option>
+                        {
+                            (vehiculos.length > 0) &&
+                            vehiculos.map((vehiculo, key) => {
+                                return (
+                                    <option key={key} value={vehiculo.patente} id={vehiculo.patente}>{vehiculo.patente}</option>
+                                )
+                            })
+                        }                        
+                        
                     </select>
                 </div>
                 
@@ -360,14 +374,17 @@ export const FormRobAcc = () => {
                         </div>
                     </div>
                 </div>
-                <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
-                        name=""                          
-                        id="" 
-                        className="input-control input-field"
-                    />
-                </div>
+                {
+                    (tieneSeguro === 'option-1') &&
+                    <div className="formbuilder-text form-group">                    
+                        <input 
+                            type="text" 
+                            name="suSeguro"                          
+                            id="suSeguro" 
+                            className="input-control input-field"
+                        />
+                    </div>
+                }
 
                 {/* DATOS DEL ACCIDENTE */}
 
@@ -397,10 +414,10 @@ export const FormRobAcc = () => {
                     <input 
                         type="text" 
                         placeholder="Daños observados" 
-                        name="daños"                        
+                        name="danios"                        
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={daños}       
+                        value={danios}       
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
@@ -435,6 +452,7 @@ export const FormRobAcc = () => {
                         multiple={false} 
                         id="licencia" 
                         required="required" 
+                        ref={licenciaInput}
                         aria-required="true"
                         onChange={handleInputChange}                         
                     />
@@ -470,6 +488,7 @@ export const FormRobAcc = () => {
                         access="false" 
                         multiple={false} 
                         id="constancia"
+                        ref={constanciaInput}
                         onChange={handleInputChange}                        
                     />
                 </div>
@@ -504,7 +523,8 @@ export const FormRobAcc = () => {
                         access="false" 
                         multiple={false} 
                         id="licenciaT" 
-                        required="required" 
+                        required="required"
+                        ref={licenciaTInput} 
                         aria-required="true"
                         onChange={handleInputChange}                         
                     />

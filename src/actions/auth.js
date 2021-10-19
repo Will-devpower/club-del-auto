@@ -107,8 +107,8 @@ export const loginFirst = ( rut, password, lPasswordConfim, history ) => {
 
                 dispatch( login({
                     uid: rut,
-                    name: nombre,
-                    email: correo,
+                    nombre: nombre,
+                    correo: correo,
                     telefono: telefono,
                     vehiculos: vehiculos
                 }) )      
