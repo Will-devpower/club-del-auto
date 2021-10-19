@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { sendFormData } from "../actions/cda";
 
@@ -17,7 +17,7 @@ const initialState = {
     marca: 'marca',
     modelo: 'modelo',
     color: 'color',
-    tieneSeguro: false,
+    tieneSeguro: 'option-2',
     lugar: 'lugar',
     fecha: '11/08/1987',
     danios: 'dañado',
@@ -40,6 +40,7 @@ export const FormRobAcc = () => {
     const fotosTInput = useRef(null);    
     const [ values, setValues ] = useState(initialState);
     const dispatch = useDispatch();
+    const { vehiculos } = useSelector(state => state.auth);
     
     const {            
         rut,    
@@ -58,7 +59,8 @@ export const FormRobAcc = () => {
         fecha,  
         danios,  
         descripcion,    
-        responsable      
+        responsable,
+        tieneSeguro      
     } = values;
 
     const handleInputChange = ({ target }) => {
@@ -188,9 +190,15 @@ export const FormRobAcc = () => {
                         className="input-control"
                         onChange={handleInputChange}
                     >
-                        <option value="option-1" id="patenteSeleccionada-0">First Choice</option>
-                        <option value="option-2" id="patenteSeleccionada-1">Second Choice</option>
-                        <option value="option-3" id="patenteSeleccionada-2">Third Choice</option>
+                        {
+                            (vehiculos.length > 0) &&
+                            vehiculos.map((vehiculo, key) => {
+                                return (
+                                    <option key={key} value={vehiculo.patente} id={vehiculo.patente}>{vehiculo.patente}</option>
+                                )
+                            })
+                        }                        
+                        
                     </select>
                 </div>
                 
@@ -361,14 +369,17 @@ export const FormRobAcc = () => {
                         </div>
                     </div>
                 </div>
-                <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
-                        name=""                          
-                        id="" 
-                        className="input-control input-field"
-                    />
-                </div>
+                {
+                    (tieneSeguro === 'option-1') &&
+                    <div className="formbuilder-text form-group">                    
+                        <input 
+                            type="text" 
+                            name="suSeguro"                          
+                            id="suSeguro" 
+                            className="input-control input-field"
+                        />
+                    </div>
+                }
 
                 {/* DATOS DEL ACCIDENTE */}
 
