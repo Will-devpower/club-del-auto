@@ -409,7 +409,7 @@
 
 .benefit-item {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   margin-bottom: 20px;
 }
 .ben-title {
@@ -688,6 +688,22 @@
   align-items: center;
   text-align: center;
   background-color: #dee2fc;  
+}
+.select-form {
+  display: flex;
+  min-width: 300px;
+  grid-column-gap: 15px;
+}
+.select-form div {
+  width: 100%;
+  background: rgba(255,255,255, .5);
+  border: 1px solid;
+  border-radius: 20px;
+}
+.select-form a {
+  text-decoration: none;
+  color: #16205b;
+  text-transform: uppercase;
 }
 .goHome {
   text-transform: uppercase;
@@ -1635,8 +1651,7 @@
   text-decoration: none;
   color:#fff;
 }
-.heading-7 {
-  height: 30px;
+.heading-7 {  
   margin-top: 10px;
   font-family: Silka, sans-serif;
   color: #16205b;
@@ -2336,7 +2351,8 @@ input[type="file"] {
   }
   .formulario {
     margin: 0;
-    padding: 80px 20px 100px;    
+    padding: 80px 20px 100px;
+    min-height: calc(100vh - 180px);    
   }
   .heading-2 {
     font-size: 28px;
@@ -2418,6 +2434,10 @@ input[type="file"] {
     text-align: center;
     grid-row-gap: 10px;
     transition: all 0.3s linear;
+  }
+  .heading-7 {
+    margin-bottom: 20px;
+    font-size: 25px;
   }
   .close_icon {
     opacity: 0;
@@ -2645,6 +2665,7 @@ input[type="file"] {
   }
   .formulario {
     padding: 140px 0 200px;
+    min-height: calc(100vh - 340px);
   }
   .rendered-form {
     max-width: 600px;
@@ -2662,5 +2683,6 @@ input[type="file"] {
   }
   .heading-7 {
     font-size: 38px;
+    height: 30px;
   }
 }

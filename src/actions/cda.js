@@ -150,8 +150,8 @@ export const suscripcion = ( nombre, email ) => {
 
     }
 }
-// method="POST" enctype="multipart/form-data" action="http://localhost:1337/app/accidente"
-export const sendFormData = (data) => {
+
+export const sendFormChoque = (data) => {
     return async () => {      
         var requestOptions = {
             method: 'POST',
@@ -160,6 +160,22 @@ export const sendFormData = (data) => {
         };
         
         await fetch("http://localhost:1337/app/accidente", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));                
+    }
+}
+
+export const sendFormRobo = (data) => {
+    return async () => {  
+        // console.log(data)    
+        var requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow'
+        };
+        
+        await fetch("http://localhost:1337/app/robo", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));                

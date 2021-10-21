@@ -65,7 +65,7 @@ export const HomeScreen = () => {
                         {
                              ( uid !== undefined ) 
                              ?
-                             <a href="/form-robo" className="w-button">Llena el formulario</a>
+                             <a href="/form-select" className="w-button">Llena el formulario</a>
                             :
                             <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                         }
@@ -99,7 +99,7 @@ export const HomeScreen = () => {
                             {
                                 ( uid !== undefined ) 
                                 ?
-                                <a href="/form-robo" className="w-button">Llena el formulario</a>
+                                <a href="/form-select" className="w-button">Llena el formulario</a>
                                 :
                                 <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                             }
