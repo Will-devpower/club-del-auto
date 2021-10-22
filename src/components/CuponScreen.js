@@ -21,7 +21,7 @@ export const CuponScreen = () => {
     const { loading } = useSelector(state => state.cda);
     const coupon = useSelector(state => state.cda.cupons.find(coupon => coupon.id === parseInt(id)));
     const { uid } = useSelector(state => state.auth);
-    
+    console.log('COUP: ', coupon)
     
     useEffect(() => {
         dispatch(getCouponById( id ));

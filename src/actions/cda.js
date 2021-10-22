@@ -104,7 +104,7 @@ export const buyCoupon = ( rut, cupon ) => {
         const data = { "identifier": rut, "cupon": cupon };       
 
         const resp = await fetchSinToken( 'cupones/obtener/'+rut+'/'+cupon, data, 'GET' );
-        console.log("consulta en BD: "+resp);
+        console.log("consulta en BD: "+resp.json());
         console.log("status de la respuesta: "+resp.status);
 
         if( resp.status === 200 ) {

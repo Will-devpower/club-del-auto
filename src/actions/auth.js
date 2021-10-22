@@ -23,7 +23,8 @@ export const startLogin = ( rut, password, history ) => {
 
         if( resp.status === 200 ) {        
             
-            const resp2 = await fetchSinToken( 'direcciones/getUser/'+rut, data, 'POST' );
+            const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
+            console.log('RESP: ', resp2.status)
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();                

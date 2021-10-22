@@ -58,7 +58,7 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <div className="div-block-34">
         <img src="" alt="" className="image-27" />
       </div>
-      <a href={url} className="w-button" target="_blank" rel="noreferrer">
+      <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
         Solicitar asistencia
       </a>
     </div>
