@@ -1,12 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
-import { buyCoupon } from '../actions/cda';
-
-=======
 import { sendFormData } from "../actions/cda";
->>>>>>> origin/developer-will
 
 const initialState = {
     patenteSeleccionada: 'option-1',
