@@ -1,6 +1,7 @@
 import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export const cuponsStartLoading = () => {
     return async(dispatch) => {
@@ -155,29 +156,34 @@ export const suscripcion = ( nombre, email ) => {
     }
 }
 
-export const sendAcc = ( rut, cupon ) => {
-    return async( dispatch ) => {
+export const sendFormChoque = (data) => {
+    return async () => {      
+        var requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow'
+        };
         
-        Swal.showLoading();
-        let rutNew = rut.replace(/"/g,'')
-        const data = { "identifier": rut, "cupon": cupon }; 
+        await fetch("http://localhost:1337/app/accidente", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));                
+    }
+}
 
-        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
-
-        if( resp.status === 200 ) {
-            
-            Swal.fire({
-                icon: 'success',
-                title: 'Incidente reportado',
-                text: 'Los detalles fueron enviados a nuestro equipo',
-                footer: 'El los próximos días nos pondremos en contacto con ud'
-            })
-            
-        } else {            
-            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
-        }
+export const sendFormRobo = (data) => {
+    return async () => {  
+        // console.log(data)    
+        var requestOptions = {
+            method: 'POST',
+            body: data,
+            redirect: 'follow'
+        };
         
-
+        await fetch("http://localhost:1337/app/robo", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));                
     }
 }
 

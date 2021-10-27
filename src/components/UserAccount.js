@@ -9,6 +9,8 @@ import homeIcon from "../assets/home-icon1.png";
 // import cdaIcon from '../assets/cda-logo1.png';
 import editIcon from "../assets/edit-icon.png";
 import logoutIcon from "../assets/logout-icon.png";
+import moment from 'moment';
+
 // import visaIcon  from '../assets/visa-icon.png';
 // import cardIcon  from '../assets/credit-card-icon.png';
 
@@ -56,7 +58,7 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <div className="div-block-34">
         <img src="" alt="" className="image-27" />
       </div>
-      <a href={url} className="w-button" target="_blank" rel="noreferrer">
+      <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
         Solicitar asistencia
       </a>
     </div>
@@ -158,13 +160,13 @@ const RequestedBenefitItem = (props) => {
     return (
         <div className="benefit-item-wrapper">
             <div className="benefit-item">
-                <div>
+                {/* <div>
                     <p className="paragraph-3">Patente</p>
                     <p className="paragraph-6"></p>
-                </div>
+                </div> */}
                 <div>
                     <p className="paragraph-3">Fecha</p>
-                    <p className="paragraph-6"></p>
+                    <p className="paragraph-6">{moment(cupon.created_at).format('DD/MM/YYYY')}</p>
                 </div>
                 <div>
                     <p className="paragraph-3">Servicio</p>
