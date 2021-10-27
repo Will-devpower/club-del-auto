@@ -2532,7 +2532,6 @@ input[type="file"] {
   }
 }
 
-<<<<<<< HEAD
 .nav-link {
   display: -webkit-box;
   display: -webkit-flex;
@@ -2574,8 +2573,6 @@ input[type="file"] {
   text-align: left;
 }
 
-=======
->>>>>>> developer-will
 @media only screen and (min-width: 1024px) {
   .nav-menu {
     display: -webkit-box;
