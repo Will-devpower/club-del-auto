@@ -12,7 +12,7 @@ import ScrollToTop from "../components/ScrollToTop";
 import { HomeScreen } from "../components/HomeScreen";
 import { CuponesScreen } from "../components/CuponesScreen";
 import { Info } from "../components/Info";
-import { FormRobAcc } from "../components/FormRobAcc";
+import { FormChoque } from "../components/FormChoque";
 import { LoginFirstTime } from "../components/LoginFirstTime";
 import { CuponScreen } from "../components/CuponScreen";
 import { UserAccount } from "../components/UserAccount"; 
@@ -25,6 +25,8 @@ import { cuponsStartLoading, getBannersCupones, getTextosApp } from "../actions/
 import { Contacto } from "../components/Contacto";
 import { OlvidePass } from "../components/OlvidePass";
 import { ResetPass } from "../components/ResetPass";
+import { FormSelect } from "../components/FormSelect";
+import { FormRobo } from "../components/FormRobo";
   
   
   const AppRouter = () => {  
@@ -70,8 +72,14 @@ import { ResetPass } from "../components/ResetPass";
               <Route exact path="/info-club">
                 <Info />
               </Route>
+              <Route exact path="/form-select">
+                <FormSelect />
+              </Route>
+              <Route exact path="/form-choque">
+                <FormChoque />
+              </Route>
               <Route exact path="/form-robo">
-                <FormRobAcc />
+                <FormRobo />
               </Route>
               <Route exact path="/login-first">
                 <LoginFirstTime />

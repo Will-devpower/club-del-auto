@@ -19,10 +19,15 @@ export const CuponScreen = () => {
     const dispatch = useDispatch();
     const { loading } = useSelector(state => state.cda);
     const coupon = useSelector(state => state.cda.cupons.find(coupon => coupon.id === parseInt(id)));
+<<<<<<< HEAD
     const { uid , vehiculos} = useSelector(state => state.auth);
 
     let patente = ""
     if(uid !== undefined) patente = vehiculos[0].patente
+=======
+    const { uid } = useSelector(state => state.auth);
+    console.log('COUP: ', coupon)
+>>>>>>> developer-will
     
     const handleInputChange = ({ target }) => {        
         patente = target.value

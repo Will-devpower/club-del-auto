@@ -58,14 +58,14 @@ export const HomeScreen = () => {
                     </div>
                 </div>
                 <div className="asistencias">
-                <img src={ carImg } loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 470px, 600px" alt="car-img" className="image-12" data-aos="fade-left" />   
+                <img src={ carImg } className="home-car-img" loading="lazy" sizes="(max-width: 767px) 100vw, (max-width: 991px) 470px, 600px" alt="car-img" className="image-12" data-aos="fade-left" />   
                     <div className="div-block-9">
                         <h1 className="heading-2">{titulo_accidente}</h1>
                         <p className="paragraph-2">{desc_accidente}</p>
                         {
                              ( uid !== undefined ) 
                              ?
-                             <a href="/form-robo" className="w-button">Llena el formulario</a>
+                             <a href="/form-select" className="w-button">Llena el formulario</a>
                             :
                             <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                         }
@@ -99,7 +99,7 @@ export const HomeScreen = () => {
                             {
                                 ( uid !== undefined ) 
                                 ?
-                                <a href="/form-robo" className="w-button">Llena el formulario</a>
+                                <a href="/form-select" className="w-button">Llena el formulario</a>
                                 :
                                 <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
                             }

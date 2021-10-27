@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { sendFormData } from "../actions/cda";
+import { sendFormChoque } from "../actions/cda";
 
 const initialState = {
     patenteSeleccionada: 'option-1',
@@ -24,7 +24,7 @@ const initialState = {
     descripcion: 'choque',
     responsable: 'yo'    
 }
-export const FormRobAcc = () => {
+export const FormChoque = () => {
 
     const [files, setFiles] = useState([]);
     const [pictures, setPictures] = useState([]);
@@ -146,7 +146,7 @@ export const FormRobAcc = () => {
             formdata.append("files.fotos_tercero", fotosTInput.current.files[i]);
         }                      
         
-        dispatch(sendFormData(formdata));               
+        dispatch(sendFormChoque(formdata));               
     }    
     useEffect(() => {        
         
@@ -173,8 +173,8 @@ export const FormRobAcc = () => {
     }, [])
     return (        
         
-        <form method="post" action="http://localhost:1337/app/accidente" className="formulario">
-            <Link to='/' className="goHome">Volver al inicio</Link>            
+        <div className="formulario">
+            <Link to='/form-select' className="goHome">Pagina Anterior</Link>            
             <div className="rendered-form">
                 <div>
                     <h1 className="heading-7">En caso de choque</h1>
@@ -558,7 +558,7 @@ export const FormRobAcc = () => {
                     </button>
                 </div>
             </div>
-        </form>            
+        </div>            
         
     )
 }
