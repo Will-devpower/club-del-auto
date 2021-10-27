@@ -24,6 +24,7 @@ export const startLogin = ( rut, password, history ) => {
         if( resp.status === 200 ) {        
             
             const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
+            
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();                
