@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 import { sendFormChoque } from "../actions/cda";
 
 const initialState = {
-    patenteSeleccionada: 'option-1',
-    rut: '12345',
-    nombre: 'Mi nombre',
-    telefono: '633333333',
-    correo: 'correo@correo.com',
-    rutTercero: '12345',
-    nombreTercero: 'Nombre Tercero',
-    telefonoTercero: '633333333',
-    correoTercero: 'correo@correo.com',    
-    patente: '1234',
-    marca: 'marca',
-    modelo: 'modelo',
-    color: 'color',
-    tieneSeguro: 'option-2',
-    lugar: 'lugar',
-    fecha: '11/08/1987',
-    danios: 'dañado',
-    descripcion: 'choque',
-    responsable: 'yo'    
+    patenteSeleccionada: '',
+    rut: '',
+    nombre: '',
+    telefono: '',
+    correo: '',
+    rutTercero: '',
+    nombreTercero: '',
+    telefonoTercero: '',
+    correoTercero: '',    
+    patente: '',
+    marca: '',
+    modelo: '',
+    color: '',
+    tieneSeguro: '',
+    lugar: '',
+    fecha: '',
+    danios: '',
+    descripcion: '',
+    responsable: ''    
 }
 export const FormChoque = () => {
 
