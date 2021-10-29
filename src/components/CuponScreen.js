@@ -8,6 +8,8 @@ import { getCouponById } from "../actions/cda"
 import { buyCoupon } from '../actions/cda';
 import { LoginScreen } from "./LoginScreen"
 
+const baseUrl = process.env.REACT_APP_API_URL;
+
 function loadMap(text){
     let location = 'https://maps.google.com/maps?q='+text+'&t=&z=13&ie=UTF8&iwloc=&output=embed';    
     document.getElementById('myMap').setAttribute('src', location);
@@ -51,7 +53,7 @@ export const CuponScreen = () => {
             <p className="bajada-servicio">{coupon.servicio}</p>
             <div className="div-block-26">
                 <div>
-                    <div className="slider w-slider" style={{backgroundImage:`url(${coupon.img[0].url})`}}></div>
+                    <div className="slider w-slider" style={{backgroundImage:`url(${baseUrl+coupon.img[0].url})`}}></div>
                     <p className="descripcion-servicio-2">{coupon.bajada}</p>
                 </div>
                 <div className="div-block-27">

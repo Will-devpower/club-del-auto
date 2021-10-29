@@ -91,7 +91,9 @@ export const loginFirst = ( rut, password, lPasswordConfim, history ) => {
 
             const data = { "identifier": rut, "password": password };       
 
-            const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );        
+            const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );     
+            
+            console.log(resp.status)
 
             if( resp.status === 200 ) { 
                 
