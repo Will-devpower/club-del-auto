@@ -157,6 +157,7 @@ const RequestedBenefits = ({uid}) => {
 const RequestedBenefitItem = (props) => {
 
     const {cupon} = props.cupon;
+    
     return (
         <div className="benefit-item-wrapper">
             <div className="benefit-item">
@@ -196,8 +197,6 @@ export const UserAccount = () => {
     history.push("/");
   };
 
-  console.log("cuponCliente: "+cuponCliente)
-  console.log("cuponClienteLoaded: "+cuponClienteLoaded)
 
   useEffect(() => {
       dispatch(getCuponClientes())

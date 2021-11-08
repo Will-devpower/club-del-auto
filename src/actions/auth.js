@@ -4,7 +4,8 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-const baseUrl = "http://localhost:1337"
+const baseUrl = process.env.REACT_APP_API_URL;
+//const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {        
@@ -24,7 +25,7 @@ export const startLogin = ( rut, password, history ) => {
         if( resp.status === 200 ) {        
             
             const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
-            console.log('RESP: ', resp2.status)
+            
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();                
@@ -90,7 +91,9 @@ export const loginFirst = ( rut, password, lPasswordConfim, history ) => {
 
             const data = { "identifier": rut, "password": password };       
 
-            const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );        
+            const resp = await fetchSinToken( 'clientes/registro/'+rut+'/'+password, data, 'POST' );     
+            
+            console.log(resp.status)
 
             if( resp.status === 200 ) { 
                 
@@ -149,29 +152,6 @@ export const forgetPass = ( rut, history ) => {
         const resp = await fetchSinToken( 'app/forgot/'+rut, data, 'GET' );        
 
         if( resp.status === 200 ) { 
-            
-            const body = await resp.json();
-            
-            const { rut, nombre, telefono, correo, vehiculos} = body;
-            //localStorage.setItem('token', body.jwt );
-            localStorage.setItem('rut', JSON.stringify( rut ));
-            localStorage.setItem('nombre', JSON.stringify( nombre ));
-            localStorage.setItem('telefono', JSON.stringify( telefono ));
-            localStorage.setItem('correo', JSON.stringify( correo ));
-            localStorage.setItem('vehiculos', JSON.stringify( vehiculos ));
-            localStorage.setItem('token-init-date', new Date().getTime());
-
-            dispatch( login({
-                uid: rut,
-                nombre: nombre,
-                correo: correo,
-                telefono: telefono,
-                vehiculos: vehiculos
-            }) )      
-                                
-                history.push('/');
-                document.querySelector('.popup-container').style.display = 'none';
-                document.querySelector('body').style.overflow = 'visible';
             
             Swal.fire({
                 icon: 'success',

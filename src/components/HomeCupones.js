@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import orangeCircle from '../assets/orange-circle.png'
 import orangeDots from '../assets/orange-dots.png'
 
+const baseUrl = process.env.REACT_APP_API_URL;
+
 
 export const HomeCupones = ({tituloCupones, btn}) => {
 
@@ -24,7 +26,7 @@ export const HomeCupones = ({tituloCupones, btn}) => {
                     cupons.slice(0, 3).map(( cupon ) => (
                         <Link to={`/cupones/${ cupon.id }`} className="cupon-link-wrapper" key={ cupon.id }>
                         <div className="cupon-card">
-                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${cupon.img[0].url})`}}></div>
+                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${baseUrl+cupon.img[0].url})`}}></div>
                             <p className="texto-cupones">{ cupon.bajada }</p>
                             <div className="div-block-20">
                                 <p className="link">{btn}</p>

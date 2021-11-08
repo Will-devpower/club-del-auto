@@ -98,17 +98,17 @@ export const getCouponById = id => async(dispatch) => {
         }   
 }
 
-export const buyCoupon = ( rut, cupon ) => {
+export const buyCoupon = ( rut, patente, cupon ) => {
     return async( dispatch ) => {
         
         Swal.showLoading();
         let rutNew = rut.replace(/"/g,'')
         const data = { "identifier": rut, "cupon": cupon }; 
 
-        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
-        console.log("consulta en BD: "+resp);
-        console.log("status de la respuesta: "+resp.status);
+        //Validar si el cupon tiene maximos de solicitudes por patente
 
+        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon+'/'+patente, data, 'GET' );
+        
         if( resp.status === 200 ) {
             
             Swal.fire({
@@ -180,7 +180,9 @@ export const sendFormRobo = (data) => {
         await fetch("http://localhost:1337/app/robo", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
-        .catch(error => console.log('error', error));                
+        .catch(error => console.log('error', error)); 
+    }
+}                          
 export const sendAcc = ( rut, cupon ) => {
     return async( dispatch ) => {
         

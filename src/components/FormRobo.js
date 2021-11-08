@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 import { sendFormRobo } from "../actions/cda";
 
 const initialState = {
-    patenteSeleccionada: 'option-1',        
-    patente: '1234',    
-    elementosRobados: 'option-2',
-    lugar: 'lugar',
-    fecha: '11/08/1987',    
-    descRobo: 'Robado',
-    descSituacion: 'choque'        
+    patenteSeleccionada: '',        
+    patente: '',    
+    elementosRobados: '',
+    lugar: '',
+    fecha: '',    
+    descRobo: '',
+    descSituacion: ''        
 }
 export const FormRobo = () => {
 
