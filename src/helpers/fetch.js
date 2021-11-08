@@ -1,14 +1,16 @@
-//const baseUrl = process.env.REACT_APP_API_URL;
-const baseUrl = "http://localhost:1337"
+const baseUrl = process.env.REACT_APP_API_URL;
+//const baseUrl = "http://localhost:1337"
 
 const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
     const url = `${baseUrl}/${endpoint}`;
+    console.log("url: "+url)
     return fetch(url);
 }
 
 const fetchSinToken = ( endpoint, data, method = 'GET' ) => {
     
     const url = `${ baseUrl }/${ endpoint }`;
+    console.log("url: "+url)
 
     if ( method === 'GET' ) {
         return fetch( url );

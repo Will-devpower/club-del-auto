@@ -26,7 +26,9 @@ export const getCuponClientes = () => {
         try {        
             dispatch(({ type: types.GET_COUPON_CLIENTE }));
             const response = await fetchEnhance(`cuponclientes`);
-            const cuponCliente = await response.json();              
+            const cuponCliente = await response.json();      
+            
+            console.log(cuponCliente)
             
             dispatch(({ 
                 type: types.GET_COUPON_CLIENTE_SUCCESS,
@@ -100,11 +102,11 @@ export const buyCoupon = ( rut, cupon ) => {
     return async( dispatch ) => {
         
         Swal.showLoading();
+        let rutNew = rut.replace(/"/g,'')
+        const data = { "identifier": rut, "cupon": cupon }; 
 
-        const data = { "identifier": rut, "cupon": cupon };       
-
-        const resp = await fetchSinToken( 'cupones/obtener/'+rut+'/'+cupon, data, 'GET' );
-        console.log("consulta en BD: "+resp.json());
+        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
+        console.log("consulta en BD: "+resp);
         console.log("status de la respuesta: "+resp.status);
 
         if( resp.status === 200 ) {
@@ -179,6 +181,29 @@ export const sendFormRobo = (data) => {
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));                
+export const sendAcc = ( rut, cupon ) => {
+    return async( dispatch ) => {
+        
+        Swal.showLoading();
+        let rutNew = rut.replace(/"/g,'')
+        const data = { "identifier": rut, "cupon": cupon }; 
+
+        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
+
+        if( resp.status === 200 ) {
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Incidente reportado',
+                text: 'Los detalles fueron enviados a nuestro equipo',
+                footer: 'El los próximos días nos pondremos en contacto con ud'
+            })
+            
+        } else {            
+            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+        }
+        
+
     }
 }
 

@@ -181,6 +181,9 @@ const RequestedBenefitItem = (props) => {
     )
 }
 export const UserAccount = () => {
+
+  
+
   const { uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
   const cuponCliente = useSelector(state => state.cda.cuponCliente.find(cupons => cupons.cliente.rut === uid));
   const {cuponClienteLoaded} = useSelector(state => state.cda);
@@ -192,6 +195,9 @@ export const UserAccount = () => {
     dispatch(startLogout());
     history.push("/");
   };
+
+  console.log("cuponCliente: "+cuponCliente)
+  console.log("cuponClienteLoaded: "+cuponClienteLoaded)
 
   useEffect(() => {
       dispatch(getCuponClientes())
