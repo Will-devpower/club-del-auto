@@ -153,29 +153,6 @@ export const forgetPass = ( rut, history ) => {
 
         if( resp.status === 200 ) { 
             
-            const body = await resp.json();
-            
-            const { rut, nombre, telefono, correo, vehiculos} = body;
-            //localStorage.setItem('token', body.jwt );
-            localStorage.setItem('rut', JSON.stringify( rut ));
-            localStorage.setItem('nombre', JSON.stringify( nombre ));
-            localStorage.setItem('telefono', JSON.stringify( telefono ));
-            localStorage.setItem('correo', JSON.stringify( correo ));
-            localStorage.setItem('vehiculos', JSON.stringify( vehiculos ));
-            localStorage.setItem('token-init-date', new Date().getTime());
-
-            dispatch( login({
-                uid: rut,
-                nombre: nombre,
-                correo: correo,
-                telefono: telefono,
-                vehiculos: vehiculos
-            }) )      
-                                
-                history.push('/');
-                document.querySelector('.popup-container').style.display = 'none';
-                document.querySelector('body').style.overflow = 'visible';
-            
             Swal.fire({
                 icon: 'success',
                 title: 'Reset Pass',

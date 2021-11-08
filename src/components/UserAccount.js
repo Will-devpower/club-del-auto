@@ -157,6 +157,7 @@ const RequestedBenefits = ({uid}) => {
 const RequestedBenefitItem = (props) => {
 
     const {cupon} = props.cupon;
+    
     return (
         <div className="benefit-item-wrapper">
             <div className="benefit-item">
