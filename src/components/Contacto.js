@@ -4,13 +4,13 @@ import { LoginScreen } from "./LoginScreen";
 import { useDispatch } from 'react-redux';
 import { useForm } from '../hooks/useForm';
 import { sendMail } from '../actions/auth';
-import userIcon from '../assets/user-icon2.png';
-import { useHistory } from 'react-router-dom';
+// import userIcon from '../assets/user-icon2.png';
+// import { useHistory } from 'react-router-dom';
 
 export const Contacto = () => {
 
     const dispatch = useDispatch();
-    const history = useHistory();    
+    // const history = useHistory();    
     
 
     const [ formLoginValues, handleLoginInputChange ] = useForm({

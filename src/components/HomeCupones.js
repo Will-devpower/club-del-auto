@@ -22,7 +22,7 @@ export const HomeCupones = ({tituloCupones, btn}) => {
             </div>
             <div className="div-block-10">
                 {
-                    cupons.length > 1 &&
+                    cupons.length >= 1 &&
                     cupons.slice(0, 3).map(( cupon ) => (
                         <Link to={`/cupones/${ cupon.id }`} className="cupon-link-wrapper" key={ cupon.id }>
                         <div className="cupon-card">

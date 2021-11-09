@@ -1,7 +1,8 @@
 import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+
+const baseUrl = process.env.REACT_APP_API_URL;
 
 export const cuponsStartLoading = () => {
     return async(dispatch) => {
@@ -10,7 +11,7 @@ export const cuponsStartLoading = () => {
             
             const resp = await fetchSinToken( 'cupones' );          
             const body = await resp.json();                     
-            
+            console.log('CUPONES:', body)
             dispatch( cuponLoaded( body ) );
 
         } catch (error) {
@@ -154,32 +155,60 @@ export const suscripcion = ( nombre, email ) => {
 }
 
 export const sendFormChoque = (data) => {
-    return async () => {      
+    return async () => { 
+        Swal.showLoading();     
         var requestOptions = {
             method: 'POST',
             body: data,
             redirect: 'follow'
         };
         
-        await fetch("http://localhost:1337/app/accidente", requestOptions)
+        await fetch(`${baseUrl}/app/accidente`, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+            console.log('resultado:',result)
+            if( result === "OK" ) {            
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Datos enviados',
+                    text: 'Pronto recibiras asistencia'
+                })
+                
+            } else {            
+                Swal.fire('Error', 'Ocurrió un error al enviar tus, Intenta de nuevo más tarde.', 'error');
+            }
+        }
+        )
         .catch(error => console.log('error', error));                
     }
 }
 
 export const sendFormRobo = (data) => {
     return async () => {  
-        // console.log(data)    
+        // console.log(data) 
+        Swal.showLoading();   
         var requestOptions = {
             method: 'POST',
             body: data,
             redirect: 'follow'
         };
         
-        await fetch("http://localhost:1337/app/robo", requestOptions)
+        await fetch(`${baseUrl}/app/robo`, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+                console.log('resultado:',result)
+                if( result === "OK" ) {            
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Datos enviados',
+                        text: 'Pronto recibiras asistencia'
+                    })
+                    
+                } else {            
+                    Swal.fire('Error', 'Ocurrió un error al enviar tus, Intenta de nuevo más tarde.', 'error');
+                }
+            }
+        )
         .catch(error => console.log('error', error)); 
     }
 }                          

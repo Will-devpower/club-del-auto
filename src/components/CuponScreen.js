@@ -19,7 +19,7 @@ export const CuponScreen = () => {
     
     const { id } = useParams();
     const dispatch = useDispatch();
-    const { loading } = useSelector(state => state.cda);
+    // const { loading } = useSelector(state => state.cda);
     const coupon = useSelector(state => state.cda.cupons.find(coupon => coupon.id === parseInt(id)));
     const { uid , vehiculos} = useSelector(state => state.auth);
 
@@ -113,7 +113,8 @@ export const CuponScreen = () => {
             <div className="mapa">            
                 <div class="mapouter">
                     <div class="gmap_canvas">
-                        <iframe id="myMap" 
+                        <iframe id="myMap"
+                            title="mapa" 
                             src="https://maps.google.com/maps?q=SantiagodeChile&t=&z=13&ie=UTF8&iwloc=&output=embed"
                             frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
                         </iframe>

@@ -22,7 +22,7 @@ const initialState = {
     fecha: '',
     danios: '',
     descripcion: '',
-    responsable: ''    
+    responsable: '',        
 }
 export const FormChoque = () => {
 
@@ -174,7 +174,7 @@ export const FormChoque = () => {
     return (        
         
         <div className="formulario">
-            <Link to='/form-select' className="goHome">Pagina Anterior</Link>            
+            <Link to='/form-select' className="goHome w-button">Pagina Anterior</Link>            
             <div className="rendered-form">
                 <div>
                     <h1 className="heading-7">En caso de choque</h1>
@@ -237,7 +237,7 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="email" 
                         placeholder="Correo" 
                         name="correo"                         
                         className="input-control input-field"
@@ -406,24 +406,22 @@ export const FormChoque = () => {
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
+                    <textarea                         
                         placeholder="Daños observados" 
                         name="danios"                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={danios}       
-                    />
+                    ></textarea>
                 </div>
                 <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
+                    <textarea                          
                         placeholder="Descripción de la situación" 
                         name="descripcion"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descripcion}       
-                    />
+                    ></textarea>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 

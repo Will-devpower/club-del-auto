@@ -179,7 +179,7 @@ export const resetPass = ( id, token, pass, passConfirm, history ) => {
             fontSize: 14
         });
 
-        if(pass!=passConfirm){
+        if(pass!==passConfirm){
             notice.hideLoading();
             Swal.fire('Error', 'Las contraseñas deben coincidir', 'error');
         }

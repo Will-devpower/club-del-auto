@@ -61,6 +61,9 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
         Solicitar asistencia
       </a>
+      <a href="/form-select" className="w-button">Llena el formulario</a>      
+      <Link to="/cupones-de-descuento" className="ver-todos w-button">Ver todos los cupones</Link>
+      
     </div>
   );
 };
@@ -160,11 +163,7 @@ const RequestedBenefitItem = (props) => {
     
     return (
         <div className="benefit-item-wrapper">
-            <div className="benefit-item">
-                {/* <div>
-                    <p className="paragraph-3">Patente</p>
-                    <p className="paragraph-6"></p>
-                </div> */}
+            {/* <div className="benefit-item">                
                 <div>
                     <p className="paragraph-3">Fecha</p>
                     <p className="paragraph-6">{moment(cupon.created_at).format('DD/MM/YYYY')}</p>
@@ -177,7 +176,7 @@ const RequestedBenefitItem = (props) => {
                     <p className="paragraph-3">Proveedor</p>
                     <p className="paragraph-6">{cupon.proveedor}</p>
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 }
@@ -212,14 +211,11 @@ export const UserAccount = () => {
         <SideBarClientAccount uid={uid} logout={handleLogout} />
         <div className="div-block-3_3">
           <div className="div-block-51">
-            <h1 className="heading-7">Mi cuenta</h1>
-            <div className="div-block-52">
-              <img src={editIcon} alt="editar" className="image-29" />
-            </div>
+            <h1 className="heading-7">Mi cuenta</h1>            
           </div>
           <div className="div-block-35">
             <div className="div-block-45">
-              <div className="div-block-36"></div>
+              
               <div className="div-block-46">
                 <h1 className="heading-8">{nombre.toLowerCase()}</h1>
                 <p className="datos-usuario">

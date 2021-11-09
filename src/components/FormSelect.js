@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export const FormSelect = () => {
     return (
         <div className="formulario">
-            <Link to='/' className="goHome link-2">Volver al inicio</Link>
+            <Link to='/' className="goHome w-button">Volver al inicio</Link>
             <br/>
             <h1 className="heading-7">Seleccione una Opción</h1>
             <div className="select-form">                
