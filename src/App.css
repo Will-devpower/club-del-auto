@@ -11,7 +11,9 @@
 .text-center {
   text-align: center;
 }
-
+.mt-70 {
+  margin-top: 70px;
+}
 .cupones-screen,
 .cupon-screen,
 .user-account-screen {

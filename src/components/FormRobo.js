@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { sendFormRobo } from "../actions/cda";
+import { Header } from "../layout/Header";
+import { LoginScreen } from "./LoginScreen";
 
 const initialState = {
     patenteSeleccionada: '',       
@@ -123,9 +125,13 @@ export const FormRobo = () => {
     return (        
         
         <div className="formulario">
-            <Link to='/form-select' className="goHome w-button">Pagina Anterior</Link>            
+            <div className="popup-container">
+                <LoginScreen />
+            </div>            
+            <Header />
+            <Link to='/form-select' className="link-2">Pagina anterior</Link>            
             <div className="rendered-form">
-                <div>
+                <div className="mt-70">
                     <h1 className="heading-7">En caso de Robo</h1>
                 </div>
                 <div>

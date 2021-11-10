@@ -7,7 +7,6 @@ import logo3 from "../assets/cda-logo3.png";
 import userIcon from "../assets/user-icon1.png";
 import homeIcon from "../assets/home-icon1.png";
 // import cdaIcon from '../assets/cda-logo1.png';
-import editIcon from "../assets/edit-icon.png";
 import logoutIcon from "../assets/logout-icon.png";
 import moment from 'moment';
 
@@ -138,8 +137,8 @@ const CarListItem = (props) => {
     </div>
   );
 };
-const RequestedBenefits = ({uid}) => {
-  const cuponesCliente = useSelector(state => state.cda.cuponCliente.filter(cupons => cupons.cliente.rut === uid));    
+const RequestedBenefits = () => {
+  const cuponesCliente = useSelector(state => state.cda.cuponCliente);    
   
     return (
         <div className="requested-benefits">
@@ -160,8 +159,7 @@ const RequestedBenefits = ({uid}) => {
 const RequestedBenefitItem = (props) => {
 
     const {cupon} = props;
-    const proveedores = useSelector(state => state.cda.proveedores.map(proveedor => proveedor.cupones.find(prov => prov.id === cupon.cupon.id)));
-    console.log('cupon: ', proveedores)
+    console.log(props)
     return (
         <div className="benefit-item-wrapper">
             <div className="benefit-item">                
@@ -175,18 +173,16 @@ const RequestedBenefitItem = (props) => {
                 </div>
                 <div>
                     <p className="paragraph-3">Proveedor</p>
-                    <p className="paragraph-6">{cupon.cupon.proveedor}</p>
+                    <p className="paragraph-6">{props.cupon.nombreProveedor}</p>
                 </div>
             </div>
         </div>
     )
 }
-export const UserAccount = () => {
+export const UserAccount = () => {  
 
-  
-
-  const { uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
-  const cuponCliente = useSelector(state => state.cda.cuponCliente.find(cupons => cupons.cliente.rut === uid));
+  const { id, uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
+  const cuponCliente = useSelector(state => state.cda.cuponCliente.length >= 1);  
   const {cuponClienteLoaded} = useSelector(state => state.cda);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -196,10 +192,9 @@ export const UserAccount = () => {
     dispatch(startLogout());
     history.push("/");
   };
-
-
+  
   useEffect(() => {
-      dispatch(getCuponClientes())
+      dispatch(getCuponClientes(id))
   }, [dispatch])  
 
   return (

@@ -11,7 +11,7 @@ export const cuponsStartLoading = () => {
             
             const resp = await fetchSinToken( 'cupones' );          
             const body = await resp.json();                     
-            console.log('CUPONES:', body)
+            
             dispatch( cuponLoaded( body ) );
 
         } catch (error) {
@@ -21,14 +21,13 @@ export const cuponsStartLoading = () => {
     }
 }
 
-export const getCuponClientes = () => {
+export const getCuponClientes = (id) => {
     return async (dispatch) => {
 
         try {        
             dispatch(({ type: types.GET_COUPON_CLIENTE }));
-            const response = await fetchEnhance(`cuponclientes`);
-            
-            const cuponCliente = await response.json();          
+            const response = await fetchEnhance(`getCuponclientesByClient/${id}`);
+            const cuponCliente = await response.json();           
             
             dispatch(({ 
                 type: types.GET_COUPON_CLIENTE_SUCCESS,
