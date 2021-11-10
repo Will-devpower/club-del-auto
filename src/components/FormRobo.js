@@ -14,7 +14,7 @@ const initialState = {
     fecha: '',    
     descRobo: '',
     descSituacion: '',
-    tipoIncidente: ''        
+    tipoIncidente: 'Robo'        
 }
 export const FormRobo = () => {
 
@@ -26,20 +26,15 @@ export const FormRobo = () => {
     const fotosInput = useRef(null);        
     const [ values, setValues ] = useState(initialState);
     const dispatch = useDispatch();
-    const { vehiculos } = useSelector(state => state.auth);
+    const { uid, nombre, correo, telefono, vehiculos } = useSelector(state => state.auth);
     
     const {               
-        elementosRobados,
-        rut,    
-        nombre, 
-        telefono,   
-        correo,
+        elementosRobados,        
         patenteSeleccionada,
         lugar,
         fecha,
         descRobo,
-        descSituacion,
-        tipoIncidente    
+        descSituacion,            
     } = values;
 
     const handleInputChange = ({ target }) => {
@@ -89,6 +84,13 @@ export const FormRobo = () => {
 
     const handleSubmit = (e) => { 
         e.preventDefault();
+        setValues({
+            ...values,
+            rut: uid,
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono
+        });
         let formdata = new FormData();
         formdata.append("data", JSON.stringify(values));
                 
@@ -124,107 +126,41 @@ export const FormRobo = () => {
             <Link to='/form-select' className="goHome w-button">Pagina Anterior</Link>            
             <div className="rendered-form">
                 <div>
-                    <h1 className="heading-7">En caso de Robo o Accidente</h1>
+                    <h1 className="heading-7">En caso de Robo</h1>
                 </div>
-
-                 {/* Tipo de incidente */}
-                 <div className="formbuilder-select form-group select-div">
-                    <label htmlFor="tipoIncidente" className="formbuilder-select-label paragraph-5-copy">Elige un tipo de incidente</label>
-                    <select 
-                        name="tipoIncidente" 
-                        id="tipoIncidente" 
-                        className="input-control"
-                        onChange={handleInputChange}
-                        value={tipoIncidente}
-                    >
-                        <option>Seleccione una opción</option>                                                
-                        <option>Accidente</option>                                                
-                        <option>Robo</option>                                                
-                        
-                    </select>
+                <div>
+                    <p className="paragraph-4-copy">¿Qué le robaron?</p>
                 </div>
-                {/* DATOS DEL CONDUCTOR */}
-
-                <h3 className="paragraph-5-copy">Identificación del conductor</h3>
-                <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
-                        placeholder="RUT" 
-                        name="rut" 
-                        className="input-control input-field"
-                        onChange={handleInputChange}
-                        value={rut}                        
-                    />
-                </div>
-                <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
-                        placeholder="Nombre y Apellido" 
-                        name="nombre"                         
-                        className="input-control input-field"
-                        onChange={handleInputChange}
-                        value={nombre}                        
-                    />
-                </div>
-                <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
-                        placeholder="Teléfono" 
-                        name="telefono" 
-                        className="input-control input-field"
-                        onChange={handleInputChange}
-                        value={telefono}                        
-                    />
-                </div>
-                <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
-                        placeholder="Correo" 
-                        name="correo"                         
-                        className="input-control input-field"
-                        onChange={handleInputChange}
-                        value={correo}
-                    />
-                </div>
-                
-                {/* QUE LE ROBARON */}
-                {
-                    (tipoIncidente === "Robo") &&
-                    <>
-                    <div>
-                        <p className="paragraph-4-copy">¿Qué le robaron?</p>
-                    </div>
-                    <div className="formbuilder-radio-group form-group field-elementosRobados">
-                        <label htmlFor="elementosRobados" style={{ marginBottom: '10px'}}className="formbuilder-radio-group-label"></label>
-                        <div className="radio-group">
-                            <div className="formbuilder-radio-inline">
-                                <label htmlFor="elementosRobados-0" className="paragraph-4-copy">Vehículo completo</label>
-                                <input 
-                                    name="elementosRobados" 
-                                    access="false" 
-                                    id="elementosRobados-0" 
-                                    value="option-1" 
-                                    type="radio"
-                                    onChange={handleInputChange}
-                                />
-                                <span className="radio-replacer"></span>                           
-                            </div>
-                            <div className="formbuilder-radio-inline">
-                                <label htmlFor="elementosRobados-1" className="paragraph-4-copy">Partes y/o accesorios</label>
-                                <input 
-                                    name="elementosRobados" 
-                                    access="false" 
-                                    id="elementosRobados-1" 
-                                    value="option-2" 
-                                    type="radio"
-                                    onChange={handleInputChange}
-                                />
-                                <span className="radio-replacer"></span>                            
-                            </div>
+                <div className="formbuilder-radio-group form-group field-elementosRobados">
+                    <label htmlFor="elementosRobados" style={{ marginBottom: '10px'}}className="formbuilder-radio-group-label"></label>
+                    <div className="radio-group">
+                        <div className="formbuilder-radio-inline">
+                            <label htmlFor="elementosRobados-0" className="paragraph-4-copy">Vehículo completo</label>
+                            <input 
+                                name="elementosRobados" 
+                                access="false" 
+                                id="elementosRobados-0" 
+                                value="option-1" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
+                            <span className="radio-replacer"></span>                           
+                        </div>
+                        <div className="formbuilder-radio-inline">
+                            <label htmlFor="elementosRobados-1" className="paragraph-4-copy">Partes y/o accesorios</label>
+                            <input 
+                                name="elementosRobados" 
+                                access="false" 
+                                id="elementosRobados-1" 
+                                value="option-2" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
+                            <span className="radio-replacer"></span>                            
                         </div>
                     </div>
-                    </>
-                }
+                </div>
+                  
 
                 <div className="formbuilder-select form-group select-div">
                     <label htmlFor="patenteSeleccionada" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>

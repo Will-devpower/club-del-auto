@@ -331,6 +331,8 @@
 }
 textarea {
   height: 100px !important;
+  font-family: inherit !important;
+  resize: none;
 }
 .w-button {
   display: -webkit-box;

@@ -139,8 +139,8 @@ const CarListItem = (props) => {
   );
 };
 const RequestedBenefits = ({uid}) => {
-    
-    const cuponesCliente = useSelector(state => state.cda.cuponCliente.filter(cupons => cupons.cliente.rut === uid));    
+  const cuponesCliente = useSelector(state => state.cda.cuponCliente.filter(cupons => cupons.cliente.rut === uid));    
+  
     return (
         <div className="requested-benefits">
             <p className="ben-title">BENEFICIOS SOLICITADOS</p>
@@ -159,24 +159,25 @@ const RequestedBenefits = ({uid}) => {
 }
 const RequestedBenefitItem = (props) => {
 
-    const {cupon} = props.cupon;
-    
+    const {cupon} = props;
+    const proveedores = useSelector(state => state.cda.proveedores.map(proveedor => proveedor.cupones.find(prov => prov.id === cupon.cupon.id)));
+    console.log('cupon: ', proveedores)
     return (
         <div className="benefit-item-wrapper">
-            {/* <div className="benefit-item">                
+            <div className="benefit-item">                
                 <div>
                     <p className="paragraph-3">Fecha</p>
                     <p className="paragraph-6">{moment(cupon.created_at).format('DD/MM/YYYY')}</p>
                 </div>
                 <div>
                     <p className="paragraph-3">Servicio</p>
-                    <p className="paragraph-6">{cupon.servicio}</p>
+                    <p className="paragraph-6">{cupon.cupon.servicio}</p>
                 </div>
                 <div>
                     <p className="paragraph-3">Proveedor</p>
-                    <p className="paragraph-6">{cupon.proveedor}</p>
+                    <p className="paragraph-6">{cupon.cupon.proveedor}</p>
                 </div>
-            </div> */}
+            </div>
         </div>
     )
 }

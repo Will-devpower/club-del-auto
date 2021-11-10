@@ -9,6 +9,10 @@ const initialState = {
     nombre: '',
     telefono: '',
     correo: '',
+    rutConductor: '',
+    nombreConductor: '',
+    telefonoConductor: '',
+    correoConductor: '',
     rutTercero: '',
     nombreTercero: '',
     telefonoTercero: '',
@@ -22,7 +26,8 @@ const initialState = {
     fecha: '',
     danios: '',
     descripcion: '',
-    responsable: '',        
+    responsable: '',
+    tipoIncidente: 'Accidente'        
 }
 export const FormChoque = () => {
 
@@ -40,13 +45,13 @@ export const FormChoque = () => {
     const fotosTInput = useRef(null);    
     const [ values, setValues ] = useState(initialState);
     const dispatch = useDispatch();
-    const { vehiculos } = useSelector(state => state.auth);
+    const { uid, nombre, correo, telefono, vehiculos } = useSelector(state => state.auth);
     
     const {            
-        rut,    
-        nombre, 
-        telefono,   
-        correo, 
+        rutConductor,    
+        nombreConductor, 
+        telefonoConductor,   
+        correoConductor, 
         rutTercero, 
         nombreTercero,  
         telefonoTercero,    
@@ -131,6 +136,13 @@ export const FormChoque = () => {
 
     const handleSubmit = (e) => { 
         e.preventDefault();
+        setValues({
+            ...values,
+            rut: uid,
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono
+        });
         let formdata = new FormData();
         formdata.append("data", JSON.stringify(values));
         formdata.append("files.licencia", licenciaInput.current.files[0]);        
@@ -190,6 +202,7 @@ export const FormChoque = () => {
                         className="input-control"
                         onChange={handleInputChange}
                     >
+                        <option>Seleccione una opción</option>
                         {
                             (vehiculos.length > 0) &&
                             vehiculos.map((vehiculo, key) => {
@@ -209,40 +222,40 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT" 
-                        name="rut" 
+                        name="rutConductor" 
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={rut}                        
+                        value={rutConductor}                        
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Nombre y Apellido" 
-                        name="nombre"                         
+                        name="nombreConductor"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={nombre}                        
+                        value={nombreConductor}                        
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Teléfono" 
-                        name="telefono" 
+                        name="telefonoConductor" 
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={telefono}                        
+                        value={telefonoConductor}                        
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="email" 
                         placeholder="Correo" 
-                        name="correo"                         
+                        name="correoConductor"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={correo}
+                        value={correoConductor}
                     />
                 </div>
 

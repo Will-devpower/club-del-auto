@@ -28,10 +28,12 @@ export const startLogin = ( rut, password, history ) => {
             
             if( resp2.status === 200 ) {
 
-                const body = await resp2.json();                
-                const { rut, nombre, telefono, correo, vehiculos} = body;
+                const body = await resp2.json();  
+                console.log('body: ',body)              
+                const { id, rut, nombre, telefono, correo, vehiculos} = body;
                 //localStorage.setItem('token', body.jwt );
                 localStorage.setItem('rut', JSON.stringify( rut ));
+                localStorage.setItem('id', JSON.stringify( id ));
                 localStorage.setItem('nombre', JSON.stringify( nombre ));
                 localStorage.setItem('telefono', JSON.stringify( telefono ));
                 localStorage.setItem('correo', JSON.stringify( correo )  );
@@ -43,7 +45,8 @@ export const startLogin = ( rut, password, history ) => {
                     nombre: nombre,
                     correo: correo,
                     telefono: telefono,
-                    vehiculos: vehiculos
+                    vehiculos: vehiculos,
+                    id
                 }) )                
                 
                 history.push('/');
@@ -266,16 +269,18 @@ export const startChecking = () => {
         
         // const token = localStorage.getItem('token');
         const rutUsuario = localStorage.getItem('rut');       
+        const idUsuario = localStorage.getItem('id');       
         const nombreUsuario = localStorage.getItem('nombre');       
         const telefonoUsuario = localStorage.getItem('telefono');       
         const correoUsuario = localStorage.getItem('correo');       
-        const vehiculosUsuario = localStorage.getItem('vehiculos');       
-        
+        const vehiculosUsuario = localStorage.getItem('vehiculos');     
+
         if(rutUsuario) {
 
           
           return  dispatch( login({
                 uid: JSON.parse(rutUsuario),
+                
                 nombre: JSON.parse(nombreUsuario),
                 correo: JSON.parse(correoUsuario),
                 telefono: JSON.parse(telefonoUsuario),
