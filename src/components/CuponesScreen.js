@@ -46,7 +46,7 @@ export const CuponesScreen = () => {
                                 banner_image.map((banner, key) => {
                                     return (
                                         <SplideSlide key={key}>
-                                            <img src={baseUrl+banner.url} alt="Image 1"/>
+                                            <img src={baseUrl+banner.url} alt={banner.url}/>
                                         </SplideSlide>
                                     )
                                 })

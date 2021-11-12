@@ -2,13 +2,13 @@ import { types } from '../types/types';
 
 const initialState = {    
     cupons: [],
-    cuponCliente: [],
+    cuponCliente: [],    
     textosApp: [],
     bannersCupones: [],    
     loading: true,
     cuponClienteLoaded: false,
     textosLoaded: false,
-    bannersLoaded: false
+    bannersLoaded: false,    
 };
 
 
@@ -62,6 +62,7 @@ export const cdaReducer = ( state = initialState, action ) => {
                 cuponCliente: [ ...action.payload ]
             }
         }
+        
         case types.GET_TEXTOS_SUCCESS: {
             return {
                 ...state,                

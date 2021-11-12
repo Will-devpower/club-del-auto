@@ -20,7 +20,7 @@ export const LoginScreen = () => {
         lPassword: ''
     });    
     
-    const { lRut, lEmail, lPatente, lPassword } = formLoginValues;
+    const { lRut, lPassword } = formLoginValues;
         
 
     const handleLogin = ( e ) => {

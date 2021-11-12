@@ -19,7 +19,7 @@ export const ResetPass = () => {
         lRut: ''
     });    
     
-    const { lRut, lPassword, lPasswordConfim } = formLoginValues;
+    const { lPassword, lPasswordConfim } = formLoginValues;
         
 
     const handleResetPass = ( e ) => {

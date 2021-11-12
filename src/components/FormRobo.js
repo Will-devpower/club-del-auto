@@ -2,15 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { sendFormRobo } from "../actions/cda";
+import { Header } from "../layout/Header";
+import { LoginScreen } from "./LoginScreen";
 
 const initialState = {
-    patenteSeleccionada: '',        
-    patente: '',    
+    patenteSeleccionada: '',       
     elementosRobados: '',
+    rut: '',
+    nombre: '',
+    telefono: '',
+    correo: '',
     lugar: '',
     fecha: '',    
     descRobo: '',
-    descSituacion: ''        
+    descSituacion: '',
+    tipoIncidente: 'Robo'        
 }
 export const FormRobo = () => {
 
@@ -22,16 +28,15 @@ export const FormRobo = () => {
     const fotosInput = useRef(null);        
     const [ values, setValues ] = useState(initialState);
     const dispatch = useDispatch();
-    const { vehiculos } = useSelector(state => state.auth);
+    const { uid, nombre, correo, telefono, vehiculos } = useSelector(state => state.auth);
     
-    const {            
+    const {               
+        elementosRobados,        
         patenteSeleccionada,
-        patente,        
-        elementosRobados,
         lugar,
         fecha,
         descRobo,
-        descSituacion    
+        descSituacion,            
     } = values;
 
     const handleInputChange = ({ target }) => {
@@ -81,6 +86,13 @@ export const FormRobo = () => {
 
     const handleSubmit = (e) => { 
         e.preventDefault();
+        setValues({
+            ...values,
+            rut: uid,
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono
+        });
         let formdata = new FormData();
         formdata.append("data", JSON.stringify(values));
                 
@@ -91,7 +103,7 @@ export const FormRobo = () => {
         for(let i = 0; i < fotosInput.current.files.length; i++) {            
             formdata.append("files.fotos", fotosInput.current.files[i]);
         }                
-        console.log(elementosRobados)
+        // console.log(values)
         dispatch(sendFormRobo(formdata));               
     }    
     useEffect(() => {        
@@ -113,9 +125,13 @@ export const FormRobo = () => {
     return (        
         
         <div className="formulario">
-            <Link to='/form-select' className="goHome">Pagina Anterior</Link>            
+            <div className="popup-container">
+                <LoginScreen />
+            </div>            
+            <Header />
+            <Link to='/form-select' className="link-2">Pagina anterior</Link>            
             <div className="rendered-form">
-                <div>
+                <div className="mt-70">
                     <h1 className="heading-7">En caso de Robo</h1>
                 </div>
                 <div>
@@ -150,6 +166,8 @@ export const FormRobo = () => {
                         </div>
                     </div>
                 </div>
+                  
+
                 <div className="formbuilder-select form-group select-div">
                     <label htmlFor="patenteSeleccionada" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>
                     <select 
@@ -157,12 +175,14 @@ export const FormRobo = () => {
                         id="patenteSeleccionada" 
                         className="input-control"
                         onChange={handleInputChange}
+                        value={patenteSeleccionada}
                     >
+                        <option>Seleccione una opción</option>
                         {
                             (vehiculos.length > 0) &&
                             vehiculos.map((vehiculo, key) => {
                                 return (
-                                    <option key={key} value={vehiculo.patente} id={vehiculo.patente}>{vehiculo.patente}</option>
+                                    <option key={key} id={vehiculo.patente}>{vehiculo.patente}</option>
                                 )
                             })
                         }                        
@@ -194,24 +214,23 @@ export const FormRobo = () => {
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
+                    <textarea 
+                         
                         placeholder="Descripción de lo robado" 
                         name="descRobo"                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descRobo}       
-                    />
+                    ></textarea>
                 </div>
                 <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
+                    <textarea                         
                         placeholder="Descripción de la situación" 
                         name="descSituacion"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descSituacion}       
-                    />
+                    ></textarea>
                 </div>                
 
                 {/* DOCUMENTOS */}                

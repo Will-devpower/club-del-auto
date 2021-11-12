@@ -7,7 +7,6 @@ import logo3 from "../assets/cda-logo3.png";
 import userIcon from "../assets/user-icon1.png";
 import homeIcon from "../assets/home-icon1.png";
 // import cdaIcon from '../assets/cda-logo1.png';
-import editIcon from "../assets/edit-icon.png";
 import logoutIcon from "../assets/logout-icon.png";
 import moment from 'moment';
 
@@ -61,6 +60,9 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
         Solicitar asistencia
       </a>
+      <a href="/form-select" className="w-button">Llena el formulario</a>      
+      <Link to="/cupones-de-descuento" className="ver-todos w-button">Ver todos los cupones</Link>
+      
     </div>
   );
 };
@@ -135,9 +137,9 @@ const CarListItem = (props) => {
     </div>
   );
 };
-const RequestedBenefits = ({uid}) => {
-    
-    const cuponesCliente = useSelector(state => state.cda.cuponCliente.filter(cupons => cupons.cliente.rut === uid));    
+const RequestedBenefits = () => {
+  const cuponesCliente = useSelector(state => state.cda.cuponCliente);    
+  
     return (
         <div className="requested-benefits">
             <p className="ben-title">BENEFICIOS SOLICITADOS</p>
@@ -156,36 +158,31 @@ const RequestedBenefits = ({uid}) => {
 }
 const RequestedBenefitItem = (props) => {
 
-    const {cupon} = props.cupon;
+    const {cupon} = props;
+    console.log(props)
     return (
         <div className="benefit-item-wrapper">
-            <div className="benefit-item">
-                {/* <div>
-                    <p className="paragraph-3">Patente</p>
-                    <p className="paragraph-6"></p>
-                </div> */}
+            <div className="benefit-item">                
                 <div>
                     <p className="paragraph-3">Fecha</p>
                     <p className="paragraph-6">{moment(cupon.created_at).format('DD/MM/YYYY')}</p>
                 </div>
                 <div>
                     <p className="paragraph-3">Servicio</p>
-                    <p className="paragraph-6">{cupon.servicio}</p>
+                    <p className="paragraph-6">{cupon.cupon.servicio}</p>
                 </div>
                 <div>
                     <p className="paragraph-3">Proveedor</p>
-                    <p className="paragraph-6">{cupon.proveedor}</p>
+                    <p className="paragraph-6">{props.cupon.nombreProveedor}</p>
                 </div>
             </div>
         </div>
     )
 }
-export const UserAccount = () => {
+export const UserAccount = () => {  
 
-  
-
-  const { uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
-  const cuponCliente = useSelector(state => state.cda.cuponCliente.find(cupons => cupons.cliente.rut === uid));
+  const { id, uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
+  const cuponCliente = useSelector(state => state.cda.cuponCliente.length >= 1);  
   const {cuponClienteLoaded} = useSelector(state => state.cda);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -195,10 +192,9 @@ export const UserAccount = () => {
     dispatch(startLogout());
     history.push("/");
   };
-
-
+  
   useEffect(() => {
-      dispatch(getCuponClientes())
+      dispatch(getCuponClientes(id))
   }, [dispatch])  
 
   return (
@@ -211,14 +207,11 @@ export const UserAccount = () => {
         <SideBarClientAccount uid={uid} logout={handleLogout} />
         <div className="div-block-3_3">
           <div className="div-block-51">
-            <h1 className="heading-7">Mi cuenta</h1>
-            <div className="div-block-52">
-              <img src={editIcon} alt="editar" className="image-29" />
-            </div>
+            <h1 className="heading-7">Mi cuenta</h1>            
           </div>
           <div className="div-block-35">
             <div className="div-block-45">
-              <div className="div-block-36"></div>
+              
               <div className="div-block-46">
                 <h1 className="heading-8">{nombre.toLowerCase()}</h1>
                 <p className="datos-usuario">

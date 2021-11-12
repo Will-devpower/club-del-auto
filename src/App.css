@@ -11,7 +11,9 @@
 .text-center {
   text-align: center;
 }
-
+.mt-70 {
+  margin-top: 70px;
+}
 .cupones-screen,
 .cupon-screen,
 .user-account-screen {
@@ -329,6 +331,11 @@
   bottom: 0%;
   width: 200px;
 }
+textarea {
+  height: 100px !important;
+  font-family: inherit !important;
+  resize: none;
+}
 .w-button {
   display: -webkit-box;
   display: -webkit-flex;
@@ -362,6 +369,10 @@
 }
 .w-button:hover {
   background: #3264ff;
+}
+.ver-todos {
+  padding-right: 17px;
+  padding-left: 17px;
 }
 .heading-2 {
   padding: 0px;
@@ -709,8 +720,7 @@
   text-transform: uppercase;
   text-decoration: none;
   font-family: Silka;
-  font-weight: 600;
-  color: #16205b;
+  font-weight: 600; 
 }
 .form-block {  
   margin-top: 30px;

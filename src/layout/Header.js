@@ -4,7 +4,7 @@ import logo1 from '../assets/cda-logo1.png';
 import React, { useState, useCallback } from 'react'
 // import logo2 from '../assets/cda-logo2.png';
 import logo3 from '../assets/cda-logo3.png';
-import { triggerLoginPopup } from "../helpers/triggerLogin";
+// import { triggerLoginPopup } from "../helpers/triggerLogin";
 
 
 export const Header = () => {

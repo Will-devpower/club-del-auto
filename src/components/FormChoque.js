@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { sendFormChoque } from "../actions/cda";
+import { Header } from "../layout/Header";
+import { LoginScreen } from "./LoginScreen";
 
 const initialState = {
     patenteSeleccionada: '',
@@ -9,6 +11,10 @@ const initialState = {
     nombre: '',
     telefono: '',
     correo: '',
+    rutConductor: '',
+    nombreConductor: '',
+    telefonoConductor: '',
+    correoConductor: '',
     rutTercero: '',
     nombreTercero: '',
     telefonoTercero: '',
@@ -22,7 +28,8 @@ const initialState = {
     fecha: '',
     danios: '',
     descripcion: '',
-    responsable: ''    
+    responsable: '',
+    tipoIncidente: 'Accidente'        
 }
 export const FormChoque = () => {
 
@@ -40,13 +47,13 @@ export const FormChoque = () => {
     const fotosTInput = useRef(null);    
     const [ values, setValues ] = useState(initialState);
     const dispatch = useDispatch();
-    const { vehiculos } = useSelector(state => state.auth);
+    const { uid, nombre, correo, telefono, vehiculos } = useSelector(state => state.auth);
     
     const {            
-        rut,    
-        nombre, 
-        telefono,   
-        correo, 
+        rutConductor,    
+        nombreConductor, 
+        telefonoConductor,   
+        correoConductor, 
         rutTercero, 
         nombreTercero,  
         telefonoTercero,    
@@ -131,6 +138,13 @@ export const FormChoque = () => {
 
     const handleSubmit = (e) => { 
         e.preventDefault();
+        setValues({
+            ...values,
+            rut: uid,
+            nombre: nombre,
+            correo: correo,
+            telefono: telefono
+        });
         let formdata = new FormData();
         formdata.append("data", JSON.stringify(values));
         formdata.append("files.licencia", licenciaInput.current.files[0]);        
@@ -174,9 +188,13 @@ export const FormChoque = () => {
     return (        
         
         <div className="formulario">
-            <Link to='/form-select' className="goHome">Pagina Anterior</Link>            
+            <div className="popup-container">
+                <LoginScreen />
+            </div>            
+            <Header />
+            <Link to='/form-select' className="link-2">Pagina anterior</Link>            
             <div className="rendered-form">
-                <div>
+                <div className="mt-70">
                     <h1 className="heading-7">En caso de choque</h1>
                 </div>
                 <div>
@@ -190,6 +208,7 @@ export const FormChoque = () => {
                         className="input-control"
                         onChange={handleInputChange}
                     >
+                        <option>Seleccione una opción</option>
                         {
                             (vehiculos.length > 0) &&
                             vehiculos.map((vehiculo, key) => {
@@ -209,40 +228,40 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT" 
-                        name="rut" 
+                        name="rutConductor" 
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={rut}                        
+                        value={rutConductor}                        
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Nombre y Apellido" 
-                        name="nombre"                         
+                        name="nombreConductor"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={nombre}                        
+                        value={nombreConductor}                        
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Teléfono" 
-                        name="telefono" 
+                        name="telefonoConductor" 
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={telefono}                        
+                        value={telefonoConductor}                        
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="email" 
                         placeholder="Correo" 
-                        name="correo"                         
+                        name="correoConductor"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={correo}
+                        value={correoConductor}
                     />
                 </div>
 
@@ -406,24 +425,22 @@ export const FormChoque = () => {
                     />
                 </div>
                 <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
+                    <textarea                         
                         placeholder="Daños observados" 
                         name="danios"                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={danios}       
-                    />
+                    ></textarea>
                 </div>
                 <div className="formbuilder-text form-group">                    
-                    <input 
-                        type="text" 
+                    <textarea                          
                         placeholder="Descripción de la situación" 
                         name="descripcion"                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descripcion}       
-                    />
+                    ></textarea>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 

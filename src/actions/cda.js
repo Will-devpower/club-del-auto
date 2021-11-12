@@ -1,7 +1,8 @@
 import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
-import axios from 'axios';
+
+const baseUrl = process.env.REACT_APP_API_URL;
 
 export const cuponsStartLoading = () => {
     return async(dispatch) => {
@@ -20,20 +21,18 @@ export const cuponsStartLoading = () => {
     }
 }
 
-export const getCuponClientes = () => {
+export const getCuponClientes = (id) => {
     return async (dispatch) => {
 
         try {        
             dispatch(({ type: types.GET_COUPON_CLIENTE }));
-            const response = await fetchEnhance(`cuponclientes`);
-            const cuponCliente = await response.json();      
-            
-            console.log(cuponCliente)
+            const response = await fetchEnhance(`getCuponclientesByClient/${id}`);
+            const cuponCliente = await response.json();           
             
             dispatch(({ 
                 type: types.GET_COUPON_CLIENTE_SUCCESS,
                 payload: cuponCliente 
-            }));            
+            }));                      
     
         } catch (error) {
             console.log(error)
@@ -154,33 +153,86 @@ export const suscripcion = ( nombre, email ) => {
 }
 
 export const sendFormChoque = (data) => {
-    return async () => {      
+    return async () => { 
+        Swal.showLoading();     
         var requestOptions = {
             method: 'POST',
             body: data,
             redirect: 'follow'
         };
         
-        await fetch("http://localhost:1337/app/accidente", requestOptions)
+        await fetch(`${baseUrl}/app/accidente`, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
+        .then(result => {
+            console.log('resultado:',result)
+            if( result === "OK" ) {            
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Datos enviados',
+                    text: 'Pronto recibiras asistencia'
+                })
+                
+            } else {            
+                Swal.fire('Error', 'Ocurrió un error al enviar tus, Intenta de nuevo más tarde.', 'error');
+            }
+        }
+        )
         .catch(error => console.log('error', error));                
     }
 }
 
 export const sendFormRobo = (data) => {
     return async () => {  
-        // console.log(data)    
+        // console.log(data) 
+        Swal.showLoading();   
         var requestOptions = {
             method: 'POST',
             body: data,
             redirect: 'follow'
         };
         
-        await fetch("http://localhost:1337/app/robo", requestOptions)
+        await fetch(`${baseUrl}/app/robo`, requestOptions)
         .then(response => response.text())
-        .then(result => console.log(result))
-        .catch(error => console.log('error', error));                
+        .then(result => {
+                console.log('resultado:',result)
+                if( result === "OK" ) {            
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Datos enviados',
+                        text: 'Pronto recibiras asistencia'
+                    })
+                    
+                } else {            
+                    Swal.fire('Error', 'Ocurrió un error al enviar tus, Intenta de nuevo más tarde.', 'error');
+                }
+            }
+        )
+        .catch(error => console.log('error', error)); 
+    }
+}                          
+export const sendAcc = ( rut, cupon ) => {
+    return async( dispatch ) => {
+        
+        Swal.showLoading();
+        let rutNew = rut.replace(/"/g,'')
+        const data = { "identifier": rut, "cupon": cupon }; 
+
+        const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon, data, 'GET' );
+
+        if( resp.status === 200 ) {
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Incidente reportado',
+                text: 'Los detalles fueron enviados a nuestro equipo',
+                footer: 'El los próximos días nos pondremos en contacto con ud'
+            })
+            
+        } else {            
+            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+        }
+        
+
     }
 }
 

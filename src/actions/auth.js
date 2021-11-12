@@ -24,14 +24,17 @@ export const startLogin = ( rut, password, history ) => {
 
         if( resp.status === 200 ) {        
             
+            const idCliente = await resp.json();
             const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
             
             if( resp2.status === 200 ) {
 
-                const body = await resp2.json();                
+                const body = await resp2.json();  
+                             
                 const { rut, nombre, telefono, correo, vehiculos} = body;
                 //localStorage.setItem('token', body.jwt );
-                localStorage.setItem('rut', JSON.stringify( rut ));
+                localStorage.setItem('rut', JSON.stringify( rut ));    
+                localStorage.setItem('id', JSON.stringify( idCliente ));    
                 localStorage.setItem('nombre', JSON.stringify( nombre ));
                 localStorage.setItem('telefono', JSON.stringify( telefono ));
                 localStorage.setItem('correo', JSON.stringify( correo )  );
@@ -43,7 +46,8 @@ export const startLogin = ( rut, password, history ) => {
                     nombre: nombre,
                     correo: correo,
                     telefono: telefono,
-                    vehiculos: vehiculos
+                    vehiculos: vehiculos,
+                    id: idCliente
                 }) )                
                 
                 history.push('/');
@@ -153,29 +157,6 @@ export const forgetPass = ( rut, history ) => {
 
         if( resp.status === 200 ) { 
             
-            const body = await resp.json();
-            
-            const { rut, nombre, telefono, correo, vehiculos} = body;
-            //localStorage.setItem('token', body.jwt );
-            localStorage.setItem('rut', JSON.stringify( rut ));
-            localStorage.setItem('nombre', JSON.stringify( nombre ));
-            localStorage.setItem('telefono', JSON.stringify( telefono ));
-            localStorage.setItem('correo', JSON.stringify( correo ));
-            localStorage.setItem('vehiculos', JSON.stringify( vehiculos ));
-            localStorage.setItem('token-init-date', new Date().getTime());
-
-            dispatch( login({
-                uid: rut,
-                nombre: nombre,
-                correo: correo,
-                telefono: telefono,
-                vehiculos: vehiculos
-            }) )      
-                                
-                history.push('/');
-                document.querySelector('.popup-container').style.display = 'none';
-                document.querySelector('body').style.overflow = 'visible';
-            
             Swal.fire({
                 icon: 'success',
                 title: 'Reset Pass',
@@ -202,7 +183,7 @@ export const resetPass = ( id, token, pass, passConfirm, history ) => {
             fontSize: 14
         });
 
-        if(pass!=passConfirm){
+        if(pass!==passConfirm){
             notice.hideLoading();
             Swal.fire('Error', 'Las contraseñas deben coincidir', 'error');
         }
@@ -288,21 +269,23 @@ export const startChecking = () => {
     return (dispatch) => {
         
         // const token = localStorage.getItem('token');
-        const rutUsuario = localStorage.getItem('rut');       
+        const rutUsuario = localStorage.getItem('rut');            
+        const idUsuario = localStorage.getItem('id');            
         const nombreUsuario = localStorage.getItem('nombre');       
         const telefonoUsuario = localStorage.getItem('telefono');       
         const correoUsuario = localStorage.getItem('correo');       
-        const vehiculosUsuario = localStorage.getItem('vehiculos');       
-        
+        const vehiculosUsuario = localStorage.getItem('vehiculos');     
+
         if(rutUsuario) {
 
           
           return  dispatch( login({
-                uid: JSON.parse(rutUsuario),
+                uid: JSON.parse(rutUsuario),                
                 nombre: JSON.parse(nombreUsuario),
                 correo: JSON.parse(correoUsuario),
                 telefono: JSON.parse(telefonoUsuario),
-                vehiculos: JSON.parse(vehiculosUsuario)
+                vehiculos: JSON.parse(vehiculosUsuario),
+                id: JSON.parse(idUsuario)
             }) )
         } 
             
