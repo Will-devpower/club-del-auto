@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "clubdelauto-f6dad"
+  },
+   "targets": {
+    "clubdelauto-f6dad": {
+      "hosting": {
+        "club-del-auto-prod": [
+          "club-del-auto-prod"
+        ]
+      }
+    }
+    
+  }
+}

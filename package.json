@@ -30,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cda:prod": "firebase use clubdelauto-f6dad && firebase deploy --only hosting:club-del-auto-prod"
   },
   "eslintConfig": {
     "extends": [
