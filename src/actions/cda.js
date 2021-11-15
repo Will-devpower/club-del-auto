@@ -169,11 +169,11 @@ export const sendFormChoque = (data) => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos enviados',
-                    text: 'Pronto recibiras asistencia'
+                    text: 'Tu caso pronto sera atendido'
                 })
                 
             } else {            
-                Swal.fire('Error', 'Ocurrió un error al enviar tus, Intenta de nuevo más tarde.', 'error');
+                Swal.fire('Error', 'Ocurrió un error al enviar tus datos, Intenta de nuevo más tarde.', 'error');
             }
         }
         )
@@ -199,11 +199,11 @@ export const sendFormRobo = (data) => {
                     Swal.fire({
                         icon: 'success',
                         title: 'Datos enviados',
-                        text: 'Pronto recibiras asistencia'
+                        text: 'Tu caso pronto sera atendido'
                     })
                     
                 } else {            
-                    Swal.fire('Error', 'Ocurrió un error al enviar tus, Intenta de nuevo más tarde.', 'error');
+                    Swal.fire('Error', 'Ocurrió un error al enviar tus datos, Intenta de nuevo más tarde.', 'error');
                 }
             }
         )
