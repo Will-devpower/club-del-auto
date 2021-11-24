@@ -773,10 +773,7 @@ textarea {
 .home-form {
   background-color: transparent !important;
 }
-.formulario {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox; 
+.formulario {    
   text-align: center;
   background-color: #dee2fc;  
 }
