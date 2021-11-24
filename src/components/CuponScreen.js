@@ -68,19 +68,21 @@ export const CuponScreen = () => {
                             <div className="formbuilder-select form-group select-div">
                                 <br/>
                                 <p className="descripcion">ELIGE UNA PATENTE:</p>
-                                <select 
-                                    name="patenteSeleccionada" 
-                                    id="patenteSeleccionada" 
-                                    className="input-control"
-                                    onChange={handleInputChange}
-                                >
-                                    {
-                                        vehiculos.map(( veh ) => (
-                                            <option value="veh.patente" id="veh.patente">{veh.patente}</option>
-                                        ))
-                                    }
-                                    
-                                </select>
+                                <label>                           
+                                    <select 
+                                        name="patenteSeleccionada" 
+                                        id="patenteSeleccionada" 
+                                        className="input-control"
+                                        onChange={handleInputChange}
+                                    >
+                                        {
+                                            vehiculos.map(( veh ) => (
+                                                <option value="veh.patente" id="veh.patente">{veh.patente}</option>
+                                            ))
+                                        }
+                                        
+                                    </select>
+                                </label>     
                                 <span className="boton-comprar-servicio" onClick={ getCoupon }>Obtener cupón</span>
                             </div>
                     }

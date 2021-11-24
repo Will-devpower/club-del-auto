@@ -11,7 +11,7 @@ export const HomeCupones = ({tituloCupones, btn}) => {
 
     
     const { cupons } = useSelector(state => state.cda);
-    // console.log(cupons)
+    console.log('D',cupons)
     return (
         <div className="section-3">
          <img src={ orangeCircle } alt="orange-circle" className="image-15"/>
@@ -26,11 +26,15 @@ export const HomeCupones = ({tituloCupones, btn}) => {
                     cupons.slice(0, 3).map(( cupon ) => (
                         <Link to={`/cupones/${ cupon.id }`} className="cupon-link-wrapper" key={ cupon.id }>
                         <div className="cupon-card">
-                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${baseUrl+cupon.img[0].url})`}}></div>
-                            <p className="texto-cupones">{ cupon.bajada }</p>
-                            <div className="div-block-20">
-                                <p className="link">{btn}</p>
-                                <div className="div-block-19"></div>
+                            <div className="div-block-73">
+                                <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${baseUrl+cupon.img[0].url})`}}></div>
+                                <div className="div-block-75">
+                                    <h1 className="heading-12">{cupon.proveedor.nombre}</h1>
+                                    <p className="texto-cupones">{ cupon.bajada }</p>
+                                    <div className="div-block-20">
+                                        <p className="link">{btn}</p>                                        
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         </Link>

@@ -6,7 +6,7 @@ import { startLogout } from "../actions/auth";
 import logo3 from "../assets/cda-logo3.png";
 import userIcon from "../assets/user-icon1.png";
 import homeIcon from "../assets/home-icon1.png";
-// import cdaIcon from '../assets/cda-logo1.png';
+import cdaIcon from '../assets/cda-logo1.png';
 import logoutIcon from "../assets/logout-icon.png";
 import moment from 'moment';
 
@@ -48,9 +48,9 @@ const SideBarClientAccount = ({ logout, uid }) => {
           </Link>
         </div>
         <div className="div-block-48">
-          <img src={logoutIcon} alt="logo2" className="image-28 _2" />
-          <Link to="/" className="button-4" onClick={logout}>
-            Salir
+          <img src={cdaIcon} alt="logo2" className="image-28 _2" />
+          <Link to="/" className="button-4">
+            Contactanos
           </Link>
         </div>
       </div>
@@ -62,7 +62,9 @@ const SideBarClientAccount = ({ logout, uid }) => {
       </a>
       <a href="/form-select" className="w-button">Llena el formulario</a>      
       <Link to="/cupones-de-descuento" className="ver-todos w-button">Ver todos los cupones</Link>
-      
+      <div className="div-block-34">
+        <img src={cdaIcon} alt="logo2" className="sb-bottom-logo" />
+      </div>
     </div>
   );
 };
@@ -122,7 +124,7 @@ const CarListItem = (props) => {
       </div>
       {cuotasPendientes.length > 0 && (
         <div className="cuotasP-div">
-          <p className="cuotasPendientes">Cuotas Pendientes</p>
+          <p className="cuotasPendientes">Estado de pago</p>
           {cuotasPendientes.map((cuota, key) => {
             const numero = cuota.slice(5, 7);
             const numeroMes = parseInt(numero[0] === "0" ? numero[1] : numero);
@@ -207,7 +209,13 @@ export const UserAccount = () => {
         <SideBarClientAccount uid={uid} logout={handleLogout} />
         <div className="div-block-3_3">
           <div className="div-block-51">
-            <h1 className="heading-7">Mi cuenta</h1>            
+            <h1 className="heading-7">Mi cuenta</h1>
+            <div className="div-block-48 salir">
+              <img src={logoutIcon} alt="logo2" className="image-28 _2" />
+              <Link to="/" className="button-4" onClick={handleLogout}>
+                Salir
+              </Link>
+            </div>            
           </div>
           <div className="div-block-35">
             <div className="div-block-45">

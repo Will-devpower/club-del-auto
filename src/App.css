@@ -46,6 +46,30 @@
   background-position: 0px 0px;
   background-size: cover;
 }
+.div-block-73 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  grid-auto-columns: 1fr;
+  -ms-grid-columns: 0.5fr 1fr;
+  grid-template-columns: 0.5fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+}
 
 /* ESTILOS NAVEGACION */
 
@@ -129,7 +153,7 @@
 .image-8 {
   position: absolute;
   left: auto;
-  top: 30%;
+  top: 34%;
   right: 27%;
   bottom: 0%;
   width: 380px;
@@ -355,8 +379,8 @@ textarea {
   -ms-flex-align: center;
   align-items: center;
   border: none;
-  border-radius: 15px;
-  background-color: #ffa000;
+  border-radius: 10px;
+  background-color: #ff5a00;
   /* box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
@@ -368,7 +392,18 @@ textarea {
   cursor: pointer;
 }
 .w-button:hover {
-  background: #3264ff;
+  margin-top: 20px;
+  margin-bottom: 2px;
+  background-color: #0000fe;
+  box-shadow: 11px 11px 20px 0 rgb(22 32 91 / 20%);
+}
+.image-10 {
+  position: absolute;
+  left: auto;
+  top: 36%;
+  right: 26%;
+  bottom: 0%;
+  width: 70px;
 }
 .ver-todos {
   padding-right: 17px;
@@ -378,15 +413,19 @@ textarea {
   padding: 0px;
   font-family: Silka, sans-serif;
   color: #16205b;
-  font-size: 30px;
-  line-height: 34px;
+  font-size: 35px;
+  line-height: 40px;
   font-weight: 600;
   letter-spacing: -0.8px;
+  margin-bottom: 10px;
 }
 .paragraph-2 {    
   margin-top: 10px;
   font-family: Silka, sans-serif;
-  color: rgba(22, 32, 91, 0.5);
+  color: #787ca9;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 10px;
 }
 .div-block-22 {
   display: block;
@@ -415,7 +454,7 @@ textarea {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
-  background-color: rgba(255, 160, 0, 0.8);
+  background-color: #dee2fc;
 }
 
 .benefit-item {
@@ -445,7 +484,7 @@ textarea {
   margin-top: 0px;
   margin-bottom: 0px;
   font-family: Silka, sans-serif;
-  color: #fafafa;
+  color: #16205b;
   font-size: 30px;
   line-height: 34px;
   font-weight: 600;
@@ -454,19 +493,23 @@ textarea {
 }
 .div-block-10 {
   position: relative;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
+  display: -ms-grid;
+  display: grid;
   overflow: visible;
+  width: 1100px;
   margin-top: 60px;
-  margin-right: 40px;
-  margin-left: 40px;
-  padding: 10px 10px 20px;
-  -webkit-align-self: center;
-  -ms-flex-item-align: center;
+  margin-right: 80px;
+  margin-left: 80px;
+  padding: 20px 10px;
+  -ms-grid-row-align: center;
   align-self: center;
+  grid-auto-columns: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  -ms-grid-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
   border-style: solid;
   border-width: 1px;
   border-color: hsla(0, 0%, 98%, 0.6);
@@ -482,20 +525,24 @@ textarea {
   display: flex;
   width: auto;
   height: auto;
-  padding: 35px 30px 30px;  
-  margin: 10px;    
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 30px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   border-radius: 20px;
-  background-color: hsla(0, 0%, 98%, 0.8);
-  box-shadow: 11px 11px 20px 0 rgb(22 32 91 / 15%);
+  background-color: hsla(0, 0%, 98%, 0.75);
+  box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.15);
+}
+.div-block-75 {
+  margin-top: 60px;
 }
 .heading-5 {
   margin-top: 0px;
@@ -506,6 +553,19 @@ textarea {
   line-height: 45px;
   font-weight: 700;
   letter-spacing: -2px;
+}
+.heading-12 {
+  margin-top: 0px;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 .texto-cupones {
   font-family: Silka, sans-serif;
@@ -535,12 +595,37 @@ textarea {
   align-items: flex-start;
 }
 .link {
-  font-family: Silka, sans-serif;
-  font-size: 14px;
-  color: rgba(178, 70, 22, 0.9);
-  font-weight: 600;
-  text-decoration: underline;
-  margin-top: 20px;
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    height: 50px;
+    margin-top: 22px;    
+    padding-right: 30px;
+    padding-left: 30px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: #ff5a00;
+    box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    font-family: Silka, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    font-weight: 600;
+}
+.link:hover {  
+  background-color: #0000fe;
+  box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.2);
 }
 .div-block-19 {
   width: 40px;
@@ -590,18 +675,23 @@ textarea {
   align-items: center;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 98%, 0.6);
+  border-color: rgba(22, 32, 91, 0.4);
   border-radius: 15px;
   background-color: transparent;
   box-shadow: none;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   font-family: Silka, sans-serif;
-  color: #fafafa;
+  color: #16205b;
   font-size: 15px;
   font-weight: 600;
-  text-align: center;
-  text-decoration: none;
+  text-decoration: none;  
+}
+.coupons:hover {
+  margin-top: 22px;  
+  border-color: transparent;
+  background-color: hsla(0, 0%, 98%, 0.75);
+  box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.2);
 }
 .el-club {
   display: -webkit-box;
@@ -759,9 +849,10 @@ textarea {
   font-family: Silka, sans-serif;
   font-size: 14px;
   color: rgba(120, 124, 169, 0.7);
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 .text-field {
   width: 100%;
@@ -922,11 +1013,14 @@ textarea {
   align-self: auto;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 98%, 0.36);
+  border-color: rgba(22, 32, 91, 0.4);
   border-radius: 8px;
   background-color: hsla(0, 0%, 100%, 0.15);
   font-family: Silka, sans-serif;
   color: #16205b;
+}
+.text-field-2:focus {
+  border: 1px solid #3898EC;
 }
 .text-field-3 {
   height: 100px;
@@ -946,8 +1040,8 @@ textarea {
   font-family: Silka, sans-serif;
   color: #16205b;
 }
-.text-field-2:focus {
-  outline: none;
+.text-field-2:focus-visible {
+  outline: 1px solid #3898EC;
   border-color: #fafafa;
   background-color: hsla(0, 0%, 100%, 0.45);
 }
@@ -1072,22 +1166,13 @@ textarea {
   display: none;
 }
 .cupon-card-cupon-page {
-  display: flex;
-  width: -webkit-fill-available;
-  max-height: 220px;
+  width: 220px;
   height: 220px;
-  margin-right: 0px;
-  margin-left: 0px;
-  padding: 0 40px;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 20px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  background-color: hsla(0, 0%, 98%, 0.8);
+  margin: 20px auto 0;
+  border-radius: 150px;
+  background-image: url(https://uploads-ssl.webflow.com/60da07a…/60f1e29…_Copia%20de%20damir-kopezhanov-w-bRrLmXODg-unsplash.jpeg);
   background-position: 50% 50%;
   background-size: cover;
-  box-shadow: none;
 }
 .div-block-25 {
   display: -webkit-box;
@@ -1106,7 +1191,9 @@ textarea {
   align-items: flex-start;
   border-radius: 25px;
   cursor: pointer;
+  background: hsla(0, 0%, 98%, 0.75);
 }
+
 .div-block-25:hover, .div-block-25:active {
   background-color: rgba(120, 124, 169, 0.05);
 }
@@ -1207,8 +1294,11 @@ textarea {
   text-decoration: none;
   transition: all .3s linear;
 }
-.cupon-link-wrapper:hover {
-  transform: translateY(-15px);
+.cupon-card:hover {
+  position: relative;
+  bottom: 0px;
+  margin-bottom: 0px;
+  box-shadow: 3px 25px 30px 0 rgb(22 32 91 / 15%);
 }
 .descripcion-servicio-2 {
   margin-top: 0px;
@@ -1259,11 +1349,9 @@ textarea {
 .descripcion-servicio {
   margin-top: 0px;
   font-family: Silka, sans-serif;
-  color: rgba(22, 32, 91, 0.5);
+  color: #787ca9;
   font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  letter-spacing: -0.3px;
+  line-height: 22px;
 }
 .divisor-entre-descrip-servicios {
   height: 1px;
@@ -1357,6 +1445,7 @@ textarea {
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
+  margin-bottom: 20px;
 }
 .image-23 {
   width: 20px;
@@ -1582,6 +1671,40 @@ textarea {
   align-items: center;
   border-radius: 10px;
   cursor: pointer;
+}
+.div-block-48:hover {
+  background-color: rgba(120, 124, 169, 0.1);
+}
+.salir {
+  background: hsla(0, 0%, 98%, 0.35);
+}
+.div-block-34 {
+  position: absolute;
+  left: 0%;
+  top: auto;
+  right: 0%;
+  bottom: 0%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-align-self: stretch;
+  -ms-flex-item-align: stretch;
+  align-self: stretch;
+}
+.sb-bottom-logo {
+  width: 50px;
+  opacity: 0.2;
 }
 .div-block-48._2 {
   opacity: 0.5;
@@ -2075,15 +2198,34 @@ textarea {
   justify-content: center;
   flex-direction: column
 }
+.cuotasP-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
 .cuotasPendientes {
-  margin: 10px 15px 0px 10px;
+  margin: 10px 0px;
   font-family: Silka, sans-serif;
   color: #16205b;
   line-height: 20px;
   font-weight: 600;
+  text-transform: uppercase;
 }
 .cuota-mes {
-  margin: 10px;
+  margin: 0 10px;
+  text-align: right; 
+  padding: 8px 12px 7px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #16205b;
+  border-radius: 10px;
+  background-color: transparent;
+  font-family: Silka, sans-serif;
+  color: #16205b;
+  font-size: 12px;
+  line-height: 12px;
+  flex-basis: unset;
 }
 
 /* FORM STYLES */
@@ -2117,11 +2259,34 @@ textarea {
 .input-control {
   background-color: #fafafa;
   height: 50px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(0,0,0, .2);
+  outline: none;
   border-radius: 10px;
   opacity: 0.5;
   color: #333333;
   padding-left: 12px;
+  width: 100%;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+  cursor:pointer;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select {padding-right:18px}
+}
+.select-div label {
+  position:relative
+}
+.select-div label:after {
+  content: '>';
+  font: 20px "Consolas", monospace;
+  color: #aaa;
+  transform: rotate(90deg);
+  right: 20px;
+  top: 12px;
+  padding: 0 0 2px;
+  position: absolute;
+  pointer-events: none;
 }
 .input-field {
   width: calc(100% - 20px);
@@ -2575,7 +2740,11 @@ input[type="file"] {
   text-decoration: none;  
   text-align: left;
 }
-
+.log-in:hover {  
+  background-color: #3264ff;
+  box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.25);
+  color: #fafafa;
+}
 @media only screen and (min-width: 1024px) {
   .nav-menu {
     display: -webkit-box;
@@ -2629,6 +2798,10 @@ input[type="file"] {
     font-weight: 600;
     text-decoration: none;  
     text-align: left;
+  }
+  .nav-link:hover {
+    border-radius: 15px;
+    background-color: rgba(120, 124, 169, 0.1);
   }
   .log-in {
     display: -webkit-box;
@@ -2691,7 +2864,7 @@ input[type="file"] {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    padding: 60px 60px 60px 80px;
+    padding: 60px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -2707,7 +2880,7 @@ input[type="file"] {
     align-items: flex-start;
   }
   .div-block-6 {
-    height: 400px;
+    height: 45vh;
     padding: 0 80px;    
   }
   .cupon-card:nth-child(3) {
@@ -2725,8 +2898,7 @@ input[type="file"] {
   }
   .cupon-card {
     max-width: 360px;
-    /* max-height: 220px;  */
-    padding: 0;
+    /* max-height: 220px;  */    
     margin-right: 10px;
     margin-left: 10px;
   }
@@ -2734,13 +2906,29 @@ input[type="file"] {
     margin: 40px 40px 10px;
   }
   .texto-cupones {
-    margin: 20px 40px 10px;
+    margin: 20px 40px 10px 0;
+    font-family: Silka, sans-serif;
+    color: #787ca9;
+    font-size: 16px;
+    line-height: 22px;
   }
   .div-block-25 .texto-cupones {
     margin-left: 10px;
   }
   .div-block-20 {
-    margin: 10px 40px 29px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 20px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
   }
   .div-block-18 {
     margin-top: 40px;

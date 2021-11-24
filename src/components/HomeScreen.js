@@ -43,6 +43,7 @@ export const HomeScreen = () => {
                 <div className="asistencias">
                     <div className="div-block-6">
                         <img src={ secretary } alt="secretary" className="image-9" data-aos="fade-right"/>
+                        <img src={ reloj } alt="reloj" className="image-10" />
                         <img src={ chair } alt="chair" className="image-9-copy" data-aos="fade-left"/>
                     </div>
                     <div className="div-block-9">
