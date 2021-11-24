@@ -1,5 +1,5 @@
-// const baseUrl = "https://strapi.clubdelauto.cl"
-const baseUrl = "http://localhost:1337"
+const baseUrl = "https://strapi.clubdelauto.cl"
+// const baseUrl = "http://localhost:1337"
 
 const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
     const url = `${baseUrl}/${endpoint}`;

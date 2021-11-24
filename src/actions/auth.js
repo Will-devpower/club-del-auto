@@ -4,8 +4,8 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-// const baseUrl = "https://strapi.clubdelauto.cl"
-const baseUrl = "http://localhost:1337"
+const baseUrl = "https://strapi.clubdelauto.cl"
+// const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {        
