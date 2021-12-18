@@ -573,6 +573,8 @@ textarea {
   line-height: 18px;
   margin-top: 0;
   margin-bottom: 10px;
+  max-height: 66px;
+  overflow: hidden;
 }
 .div-block-20 {
   display: -webkit-box;
