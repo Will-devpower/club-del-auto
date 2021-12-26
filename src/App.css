@@ -1802,6 +1802,10 @@ textarea {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
+.ua-button-2 {
+  color: #16205b !important;
+  background: transparent !important;
+}
 .div-block-52 {
   width: 50px;
   height: 50px;

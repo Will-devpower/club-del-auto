@@ -6,8 +6,8 @@ import { startLogout } from "../actions/auth";
 import logo3 from "../assets/cda-logo3.png";
 import userIcon from "../assets/user-icon1.png";
 import homeIcon from "../assets/home-icon1.png";
-import cdaIcon from '../assets/icono-salir.png';
-import logoutIcon from "../assets/logout-icon.png";
+import cdaIcon from '../assets/cda-logo1.png';
+import logoutIcon from "../assets/icono-salir.png";
 import moment from 'moment';
 
 // import visaIcon  from '../assets/visa-icon.png';
@@ -60,8 +60,8 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
         Solicitar asistencia
       </a>
-      <a href="/form-select" className="w-button nav-link">Llena el formulario</a>      
-      <Link to="/cupones-de-descuento" className="ver-todos w-button nav-link">Ver todos los cupones</Link>
+      <a href="/form-select" className="w-button ua-button-2">Llena el formulario</a>      
+      <Link to="/cupones-de-descuento" className="ver-todos w-button ua-button-2">Ver todos los cupones</Link>
       <div className="div-block-34">
         <img src={cdaIcon} alt="logo2" className="sb-bottom-logo" />
       </div>
