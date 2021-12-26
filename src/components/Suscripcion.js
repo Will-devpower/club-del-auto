@@ -45,7 +45,7 @@ export const Suscripcion = () => {
                             <input 
                                 type="submit"
                                 className="btnSubmit"
-                                value="Registrarme" 
+                                value="Enviar" 
                             />
 
                     </form>
