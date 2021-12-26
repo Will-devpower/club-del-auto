@@ -7,7 +7,9 @@
     background-position: 0px 0px, 0px 0px;
     background-size: auto, cover;
 }
-
+body {
+  background: #F0F0F0;
+}
 .text-center {
   text-align: center;
 }
