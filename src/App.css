@@ -2612,6 +2612,12 @@ input[type="file"] {
     grid-template-columns: 1fr;
     grid-row-gap: 15px;
   }
+  .solicitar-button, .ua-button-2 {
+    width: 100%;
+  }
+  .div-block-34 {
+    display: none;
+  }
 }
 @media only screen and (max-width: 1023px) {
   .nav-menu {
@@ -2631,7 +2637,7 @@ input[type="file"] {
   }
   .heading-7 {
     margin-bottom: 20px;
-    font-size: 25px;
+    font-size: 30px;
   }
   .close_icon {
     opacity: 0;
