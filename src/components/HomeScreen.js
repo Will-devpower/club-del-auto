@@ -114,7 +114,7 @@ export const HomeScreen = () => {
                 <div className="el-club">
                     <h1 className="heading-3">{titulo_club1} <strong>{titulo_club2}</strong></h1>
                     <p className="paragraph-22">{desc_club}</p>
-                    <Link to="/info-club" className="join">{btn_club}</Link>
+                    <a href="https://clubdelseguro.cl/" className="join">{btn_club}</a>
                 </div>
 
                 <Suscripcion />

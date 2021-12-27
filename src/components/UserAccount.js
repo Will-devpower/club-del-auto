@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { startLogout } from "../actions/auth";
+import ReactPaginate from 'react-paginate';
+
 
 import logo3 from "../assets/cda-logo3.png";
 import userIcon from "../assets/user-icon1.png";
@@ -31,6 +33,9 @@ const months = [
   "November",
   "December",
 ];
+
+const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
 const SideBarClientAccount = ({ logout, uid }) => {
   const url = `https://webclientesqa.grupomok.com/asistencia/sponsor?id=107&rut=${uid}&Fono=953153687&flujo=1`;
   return (
@@ -139,14 +144,35 @@ const CarListItem = (props) => {
     </div>
   );
 };
+
+const itemsPerPage = 5;
+
 const RequestedBenefits = () => {
   const cuponesCliente = useSelector(state => state.cda.cuponCliente);    
-  
+  const [currentItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  // Here we use item offsets; we could also use page offsets
+  // following the API or data you're working with.
+  const [itemOffset, setItemOffset] = useState(0);
+  useEffect(() => {
+    // Fetch items from another resources.
+    const endOffset = itemOffset + itemsPerPage;
+    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+    setCurrentItems(cuponesCliente.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(cuponesCliente.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage]);
+
+    const onPageChange = ({selected}) => {
+      const newOffset = selected * itemsPerPage % cuponesCliente.length;
+      
+      setItemOffset(newOffset);
+    }    
+    
     return (
         <div className="requested-benefits">
             <p className="ben-title">BENEFICIOS SOLICITADOS</p>
             {
-                cuponesCliente.map((cupon, key) => {
+                currentItems.map((cupon, key) => {
                     return(
                         <div key={key}>
                             <RequestedBenefitItem cupon={cupon}/>
@@ -155,6 +181,26 @@ const RequestedBenefits = () => {
                     )
                 })
             }
+            <ReactPaginate
+              nextLabel="Siguiente"
+              onPageChange={onPageChange}
+              pageRangeDisplayed={3}
+              marginPagesDisplayed={2}
+              pageCount={pageCount}
+              previousLabel="Anterior"
+              pageClassName="page-item"
+              pageLinkClassName="page-link"
+              previousClassName="page-item"
+              previousLinkClassName="page-link"
+              nextClassName="page-item"
+              nextLinkClassName="page-link"
+              breakLabel="..."
+              breakClassName="page-item"
+              breakLinkClassName="page-link"
+              containerClassName="pagination"
+              activeClassName="active"
+              renderOnZeroPageCount={null}
+            />
         </div>
     )
 }
@@ -181,6 +227,8 @@ const RequestedBenefitItem = (props) => {
         </div>
     )
 }
+
+
 export const UserAccount = () => {  
 
   const { id, uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
@@ -255,6 +303,7 @@ export const UserAccount = () => {
               hasBenefits && 
               <RequestedBenefits uid={uid}/>
           }
+          
           <div className="div-block-42"></div>
         </div>
       </div>
