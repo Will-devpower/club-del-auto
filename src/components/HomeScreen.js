@@ -32,7 +32,7 @@ export const HomeScreen = () => {
                 <LoginScreen />
             </div>            
             <Header />
-            <div className="container">
+            <div className="">
                 <div className="banner">
                     <img src={ bannerBG1 } alt="banner-bg1" className="image-7"/>
                     <img src={ bannerBG2 } alt="banner-bg2" className="image-8"/>

@@ -12,13 +12,13 @@ export const Header = () => {
     const { uid } = useSelector(state => state.auth);  
 
     const [open, setOpen] = useState(false);
-    const [top, setTop] = useState('-180px');
+    const [top, setTop] = useState('-230px');
  
     const handleClick = useCallback(() => {
         if(!open) {
             setTop('-60px')
         } else {
-            setTop('-180px')
+            setTop('-230px')
         }
         setOpen(!open);        
     }, [open]);
