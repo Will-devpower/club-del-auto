@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import { Header } from "../layout/Header"
+import { Footer } from "../layout/Footer"
 import { LoginScreen } from "./LoginScreen"
 
 
@@ -10,19 +11,18 @@ export const FormSelect = () => {
                 <LoginScreen />
             </div>            
             <Header />
-            <div className="form-inner rendered-form">
-                <Link to='/' className="link-2">Volver al inicio</Link>
-                <br/>
+            <div className="form-inner rendered-form">                
                 <h1 className="heading-7 mt-70">Seleccione una Opción</h1>
                 <div className="select-form">                
                     <div>
-                        <Link to="form-choque"><h2>Choque</h2></Link>                    
+                        <Link className="cda-btn4" to="form-choque">Choque</Link>                    
                     </div>
                     <div>
-                        <Link to="form-robo"><h2>Robo</h2></Link>
+                        <Link className="cda-btn4" to="form-robo">Robo</Link>
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }

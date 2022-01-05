@@ -42,7 +42,7 @@ export const HomeCupones = ({tituloCupones, btn}) => {
                 }
             </div>
             <div className="div-block-18">
-                <Link to="/cupones-de-descuento" className="coupons">Ver todos los cupones</Link>
+                <Link to="/cupones-de-descuento" className="coupons cda-btn3">Ver todos los cupones</Link>
             </div>
         </div>
         </div>

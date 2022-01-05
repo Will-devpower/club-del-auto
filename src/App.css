@@ -1,5 +1,135 @@
 @import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 
+@font-face {
+  font-family: cdaFont;
+  src: url(./assets/Silka-Regular-&-Italic-Webfont/silka-regular-webfont.woff);
+}
+
+.cda-btn1 {
+  border-radius: 15px;
+  background-color: #ff5a00;
+  box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 25%);
+  transition: all 300ms ease-in-out;
+  cursor: pointer;
+  border: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;  
+  height: 50px;
+  margin-left: 0px;
+  padding-right: 30px;
+  padding-left: 30px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: cdaFont;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;  
+  text-align: center;
+}
+.cda-btn2 {
+  color: #16205b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  margin-left: 0px;
+  padding-right: 30px;
+  padding-left: 30px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-family: cdaFont;  
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;  
+  text-align: left;
+  border: none;
+  background: transparent;
+}
+.cda-btn3 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(22, 32, 91, 0.4);
+  border-radius: 15px;
+  background-color: transparent;
+  box-shadow: none;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+  font-family: cdaFont;
+  color: #16205b;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: auto;
+  height: 50px;
+  margin-top: 22px;  
+  padding-right: 30px;
+  padding-left: 30px; 
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;  
+}
+.cda-btn4 {
+  display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    height: 50px;
+    margin-top: 17px;
+    margin-right: 0px;
+    color: #fff !important;
+    padding-right: 30px;
+    padding-left: 30px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 15px;
+    background-color: #3264ff;
+    box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    font-family: Silka, sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+.cda-btn2:focus, .cda-btn2:hover, .cda-btn3:focus, .cda-btn3:hover, .button-4:focus, .button-4:hover {
+  color: #16205b !important;
+}
+.cda-btn4:hover {  
+  margin-bottom: 2px;
+  background-color: #ffa000;
+  box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.2);
+}
+.cda-btn4 a:hover  {
+  color: #fff;
+}
+.prev-page {
+  max-width: 200px;
+  margin: auto;
+} 
 #container {
   margin: 1rem;
 }
@@ -22,6 +152,9 @@ body {
 }
 .text-center {
   text-align: center;
+}
+.mt-20 {
+  margin-top: 20px;
 }
 .mt-70 {
   margin-top: 70px;
@@ -182,7 +315,7 @@ body {
 .heading {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 50px;
   line-height: 50px;
@@ -396,7 +529,7 @@ textarea {
   /* box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 15px;
   font-weight: 600;
   color: white;
@@ -424,7 +557,7 @@ textarea {
 }
 .heading-2 {
   padding: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 25px;
   line-height: 25px;
@@ -434,7 +567,7 @@ textarea {
 }
 .paragraph-2 {    
   margin-top: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #787ca9;
   font-size: 16px;
   line-height: 22px;
@@ -477,7 +610,7 @@ textarea {
 }
 .ben-title {
   color: rgba(22, 32, 91, 0.8);
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 13px;
   font-weight: 500;
 }
@@ -496,7 +629,7 @@ textarea {
 .titulos-centrados {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 30px;
   line-height: 34px;
@@ -559,7 +692,7 @@ textarea {
 .heading-5 {
   margin-top: 0px;
   margin-bottom: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #ff5a00;
   font-size: 45px;
   line-height: 45px;
@@ -571,7 +704,7 @@ textarea {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 16px;
   line-height: 16px;
@@ -580,7 +713,7 @@ textarea {
   text-transform: uppercase;
 }
 .texto-cupones {
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(178, 70, 22, 0.7);
   line-height: 18px;
   margin-top: 0;
@@ -631,7 +764,7 @@ textarea {
     box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
-    font-family: Silka, sans-serif;
+    font-family: cdaFont;
     font-size: 15px;
     font-weight: 500;
     color: #fff;
@@ -669,39 +802,7 @@ textarea {
   -ms-flex-item-align: stretch;
   align-self: stretch;
 }
-.coupons {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: auto;
-  height: 50px;
-  margin-top: 22px;  
-  padding-right: 30px;
-  padding-left: 30px;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  border-style: solid;
-  border-width: 1px;
-  border-color: rgba(22, 32, 91, 0.4);
-  border-radius: 15px;
-  background-color: transparent;
-  box-shadow: none;
-  -webkit-transition: all 300ms ease-in-out;
-  transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
-  color: #16205b;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;  
-}
-.coupons:hover {
+.cda-btn3:hover {
   margin-top: 22px;  
   border-color: transparent;
   background-color: hsla(0, 0%, 98%, 0.75);
@@ -731,7 +832,7 @@ textarea {
   align-items: center;
 }
 .heading-3 {
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;  
   font-weight: 700;
   text-align: center;
@@ -746,7 +847,7 @@ textarea {
 .paragraph-22 {
   width: auto;
   margin: 40px 60px 20px;  
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.5);
   font-size: 18px;
   line-height: 24px;
@@ -778,7 +879,7 @@ textarea {
   box-shadow: none;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 15px;
   font-weight: 500;
@@ -795,20 +896,21 @@ textarea {
   margin-top: 100px !important;
 }
 .select-form {
-  display: flex;
-  min-width: 300px;
-  grid-column-gap: 15px;
+  width: 180px;
 }
 .select-form div {
   width: 100%;
-  background: rgba(255,255,255, .5);
-  border: 1px solid;
-  border-radius: 20px;
 }
 .select-form a {
-  text-decoration: none;
-  color: #16205b;
-  text-transform: uppercase;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  text-decoration: none;  
+}
+.select-form h2 {
+  margin-bottom: 0 !important;
 }
 .goHome {
   text-transform: uppercase;
@@ -842,6 +944,7 @@ textarea {
 }
 .div-block-21 {
   display: flex;
+  margin-top: 20px;
 }
 .button-2:hover {
   background: rgba(22, 32, 91, 0.07);
@@ -849,7 +952,7 @@ textarea {
 .fileTitle {
   text-align: right;
   margin: 5px 0 0;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #787ca9;
   line-height: 14px;
   letter-spacing: -0.5px;
@@ -860,7 +963,7 @@ textarea {
   cursor: pointer;
 }
 .field-label {
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 14px;
   color: rgba(120, 124, 169, 0.7);
   font-weight: 600;
@@ -878,7 +981,7 @@ textarea {
   border-color: hsla(0, 0%, 98%, 0.4);
   border-radius: 10px;
   background-color: hsla(0, 0%, 100%, 0.4);
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.8);
   font-size: 16px;
   font-weight: 600;
@@ -961,7 +1064,7 @@ textarea {
   align-items: center;
   border-radius: 15px;
   background-color: transparent;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 15px;
   line-height: 15px;
@@ -1008,7 +1111,7 @@ textarea {
   margin-top: 15px;
   margin-bottom: 40px;
   padding: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 25px;
   line-height: 25px;
@@ -1031,7 +1134,7 @@ textarea {
   border-color: rgba(22, 32, 91, 0.4);
   border-radius: 8px;
   background-color: hsla(0, 0%, 100%, 0.15);
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.8) !important;
   font-weight: 600;
 }
@@ -1062,7 +1165,7 @@ textarea {
   border-color: hsla(0, 0%, 98%, 0.36);
   border-radius: 8px;
   background-color: hsla(0, 0%, 100%, 0.15);
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
 }
 .text-field-2:focus-visible {
@@ -1101,7 +1204,7 @@ textarea {
   /* box-shadow: 4px 4px 10px 0 rgba(22, 32, 91, 0.2); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 15px;
   font-weight: 600;
   color: #16205b;
@@ -1109,7 +1212,7 @@ textarea {
 }
 .link-2 {
   margin-top: 20px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-weight: 500;
 }
@@ -1228,14 +1331,14 @@ textarea {
   margin-top: 20px;
   margin-right: 10px;
   margin-left: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 22px;
   line-height: 28px;
   font-weight: 600;
 }
 .texto-cupones {
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #787ca9;
   line-height: 18px;
   margin-right: 10px;
@@ -1243,7 +1346,7 @@ textarea {
 }
 .link-page {
   display: block;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-weight: 500;
   font-size: 14px;
   margin-top: 7px;
@@ -1272,7 +1375,7 @@ textarea {
 }
 .titulo-servicio {
   margin-left: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 38px;
   line-height: 42px;
@@ -1282,7 +1385,7 @@ textarea {
 .bajada-servicio {
   width: 550px;
   margin: 20px 0px 20px 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.5);
   font-size: 18px;
   line-height: 24px;
@@ -1329,7 +1432,7 @@ textarea {
 .descripcion-servicio-2 {
   margin-top: 0px;
   margin-left: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.5);
   font-size: 16px;
   line-height: 24px;
@@ -1344,7 +1447,7 @@ textarea {
 .descripcion {
   display: block;
   margin-bottom: 40px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.3);
   font-size: 14px;
   line-height: 14px;
@@ -1374,7 +1477,7 @@ textarea {
 }
 .descripcion-servicio {
   margin-top: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #787ca9;
   font-size: 16px;
   line-height: 22px;
@@ -1391,7 +1494,7 @@ textarea {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #ff5a00;
   font-size: 14px;
   line-height: 18px;
@@ -1421,7 +1524,7 @@ textarea {
   box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -1455,7 +1558,7 @@ textarea {
 .descripcion_2 {
   display: none;
   margin-bottom: 40px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.3);
   font-size: 14px;
   line-height: 14px;
@@ -1484,7 +1587,7 @@ textarea {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #787ca9;
   font-size: 14px;
   line-height: 18px;
@@ -1547,7 +1650,7 @@ textarea {
 .descripcion-copy {
   margin-bottom: 30px;
   margin-left: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.3);
   font-size: 14px;
   line-height: 14px;
@@ -1764,7 +1867,7 @@ textarea {
   align-items: center;
   background-color: transparent;
   opacity: 0.9;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-weight: 600;
   text-decoration: none;
@@ -1797,7 +1900,7 @@ textarea {
   box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -1805,7 +1908,7 @@ textarea {
 }
 .heading-7 {  
   margin-top: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 30px;
   line-height: 30px;
@@ -1880,7 +1983,7 @@ textarea {
 }
 .heading-8 {
   margin-top: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 22px;
   line-height: 22px;
@@ -1889,7 +1992,7 @@ textarea {
 }
 .datos-usuario {
   margin: 0px 15px 0px 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.7);
   font-size: 16px;
   line-height: 30px;
@@ -1943,7 +2046,7 @@ textarea {
   margin-right: 20px;
   margin-bottom: 0px;
   margin-left: 60px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #fafafa;
   font-size: 18px;
   line-height: 18px;
@@ -1972,7 +2075,7 @@ textarea {
   right: 0%;
   bottom: 0%;
   margin-bottom: 5px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: hsla(0, 0%, 98%, 0.3);
   font-size: 10px;
   line-height: 10px;
@@ -1981,7 +2084,7 @@ textarea {
 }
 .credit-card-datos {
   margin-bottom: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: hsla(0, 0%, 98%, 0.7);
   font-size: 12px;
   line-height: 12px;
@@ -1994,7 +2097,7 @@ textarea {
 }
 .paragraph-5 {
   margin-left: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.8);
   font-size: 13px;
   font-weight: 400;
@@ -2053,7 +2156,7 @@ textarea {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-color: transparent;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 22px;
   line-height: 22px;
@@ -2085,7 +2188,7 @@ textarea {
 }
 .paragraph-3 {
   margin: 0;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.5);
   line-height: 20px;
   font-weight: 400;
@@ -2096,7 +2199,7 @@ textarea {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
@@ -2117,7 +2220,7 @@ textarea {
 }
 .paragraph-3-copy {
   margin: 0px 15px 0px 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(178, 70, 22, 0.6);
   line-height: 20px;
   font-weight: 400;
@@ -2126,7 +2229,7 @@ textarea {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
@@ -2160,7 +2263,7 @@ textarea {
 }
 .estado-pago {
   margin: 0px 15px 0px 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   line-height: 20px;
   font-weight: 500;
@@ -2170,7 +2273,7 @@ textarea {
   padding: 8px 12px 7px;
   border-radius: 10px;
   background-color: #ff5a00;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #fafafa;
   font-size: 12px;
   line-height: 12px;
@@ -2180,7 +2283,7 @@ textarea {
   padding: 8px 12px 7px;
   border-radius: 10px;
   background-color: #3264ff;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #fafafa;
   font-size: 12px;
   line-height: 12px;
@@ -2209,7 +2312,7 @@ textarea {
   box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   font-size: 15px;
   font-weight: 600;
   color: #fff;
@@ -2236,7 +2339,7 @@ textarea {
 }
 .cuotasPendientes {
   margin: 10px 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   line-height: 20px;
   font-weight: 600;
@@ -2251,7 +2354,7 @@ textarea {
   border-color: #16205b;
   border-radius: 10px;
   background-color: transparent;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 12px;
   line-height: 12px;
@@ -2263,7 +2366,7 @@ textarea {
   margin-top: 40px;
   margin-bottom: 20px;
   margin-left: 5px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 20px;
   line-height: 20px;
@@ -2278,7 +2381,7 @@ textarea {
 .paragraph-5-copy {
   margin-bottom: 15px;
   margin-left: 10px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   font-weight: 400;
@@ -2313,7 +2416,7 @@ textarea {
   color: #aaa;
   transform: rotate(90deg);
   right: 20px;
-  top: 12px;
+  top: 50px;
   padding: 0 0 2px;
   position: absolute;
   pointer-events: none;
@@ -2324,7 +2427,7 @@ textarea {
 }
 .paragraph-4-copy {
   margin: 0px 15px 0px 0px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: rgba(22, 32, 91, 0.5);
   line-height: 20px;
   font-weight: 400;
@@ -2384,7 +2487,7 @@ input[type="radio"]:checked {
 .formbuilder-file-label {
   display: block;
   margin-bottom: 5px;
-  font-family: Silka, sans-serif;
+  font-family: cdaFont;
   color: #16205b;
   font-size: 16px;
   font-weight: 600;
@@ -2618,6 +2721,35 @@ input[type="file"] {
   .div-block-34 {
     display: none;
   }
+  .heading-2 {
+    line-height: 34px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  .div-block-9 .w-button {
+    margin-top: 32px;
+  }
+  .el-club {
+    margin: 100px 30px 0;
+  }
+  .el-club .paragraph-22 {
+    margin: 40px 10px 20px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .nav-link {
+    color: #fff !important;
+    font-size: 18px !important;
+  }
+  .log-in {
+    color: #fff !important;
+    background: #ff5a00;
+    border-radius: 15px;
+  }
+  .fa-times {
+    filter: invert(1);
+    font-size: 20px;
+  }
 }
 @media only screen and (max-width: 1023px) {
   .nav-menu {
@@ -2625,15 +2757,16 @@ input[type="file"] {
     position: absolute;
     /* top: -180px; */
     left: -30px;
-    background: #fff;
+    background: #262626;
     width: 100vw;
-    min-height: 120px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     grid-row-gap: 10px;
     transition: all 0.3s linear;
+    padding: 60px 20px 0;
   }
   .heading-7 {
     margin-bottom: 20px;
@@ -2652,7 +2785,7 @@ input[type="file"] {
   .formulario {
     margin: 0;
     padding: 120px 20px 100px;
-    min-height: calc(100vh - 180px);    
+    min-height: calc(100vh - 180px);        
   }
   .rendered-form {
     width: calc(100% - 40px);
@@ -2742,46 +2875,6 @@ input[type="file"] {
   }
 }
 
-.nav-link {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 50px;
-  margin-left: 0px;
-  padding-right: 30px;
-  padding-left: 30px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: Silka, sans-serif;
-  color: #16205b;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;  
-  text-align: left;
-}
-.log-in {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 50px;
-  margin-left: 0px;
-  padding-right: 30px;
-  padding-left: 30px;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  font-family: Silka, sans-serif;
-  color: #16205b;
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;  
-  text-align: left;
-}
 .log-in:hover {  
   background-color: #3264ff;
   box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.25);
@@ -2834,44 +2927,29 @@ input[type="file"] {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    font-family: Silka, sans-serif;
+    font-family: cdaFont;
     color: #16205b;
     font-size: 15px;
     font-weight: 600;
     text-decoration: none;  
     text-align: left;
   }
-  .nav-link:hover {
+  .cda-btn2:hover {
     border-radius: 15px;
     background-color: rgba(120, 124, 169, 0.1);
   }
-  .log-in {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
+  .log-in {    
     height: 50px;
     margin-top: 2px;
     margin-bottom: 0px;
     margin-left: 20px;
     padding-right: 30px;
-    padding-left: 30px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-radius: 15px;
-    background-color: #ff5a00;
-    box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 25%);
-    -webkit-transition: all 300ms ease-in-out;
-    transition: all 300ms ease-in-out;
-    font-family: Silka, sans-serif;
+    padding-left: 30px;   
+    font-family: cdaFont;
     color: hsla(0, 0%, 98%, 0.95);
     font-size: 15px;
     font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-    border: none;
+    text-decoration: none;    
   }
   .form-block {
     width: 500px;
@@ -2950,7 +3028,7 @@ input[type="file"] {
   }
   .texto-cupones {
     margin: 20px 40px 10px 0;
-    font-family: Silka, sans-serif;
+    font-family: cdaFont;
     color: #787ca9;
     font-size: 16px;
     line-height: 22px;
@@ -2988,14 +3066,37 @@ input[type="file"] {
     margin-right: 60px;
     margin-left: 60px;
   }
-  .formulario {
-    margin-top: 120px;
-    min-height: calc(100vh - 290px);
+  .formulario {    
+    min-height: 100vh;
+    padding-top: 90px;
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 100px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;    
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(22, 32, 91, 0)), to(rgba(212, 255, 28, 0.25))), url(./assets/city-bg2.png);
+    background-image: linear-gradient(
+180deg, rgba(22, 32, 91, 0), rgba(212, 255, 28, 0.25)), url(./assets/city-bg2.png);
+    background-position: 0px 0px, 50% 100%;
+    background-size: auto, contain;
+    background-repeat: repeat, no-repeat;
   }
   .rendered-form {
     max-width: 600px;
     width: 600px;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .robo-form div {
+    width: 100%;
   }
   /* .footer {
     margin-top: 120px;    
@@ -3009,6 +3110,18 @@ input[type="file"] {
   .heading-7 {
     font-size: 38px;
     height: 30px;
+  }
+  .formulario .heading-7 {
+    height: auto;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 10px;
+    font-family: Silka, sans-serif;
+    color: #16205b;
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 600;
+    text-align: center;
   }
   
 }

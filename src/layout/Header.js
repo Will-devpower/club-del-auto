@@ -12,13 +12,16 @@ export const Header = () => {
     const { uid } = useSelector(state => state.auth);  
 
     const [open, setOpen] = useState(false);
-    const [top, setTop] = useState('-230px');
+    const [top, setTop] = useState('-110vh');
+    const [icon, setIcon] = useState('fas fa-bars');
  
     const handleClick = useCallback(() => {
         if(!open) {
             setTop('-60px')
+            setIcon('fas fa-times')
         } else {
-            setTop('-230px')
+            setTop('-110vh')
+            setIcon('fas fa-bars')
         }
         setOpen(!open);        
     }, [open]);
@@ -33,17 +36,17 @@ export const Header = () => {
                     </div>
                 </Link>
                 <nav className="nav-menu" style={{ top: top }}>                 
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/contacto" className="nav-link">Contáctanos</Link>
+                    <Link to="/" className="nav-link cda-btn2">Home</Link>
+                    <Link to="/contacto" className="nav-link cda-btn2">Contáctanos</Link>
                     {
                         ( uid !== undefined ) 
-                        ? <Link to="/client-account" className="log-in">Mi cuenta</Link>
-                        : <Link to="/login" className="log-in">Ingresar a mi cuenta</Link>
+                        ? <Link to="/client-account" className="log-in cda-btn1">Mi cuenta</Link>
+                        : <Link to="/login" className="log-in cda-btn1">Ingresar a mi cuenta</Link>
                     }
                 </nav>
                 <div className="nav-button">
                     <div className="icon-nav-menu">
-                        <i className="fas fa-bars" onClick={ handleClick }></i>
+                        <i className={ icon } onClick={ handleClick }></i>
                     </div>
                 </div>
                 <span className="close_icon"><i className="fas fa-times"></i></span>

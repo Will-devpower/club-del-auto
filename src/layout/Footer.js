@@ -16,10 +16,10 @@ export const Footer = () => {
                 </div>
             </a>
             <div className="div-block-21">
-                <a href="/contacto" className="button-2 w-button">Contáctanos</a>
+                <a href="/contacto" className="cda-btn2">Contáctanos</a>
                 {
                     uid === undefined &&
-                    <button onClick={ triggerLoginPopup } className="button-2 w-button">Ingresar a mi cuenta</button>
+                    <button onClick={ triggerLoginPopup } className="cda-btn2">Ingresar a mi cuenta</button>
                 }
             </div>
         </div>

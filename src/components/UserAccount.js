@@ -46,7 +46,7 @@ const SideBarClientAccount = ({ logout, uid }) => {
           <img src={userIcon} alt="Usuario" className="image-28" />
           <span className="button-4">Mi cuenta</span>
         </div>
-        <div className="div-block-48 _2">
+        <div className="div-block-48">
           <img src={homeIcon} alt="Home" className="image-28" />
           <Link to="/" className="button-4">
             Volver al Home
@@ -65,8 +65,8 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
         Solicitar asistencia
       </a>
-      <a href="/form-select" className="w-button ua-button-2">Llena el formulario</a>      
-      <Link to="/cupones-de-descuento" className="ver-todos w-button ua-button-2">Ver todos los cupones</Link>
+      <a href="/form-select" className="cda-btn3">Llena el formulario</a>      
+      <Link to="/cupones-de-descuento" className="ver-todos cda-btn3">Ver todos los cupones</Link>
       <div className="div-block-34">
         <img src={cdaIcon} alt="logo2" className="sb-bottom-logo" />
       </div>
@@ -258,7 +258,7 @@ export const UserAccount = () => {
         <div className="div-block-3_3">
           <div className="div-block-51">
             <h1 className="heading-7">Mi cuenta</h1>
-            <div className="div-block-48 salir">
+            <div className="cda-btn3">
               <img src={logoutIcon} alt="logo2" className="image-28 _2" />
               <Link to="/" className="button-4" onClick={handleLogout}>
                 Salir

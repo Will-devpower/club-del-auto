@@ -44,7 +44,7 @@ export const Suscripcion = () => {
                         
                             <input 
                                 type="submit"
-                                className="btnSubmit"
+                                className="btnSubmit cda-btn3"
                                 value="Enviar" 
                             />
 

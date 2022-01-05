@@ -192,8 +192,8 @@ export const FormChoque = () => {
                 <LoginScreen />
             </div>            
             <Header />
-            <Link to='/form-select' className="link-2">Pagina anterior</Link>            
-            <div className="rendered-form">
+            <Link to='/form-select' className="cda-btn2 prev-page">Pagina anterior</Link>            
+            <div className="rendered-form robo-form">
                 <div className="mt-70">
                     <h1 className="heading-7">En caso de choque</h1>
                 </div>
@@ -223,7 +223,9 @@ export const FormChoque = () => {
                 
                 {/* DATOS DEL CONDUCTOR */}
 
-                <h3 className="paragraph-5-copy">Identificación del conductor</h3>
+                <div className="mt-20">
+                    <h3 className="paragraph-5-copy">Identificación del conductor</h3>
+                </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
@@ -270,7 +272,8 @@ export const FormChoque = () => {
                 <div>
                     <h3 className="heading-11-copy _2">Datos del tercero</h3></div>
                 <div className="">
-                    <h3 className="paragraph-5-copy">Identificación del conductor</h3></div>
+                    <h3 className="paragraph-5-copy">Identificación del conductor</h3>
+                </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 

@@ -129,8 +129,8 @@ export const FormRobo = () => {
                 <LoginScreen />
             </div>            
             <Header />
-            <Link to='/form-select' className="link-2">Pagina anterior</Link>            
-            <div className="rendered-form">
+            <Link to='/form-select' className="cda-btn2 prev-page">Pagina anterior</Link>            
+            <div className="rendered-form robo-form">
                 <div className="mt-70">
                     <h1 className="heading-7">En caso de Robo</h1>
                 </div>
