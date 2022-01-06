@@ -6,11 +6,11 @@ import { LoginScreen } from "./LoginScreen"
 
 export const FormSelect = () => {
     return (
-        <div className="formulario">
+        <div className="formulario selection-form">
             <div className="popup-container">
                 <LoginScreen />
             </div>            
-            <Header />
+            <Header />            
             <div className="form-inner rendered-form">                
                 <h1 className="heading-7 mt-70">Seleccione una Opción</h1>
                 <div className="select-form">                

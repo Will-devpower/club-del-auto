@@ -187,7 +187,7 @@ export const FormChoque = () => {
     }, [])
     return (        
         
-        <div className="formulario">
+        <div className="formulario choque-form">
             <div className="popup-container">
                 <LoginScreen />
             </div>            
