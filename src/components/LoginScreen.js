@@ -6,6 +6,7 @@ import userIcon from '../assets/user-icon2.png';
 
 
 import { useHistory } from 'react-router-dom';
+import { Header } from '../layout/Header';
 
 export const LoginScreen = () => {
 
@@ -31,12 +32,11 @@ export const LoginScreen = () => {
 
     return (
         <div className="outter login-container" style={{height:'100vh'}}>
+            <Header />
             <div className="middle">
                 
-                <div className="div-block-59">
+                <div className="div-block-59">                   
                     
-                    <a href="/" className="link-2">Volver al home</a>
-                    <br/><br/>
                     <img src={ userIcon } alt="icono-usuario" className="image-31" />
                     <h1 className="heading-login">Ingresa a tu cuenta</h1>
                     <div className="inner form-block-2">
@@ -92,7 +92,7 @@ export const LoginScreen = () => {
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 
                                     type="submit"
-                                    className="btnSubmit"
+                                    className="cda-btn1 mt-20"
                                     value="Ingresar" 
                                 />
                             </div>

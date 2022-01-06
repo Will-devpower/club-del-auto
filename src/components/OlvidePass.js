@@ -6,6 +6,7 @@ import userIcon from '../assets/user-icon2.png';
 
 
 import { useHistory } from 'react-router-dom';
+import { Header } from '../layout/Header';
 
 export const OlvidePass = () => {
 
@@ -27,12 +28,11 @@ export const OlvidePass = () => {
 
     return (
         <div className="outter login-container" style={{height:'100vh'}}>
+            <Header />
             <div className="middle">
                 
-                <div className="div-block-59">
+                <div className="div-block-59">                    
                     
-                    <a href="/" className="link-2">Volver al home</a>
-                    <br/><br/>
                     <img src={ userIcon } alt="icono-usuario" className="image-31" />
                     <center>
                     <h4>Ingresa tu rut <br/> Enviaremos un link a la dirección asociada</h4>    
@@ -56,7 +56,7 @@ export const OlvidePass = () => {
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 
                                     type="submit"
-                                    className="btnSubmit"
+                                    className="cda-btn1 mt-20"
                                     value="Enviar Link" 
                                 />
                             </div>

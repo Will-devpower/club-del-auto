@@ -2875,7 +2875,7 @@ input[type="file"] {
   }
 }
 
-.log-in:hover {  
+.cda-btn1:hover {  
   background-color: #3264ff;
   box-shadow: 11px 11px 20px 0 rgba(22, 32, 91, 0.25);
   color: #fafafa;
@@ -2955,6 +2955,12 @@ input[type="file"] {
     width: 500px;
     margin-right: auto;
     margin-left: auto;
+  }
+  .form-block-2 form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .text-field {
     padding-right: 20px;
@@ -3102,7 +3108,7 @@ input[type="file"] {
     margin-top: 120px;    
   } */
   .login-container {
-    padding-top: 100px;
+    padding-top: 100px;    
   }
   .section-8 {
     margin: 0 100px;
@@ -3123,7 +3129,9 @@ input[type="file"] {
     font-weight: 600;
     text-align: center;
   }
-  
+  .section-4 .formulario {
+    background-image: unset;
+  }
 }
 @media only screen and (min-width: 1024px) and (max-width: 1279px) {
   .section-8 {

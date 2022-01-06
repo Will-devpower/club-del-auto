@@ -5,6 +5,7 @@ import { loginFirst } from '../actions/auth';
 
 
 import { useHistory } from 'react-router-dom';
+import { Header } from '../layout/Header';
 
 export const LoginFirstTime = () => {
 
@@ -27,14 +28,13 @@ export const LoginFirstTime = () => {
 
     return (
         <div className="outter login-container" style={{height:'100vh'}}>
+            <Header />
             <div className="middle">
                 
-                <div className="div-block-59">
+                <div className="div-block-59">                    
                     
-                    <a href="/" className="link-2">Volver al home</a>
-                    <br/><br/>
                     <h1 className="heading-login">Bienvenido al club!</h1>
-                    <h3>Registra tus datos a continuación:</h3>
+                    <h4>Registra tus datos a continuación:</h4>
                     
                     <div className="inner form-block-2">
                         <form onSubmit={ handleLoginFirst }>
@@ -77,7 +77,7 @@ export const LoginFirstTime = () => {
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 
                                     type="submit"
-                                    className="btnSubmit"
+                                    className="cda-btn1 mt-20"
                                     value="Registrar" 
                                 />
                             </div>
