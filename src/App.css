@@ -2423,7 +2423,7 @@ textarea {
   pointer-events: none;
 }
 .input-field {
-  width: calc(100% - 20px);
+  width: 100%;
   margin-bottom: 15px;
 }
 .paragraph-4-copy {
@@ -2436,17 +2436,18 @@ textarea {
   text-align: left;
 }
 .radio-group {
-  display: flex;
+  display: grid;
   margin-top: 10px;
   margin-bottom: 15px;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 10px;
 }
 .formbuilder-radio-inline {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 50px;
-  margin-left: 10px;
+  height: 50px;  
   padding-right: 20px;
   padding-left: 20px;
   -webkit-box-align: center;
@@ -2754,6 +2755,22 @@ input[type="file"] {
     filter: invert(1);
     font-size: 20px;
   }
+  .div-block-30 .cda-btn3 {
+    width: 100%;
+  }
+  .div-block-51 {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .div-block-51 .heading-7,
+  .div-block-51 .cda-btn3 {
+    margin: 0 !important;
+  }
+  .w-button {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+   
 }
 @media only screen and (max-width: 1023px) {
   .nav-menu {
