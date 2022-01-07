@@ -19,7 +19,7 @@ export const TimeOutModal = () => {
         setshowModal(true); 
         sessionRef.current = setTimeout(() => {
             logOut();
-        }, 3600000 ); 
+        }, 60 * 1000 ); 
     }    
 
     const stayLoggedIn = () => {       
@@ -37,17 +37,17 @@ export const TimeOutModal = () => {
     return (
         <div>          
           <Modal isOpen={ showModal }>
-            <h2>Has estado inactivo por mas de 5 minutos</h2>
-            <p>Seras desconectado Pronto</p>
-            <div>
-                <button onClick={ logOut }>Cerrar Sesión</button>
-                <button onClick={ stayLoggedIn }>Permanecer conectado</button>
+            <h2>Has estado inactivo por mas de 2 minutos</h2>
+            <p>Pronto Seras desconectado</p>
+            <div className='modal-grid'>
+                <button onClick={ logOut } className='cda-btn3'>Cerrar Sesión</button>
+                <button onClick={ stayLoggedIn } className='cda-btn1'>Permanecer conectado</button>
             </div>    
           </Modal> 
           <IdleTimer
             ref={ idleTimerRef }       
             onIdle={ onIdle }
-            timeout={ 3600 * 1000 } 
+            timeout={ 120 * 1000 } 
           />
         </div>
     )
