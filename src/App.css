@@ -1311,6 +1311,7 @@ textarea {
 }
 .splide__slide img {
   max-width: 100%;
+  object-fit: cover;
 }
 .splide__arrow svg {
   fill: #fff;
@@ -2552,7 +2553,7 @@ input[type="file"] {
     margin-left: 20px;
   }
   .home-form {
-    margin-top: 100px !important;
+    margin-top: 130px !important;
   }
   .cupon-card-cupon-page {
     width: -webkit-fill-available;
@@ -2616,10 +2617,11 @@ input[type="file"] {
   }
   .w-button {
     background-color: #ffa000;
-    width: calc(100% - 60px);
+    width: auto;
   }
   .div-block-3_3 {
     border-top: 1px solid rgba(22, 32, 91, 0.15);
+    padding: 40px 20px;
   }
   .div-block-45 {
     flex-direction: column;
@@ -2702,6 +2704,12 @@ input[type="file"] {
   }
   .div-block-21 {
     margin-top: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .div-block-21 .cda-btn2 {
+    color: #16205bb8;
   }
   .w-button {
     margin-top: 0;
@@ -2855,6 +2863,9 @@ input[type="file"] {
     color: #fff !important;
     font-size: 18px !important;
   }
+  .nav-link:nth-child(1) {
+    width: 50%;
+  }
   .fa-times {
     filter: invert(1);
     font-size: 20px;
@@ -2867,6 +2878,25 @@ input[type="file"] {
   }
   .modal-grid {
     width: 100%;
+  }
+  .contact-page {
+    padding: 0 20px;
+  }
+  .contact-page .div-block-59 {
+    width: auto;
+  }
+  .contact-page .form-block-2,
+  .contact-page .text-field-2 {
+    width: 100%;
+  }
+  .contact-page textarea {
+    width: 100%;
+    border-color: rgba(22, 32, 91, 0.4);
+    font-weight: 600;
+    font-family: 'cdaFont' !important;
+  }
+  .login-container {
+    padding-top: 60px;
   } 
 }
 @media only screen and (min-width: 768px) {

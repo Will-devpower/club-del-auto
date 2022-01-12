@@ -33,7 +33,7 @@ export const LoginScreen = () => {
     return (
         <div className="outter login-container" style={{height:'100vh'}}>
             <Header />
-            <div className="middle">
+            <div className="middle contact-page">
                 
                 <div className="div-block-59">                   
                     

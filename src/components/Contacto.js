@@ -36,7 +36,7 @@ export const Contacto = () => {
             </div>   
             <Header />  
             <div className="outter" style={{height:'100vh'}}>
-            <div className="middle">                
+            <div className="middle contact-page">                
                 <div className="div-block-59">                    
                     <h1 className="heading-login">Envíanos un correo. te responderemos a la brevedad:</h1>
                     <div className="inner form-block-2">
