@@ -393,7 +393,8 @@ export const FormChoque = () => {
                 </div>
                 {
                     (tieneSeguro === 'option-1') &&
-                    <div className="formbuilder-text form-group">                    
+                    <div className="formbuilder-text form-group">
+                        <p className="paragraph-4-copy">Nombre de su compañia de seguro</p>                    
                         <input 
                             type="text" 
                             name="suSeguro"                          
@@ -406,7 +407,8 @@ export const FormChoque = () => {
                 {/* DATOS DEL ACCIDENTE */}
 
                 <div>
-                    <h3 className="heading-11-copy _2">Relato</h3></div>
+                    <h3 className="heading-11-copy _2">Relato</h3>
+                </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text"                                                                      

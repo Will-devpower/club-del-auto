@@ -111,11 +111,11 @@ export const HomeScreen = () => {
 
                 <HomeCupones tituloCupones={titulo_cupones} btn={btn_cupones}/>
 
-                <div className="el-club">
+                {/* <div className="el-club">
                     <h1 className="heading-3">{titulo_club1} <strong>{titulo_club2}</strong></h1>
                     <p className="paragraph-22">{desc_club}</p>
                     <a href="https://clubdelseguro.cl/" className="join cda-btn3">{btn_club}</a>
-                </div>
+                </div> */}
 
                 <Suscripcion />
             </div>
