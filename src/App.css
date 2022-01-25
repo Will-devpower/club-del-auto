@@ -2,8 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 
 @font-face {
-  font-family: cdaFont;
-  src: url(./assets/Poppins-Bold.ttf);
+  font-family: DMSansRegular;
+  src: url(./assets/DMSans-Regular.ttf);
+}
+@font-face {
+  font-family: DMSansBold;
+  src: url(./assets/DMSans-Bold.ttf);
 }
 
 .cda-btn1 {
@@ -26,7 +30,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #fff;
   font-size: 15px;
   font-weight: 600;
@@ -47,7 +51,7 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  font-family: cdaFont;  
+  font-family: DMSansRegular;  
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;  
@@ -64,7 +68,7 @@
   box-shadow: none;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   display: -webkit-box;
   display: -webkit-flex;
@@ -346,11 +350,11 @@ body {
 .heading {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: cdaFont;
+  font-family: DMSansBold;
   color: #16205b;
   font-size: 50px;
   line-height: 50px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: -1px;
 }
 .section-2 {
@@ -560,7 +564,7 @@ textarea {
   /* box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 15px;
   font-weight: 600;
   color: white;
@@ -588,17 +592,17 @@ textarea {
 }
 .heading-2 {
   padding: 0px;
-  font-family: cdaFont;
+  font-family: DMSansBold;
   color: #16205b;
-  font-size: 25px;
-  line-height: 25px;
-  font-weight: 600;
+  font-size: 35px;
+  line-height: 35px;
+  font-weight: 700;
   letter-spacing: -0.8px;
   margin-bottom: 10px;
 }
 .paragraph-2 {    
   margin-top: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #787ca9;
   font-size: 16px;
   line-height: 22px;
@@ -641,7 +645,7 @@ textarea {
 }
 .ben-title {
   color: rgba(22, 32, 91, 0.8);
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 13px;
   font-weight: 500;
 }
@@ -660,7 +664,7 @@ textarea {
 .titulos-centrados {
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 30px;
   line-height: 34px;
@@ -723,7 +727,7 @@ textarea {
 .heading-5 {
   margin-top: 0px;
   margin-bottom: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #ff5a00;
   font-size: 45px;
   line-height: 45px;
@@ -735,16 +739,16 @@ textarea {
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
-  font-family: cdaFont;
+  font-family: DMSansBold;
   color: #16205b;
   font-size: 16px;
   line-height: 16px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 .texto-cupones {
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(178, 70, 22, 0.7);
   line-height: 18px;
   margin-top: 0;
@@ -795,7 +799,7 @@ textarea {
     box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
     -webkit-transition: all 300ms ease-in-out;
     transition: all 300ms ease-in-out;
-    font-family: cdaFont;
+    font-family: DMSansRegular;
     font-size: 15px;
     font-weight: 500;
     color: #fff;
@@ -863,7 +867,7 @@ textarea {
   align-items: center;
 }
 .heading-3 {
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;  
   font-weight: 700;
   text-align: center;
@@ -878,7 +882,7 @@ textarea {
 .paragraph-22 {
   width: auto;
   margin: 40px 60px 20px;  
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.5);
   font-size: 18px;
   line-height: 24px;
@@ -910,7 +914,7 @@ textarea {
   box-shadow: none;
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 15px;
   font-weight: 500;
@@ -984,7 +988,7 @@ textarea {
 .fileTitle {
   text-align: right;
   margin: 5px 0 0;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #787ca9;
   line-height: 14px;
   letter-spacing: -0.5px;
@@ -995,7 +999,7 @@ textarea {
   cursor: pointer;
 }
 .field-label {
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 14px;
   color: rgba(120, 124, 169, 0.7);
   font-weight: 600;
@@ -1013,7 +1017,7 @@ textarea {
   border-color: hsla(0, 0%, 98%, 0.4);
   border-radius: 10px;
   background-color: hsla(0, 0%, 100%, 0.4);
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8);
   font-size: 16px;
   font-weight: 600;
@@ -1096,7 +1100,7 @@ textarea {
   align-items: center;
   border-radius: 15px;
   background-color: transparent;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 15px;
   line-height: 15px;
@@ -1143,7 +1147,7 @@ textarea {
   margin-top: 15px;
   margin-bottom: 40px;
   padding: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 25px;
   line-height: 25px;
@@ -1166,7 +1170,7 @@ textarea {
   border-color: rgba(22, 32, 91, 0.4);
   border-radius: 8px;
   background-color: hsla(0, 0%, 100%, 0.15);
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8) !important;
   font-weight: 600;
 }
@@ -1197,7 +1201,7 @@ textarea {
   border-color: hsla(0, 0%, 98%, 0.36);
   border-radius: 8px;
   background-color: hsla(0, 0%, 100%, 0.15);
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
 }
 .text-field-2:focus-visible {
@@ -1236,7 +1240,7 @@ textarea {
   /* box-shadow: 4px 4px 10px 0 rgba(22, 32, 91, 0.2); */
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 15px;
   font-weight: 600;
   color: #16205b;
@@ -1244,7 +1248,7 @@ textarea {
 }
 .link-2 {
   margin-top: 20px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-weight: 500;
 }
@@ -1364,14 +1368,14 @@ textarea {
   margin-top: 20px;
   margin-right: 10px;
   margin-left: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 22px;
   line-height: 28px;
   font-weight: 600;
 }
 .texto-cupones {
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #787ca9;
   line-height: 18px;
   margin-right: 10px;
@@ -1379,7 +1383,7 @@ textarea {
 }
 .link-page {
   display: block;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-weight: 500;
   font-size: 14px;
   margin-top: 7px;
@@ -1408,7 +1412,7 @@ textarea {
 }
 .titulo-servicio {
   margin-left: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 38px;
   line-height: 42px;
@@ -1418,7 +1422,7 @@ textarea {
 .bajada-servicio {
   width: 550px;
   margin: 20px 0px 20px 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.5);
   font-size: 18px;
   line-height: 24px;
@@ -1465,7 +1469,7 @@ textarea {
 .descripcion-servicio-2 {
   margin-top: 0px;
   margin-left: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.5);
   font-size: 16px;
   line-height: 24px;
@@ -1480,7 +1484,7 @@ textarea {
 .descripcion {
   display: block;
   margin-bottom: 40px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.3);
   font-size: 14px;
   line-height: 14px;
@@ -1510,7 +1514,7 @@ textarea {
 }
 .descripcion-servicio {
   margin-top: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #787ca9;
   font-size: 16px;
   line-height: 22px;
@@ -1527,7 +1531,7 @@ textarea {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #ff5a00;
   font-size: 14px;
   line-height: 18px;
@@ -1557,7 +1561,7 @@ textarea {
   box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -1591,7 +1595,7 @@ textarea {
 .descripcion_2 {
   display: none;
   margin-bottom: 40px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.3);
   font-size: 14px;
   line-height: 14px;
@@ -1620,7 +1624,7 @@ textarea {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
   align-self: center;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #787ca9;
   font-size: 14px;
   line-height: 18px;
@@ -1683,7 +1687,7 @@ textarea {
 .descripcion-copy {
   margin-bottom: 30px;
   margin-left: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.3);
   font-size: 14px;
   line-height: 14px;
@@ -1900,7 +1904,7 @@ textarea {
   align-items: center;
   background-color: transparent;
   opacity: 0.9;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-weight: 600;
   text-decoration: none;
@@ -1933,7 +1937,7 @@ textarea {
   box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 15px;
   font-weight: 600;
   text-decoration: none;
@@ -1941,7 +1945,7 @@ textarea {
 }
 .heading-7 {  
   margin-top: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 30px;
   line-height: 30px;
@@ -2016,7 +2020,7 @@ textarea {
 }
 .heading-8 {
   margin-top: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 22px;
   line-height: 22px;
@@ -2025,7 +2029,7 @@ textarea {
 }
 .datos-usuario {
   margin: 0px 15px 0px 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.7);
   font-size: 16px;
   line-height: 30px;
@@ -2079,7 +2083,7 @@ textarea {
   margin-right: 20px;
   margin-bottom: 0px;
   margin-left: 60px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #fafafa;
   font-size: 18px;
   line-height: 18px;
@@ -2108,7 +2112,7 @@ textarea {
   right: 0%;
   bottom: 0%;
   margin-bottom: 5px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: hsla(0, 0%, 98%, 0.3);
   font-size: 10px;
   line-height: 10px;
@@ -2117,7 +2121,7 @@ textarea {
 }
 .credit-card-datos {
   margin-bottom: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: hsla(0, 0%, 98%, 0.7);
   font-size: 12px;
   line-height: 12px;
@@ -2130,7 +2134,7 @@ textarea {
 }
 .paragraph-5 {
   margin-left: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8);
   font-size: 13px;
   font-weight: 400;
@@ -2189,7 +2193,7 @@ textarea {
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
   background-color: transparent;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 22px;
   line-height: 22px;
@@ -2221,7 +2225,7 @@ textarea {
 }
 .paragraph-3 {
   margin: 0;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.5);
   line-height: 20px;
   font-weight: 400;
@@ -2232,7 +2236,7 @@ textarea {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
@@ -2253,7 +2257,7 @@ textarea {
 }
 .paragraph-3-copy {
   margin: 0px 15px 0px 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(178, 70, 22, 0.6);
   line-height: 20px;
   font-weight: 400;
@@ -2262,7 +2266,7 @@ textarea {
   margin-top: 0px;
   margin-right: 0px;
   margin-bottom: 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   line-height: 20px;
@@ -2296,7 +2300,7 @@ textarea {
 }
 .estado-pago {
   margin: 0px 15px 0px 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   line-height: 20px;
   font-weight: 500;
@@ -2306,7 +2310,7 @@ textarea {
   padding: 8px 12px 7px;
   border-radius: 10px;
   background-color: #ff5a00;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #fafafa;
   font-size: 12px;
   line-height: 12px;
@@ -2316,7 +2320,7 @@ textarea {
   padding: 8px 12px 7px;
   border-radius: 10px;
   background-color: #3264ff;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #fafafa;
   font-size: 12px;
   line-height: 12px;
@@ -2345,7 +2349,7 @@ textarea {
   box-shadow: 4px 4px 10px 0 rgb(22 32 91 / 20%);
   -webkit-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   font-size: 15px;
   font-weight: 600;
   color: #fff;
@@ -2372,7 +2376,7 @@ textarea {
 }
 .cuotasPendientes {
   margin: 10px 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   line-height: 20px;
   font-weight: 600;
@@ -2387,7 +2391,7 @@ textarea {
   border-color: #16205b;
   border-radius: 10px;
   background-color: transparent;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 12px;
   line-height: 12px;
@@ -2399,7 +2403,7 @@ textarea {
   margin-top: 40px;
   margin-bottom: 20px;
   margin-left: 5px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 20px;
   line-height: 20px;
@@ -2414,7 +2418,7 @@ textarea {
 .paragraph-5-copy {
   margin-bottom: 15px;
   margin-left: 10px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8);
   font-size: 15px;
   font-weight: 400;
@@ -2460,7 +2464,7 @@ textarea {
 }
 .paragraph-4-copy {
   margin: 0px 15px 0px 0px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.5);
   line-height: 20px;
   font-weight: 400;
@@ -2523,7 +2527,7 @@ input[type="radio"]:checked {
 .formbuilder-file-label {
   display: block;
   margin-bottom: 5px;
-  font-family: cdaFont;
+  font-family: DMSansRegular;
   color: #16205b;
   font-size: 16px;
   font-weight: 600;
@@ -2897,7 +2901,7 @@ input[type="file"] {
     width: 100%;
     border-color: rgba(22, 32, 91, 0.4);
     font-weight: 600;
-    font-family: 'cdaFont' !important;
+    font-family: 'DMSansRegular' !important;
   }
   .login-container {
     padding-top: 60px;
@@ -3052,10 +3056,10 @@ input[type="file"] {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    font-family: cdaFont;
+    font-family: DMSansRegular;
     color: #16205b;
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 17px;
+    font-weight: 400;
     text-decoration: none;  
     text-align: left;
   }
@@ -3070,7 +3074,7 @@ input[type="file"] {
     margin-left: 20px;
     padding-right: 30px;
     padding-left: 30px;   
-    font-family: cdaFont;
+    font-family: DMSansRegular;
     color: hsla(0, 0%, 98%, 0.95);
     font-size: 15px;
     font-weight: 600;
@@ -3159,7 +3163,7 @@ input[type="file"] {
   }
   .texto-cupones {
     margin: 20px 40px 10px 0;
-    font-family: cdaFont;
+    font-family: DMSansRegular;
     color: #787ca9;
     font-size: 16px;
     line-height: 22px;
