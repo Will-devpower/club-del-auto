@@ -34,7 +34,7 @@ export const LoginFirstTime = () => {
                 <div className="div-block-59">                    
                     
                     <h1 className="heading-login">Bienvenido al club!</h1>
-                    <h4>Registra tus datos a continuación:</h4>
+                    <h4 className='paragraph-2'>Registra tus datos a continuación:</h4>
                     
                     <div className="inner form-block-2">
                         <form onSubmit={ handleLoginFirst }>
@@ -72,7 +72,7 @@ export const LoginFirstTime = () => {
                                     required
                                 />
 
-                            <center><h6>(La contraseña debe incluir de 6 a 20 caractéres, al menos un número, Maýusculas y minúsculas)</h6></center>
+                            <center><h6 className='paragraph-3'>(La contraseña debe incluir de 6 a 20 caractéres, al menos un número, Maýusculas y minúsculas)</h6></center>
                             
                             <div className="form-group" style={{display:'flex', justifyContent:'center'}}>
                                 <input 

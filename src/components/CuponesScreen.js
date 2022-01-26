@@ -15,7 +15,8 @@ export const CuponesScreen = () => {
     
     const dispatch = useDispatch();
 
-    const { cupons, bannersCupones, bannersLoaded } = useSelector(state => state.cda);
+    const { cupons, bannersCupones, bannersLoaded, textosApp } = useSelector(state => state.cda);
+    const { btn_cupones } = textosApp;
     const { banner_image } = bannersCupones;    
     const bannersAvailable = !!(bannersLoaded && bannersCupones);
     useEffect(() => {
@@ -58,16 +59,22 @@ export const CuponesScreen = () => {
             <div className="section-5"></div>
             <div className="cupones-page">
                 {                    
-                    cupons.map(elem => {
+                    cupons.map(cupon => {
                       return (
-                        <Link to={`/cupones/${ elem.id }`} className="cupon-link-wrapper" key={elem.id}>
-                         <div className="div-block-25">
-                            <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${baseUrl+elem.img[0].url})`}}></div>
-                            <h1 className="heading-6">{elem.servicio}</h1>
-                            <p className="texto-cupones">{elem.bajada}</p>
-                            <p className="link-page">MÁS INFORMACIÓN</p>
-                         </div>
-                         </Link>
+                        <Link to={`/cupones/${ cupon.id }`} className="cupon-link-wrapper" key={ cupon.id }>
+                        <div className="cupon-card">
+                            <div className="div-block-73">
+                                <div className="cupon-card-cupon-page" style={{backgroundImage:`url(${baseUrl+cupon.img[0].url})`}}></div>
+                                <div className="div-block-75">
+                                    <h1 className="heading-12">{cupon.proveedor.nombre}</h1>
+                                    <p className="texto-cupones">{ cupon.bajada }</p>
+                                    <div className="div-block-20">
+                                        <p className="link">{btn_cupones}</p>                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </Link>
                       )  
                     }) 
                 }

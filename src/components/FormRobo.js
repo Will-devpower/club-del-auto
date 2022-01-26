@@ -131,7 +131,7 @@ export const FormRobo = () => {
             <Header />
             <Link to='/form-select' className="cda-btn2 prev-page">Pagina anterior</Link>            
             <div className="rendered-form robo-form">
-                <div className="mt-70">
+                <div className="mt-70 mb-40">
                     <h1 className="heading-7">En caso de Robo</h1>
                 </div>
                 <div>

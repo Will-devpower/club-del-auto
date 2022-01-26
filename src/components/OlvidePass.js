@@ -35,7 +35,7 @@ export const OlvidePass = () => {
                     
                     <img src={ userIcon } alt="icono-usuario" className="image-31" />
                     <center>
-                    <h4>Ingresa tu rut <br/> Enviaremos un link a la dirección asociada</h4>    
+                    <h4 className='paragraph-2'>Ingresa tu rut <br/> Enviaremos un link a la dirección asociada</h4>    
                     </center>
                     
                     <div className="inner form-block-2">
