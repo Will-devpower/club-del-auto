@@ -376,6 +376,7 @@ body {
   background-repeat: no-repeat, repeat;
   padding-bottom: 40px;
   margin-bottom: 40px;
+  padding-top: 90px;
 }
 .asistencias {  
   position: relative;
@@ -932,6 +933,14 @@ textarea {
 .form-inner {
   margin-top: 100px !important;
 }
+.formErroMsg {
+  text-align: left;
+  font-family: DMSansRegular;
+  color: rgba(22, 32, 91, 0.8);
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 600;
+}
 .select-form {
   width: 180px;
   margin: auto;
@@ -1174,7 +1183,7 @@ textarea {
   background-color: hsla(0, 0%, 100%, 0.15) !important;
   font-family: DMSansRegular;
   color: rgba(22, 32, 91, 0.8) !important;
-  font-weight: 600;
+  font-weight: 400;
 }
 .text-field-2:focus {
   border: 1px solid #3898EC;
@@ -1200,7 +1209,7 @@ textarea {
   align-self: auto;
   border-style: solid;
   border-width: 1px;
-  border-color: hsla(0, 0%, 98%, 0.36);
+  border-color: rgba(22, 32, 91, 0.4);
   border-radius: 8px;
   background-color: hsla(0, 0%, 100%, 0.15);
   font-family: DMSansRegular;
@@ -2572,7 +2581,7 @@ input[type="file"] {
     margin-top: 130px !important;
   }
   .cupon-card-cupon-page {
-    width: -webkit-fill-available;
+    width: 200px;
     max-height: 200px;
     height: 200px;
     padding: 0 30px;
@@ -3252,7 +3261,7 @@ input[type="file"] {
     margin-top: 120px;    
   } */
   .login-container {
-    padding-top: 100px;    
+    padding-top: 90px;    
   }
   .section-8 {
     margin: 0 100px;

@@ -20,7 +20,7 @@ export const HomeCupones = ({tituloCupones, btn}) => {
             <div className="div-block-17">
                 <h1 className="titulos-centrados">{tituloCupones}</h1>
             </div>
-            <div className="div-block-10">
+            <div className="div-block-10"> 
                 {
                     cupons.length >= 1 &&
                     cupons.slice(0, 3).map(( cupon ) => (

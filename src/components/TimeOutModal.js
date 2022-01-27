@@ -30,14 +30,14 @@ export const TimeOutModal = () => {
     const logOut = () => {
         setshowModal(false);        
         clearTimeout(sessionRef.current);
-        dispatch( startLogout() );
         history.push('/');
+        dispatch( startLogout() );        
     } 
 
     return (
         <div>          
           <Modal isOpen={ showModal }>
-            <h2>Has estado inactivo por mas de 2 minutos</h2>
+            <h2>Has estado inactivo por mas de 5 minutos</h2>
             <p>Pronto Seras desconectado</p>
             <div className='modal-grid'>
                 <button onClick={ logOut } className='cda-btn3'>Cerrar Sesión</button>

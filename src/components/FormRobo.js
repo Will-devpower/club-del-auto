@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { sendFormRobo } from "../actions/cda";
 import { Header } from "../layout/Header";
 import { LoginScreen } from "./LoginScreen";
@@ -20,6 +21,7 @@ const initialState = {
 }
 export const FormRobo = () => {
 
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [files, setFiles] = useState([]);
     const [pictures, setPictures] = useState([]);   
     const [constanciaName, setConstanciaName] = useState('');   
@@ -84,7 +86,7 @@ export const FormRobo = () => {
         }            
     }    
 
-    const handleSubmit = (e) => { 
+    const onSubmit = (e) => { 
         e.preventDefault();
         setValues({
             ...values,
@@ -197,27 +199,29 @@ export const FormRobo = () => {
                     <input 
                         type="text"                                                                      
                         placeholder="Lugar del accidente" 
-                        name="lugar"                         
+                        {...register("lugar", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={lugar}       
                     />
+                    <p className="formErroMsg">{errors.lugar?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="datetime-local" 
                         placeholder="Fecha y hora" 
-                        name="fecha"                         
+                        {...register("fecha", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={fecha}       
                     />
+                    <p className="formErroMsg">{errors.fecha?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <textarea 
                          
                         placeholder="Descripción de lo robado" 
-                        name="descRobo"                        
+                        {...register("descRobo", {required: 'Campo Obligatorio'})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descRobo}       
@@ -226,7 +230,7 @@ export const FormRobo = () => {
                 <div className="formbuilder-text form-group">                    
                     <textarea                         
                         placeholder="Descripción de la situación" 
-                        name="descSituacion"                         
+                        {...register("descSituacion", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descSituacion}       
@@ -289,7 +293,7 @@ export const FormRobo = () => {
                         type="submit" 
                         className="pagar-seguro-auto-2 w-button" 
                         name="submit-button"                        
-                        onClick={handleSubmit}
+                        onClick={handleSubmit(onSubmit)}
                     >
                         Enviar
                     </button>

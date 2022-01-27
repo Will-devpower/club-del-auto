@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import { sendFormChoque } from "../actions/cda";
 import { Header } from "../layout/Header";
 import { LoginScreen } from "./LoginScreen";
@@ -33,6 +34,7 @@ const initialState = {
 }
 export const FormChoque = () => {
 
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [files, setFiles] = useState([]);
     const [pictures, setPictures] = useState([]);
     const [picturesT, setPicturesT] = useState([]);
@@ -70,7 +72,7 @@ export const FormChoque = () => {
         tieneSeguro      
     } = values;
 
-    const handleInputChange = ({ target }) => {
+    const handleInputChange = ({ target }) => {        
         setValues({
             ...values,
             [ target.name ]: target.type === 'file' ? target.files : target.value
@@ -136,8 +138,8 @@ export const FormChoque = () => {
         }            
     }
 
-    const handleSubmit = (e) => { 
-        e.preventDefault();
+    const onSubmit = (e) => { 
+        // e.preventDefault();
         setValues({
             ...values,
             rut: uid,
@@ -230,41 +232,45 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT" 
-                        name="rutConductor" 
+                        {...register("rutConductor", {required: 'Campo Obligatorio'})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutConductor}                        
                     />
+                    <p className="formErroMsg">{errors.rutConductor?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Nombre y Apellido" 
-                        name="nombreConductor"                         
+                        {...register("nombreConductor", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={nombreConductor}                        
                     />
+                    <p className="formErroMsg">{errors.nombreConductor?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="text"                        
                         placeholder="Teléfono" 
-                        name="telefonoConductor" 
+                        {...register("telefonoConductor", {required: 'Campo Obligatorio'})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={telefonoConductor}                        
                     />
+                    <p className="formErroMsg">{errors.telefonoConductor?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="email" 
                         placeholder="Correo" 
-                        name="correoConductor"                         
+                        {...register("correoConductor", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={correoConductor}
                     />
+                    <p className="formErroMsg">{errors.correoConductor?.message}</p>
                 </div>
 
                 {/* DATOS DEL TERCERO */}
@@ -277,42 +283,46 @@ export const FormChoque = () => {
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
-                        placeholder="RUT" 
-                        name="rutTercero"                        
+                        placeholder="RUT"
+                        {...register("rutTercero", {required: 'Campo Obligatorio'})}                                                
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutTercero}
                     />
+                    <p className="formErroMsg">{errors.rutTercero?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Nombre y Apellido" 
-                        name="nombreTercero"                        
+                        {...register("nombreTercero", {required: 'Campo Obligatorio'})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={nombreTercero}
                     />
+                    <p className="formErroMsg">{errors.nombreTercero?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="text"                         
                         placeholder="Teléfono" 
-                        name="telefonoTercero"                        
+                        {...register("telefonoTercero", {required: 'Campo Obligatorio'})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={telefonoTercero}
                     />
+                    <p className="formErroMsg">{errors.telefonoTercero?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="e-mail" 
                         placeholder="Correo" 
-                        name="correoTercero" 
+                        {...register("correoTercero", {required: 'Campo Obligatorio'})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={correoTercero}
                     />
+                    <p className="formErroMsg">{errors.correoTercero?.message}</p>
                 </div>
 
                 {/* DATOS DEL VEHICULO */}
@@ -323,41 +333,45 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="Patente" 
-                        name="patente"                         
+                        {...register("patente", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={patente}
                     />
+                    <p className="formErroMsg">{errors.patente?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Marca" 
-                        name="marca"                    
+                        {...register("marca", {required: 'Campo Obligatorio'})}                    
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={marca}
                     />
+                    <p className="formErroMsg">{errors.marca?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Modelo" 
-                        name="modelo"                          
+                        {...register("modelo", {required: 'Campo Obligatorio'})}                          
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={modelo}
                     />
+                    <p className="formErroMsg">{errors.modelo?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
                         placeholder="Color" 
-                        name="color"                         
+                        {...register("color", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={color}
                     />
+                    <p className="formErroMsg">{errors.color?.message}</p>
                 </div>
                 <div>
                     <p className="paragraph-4-copy">¿Cuenta con seguro?</p>
@@ -397,7 +411,7 @@ export const FormChoque = () => {
                         <p className="paragraph-4-copy">Nombre de su compañia de seguro</p>                    
                         <input 
                             type="text" 
-                            name="suSeguro"                          
+                            {...register("suSeguro", {required: 'Campo Obligatorio'})}                          
                             id="suSeguro" 
                             className="input-control input-field"
                         />
@@ -413,26 +427,28 @@ export const FormChoque = () => {
                     <input 
                         type="text"                                                                      
                         placeholder="Lugar del accidente" 
-                        name="lugar"                         
+                        {...register("lugar", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={lugar}       
                     />
+                    <p className="formErroMsg">{errors.lugar?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text" 
+                        type="datetime-local" 
                         placeholder="Fecha y hora" 
-                        name="fecha"                         
+                        {...register("fecha", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={fecha}       
                     />
+                    <p className="formErroMsg">{errors.fecha?.message}</p>
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <textarea                         
                         placeholder="Daños observados" 
-                        name="danios"                        
+                        {...register("danios", {required: 'Campo Obligatorio'})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={danios}       
@@ -441,7 +457,7 @@ export const FormChoque = () => {
                 <div className="formbuilder-text form-group">                    
                     <textarea                          
                         placeholder="Descripción de la situación" 
-                        name="descripcion"                         
+                        {...register("descripcion", {required: 'Campo Obligatorio'})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={descripcion}       
@@ -451,11 +467,12 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="Responsable del accidente" 
-                        name="responsable"                        
+                        {...register("responsable", {required: 'Campo Obligatorio'})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={responsable}       
                     />
+                    <p className="formErroMsg">{errors.responsable?.message}</p>
                 </div>
 
                 {/* DOCUMENTOS */}
@@ -574,7 +591,7 @@ export const FormChoque = () => {
                         type="submit" 
                         className="pagar-seguro-auto-2 w-button" 
                         name="submit-button"                        
-                        onClick={handleSubmit}
+                        onClick={handleSubmit(onSubmit)}
                     >
                         Enviar
                     </button>

@@ -29,8 +29,7 @@ export const Contacto = () => {
 
 
     return (
-        <div className="section-4">
-            <br/><br/>
+        <div className="section-4">            
             <div className="popup-container">
                 <LoginScreen />
             </div>   
@@ -38,7 +37,7 @@ export const Contacto = () => {
             <div className="outter" style={{height:'100vh'}}>
             <div className="middle contact-page">                
                 <div className="div-block-59">                    
-                    <h1 className="heading-login">Envíanos un correo. te responderemos a la brevedad:</h1>
+                    <h1 className="heading-login">Envíanos un correo. Te responderemos a la brevedad.</h1>
                     <div className="inner form-block-2">
                         <form onSubmit={ handleLogin }>   
 

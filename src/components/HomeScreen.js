@@ -13,7 +13,6 @@ import carImg2 from '../assets/car_small.png'
 import { Link } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { LoginScreen } from "./LoginScreen"
-import { triggerLoginPopup } from "../helpers/triggerLogin"
 
 
 
@@ -26,6 +25,7 @@ export const HomeScreen = () => {
     const size = window.innerWidth;    
     // console.log(body)    
     
+
     return (
         <div className="home-screen">
             <div className="popup-container">
@@ -54,7 +54,7 @@ export const HomeScreen = () => {
                             ?
                             <a href={ url } className="w-button" target="_blank" rel="noreferrer">Solicitar asistencia</a>
                             :
-                            <button className="w-button" onClick={ triggerLoginPopup } value="Solicitar Asistencia">Inicia sesión para continuar</button> 
+                            <Link to="/login" className="w-button" value="Solicitar Asistencia">Inicia sesión para continuar</Link> 
                         }
                     </div>
                 </div>
@@ -68,7 +68,7 @@ export const HomeScreen = () => {
                              ?
                              <a href="/form-select" className="w-button">Llena el formulario</a>
                             :
-                            <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
+                            <Link to="/login" className="w-button"  value="Llena el formulario">Inicia sesión para continuar</Link> 
                         }
                     </div>
                     <div className="div-block-6-copy"></div>
@@ -83,7 +83,7 @@ export const HomeScreen = () => {
                                 ?
                                 <a href={ url } className="w-button" target="_blank" rel="noreferrer">Solicitar asistencia</a>
                                 :
-                                <button className="w-button" onClick={ triggerLoginPopup } value="Solicitar Asistencia">Inicia sesión para continuar</button> 
+                                <Link to="/login" className="w-button" value="Solicitar Asistencia">Inicia sesión para continuar</Link> 
                             }
                         </div>
                         <img src={ secretary } alt="secretary" className="image-9" />
@@ -102,7 +102,7 @@ export const HomeScreen = () => {
                                 ?
                                 <a href="/form-select" className="w-button">Llena el formulario</a>
                                 :
-                                <button className="w-button" onClick={ triggerLoginPopup } value="Llena el formulario">Inicia sesión para continuar</button> 
+                                <Link to="/login" className="w-button" value="Llena el formulario">Inicia sesión para continuar</Link> 
                             }
                         </div>
                     </div>

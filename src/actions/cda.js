@@ -2,7 +2,7 @@ import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
 
-const baseUrl = process.env.REACT_APP_API_URL;
+const baseUrl = "https://strapi.clubdelauto.cl";
 
 export const cuponsStartLoading = () => {
     return async(dispatch) => {

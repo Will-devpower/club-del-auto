@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import logo1 from '../assets/cda-logo1.png';
 import logo3 from '../assets/cda-logo3.png';
-import { triggerLoginPopup } from '../helpers/triggerLogin';
 
 export const Footer = () => {
 
@@ -19,7 +19,7 @@ export const Footer = () => {
                 <a href="/contacto" className="cda-btn2">Contáctanos</a>
                 {
                     uid === undefined &&
-                    <button onClick={ triggerLoginPopup } className="cda-btn2">Ingresar a mi cuenta</button>
+                    <Link to="/login" className="cda-btn2">Ingresar a mi cuenta</Link>
                 }
             </div>
         </div>
