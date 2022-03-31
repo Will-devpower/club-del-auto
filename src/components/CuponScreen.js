@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {  useParams } from "react-router-dom"
 import { Footer } from "../layout/Footer"
@@ -17,12 +17,14 @@ function loadMap(text){
 
 export const CuponScreen = () => {    
     
+    const [showTerms, setShowTerms] = useState(false);
     const { id } = useParams();
     const dispatch = useDispatch();
     // const { loading } = useSelector(state => state.cda);
     const coupon = useSelector(state => state.cda.cupons.find(coupon => coupon.id === parseInt(id)));
-    const { uid , vehiculos} = useSelector(state => state.auth);
-
+    
+    const { uid , vehiculos } = useSelector(state => state.auth);
+    
     let patente = ""
     if(uid !== undefined) patente = vehiculos[0].patente
     
@@ -30,6 +32,12 @@ export const CuponScreen = () => {
         patente = target.value
     }
 
+    const ShowTerms = () => {
+       setShowTerms(!showTerms)
+    }
+    const closePopup = () => {
+        setShowTerms(!showTerms);
+    }
     useEffect(() => {
         dispatch(getCouponById( id ));        
     }, [dispatch, id]);
@@ -45,8 +53,18 @@ export const CuponScreen = () => {
     return (
         <div className="cupon-screen">
         <div className="popup-container">
-            <LoginScreen />
-        </div>    
+            <LoginScreen />           
+        </div>
+        {
+            showTerms &&
+            <div className="terminos-container">            
+                <div className="terminos-popup">
+                    <p>{ coupon.terminos }</p>
+                    <button className="cda-btn1 terminos-btn" onClick={ ShowTerms }>OK</button>
+                </div>
+            </div> 
+        }
+            
         <Header />
         <div className="section-7">
             <h1 className="titulo-servicio">{coupon.proveedor.nombre}</h1>
@@ -76,8 +94,8 @@ export const CuponScreen = () => {
                                         onChange={handleInputChange}
                                     >
                                         {
-                                            vehiculos.map(( veh ) => (
-                                                <option value="veh.patente" id="veh.patente">{veh.patente}</option>
+                                            vehiculos.map(( veh, key ) => (
+                                                <option value="veh.patente" id="veh.patente" key={key}>{veh.patente}</option>
                                             ))
                                         }
                                         
@@ -90,7 +108,7 @@ export const CuponScreen = () => {
                     <div className="divisor-entre-descrip-servicios"></div>
                     <div className="div-block-28">
                         <img src="https://uploads-ssl.webflow.com/60da07a904f25339b115d11e/60f4c1ebb62a5610e369699e_TerminosCondiciones_1.png" alt="" className="image-22" />
-                        <p className="terminos-condiciones">Términos y condiciones</p>
+                        <p className="terminos-condiciones" onClick={ ShowTerms }>Términos y condiciones</p>
                     </div>
 
                     
@@ -101,8 +119,8 @@ export const CuponScreen = () => {
                 <p className="descripcion_2">Direcciones</p>
 
                 {
-                    coupon.direcciones.map(( direccion ) => ( 
-                        <div className="div-block-29">
+                    coupon.direcciones.map(( direccion, key ) => ( 
+                        <div className="div-block-29" key={key}>
                             <img src="https://uploads-ssl.webflow.com/60da07a904f25339b115d11e/60f4c569fb792d607478e0a9_Location.png" alt="icono-gps" className="image-23" />
                             <p className="texto-ubicacion" onClick={ () => loadMap(direccion.direccion) }>{direccion.direccion}</p>
                         </div>
@@ -113,12 +131,12 @@ export const CuponScreen = () => {
                 
             </div>
             <div className="mapa">            
-                <div class="mapouter">
-                    <div class="gmap_canvas">
+                <div className="mapouter">
+                    <div className="gmap_canvas">
                         <iframe id="myMap"
                             title="mapa" 
                             src="https://maps.google.com/maps?q=SantiagodeChile&t=&z=13&ie=UTF8&iwloc=&output=embed"
-                            frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+                            frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0">
                         </iframe>
                     </div>
                 </div> 

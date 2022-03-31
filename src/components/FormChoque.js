@@ -72,7 +72,8 @@ export const FormChoque = () => {
         tieneSeguro      
     } = values;
 
-    const handleInputChange = ({ target }) => {        
+    const handleInputChange = ({ target }) => { 
+        console.log(errors);       
         setValues({
             ...values,
             [ target.name ]: target.type === 'file' ? target.files : target.value
@@ -140,6 +141,7 @@ export const FormChoque = () => {
 
     const onSubmit = (e) => { 
         // e.preventDefault();
+        
         setValues({
             ...values,
             rut: uid,
@@ -204,13 +206,13 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-select form-group select-div">
                     <label htmlFor="patenteSeleccionada" className="formbuilder-select-label paragraph-5-copy">Elige una Patente</label>
-                    <select 
-                        name="patenteSeleccionada" 
+                    <select
+                        {...register("patenteSeleccionada", {required: 'Campo Obligatorio'})}                         
                         id="patenteSeleccionada" 
                         className="input-control"
                         onChange={handleInputChange}
                     >
-                        <option>Seleccione una opción</option>
+                        {/* <option>Seleccione una opción</option> */}
                         {
                             (vehiculos.length > 0) &&
                             vehiculos.map((vehiculo, key) => {
@@ -221,6 +223,7 @@ export const FormChoque = () => {
                         }                        
                         
                     </select>
+                    <p className="formErroMsg">{errors.patenteSeleccionada?.message}</p>
                 </div>
                 
                 {/* DATOS DEL CONDUCTOR */}
@@ -232,7 +235,7 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT" 
-                        {...register("rutConductor", {required: 'Campo Obligatorio'})} 
+                        {...register("rutConductor", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{2}).([0-9]{3}).([0-9]{3})-([A-Za-z]{1})/, message: 'Patron de rut incorrecto. Ej: 22.222.222-K'}})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutConductor}                        
@@ -254,7 +257,7 @@ export const FormChoque = () => {
                     <input 
                         type="text"                        
                         placeholder="Teléfono" 
-                        {...register("telefonoConductor", {required: 'Campo Obligatorio'})} 
+                        {...register("telefonoConductor", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 123456789'}})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={telefonoConductor}                        
@@ -265,7 +268,7 @@ export const FormChoque = () => {
                     <input 
                         type="email" 
                         placeholder="Correo" 
-                        {...register("correoConductor", {required: 'Campo Obligatorio'})}                         
+                        {...register("correoConductor", {required: 'Campo Obligatorio', pattern: { value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, message: 'Correo incorrecto. Ej: correo@micorreo.com'}})}                         
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={correoConductor}
@@ -284,7 +287,7 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT"
-                        {...register("rutTercero", {required: 'Campo Obligatorio'})}                                                
+                        {...register("rutTercero", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{2}).([0-9]{3}).([0-9]{3})-([A-Za-z]{1})/, message: 'Patron de rut incorrecto. Ej: 22.222.222-K'}})}                                                
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutTercero}
@@ -306,7 +309,7 @@ export const FormChoque = () => {
                     <input 
                         type="text"                         
                         placeholder="Teléfono" 
-                        {...register("telefonoTercero", {required: 'Campo Obligatorio'})}                        
+                        {...register("telefonoTercero", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 123456789'}})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={telefonoTercero}
@@ -317,7 +320,7 @@ export const FormChoque = () => {
                     <input 
                         type="e-mail" 
                         placeholder="Correo" 
-                        {...register("correoTercero", {required: 'Campo Obligatorio'})} 
+                        {...register("correoTercero", {required: 'Campo Obligatorio', pattern: { value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, message: 'Correo incorrecto. Ej: correo@micorreo.com'}})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={correoTercero}

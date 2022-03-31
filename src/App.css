@@ -131,6 +131,9 @@
 .cda-btn4 a:hover  {
   color: #fff;
 }
+.terminos-btn {
+  height: 35px;
+}
 .prev-page {
   max-width: 200px;
   margin: auto;
@@ -1151,6 +1154,30 @@ textarea {
   background-size: auto, 120vw;
   box-shadow: 7px 7px 20px 0 rgba(0, 0, 0, 0.15);
 }
+.terminos-container {
+    align-items: center;
+    background-color: hsla(0,0%,98%,.6);    
+    height: 100%;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999999999;
+}
+.terminos-popup {
+  position: relative;
+  height: 100%;
+  width: 70vmin;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'DMSansRegular';
+  color: #787ca9;
+  font-size: 16px;
+}
 .image-31 {
   width: 30px;
 }
@@ -1552,6 +1579,7 @@ textarea {
   letter-spacing: -0.3px;
   text-decoration: underline;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .boton-comprar-servicio {
   display: -webkit-box;
@@ -1579,6 +1607,7 @@ textarea {
   font-weight: 600;
   text-decoration: none;
   color: #fff;
+  cursor: pointer;
 }
 .divisor-desktop {
   height: 1px;
