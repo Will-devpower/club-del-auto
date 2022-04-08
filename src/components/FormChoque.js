@@ -294,7 +294,7 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT"
-                        {...register("rutTercero", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{8})-([A-Za-z]{1})/, message: 'Formato de rut incorrecto. Ej: 12345678-K'}})}                                                
+                        {...register("rutTercero", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{8})-([A-Za-z0-9]{1})/, message: 'Formato de rut incorrecto. Ej: 12345678-K'}})}                                                
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutTercero}
