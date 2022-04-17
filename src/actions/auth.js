@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-const baseUrl = "https://strapi.clubdelauto.cl"
+const baseUrl = "https://e6f8-201-188-133-120.ngrok.io"
 // const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
@@ -240,7 +240,9 @@ export const sendMail = ( nombre, email, asunto, mensaje, history ) => {
 
         const data = { "nombre": nombre, "email":email, "asunto":asunto, "mensaje":mensaje};       
 
-        const resp = await fetchSinToken( 'app/contacto/', data, 'POST' );        
+        const resp = await fetchSinToken( 'app/contacto/', data, 'POST' );   
+        
+        console.log(resp);
 
         if( resp.status === 200 ) { 
             

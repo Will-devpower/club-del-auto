@@ -129,7 +129,7 @@ const CarListItem = (props) => {
       </div>
       {cuotasPendientes.length > 0 && (
         <div className="cuotasP-div">
-          <p className="cuotasPendientes">Estado de pago</p>
+          <p className="cuotasPendientes">Cuotas Pendientes</p>
           {cuotasPendientes.map((cuota, key) => {
             const numero = cuota.slice(5, 7);
             const numeroMes = parseInt(numero[0] === "0" ? numero[1] : numero);
@@ -139,7 +139,12 @@ const CarListItem = (props) => {
               </p>
             );
           })}
+          
         </div>
+        
+      )}
+      {cuotasPendientes.length > 0 && (
+        <a href="#" class="pagar-seguro-auto w-button">Pagar</a>
       )}
     </div>
   );
