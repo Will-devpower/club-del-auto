@@ -87,7 +87,11 @@ export const FormRobo = () => {
     }    
 
     const onSubmit = (e) => { 
+<<<<<<< HEAD
         //e.preventDefault();
+=======
+        // e.preventDefault();
+>>>>>>> 7db9275d63981772dfc257be2e6eb6753841d357
         setValues({
             ...values,
             rut: uid,

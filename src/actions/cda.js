@@ -165,7 +165,7 @@ export const sendFormChoque = (data) => {
         .then(response => response.text())
         .then(result => {
             console.log('resultado:',result)
-            if( result === "OK" ) {            
+            if( result.message==="OK"  || result.includes("OK") ) {            
                 Swal.fire({
                     icon: 'success',
                     title: 'Datos enviados',
@@ -195,7 +195,7 @@ export const sendFormRobo = (data) => {
         .then(response => response.text())
         .then(result => {
                 console.log('resultado:',result)
-                if( result === "OK" ) {            
+                if( result.message==="OK"  || result.includes("OK") ) {            
                     Swal.fire({
                         icon: 'success',
                         title: 'Datos enviados',

@@ -34,7 +34,7 @@ const initialState = {
 }
 export const FormChoque = () => {
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [files, setFiles] = useState([]);
     const [pictures, setPictures] = useState([]);
     const [picturesT, setPicturesT] = useState([]);
@@ -72,11 +72,14 @@ export const FormChoque = () => {
         tieneSeguro      
     } = values;
 
-    const handleInputChange = ({ target }) => { 
-        console.log(errors);       
+    const handleInputChange = ({ target }) => {
+        if(target.name === 'telefonoConductor' || target.name === 'telefonoTercero' ) {
+            if (target.value.length > target.maxLength) target.value = target.value.slice(0, target.maxLength)
+        }
+        !errors[target.name]?.message && target.classList.remove('wrong-field'); 
         setValues({
             ...values,
-            [ target.name ]: target.type === 'file' ? target.files : target.value
+            [ target.name ]: target.type === 'file' ? target.files : target.value            
         });
         if(target.type === 'file'){
             const campo = document.querySelector(`#${target.id}`);
@@ -163,7 +166,7 @@ export const FormChoque = () => {
         for(let i = 0; i < fotosTInput.current.files.length; i++) {            
             formdata.append("files.fotos_tercero", fotosTInput.current.files[i]);
         }                      
-        
+        console.log(formdata)
         dispatch(sendFormChoque(formdata));               
     }    
     useEffect(() => {        
@@ -231,12 +234,14 @@ export const FormChoque = () => {
                 <div className="mt-20">
                     <h3 className="paragraph-5-copy">Identificación del conductor</h3>
                 </div>
-                <div className="formbuilder-text form-group">                    
+                <div className="formbuilder-text form-group">
+                    <label htmlFor="rutConductor" className="rutIndication">Ingrese rut sin puntos, con guión y dígito verificador</label>                    
                     <input 
                         type="text" 
-                        placeholder="RUT" 
-                        {...register("rutConductor", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{2}).([0-9]{3}).([0-9]{3})-([A-Za-z]{1})/, message: 'Patron de rut incorrecto. Ej: 22.222.222-K'}})} 
-                        className="input-control input-field"
+                        placeholder="RUT"
+                        maxLength="12" 
+                        {...register("rutConductor", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{8})-([A-Za-z0-9]{1})/, message: 'Formato de rut incorrecto. Ej: 12345678-K'}})} 
+                        className={ errors.rutConductor ? 'wrong-field input-control input-field' : 'input-control input-field'}
                         onChange={handleInputChange}
                         value={rutConductor}                        
                     />
@@ -255,9 +260,10 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text"                        
+                        type="number"
+                        maxLength="9"                                              
                         placeholder="Teléfono" 
-                        {...register("telefonoConductor", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 123456789'}})} 
+                        {...register("telefonoConductor", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 955555555'}})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={telefonoConductor}                        
@@ -283,11 +289,12 @@ export const FormChoque = () => {
                 <div className="">
                     <h3 className="paragraph-5-copy">Identificación del conductor</h3>
                 </div>
-                <div className="formbuilder-text form-group">                    
+                <div className="formbuilder-text form-group">
+                    <label htmlFor="rutTercero" className="rutIndication">Ingrese rut sin puntos, con guión y dígito verificador</label>                     
                     <input 
                         type="text" 
                         placeholder="RUT"
-                        {...register("rutTercero", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{2}).([0-9]{3}).([0-9]{3})-([A-Za-z]{1})/, message: 'Patron de rut incorrecto. Ej: 22.222.222-K'}})}                                                
+                        {...register("rutTercero", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{8})-([A-Za-z0-9]{1})/, message: 'Formato de rut incorrecto. Ej: 12345678-K'}})}                                                
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutTercero}
@@ -307,9 +314,10 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-text form-group">                    
                     <input 
-                        type="text"                         
+                        type="number"
+                        maxLength="9"                        
                         placeholder="Teléfono" 
-                        {...register("telefonoTercero", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 123456789'}})}                        
+                        {...register("telefonoTercero", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 955555555'}})}                        
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={telefonoTercero}

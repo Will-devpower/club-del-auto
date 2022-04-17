@@ -10,6 +10,16 @@
   src: url(./assets/DMSans-Bold.ttf);
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .cda-btn1 {
   border-radius: 15px;
   background-color: #ff5a00;
@@ -133,6 +143,11 @@
 }
 .terminos-btn {
   height: 35px;
+}
+.rutIndication {
+  width: 100%;
+  text-align: left;
+  color: #666;
 }
 .prev-page {
   max-width: 200px;
@@ -939,10 +954,14 @@ textarea {
 .formErroMsg {
   text-align: left;
   font-family: DMSansRegular;
-  color: rgba(22, 32, 91, 0.8);
+  color: #dd0000;
   font-size: 15px;
   line-height: 20px;
   font-weight: 600;
+}
+.wrong-field {
+  border: 2px solid #dd0000 !important;
+  color: #dd0000 !important;
 }
 .select-form {
   width: 180px;
@@ -1156,7 +1175,7 @@ textarea {
 }
 .terminos-container {
     align-items: center;
-    background-color: hsla(0,0%,98%,.6);    
+    background-color: hsla(0,0%,98%,.95);    
     height: 100%;
     justify-content: center;
     position: fixed;
@@ -2501,7 +2520,7 @@ textarea {
 }
 .input-field {
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 .paragraph-4-copy {
   margin: 0px 15px 0px 0px;
