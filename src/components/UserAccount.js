@@ -141,6 +141,9 @@ const CarListItem = (props) => {
           })}
         </div>
       )}
+      {cuotasPendientes.length > 0 && (
+        <a href="#" class="pagar-seguro-auto w-button">Pagar</a>
+      )}
     </div>
   );
 };
@@ -264,7 +267,7 @@ export const UserAccount = () => {
                 Salir
               </Link>
             </div>            
-          </div>
+          </div> 
           <div className="div-block-35">
             <div className="div-block-45">
               
