@@ -99,6 +99,13 @@ export const FormRobo = () => {
             correo: correo,
             telefono: telefono
         });
+
+        values.rut=uid;
+        values.nombre=nombre;
+        values.telefono=telefono;
+        values.correo=correo;
+        console.log(values)
+
         let formdata = new FormData();
         formdata.append("data", JSON.stringify(values));
                 

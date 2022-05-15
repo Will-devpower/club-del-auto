@@ -152,6 +152,11 @@ export const FormChoque = () => {
             correo: correo,
             telefono: telefono
         });
+        values.rut=uid;
+        values.nombre=nombre;
+        values.telefono=telefono;
+        values.correo=correo;
+        console.log(values)
         let formdata = new FormData();
         formdata.append("data", JSON.stringify(values));
         formdata.append("files.licencia", licenciaInput.current.files[0]);        
