@@ -2,7 +2,7 @@ import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
 
-const baseUrl = "https://e6f8-201-188-133-120.ngrok.io";
+const baseUrl = "https://b8a4-201-188-138-176.ngrok.io";
 
 export const cuponsStartLoading = () => {
     return async(dispatch) => {

@@ -54,8 +54,8 @@ const SideBarClientAccount = ({ logout, uid }) => {
         </div>
         <div className="div-block-48">
           <img src={cdaIcon} alt="logo2" className="image-28 _2" />
-          <Link to="/" className="button-4">
-            Contactanos
+          <Link to="/contacto" className="button-4">
+            Contáctanos
           </Link>
         </div>
       </div>
@@ -99,7 +99,7 @@ const CarListItem = (props) => {
 
   return (
     <div className="div-block-40">
-      <p className="paragraph-4">{patente}</p>
+      <p className="paragraph-4">Patente: {patente}</p>
       <div className="div-block-49"></div>
       <div className="info-de-auto">
         <div className="div-block-47">
@@ -189,6 +189,7 @@ const RequestedBenefits = () => {
                     )
                 })
             }
+            { currentItems.length>5 &&
             <ReactPaginate
               nextLabel="Siguiente"
               onPageChange={onPageChange}
@@ -208,7 +209,7 @@ const RequestedBenefits = () => {
               containerClassName="pagination"
               activeClassName="active"
               renderOnZeroPageCount={null}
-            />
+            />}
         </div>
     )
 }

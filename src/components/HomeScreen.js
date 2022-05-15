@@ -66,9 +66,9 @@ export const HomeScreen = () => {
                         {
                              ( uid !== undefined ) 
                              ?
-                             <a href="/form-select" className="w-button">Llena el formulario</a>
+                             <a href="/form-select" className="w-button">Registra Choque/Robo</a>
                             :
-                            <Link to="/login" className="w-button"  value="Llena el formulario">Inicia sesión para continuar</Link> 
+                            <Link to="/login" className="w-button"  value="Registra Choque/Robo">Inicia sesión para continuar</Link> 
                         }
                     </div>
                     <div className="div-block-6-copy"></div>

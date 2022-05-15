@@ -87,11 +87,7 @@ export const FormRobo = () => {
     }    
 
     const onSubmit = (e) => { 
-<<<<<<< HEAD
-        //e.preventDefault();
-=======
         // e.preventDefault();
->>>>>>> 7db9275d63981772dfc257be2e6eb6753841d357
         setValues({
             ...values,
             rut: uid,
@@ -159,7 +155,7 @@ export const FormRobo = () => {
                                 name="elementosRobados" 
                                 access="false" 
                                 id="elementosRobados-0" 
-                                value="option-1" 
+                                value="Vehículo completo" 
                                 type="radio"
                                 onChange={handleInputChange}
                             />
@@ -171,7 +167,7 @@ export const FormRobo = () => {
                                 name="elementosRobados" 
                                 access="false" 
                                 id="elementosRobados-1" 
-                                value="option-2" 
+                                value="Partes y/o accesorios" 
                                 type="radio"
                                 onChange={handleInputChange}
                             />
@@ -252,7 +248,9 @@ export const FormRobo = () => {
                 
                 <div className="formbuilder-file form-group">
                     <label htmlFor="fileUploader" className="formbuilder-file-label">Documentos del vehículo<span className="formbuilder-required">*</span></label>
-                    <input type="file" ref={filesInput} name="documentos" access="false" multiple={true} id="fileUploader" required="required" aria-required="true" />
+                    <input type="file" ref={filesInput} name="documentos" access="false" multiple={true} 
+                    id="fileUploader" required="required" aria-required="true" 
+                    accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"/>
                 </div>
                 <div className="filesUploaded">
                     { files.map(file => {
@@ -273,7 +271,8 @@ export const FormRobo = () => {
                         multiple={false} 
                         id="constancia"
                         ref={constanciaInput}
-                        onChange={handleInputChange}                        
+                        onChange={handleInputChange} 
+                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"                       
                     />
                 </div>
                 <div className="filesUploaded">
@@ -287,7 +286,9 @@ export const FormRobo = () => {
                 </div>
                 <div className="formbuilder-file form-group">
                     <label htmlFor="fotosUploader" className="formbuilder-file-label">Fotos de daños<span className="formbuilder-required">*</span></label>
-                    <input type="file"ref={fotosInput} name="fotos" access="false" multiple={true} id="fotosUploader" required="required" aria-required="true" />
+                    <input type="file"ref={fotosInput} name="fotos" access="false" multiple={true} 
+                    id="fotosUploader" required="required" aria-required="true" 
+                    accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                 </div>
                 <div className="fotosUploaded">
                     { pictures.map(pic => {
@@ -305,6 +306,7 @@ export const FormRobo = () => {
                         className="pagar-seguro-auto-2 w-button" 
                         name="submit-button"                        
                         onClick={handleSubmit(onSubmit)}
+                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
                     >
                         Enviar
                     </button>

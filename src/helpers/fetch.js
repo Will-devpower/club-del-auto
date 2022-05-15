@@ -1,5 +1,5 @@
 //const baseUrl = "https://strapi.clubdelauto.cl"
-const baseUrl = "https://e6f8-201-188-133-120.ngrok.io"
+const baseUrl = "https://b8a4-201-188-138-176.ngrok.io"
 
 const fetchEnhance = (endpoint, data = {}, method = 'GET') => {
     const url = `${baseUrl}/${endpoint}`;

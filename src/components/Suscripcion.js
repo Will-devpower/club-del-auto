@@ -40,13 +40,13 @@ export const Suscripcion = () => {
                         <label htmlFor="" className="field-label">CORREO</label>
                         <input type="text" name="lEmail" className="form-control text-field-2" 
                             value={ lEmail }
-                            onChange={ handleLoginInputChange }/>
-                        
-                            <input 
-                                type="submit"
-                                className="btnSubmit cda-btn3"
-                                value="Enviar" 
-                            />
+                            onChange={ handleLoginInputChange }
+                            required="required" />
+                        <input 
+                            type="submit"
+                            className="btnSubmit cda-btn3"
+                            value="Enviar" 
+                        />
 
                     </form>
                 </div>
