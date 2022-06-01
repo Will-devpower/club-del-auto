@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { sendFormChoque } from "../actions/cda";
 import { Header } from "../layout/Header";
 import { LoginScreen } from "./LoginScreen";
+import { rutValidator } from "../helpers/rutValidator";
 
 const initialState = {
     patenteSeleccionada: '',
@@ -245,7 +246,7 @@ export const FormChoque = () => {
                         type="text" 
                         placeholder="RUT"
                         maxLength="12" 
-                        {...register("rutConductor", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{8})-([A-Za-z0-9]{1})/, message: 'Formato de rut incorrecto. Ej: 12345678-K'}})} 
+                        {...register("rutConductor", {required: 'Campo Obligatorio', validate: value => rutValidator.validaRut(value) || 'Formato Inavlido. Ingrese formato correcto Ej: 11111111-1'})} 
                         className={ errors.rutConductor ? 'wrong-field input-control input-field' : 'input-control input-field'}
                         onChange={handleInputChange}
                         value={rutConductor}                        
@@ -299,7 +300,7 @@ export const FormChoque = () => {
                     <input 
                         type="text" 
                         placeholder="RUT"
-                        {...register("rutTercero", {required: 'Campo Obligatorio', minLength: { value: 5, message: 'Este campo debe incluir 5 caracteres como minimo'}, pattern: { value: /([0-9]{8})-([A-Za-z0-9]{1})/, message: 'Formato de rut incorrecto. Ej: 12345678-K'}})}                                                
+                        {...register("rutTercero", {required: 'Campo Obligatorio', validate: value => rutValidator.validaRut(value) || 'Formato Inavlido. Ingrese formato correcto Ej: 11111111-1'})}                                                
                         className="input-control input-field"
                         onChange={handleInputChange}
                         value={rutTercero}
