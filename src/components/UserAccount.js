@@ -146,9 +146,6 @@ const CarListItem = (props) => {
       {cuotasPendientes.length > 0 && (
         <a href="#" class="pagar-seguro-auto w-button">Pagar</a>
       )}
-      {cuotasPendientes.length > 0 && (
-        <a href="#" class="pagar-seguro-auto w-button">Pagar</a>
-      )}
     </div>
   );
 };
@@ -178,7 +175,7 @@ const RequestedBenefits = () => {
     
     return (
         <div className="requested-benefits">
-            <p className="ben-title">BENEFICIOS SOLICITADOS</p>
+            <p className="ben-title">BENEFICIOS SOLICITADOS ({cuponesCliente.length})</p>
             {
                 currentItems.map((cupon, key) => {
                     return(
@@ -189,7 +186,7 @@ const RequestedBenefits = () => {
                     )
                 })
             }
-            { currentItems.length>5 &&
+            { cuponesCliente.length>5 &&
             <ReactPaginate
               nextLabel="Siguiente"
               onPageChange={onPageChange}

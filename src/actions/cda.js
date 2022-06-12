@@ -108,6 +108,8 @@ export const buyCoupon = ( rut, patente, cupon ) => {
 
         const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon+'/'+patente, data, 'GET' );
         
+        console.log(resp);
+
         if( resp.status === 200 ) {
             
             Swal.fire({
@@ -117,8 +119,13 @@ export const buyCoupon = ( rut, patente, cupon ) => {
                 footer: 'recuerda revisar la carpeta spam'
               })
             
-        } else {            
-            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+        } else {
+            if( resp.status === 406 ) {
+                Swal.fire('Error', 'Cupón agotado o caducado', 'error');
+            }
+            else{
+                Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+            } 
         }
         
 
