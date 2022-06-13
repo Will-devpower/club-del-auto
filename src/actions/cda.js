@@ -121,7 +121,8 @@ export const buyCoupon = ( rut, patente, cupon ) => {
             
         } else {
             if( resp.status === 406 ) {
-                Swal.fire('Error', 'Cupón agotado o caducado', 'error');
+                Swal.fire('Error', 'Cupón agotado o caducado '+
+                    '</BR> Ya superaste el máximo de cupones a solicitar para este servicio.', 'error');
             }
             else{
                 Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');

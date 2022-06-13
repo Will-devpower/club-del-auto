@@ -20,18 +20,24 @@ export const startLogin = ( rut, password, history ) => {
         const data = { "identifier": rut, "password": password };   
 
         const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );     
-           
+          
+        console.log("resp.status:"+resp.status);
 
         if( resp.status === 200 ) {        
             
             const idCliente = await resp.json();
             const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
+
+            console.log("resp.status: 200");
             
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();  
+                console.log("resp2.status 200: "+body);
                              
                 const { rut, nombre, telefono, correo, vehiculos} = body;
+                console.log("data: "+rut+","+nombre+","+telefono+","+correo+","+vehiculos);
+
                 //localStorage.setItem('token', body.jwt );
                 localStorage.setItem('rut', JSON.stringify( rut ));    
                 localStorage.setItem('id', JSON.stringify( idCliente ));    
