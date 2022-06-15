@@ -2,7 +2,7 @@ import { types } from '../types/types';
 import { fetchSinToken, fetchEnhance } from '../helpers/fetch';
 import Swal from 'sweetalert2';
 
-const baseUrl = "https://strapi.clubdelauto.cl";
+const baseUrl = "https://b8a4-201-188-138-176.ngrok.io";
 
 export const cuponsStartLoading = () => {
     return async(dispatch) => {
@@ -108,6 +108,8 @@ export const buyCoupon = ( rut, patente, cupon ) => {
 
         const resp = await fetchSinToken( 'cupones/obtener/'+rutNew+'/'+cupon+'/'+patente, data, 'GET' );
         
+        console.log(resp);
+
         if( resp.status === 200 ) {
             
             Swal.fire({
@@ -117,8 +119,14 @@ export const buyCoupon = ( rut, patente, cupon ) => {
                 footer: 'recuerda revisar la carpeta spam'
               })
             
-        } else {            
-            Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+        } else {
+            if( resp.status === 406 ) {
+                Swal.fire('Error', 'Cupón agotado o caducado '+
+                    '</BR> Ya superaste el máximo de cupones a solicitar para este servicio.', 'error');
+            }
+            else{
+                Swal.fire('Error', 'Ocurrió un error al procesar el cupón', 'error');
+            } 
         }
         
 

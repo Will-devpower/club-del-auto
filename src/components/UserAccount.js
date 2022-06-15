@@ -54,8 +54,8 @@ const SideBarClientAccount = ({ logout, uid }) => {
         </div>
         <div className="div-block-48">
           <img src={cdaIcon} alt="logo2" className="image-28 _2" />
-          <Link to="/" className="button-4">
-            Contactanos
+          <Link to="/contacto" className="button-4">
+            Contáctanos
           </Link>
         </div>
       </div>
@@ -99,7 +99,7 @@ const CarListItem = (props) => {
 
   return (
     <div className="div-block-40">
-      <p className="paragraph-4">{patente}</p>
+      <p className="paragraph-4">Patente: {patente}</p>
       <div className="div-block-49"></div>
       <div className="info-de-auto">
         <div className="div-block-47">
@@ -129,7 +129,7 @@ const CarListItem = (props) => {
       </div>
       {cuotasPendientes.length > 0 && (
         <div className="cuotasP-div">
-          <p className="cuotasPendientes">Estado de pago</p>
+          <p className="cuotasPendientes">Cuotas Pendientes</p>
           {cuotasPendientes.map((cuota, key) => {
             const numero = cuota.slice(5, 7);
             const numeroMes = parseInt(numero[0] === "0" ? numero[1] : numero);
@@ -139,7 +139,9 @@ const CarListItem = (props) => {
               </p>
             );
           })}
+          
         </div>
+        
       )}
       {cuotasPendientes.length > 0 && (
         <a href="#" class="pagar-seguro-auto w-button">Pagar</a>
@@ -173,7 +175,7 @@ const RequestedBenefits = () => {
     
     return (
         <div className="requested-benefits">
-            <p className="ben-title">BENEFICIOS SOLICITADOS</p>
+            <p className="ben-title">BENEFICIOS SOLICITADOS ({cuponesCliente.length})</p>
             {
                 currentItems.map((cupon, key) => {
                     return(
@@ -184,6 +186,7 @@ const RequestedBenefits = () => {
                     )
                 })
             }
+            { cuponesCliente.length>5 &&
             <ReactPaginate
               nextLabel="Siguiente"
               onPageChange={onPageChange}
@@ -203,7 +206,7 @@ const RequestedBenefits = () => {
               containerClassName="pagination"
               activeClassName="active"
               renderOnZeroPageCount={null}
-            />
+            />}
         </div>
     )
 }

@@ -272,7 +272,8 @@ export const FormChoque = () => {
                         {...register("telefonoConductor", {required: 'Campo Obligatorio', pattern: { value: /([0-9]{9})/, message: 'Teléfono incorrecto. Ej: 955555555'}})} 
                         className="input-control input-field"
                         onChange={handleInputChange}
-                        value={telefonoConductor}                        
+                        value={telefonoConductor}   
+                        onKeyDown={ (evt) => (evt.key === 'e' || evt.key === '.') && evt.preventDefault() }                  
                     />
                     <p className="formErroMsg">{errors.telefonoConductor?.message}</p>
                 </div>
@@ -345,7 +346,7 @@ export const FormChoque = () => {
                 {/* DATOS DEL VEHICULO */}
 
                 <div>
-                    <h3 className="paragraph-5-copy">Identificación del vehículo</h3></div>
+                    <h3 className="paragraph-5-copy">Identificación del otro vehículo</h3></div>
                 <div className="formbuilder-text form-group">                    
                     <input 
                         type="text" 
@@ -480,7 +481,9 @@ export const FormChoque = () => {
                         value={descripcion}       
                     ></textarea>
                 </div>
+                {/*
                 <div className="formbuilder-text form-group">                    
+                    
                     <input 
                         type="text" 
                         placeholder="Responsable del accidente" 
@@ -490,10 +493,57 @@ export const FormChoque = () => {
                         value={responsable}       
                     />
                     <p className="formErroMsg">{errors.responsable?.message}</p>
+                    
+                </div>
+                */}
+                <div>
+                    <p className="paragraph-4-copy">Responsable</p>
+                </div>
+                <div className="formbuilder-radio-group form-group field-tieneSeguro">
+                    <label htmlFor="responsable" style={{ marginBottom: '10px'}}
+                        className="formbuilder-radio-group-label"></label>
+                    <div className="radio-group" style={{ display: 'block' }}>
+                        <div className="formbuilder-radio-inline" style={{ marginTop: '10px'}}>
+                            <label htmlFor="responsable-0" className="paragraph-4-copy">Yo Mismo</label>
+                            <input 
+                                name="responsable" 
+                                access="false" 
+                                id="responsable-0" 
+                                value="Yo Mismo" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
+                            <span className="radio-replacer"></span>                           
+                        </div>
+                        <div className="formbuilder-radio-inline" style={{ marginTop: '10px'}}>
+                            <label htmlFor="responsable-1" className="paragraph-4-copy">El otro vehículo</label>
+                            <input 
+                                name="responsable" 
+                                access="false" 
+                                id="responsable-1" 
+                                value="El otro vehículo" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
+                            <span className="radio-replacer"></span>                            
+                        </div>
+                        <div className="formbuilder-radio-inline" style={{ marginTop: '10px'}}>
+                            <label htmlFor="responsable-2" className="paragraph-4-copy">Otro vehículo no identificado</label>
+                            <input 
+                                name="responsable" 
+                                access="false" 
+                                id="responsable-2" 
+                                value="otro" 
+                                type="radio"
+                                onChange={handleInputChange}
+                            />
+                            <span className="radio-replacer"></span>                            
+                        </div>
+                    </div>
                 </div>
 
                 {/* DOCUMENTOS */}
-
+                <br></br>
                 <div className="formbuilder-file form-group field-licencia">
                     <label htmlFor="licencia" className="formbuilder-file-label">Licencia de conducir<span className="formbuilder-required">*</span></label>
                     <input 
@@ -505,7 +555,8 @@ export const FormChoque = () => {
                         required="required" 
                         ref={licenciaInput}
                         aria-required="true"
-                        onChange={handleInputChange}                         
+                        onChange={handleInputChange}      
+                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"                   
                     />
                 </div>
                 <div className="filesUploaded">
@@ -519,7 +570,9 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-file form-group">
                     <label htmlFor="fileUploader" className="formbuilder-file-label">Documentos del vehículo<span className="formbuilder-required">*</span></label>
-                    <input type="file" ref={filesInput} name="documentos" access="false" multiple={true} id="fileUploader" required="required" aria-required="true" />
+                    <input type="file" ref={filesInput} name="documentos" access="false" multiple={true} 
+                    id="fileUploader" required="required" aria-required="true" 
+                    accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"/>
                 </div>
                 <div className="filesUploaded">
                     { files.map(file => {
@@ -540,7 +593,8 @@ export const FormChoque = () => {
                         multiple={false} 
                         id="constancia"
                         ref={constanciaInput}
-                        onChange={handleInputChange}                        
+                        onChange={handleInputChange}   
+                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"                     
                     />
                 </div>
                 <div className="filesUploaded">
@@ -554,7 +608,9 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-file form-group">
                     <label htmlFor="fotosUploader" className="formbuilder-file-label">Fotos de daños<span className="formbuilder-required">*</span></label>
-                    <input type="file"ref={fotosInput} name="fotos" access="false" multiple={true} id="fotosUploader" required="required" aria-required="true" />
+                    <input type="file"ref={fotosInput} name="fotos" access="false" multiple={true} 
+                    id="fotosUploader" required="required" aria-required="true"
+                    accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                 </div>
                 <div className="fotosUploaded">
                     { pictures.map(pic => {
@@ -577,7 +633,8 @@ export const FormChoque = () => {
                         required="required"
                         ref={licenciaTInput} 
                         aria-required="true"
-                        onChange={handleInputChange}                         
+                        onChange={handleInputChange}
+                        accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"                         
                     />
                 </div>
                 <div className="filesUploaded">
@@ -591,7 +648,9 @@ export const FormChoque = () => {
                 </div>
                 <div className="formbuilder-file form-group">
                     <label htmlFor="fotosTUploader" className="formbuilder-file-label">Fotos de daños tercero<span className="formbuilder-required">*</span></label>
-                    <input type="file" ref={fotosTInput} className="" name="fotosTercero" access="false" multiple={true} id="fotosTUploader" required="required" aria-required="true" />
+                    <input type="file" ref={fotosTInput} className="" name="fotosTercero" access="false" multiple={true} 
+                    id="fotosTUploader" required="required" aria-required="true"
+                    accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps" />
                 </div>
                 <div className="fotosUploaded">
                     { picturesT.map(pic => {

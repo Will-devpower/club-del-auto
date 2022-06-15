@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-const baseUrl = "https://strapi.clubdelauto.cl"
+const baseUrl = "https://b8a4-201-188-138-176.ngrok.io"
 // const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
@@ -20,18 +20,24 @@ export const startLogin = ( rut, password, history ) => {
         const data = { "identifier": rut, "password": password };   
 
         const resp = await fetchSinToken( 'clientes/login/'+rut+'/'+password, data, 'GET' );     
-           
+          
+        console.log("resp.status:"+resp.status);
 
         if( resp.status === 200 ) {        
             
             const idCliente = await resp.json();
             const resp2 = await fetchSinToken( 'app/getUser/'+rut, data, 'POST' );
+
+            console.log("resp.status: 200");
             
             if( resp2.status === 200 ) {
 
                 const body = await resp2.json();  
+                console.log("resp2.status 200: "+body);
                              
                 const { rut, nombre, telefono, correo, vehiculos} = body;
+                console.log("data: "+rut+","+nombre+","+telefono+","+correo+","+vehiculos);
+
                 //localStorage.setItem('token', body.jwt );
                 localStorage.setItem('rut', JSON.stringify( rut ));    
                 localStorage.setItem('id', JSON.stringify( idCliente ));    
@@ -240,7 +246,9 @@ export const sendMail = ( nombre, email, asunto, mensaje, history ) => {
 
         const data = { "nombre": nombre, "email":email, "asunto":asunto, "mensaje":mensaje};       
 
-        const resp = await fetchSinToken( 'app/contacto/', data, 'POST' );        
+        const resp = await fetchSinToken( 'app/contacto/', data, 'POST' );   
+        
+        console.log(resp);
 
         if( resp.status === 200 ) { 
             
