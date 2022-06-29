@@ -4,8 +4,8 @@ import Swal from 'sweetalert2';
 import Notice from "@ouduidui/notice";
 
 const notice = new Notice();
-const baseUrl = "https://strapi.clubdelauto.cl";
-// const baseUrl = "https://b8a4-201-188-138-176.ngrok.io";
+const baseUrl = process.env.REACT_APP_API_URL;
+// const baseUrl = "http://localhost:1337"
 
 export const startLogin = ( rut, password, history ) => {
     return async( dispatch ) => {        
