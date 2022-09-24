@@ -2,15 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 import { startLogout } from "../actions/auth";
-import ReactPaginate from 'react-paginate';
-
+import ReactPaginate from "react-paginate";
 
 import logo3 from "../assets/cda-logo3.png";
 import userIcon from "../assets/user-icon1.png";
 import homeIcon from "../assets/home-icon1.png";
-import cdaIcon from '../assets/cda-logo1.png';
+import cdaIcon from "../assets/cda-logo1.png";
 import logoutIcon from "../assets/icono-salir.png";
-import moment from 'moment';
+import moment from "moment";
 
 // import visaIcon  from '../assets/visa-icon.png';
 // import cardIcon  from '../assets/credit-card-icon.png';
@@ -62,11 +61,20 @@ const SideBarClientAccount = ({ logout, uid }) => {
       <div className="div-block-34">
         <img src="" alt="" className="image-27" />
       </div>
-      <a href={url} className="w-button solicitar-button" target="_blank" rel="noreferrer">
+      <a
+        href={url}
+        className="w-button solicitar-button"
+        target="_blank"
+        rel="noreferrer"
+      >
         Solicitar asistencia
       </a>
-      <a href="/form-select" className="cda-btn3">Llena el formulario</a>      
-      <Link to="/cupones-de-descuento" className="ver-todos cda-btn3">Ver todos los cupones</Link>
+      <a href="/form-select" className="cda-btn3">
+        Llena el formulario
+      </a>
+      <Link to="/cupones-de-descuento" className="ver-todos cda-btn3">
+        Ver todos los cupones
+      </Link>
       <div className="div-block-34">
         <img src={cdaIcon} alt="logo2" className="sb-bottom-logo" />
       </div>
@@ -103,7 +111,7 @@ const CarListItem = (props) => {
       <div className="div-block-49"></div>
       <div className="info-de-auto">
         <div className="div-block-47">
-          <p className="paragraph-3">Nombre asegurado</p>
+          <p className="paragraph-3">Titular Membresía</p>
           <p className="paragraph-6">{nombre.toLowerCase()}</p>
         </div>
         <div className="div-block-47">
@@ -119,14 +127,7 @@ const CarListItem = (props) => {
           <p className="paragraph-6">{modelo}</p>
         </div>
       </div>
-      <div className="div-block-50">
-        <div className="info-de-auto-copy">
-          <div className="div-block-47">
-            <p className="paragraph-3-copy">Plan</p>
-            <p className="paragraph-6-copy">{ded}</p>
-          </div>
-        </div>
-      </div>
+
       {cuotasPendientes.length > 0 && (
         <div className="cuotasP-div">
           <p className="cuotasPendientes">Cuotas Pendientes</p>
@@ -139,12 +140,12 @@ const CarListItem = (props) => {
               </p>
             );
           })}
-          
         </div>
-        
       )}
       {cuotasPendientes.length > 0 && (
-        <a href="#" class="pagar-seguro-auto w-button">Pagar</a>
+        <a href="#" class="pagar-seguro-auto w-button">
+          Pagar
+        </a>
       )}
     </div>
   );
@@ -153,7 +154,7 @@ const CarListItem = (props) => {
 const itemsPerPage = 5;
 
 const RequestedBenefits = () => {
-  const cuponesCliente = useSelector(state => state.cda.cuponCliente);    
+  const cuponesCliente = useSelector((state) => state.cda.cuponCliente);
   const [currentItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
@@ -167,91 +168,95 @@ const RequestedBenefits = () => {
     setPageCount(Math.ceil(cuponesCliente.length / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
 
-    const onPageChange = ({selected}) => {
-      const newOffset = selected * itemsPerPage % cuponesCliente.length;
-      
-      setItemOffset(newOffset);
-    }    
-    
-    return (
-        <div className="requested-benefits">
-            <p className="ben-title">BENEFICIOS SOLICITADOS ({cuponesCliente.length})</p>
-            {
-                currentItems.map((cupon, key) => {
-                    return(
-                        <div key={key}>
-                            <RequestedBenefitItem cupon={cupon}/>
-                            <hr /> 
-                        </div>                       
-                    )
-                })
-            }
-            { cuponesCliente.length>5 &&
-            <ReactPaginate
-              nextLabel="Siguiente"
-              onPageChange={onPageChange}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={2}
-              pageCount={pageCount}
-              previousLabel="Anterior"
-              pageClassName="page-item"
-              pageLinkClassName="page-link"
-              previousClassName="page-item"
-              previousLinkClassName="page-link"
-              nextClassName="page-item"
-              nextLinkClassName="page-link"
-              breakLabel="..."
-              breakClassName="page-item"
-              breakLinkClassName="page-link"
-              containerClassName="pagination"
-              activeClassName="active"
-              renderOnZeroPageCount={null}
-            />}
-        </div>
-    )
-}
+  const onPageChange = ({ selected }) => {
+    const newOffset = (selected * itemsPerPage) % cuponesCliente.length;
+
+    setItemOffset(newOffset);
+  };
+
+  return (
+    <div className="requested-benefits">
+      <p className="ben-title">
+        BENEFICIOS SOLICITADOS ({cuponesCliente.length})
+      </p>
+      {currentItems.map((cupon, key) => {
+        return (
+          <div key={key}>
+            <RequestedBenefitItem cupon={cupon} />
+            <hr />
+          </div>
+        );
+      })}
+      {cuponesCliente.length > 5 && (
+        <ReactPaginate
+          nextLabel="Siguiente"
+          onPageChange={onPageChange}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={2}
+          pageCount={pageCount}
+          previousLabel="Anterior"
+          pageClassName="page-item"
+          pageLinkClassName="page-link"
+          previousClassName="page-item"
+          previousLinkClassName="page-link"
+          nextClassName="page-item"
+          nextLinkClassName="page-link"
+          breakLabel="..."
+          breakClassName="page-item"
+          breakLinkClassName="page-link"
+          containerClassName="pagination"
+          activeClassName="active"
+          renderOnZeroPageCount={null}
+        />
+      )}
+    </div>
+  );
+};
 const RequestedBenefitItem = (props) => {
-
-    const {cupon} = props;
-    console.log(props)
-    return (
-        <div className="benefit-item-wrapper">
-            <div className="benefit-item">                
-                <div>
-                    <p className="paragraph-3">Fecha</p>
-                    <p className="paragraph-6">{moment(cupon.created_at).format('DD/MM/YYYY')}</p>
-                </div>
-                <div>
-                    <p className="paragraph-3">Servicio</p>
-                    <p className="paragraph-6">{cupon.cupon.servicio}</p>
-                </div>
-                <div>
-                    <p className="paragraph-3">Proveedor</p>
-                    <p className="paragraph-6">{props.cupon.nombreProveedor}</p>
-                </div>
-            </div>
+  const { cupon } = props;
+  console.log(props);
+  return (
+    <div className="benefit-item-wrapper">
+      <div className="benefit-item">
+        <div>
+          <p className="paragraph-3">Fecha</p>
+          <p className="paragraph-6">
+            {moment(cupon.created_at).format("DD/MM/YYYY")}
+          </p>
         </div>
-    )
-}
+        <div>
+          <p className="paragraph-3">Servicio</p>
+          <p className="paragraph-6">{cupon.cupon.servicio}</p>
+        </div>
+        <div>
+          <p className="paragraph-3">Proveedor</p>
+          <p className="paragraph-6">{props.cupon.nombreProveedor}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-
-export const UserAccount = () => {  
-
-  const { id, uid, nombre, correo, telefono, vehiculos } = useSelector((state) => state.auth);
-  const cuponCliente = useSelector(state => state.cda.cuponCliente.length >= 1);  
-  const {cuponClienteLoaded} = useSelector(state => state.cda);
+export const UserAccount = () => {
+  const { id, uid, nombre, correo, telefono, vehiculos } = useSelector(
+    (state) => state.auth
+  );
+  const cuponCliente = useSelector(
+    (state) => state.cda.cuponCliente.length >= 1
+  );
+  const { cuponClienteLoaded } = useSelector((state) => state.cda);
   const history = useHistory();
   const dispatch = useDispatch();
-  const hasBenefits = !!(cuponClienteLoaded && cuponCliente);   
+  const hasBenefits = !!(cuponClienteLoaded && cuponCliente);
   const handleLogout = (e) => {
     e.preventDefault();
     dispatch(startLogout());
     history.push("/");
   };
-  
+
   useEffect(() => {
-      dispatch(getCuponClientes(id))
-  }, [dispatch])  
+    dispatch(getCuponClientes(id));
+  }, [dispatch]);
 
   return (
     <div className="user-account-screen">
@@ -269,11 +274,10 @@ export const UserAccount = () => {
               <Link to="/" className="button-4" onClick={handleLogout}>
                 Salir
               </Link>
-            </div>            
-          </div> 
+            </div>
+          </div>
           <div className="div-block-35">
             <div className="div-block-45">
-              
               <div className="div-block-46">
                 <h1 className="heading-8">{nombre.toLowerCase()}</h1>
                 <p className="datos-usuario">
@@ -305,11 +309,8 @@ export const UserAccount = () => {
           <div className="div-block-37"></div>
           <CarList vehiculos={vehiculos} />
           <div className="div-block-37"></div>
-          {
-              hasBenefits && 
-              <RequestedBenefits uid={uid}/>
-          }
-          
+          {hasBenefits && <RequestedBenefits uid={uid} />}
+
           <div className="div-block-42"></div>
         </div>
       </div>
