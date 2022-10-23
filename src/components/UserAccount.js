@@ -143,7 +143,7 @@ const CarListItem = (props) => {
         </div>
       )}
       {cuotasPendientes.length > 0 && (
-        <a href="#" class="pagar-seguro-auto w-button">
+        <a href="#" className="pagar-seguro-auto w-button">
           Pagar
         </a>
       )}
@@ -163,7 +163,7 @@ const RequestedBenefits = () => {
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
-    console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+
     setCurrentItems(cuponesCliente.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(cuponesCliente.length / itemsPerPage));
   }, [itemOffset, itemsPerPage]);
@@ -214,7 +214,7 @@ const RequestedBenefits = () => {
 };
 const RequestedBenefitItem = (props) => {
   const { cupon } = props;
-  console.log(props);
+
   return (
     <div className="benefit-item-wrapper">
       <div className="benefit-item">
