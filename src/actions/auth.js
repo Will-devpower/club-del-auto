@@ -66,7 +66,6 @@ export const startLogin = (rut, password, history) => {
 export const loginFirst = (rut, password, lPasswordConfim, history) => {
   return async (dispatch) => {
     if (password !== lPasswordConfim) {
-      document.querySelector(".loader-wrapper").style.display = "none";
       Swal.fire("Error", "Las Contraseñas deben coincidir", "error");
     } else if (!CheckPassword(password)) {
       document.querySelector(".loader-wrapper").style.display = "none";
